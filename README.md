@@ -570,8 +570,8 @@ The files have distinct purposes:
   every model call.
 * `consistency_metrics.csv`: repeatability statistics for each prompt-model
   combination.
-* `consistency_f1_by_run.csv`: standard and position-sensitive multi-reference
-  F1 for every individual repetition.
+* `consistency_f1_by_run.csv`: multi-reference F1 for every individual
+  repetition.
 * `consistency_f1_summary.csv`: mean, sample standard deviation, minimum, and
   maximum F1 across repetitions.
 
@@ -592,10 +592,7 @@ Both F1 variants use the same multi-reference best-match procedure as
 compared with every available non-blank human reference, and the best reference
 is selected before TP, FP, and FN are accumulated.
 
-The standard metric treats relations as an unordered set. The
-position-sensitive metric requires matching relations to appear in the same
-sequence positions and selects the best reference independently under that
-rule.
+The standard metric treats relations as an unordered set.
 
 Blank predictions and errors are skipped and counted; they are not interpreted
 as `NO_RELATION`.
@@ -616,7 +613,7 @@ A completed five-run experiment is available in
 
 The saved long-format raw responses for all 5 runs, the 362 annotated items,
 and the expected score files are committed. Reparse the raw responses and
-recompute the set-based and position-sensitive scores with:
+recompute the set-based scores with:
 
 ```bash
 mkdir -p /tmp/kbprojection-lex-replay
@@ -641,9 +638,9 @@ diff -u \
 
 Both `diff` commands should produce no output and exit with status 0. The
 committed `*_no_filter_f1_by_run.csv` contains the precision, recall,
-micro-F1, exact-best-match, and position-sensitive scores for every model and
-repeat; `*_no_filter_f1_summary.csv` contains their five-run mean and sample
-standard deviation. This procedure makes no network or model API calls.
+micro-F1, and exact-best-match scores for every model and repeat;
+`*_no_filter_f1_summary.csv` contains their five-run mean and sample standard
+deviation. This procedure makes no network or model API calls.
 
 ### Multi-reference scoring method
 
@@ -657,31 +654,6 @@ The evaluator works item by item:
 
 `Exact best match` means the model's full KB set exactly equals at least one
 available human KB reference.
-
-### Position-sensitive relation-sequence micro-F1
-
-The default micro-F1 treats each KB as an unordered set of relations. Use the
-position-sensitive variant when the order in which relations are written should
-also affect the score. A relation only matches when it is identical and appears
-at the same position in both KB sequences.
-
-For example, these KBs receive a perfect default set-based score because they
-contain the same two relations:
-
-```text
-Prediction: (isa, cat, animal); (entails, cat, sleeps)
-Reference:  (entails, cat, sleeps); (isa, cat, animal)
-```
-
-With position-sensitive scoring, neither relation is in the same position, so
-this example has `TP=0`, `FP=2`, and `FN=2`.
-
-The replay procedure above calculates both metrics in one run. Its summaries
-retain the default `micro_f1` columns and add
-`position_sensitive_precision`, `position_sensitive_recall`, and
-`position_sensitive_micro_f1`. The position-sensitive metric independently
-selects the best available human reference per item under the ordered scoring
-rule.
 
 ### Argument-order-agnostic relation micro-F1
 
