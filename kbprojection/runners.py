@@ -57,12 +57,14 @@ def _build_config(
     provider: Optional[str],
     prompt_style: str,
     test_mode: str | TestMode,
-    post_process: bool,
+    post_process: Optional[bool],
     run_ablation: bool,
     verbose: bool,
     config: Optional[ProblemConfig],
 ) -> ProblemConfig:
     if config is not None:
+        if post_process is not None:
+            raise ValueError("Pass cleanup settings in config.filtering when config is supplied; do not also pass post_process")
         return config
 
     return ProblemConfig(
@@ -105,7 +107,7 @@ async def arun_problem(
     provider: Optional[str] = None,
     prompt_style: str = "icl",
     test_mode: str | TestMode = TestMode.BOTH,
-    post_process: bool = True,
+    post_process: Optional[bool] = None,
     run_ablation: bool = False,
     verbose: bool = True,
     llm_concurrency: int = 2,
@@ -150,7 +152,7 @@ async def arun_problems(
     provider: Optional[str] = None,
     prompt_style: str = "icl",
     test_mode: str | TestMode = TestMode.BOTH,
-    post_process: bool = True,
+    post_process: Optional[bool] = None,
     run_ablation: bool = False,
     verbose: bool = True,
     concurrency: int = 4,

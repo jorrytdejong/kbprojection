@@ -33,7 +33,7 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 from calculate_multi_reference_f1 import parse_kb_cell
-from kbprojection.kbprojection.prompts import LASHA_BASE_PROMPT as SOURCE_PROMPT
+from kbprojection.prompts import LASHA_BASE_PROMPT as SOURCE_PROMPT
 from prompt_engineering import run_prompt_trial as trial
 
 
@@ -516,6 +516,8 @@ def write_readme(
 ## Design
 
 - Primary data: all high-agreement items
+- Agreement source: {args.agreement_csv}
+- Derived unanimous subset: {args.agreed_subset_csv}
 - Primary prompts: {len(PROMPT_NAMES)}
 - Models: {len(args.models)}
 - Stability sample: {args.stability_sample_size} items
@@ -551,11 +553,17 @@ def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
         "--agreement-csv",
-        default=str(ROOT / "annotator agreement - IAA_overview_edit.csv"),
+        default=str(
+            ROOT / "data" / "annotator_agreement" / "iaa_overview_edit.csv"
+        ),
+        help="Edited IAA overview used to derive the 223 high-agreement items.",
     )
     parser.add_argument(
         "--agreed-subset-csv",
-        default=str(ROOT / "small_models_all_present_exact_match_TRUE.csv"),
+        help=(
+            "Optional destination for the derived high-agreement subset. "
+            "Defaults to agreed_subset.csv in --output-dir."
+        ),
     )
     parser.add_argument("--output-dir", default=str(DEFAULT_OUTPUT_DIR))
     parser.add_argument("--provider", default="openrouter")
@@ -582,6 +590,12 @@ def build_parser() -> argparse.ArgumentParser:
 async def async_main(args: argparse.Namespace) -> None:
     output_dir = Path(args.output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
+    agreed_subset_csv = (
+        Path(args.agreed_subset_csv)
+        if args.agreed_subset_csv
+        else output_dir / "agreed_subset.csv"
+    )
+    args.agreed_subset_csv = str(agreed_subset_csv)
 
     # run_generation resolves candidates through this module-level registry.
     # The replacement is local to this process and does not edit production code.
@@ -589,7 +603,7 @@ async def async_main(args: argparse.Namespace) -> None:
 
     base_fields, full_rows = trial.build_agreed_subset(
         Path(args.agreement_csv),
-        Path(args.agreed_subset_csv),
+        agreed_subset_csv,
     )
     if not full_rows:
         raise RuntimeError("The high-agreement subset is empty.")

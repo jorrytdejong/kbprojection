@@ -12,6 +12,7 @@ import argparse
 import asyncio
 import csv
 import itertools
+import json
 import math
 import re
 import statistics
@@ -25,6 +26,8 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 DEFAULT_OUTPUT_DIR = ROOT / "experiment_results" / "lasha_all362_5runs"
+DEFAULT_INPUT_CSV = ROOT / "data" / "all_usable_items_362.csv"
+EXPECTED_INPUT_ROWS = 362
 
 from calculate_multi_reference_f1 import (
     Counts,
@@ -32,9 +35,9 @@ from calculate_multi_reference_f1 import (
     parse_kb_cell,
     relation_counts,
 )
-from kbprojection.filtering import pipeline_filter_kb_injections
+from kbprojection.filtering import FILTERING_PIPELINE_VERSION, pipeline_filter_kb_injections
 from kbprojection.llm import AsyncGenericAIClient, _extract_validated_kb_from_output
-from kbprojection.models import NLILabel, NLIProblem
+from kbprojection.models import FilteringConfig, NLILabel, NLIProblem
 from kbprojection.prompts import fill_prompt
 
 
@@ -51,6 +54,34 @@ DEFAULT_MODELS = [
     "google/gemini-3.1-flash-lite",
     "openai/gpt-oss-20b",
 ]
+
+
+def validate_input_rows(
+    path: Path,
+    fieldnames: list[str],
+    rows: list[dict[str, str]],
+    reference_columns: list[str],
+) -> None:
+    required = {
+        "ID",
+        "premise",
+        "hypothesis",
+        "gold_label",
+        *reference_columns,
+    }
+    missing = sorted(required - set(fieldnames))
+    if missing:
+        raise ValueError(
+            f"{path} is missing required column(s): {', '.join(missing)}"
+        )
+    if len(rows) != EXPECTED_INPUT_ROWS:
+        raise ValueError(
+            f"{path} must contain exactly {EXPECTED_INPUT_ROWS} data rows; "
+            f"found {len(rows)}"
+        )
+    blank_ids = [index + 2 for index, row in enumerate(rows) if not row.get("ID", "").strip()]
+    if blank_ids:
+        raise ValueError(f"{path} contains blank ID values on CSV lines: {blank_ids[:10]}")
 DEFAULT_PROMPTS = ["lasha", "ettore"]
 OUTPUT_FIELDNAMES = [
     "ID",
@@ -66,6 +97,8 @@ OUTPUT_FIELDNAMES = [
     "raw_response",
     "KB",
     "error",
+    "filtering_config",
+    "filtering_version",
 ]
 
 
@@ -173,14 +206,17 @@ def choose_balanced_sample(
     return sorted(selected[:sample_size], key=lambda row: order.get(row["ID"], 10**9))
 
 
-def normalize_relations(relations: list[str], problem: NLIProblem, *, filter_kb: bool) -> list[str]:
+def normalize_relations(
+    relations: list[str], problem: NLIProblem, *, filter_kb: bool,
+    filtering: FilteringConfig | None = None,
+) -> list[str]:
     if not filter_kb:
         return relations
     filtered = pipeline_filter_kb_injections(
         relations,
         problem.premises,
         problem.hypothesis,
-        post_process=True,
+        filtering=filtering or FilteringConfig.operational(),
     )
     return [result.relation for result in filtered]
 
@@ -293,7 +329,9 @@ async def run_generation(
     request_timeout: float,
     temperature: float | None,
     filter_kb: bool,
+    filtering: FilteringConfig | None = None,
 ) -> None:
+    filtering = filtering or FilteringConfig.operational()
     client = AsyncGenericAIClient(provider=provider)
     semaphore = asyncio.Semaphore(concurrency)
     write_lock = asyncio.Lock()
@@ -331,6 +369,7 @@ async def run_generation(
                     parsed,
                     row_to_problem({key: str(value) for key, value in row.items()}),
                     filter_kb=filter_kb,
+                    filtering=filtering,
                 )
                 row["KB"] = format_kb(normalized)
             except Exception as exc:
@@ -751,7 +790,7 @@ def write_sample(path: Path, sample_rows: list[dict[str, str]], fieldnames: list
 
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--input-csv", default=str(ROOT / "small_models_all_present_exact_match_TRUE.csv"))
+    parser.add_argument("--input-csv", default=str(DEFAULT_INPUT_CSV))
     parser.add_argument(
         "--sample-csv",
         default=str(DEFAULT_OUTPUT_DIR / "consistency_sample.csv"),
@@ -785,6 +824,10 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--write-every-jobs", type=int, default=40)
     parser.add_argument("--resume", action=argparse.BooleanOptionalAction, default=True)
     parser.add_argument("--no-filter-kb", action="store_true")
+    parser.add_argument(
+        "--filtering-config", type=Path,
+        help="JSON object of FilteringConfig settings; defaults to the operational profile.",
+    )
     parser.add_argument("--prepare-only", action="store_true")
     return parser
 
@@ -796,8 +839,30 @@ async def async_main(args: argparse.Namespace) -> None:
     metrics_path = Path(args.metrics_csv)
     f1_metrics_path = Path(args.f1_metrics_csv)
     f1_summary_path = Path(args.f1_summary_csv)
+    filtering_path = getattr(args, "filtering_config", None)
+    if filtering_path and args.no_filter_kb:
+        raise ValueError("--filtering-config cannot be combined with --no-filter-kb")
+    filtering = (
+        FilteringConfig.model_validate_json(Path(filtering_path).read_text(encoding="utf-8"))
+        if filtering_path else FilteringConfig.operational()
+    )
+    config_json = json.dumps(
+        filtering.model_dump(mode="json") if not args.no_filter_kb else None,
+        sort_keys=True, separators=(",", ":"),
+    )
+    existing = load_existing_outputs(output_path) if args.resume else {}
+    for row in existing.values():
+        if is_done(row) and (
+            row.get("filtering_config") != config_json
+            or row.get("filtering_version") != FILTERING_PIPELINE_VERSION
+        ):
+            raise ValueError(
+                "Existing outputs have different or missing filtering metadata. "
+                "Use a new --output-csv path to preserve historical results."
+            )
 
     fieldnames, rows = read_rows(input_path)
+    validate_input_rows(input_path, fieldnames, rows, args.reference_columns)
     sample_rows = choose_balanced_sample(
         rows,
         sample_size=args.sample_size,
@@ -805,7 +870,6 @@ async def async_main(args: argparse.Namespace) -> None:
     )
     write_sample(sample_path, sample_rows, fieldnames)
 
-    existing = load_existing_outputs(output_path) if args.resume else {}
     output_rows = build_output_rows(
         sample_rows,
         args.prompts,
@@ -814,6 +878,9 @@ async def async_main(args: argparse.Namespace) -> None:
         args.reference_columns,
         existing,
     )
+    for row in output_rows:
+        row["filtering_config"] = config_json
+        row["filtering_version"] = FILTERING_PIPELINE_VERSION
     write_rows(output_path, OUTPUT_FIELDNAMES, output_rows)
 
     if args.prepare_only:
@@ -842,6 +909,7 @@ async def async_main(args: argparse.Namespace) -> None:
         request_timeout=args.request_timeout,
         temperature=args.temperature,
         filter_kb=not args.no_filter_kb,
+        filtering=filtering,
     )
     write_metrics(output_rows, metrics_path, args.repeats)
     write_f1_metrics(

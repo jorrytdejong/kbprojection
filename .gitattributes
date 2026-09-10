@@ -1,0 +1,11 @@
+# Keep source and reproducibility artifacts identical across Windows and Unix.
+*.py text eol=lf
+*.toml text eol=lf
+*.lock text eol=lf
+*.md text eol=lf
+*.json text eol=lf
+*.csv text eol=lf
+
+# Preserve existing upstream exports; avoid unrelated newline-only diffs.
+experiment_results/lasha_all362_5runs/*_f1_by_run.csv -text
+experiment_results/lasha_all362_5runs/*_f1_summary.csv -text

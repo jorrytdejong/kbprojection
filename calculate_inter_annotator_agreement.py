@@ -267,8 +267,8 @@ def main() -> None:
     parser.add_argument(
         "folder",
         nargs="?",
-        default="annotated files",
-        help="Folder containing *_assignments.json files.",
+        default="data/annotator_assignments",
+        help="Folder containing the tracked *_assignments.json files.",
     )
     parser.add_argument(
         "--csv",

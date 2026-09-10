@@ -8,9 +8,12 @@ This library is designed to facilitate the use of Large Language Models (LLMs) t
 # Using uv (recommended)
 uv sync
 
-# Or install in development mode
+# Or install the project into an existing environment
 uv pip install -e .
 ```
+
+`uv sync` installs the project and its dependencies into `.venv`. Use Python
+3.10 or newer; the repository's type annotations require it.
 
 ## Runtime configuration: local or Google Colab
 
@@ -79,7 +82,7 @@ The library is divided into several modules:
 
 ### Automatic Data Downloading
 
-The dataset loaders (`SNLILoader` and `SICKLoader`) will automatically download the necessary data if it is not found in the specified directory. If no directory is specified, a temporary directory is used.
+The dataset loaders (`SNLILoader` and `SICKLoader`) automatically download the necessary data if it is not found in the specified directory. Without an explicit directory, they use a dataset subdirectory under `KBPROJECTION_DATA_DIR`, or the persistent application data directory when that variable is unset.
 
 ### Example: Loading a Single Problem
 
@@ -105,6 +108,7 @@ print(f"Gold Label: {problem.gold_label}")
 ### Example: Full Experiment Orchestration
 
 ```python
+import asyncio
 from kbprojection import collect_kb_helpful_examples_random, SNLILoader
 from kbprojection.models import ProblemConfig, TestMode
 from kbprojection.runtime import configure_runtime
@@ -125,19 +129,19 @@ config = ProblemConfig(
     verbose=True
 )
 
-results = collect_kb_helpful_examples_random(
-    dataset=snli_data,
-    config=config,
-    split="dev",
-    label_filter={"entailment", "contradiction"},
-    max_matches=1,
-    max_checked=10,
-    cache_dir=paths.cache_root / "readme_example"
-)
+async def main():
+    async for res in collect_kb_helpful_examples_random(
+        dataset=snli_data,
+        config=config,
+        split="dev",
+        label_filter={"entailment", "contradiction"},
+        max_matches=1,
+        max_checked=10,
+        cache_dir=paths.cache_root / "readme_example"
+    ):
+        print(f"Problem {res.problem.id}: Fixed with KB: {res.kb_filtered}")
 
-# Inspect results (List[ExperimentResult])
-for res in results:
-    print(f"Problem {res.problem.id}: Fixed with KB: {res.kb_filtered}")
+asyncio.run(main())  # In a notebook, use: await main()
 ```
 
 ### Example: Manually Creating and Executing a Problem
@@ -146,12 +150,12 @@ You can also create a problem instance manually and process it through the pipel
 
 ```python
 from kbprojection.models import NLIProblem, NLILabel, ProblemConfig
-from kbprojection.orchestration import process_single_problem
+from kbprojection import run_problem
 
 # 1. Create a manual problem
 manual_problem = NLIProblem(
     id="manual-test-1",
-    premise="A dog is running in the park.",
+    premises=["A dog is running in the park."],
     hypothesis="An animal is moving.",
     gold_label=NLILabel.ENTAILMENT,
     dataset="manual",
@@ -166,7 +170,7 @@ config = ProblemConfig(
     verbose=True
 )
 
-result = process_single_problem(manual_problem, config=config)
+result = run_problem(manual_problem, config=config)
 
 print(f"Final Status: {result.final_status}")
 if result.kb_filtered:
@@ -180,7 +184,7 @@ if result.kb_filtered:
 Represents a single NLI problem instance.
 
 * `id`: Unique identifier for the problem.
-* `premise`: The premise text.
+* `premises`: A list of premise sentences.
 * `hypothesis`: The hypothesis text.
 * `gold_label`: The ground truth label (`entailment`, `contradiction`, or `neutral`).
 * `dataset`: Source dataset name (e.g., "snli", "sick").
@@ -194,10 +198,216 @@ Configuration object for the pipeline.
 * `llm_provider`: String identifier for the LLM provider (e.g., "openai").
 * `model`: Model identifier (e.g., "gpt-4o").
 * `prompt_style`: Identifier for the prompt template style.
-* `post_process`: Boolean; if `True`, applies post-processing to LLM output.
-* `test_mode`: `TestMode` enum controlling which stages to run (`no_kb`, `raw_kb`, `filtered`, `both`, `full`).
+* `filtering`: `FilteringConfig`; shared transformation settings, described below.
+* `post_process`: Legacy optional boolean for underscore/preposition cleanup only. `False` disables those two operations; it does not disable lemmatization or argument alignment. Conflicting explicit cleanup settings are rejected.
+* `test_mode`: `TestMode` enum controlling which stages to run (`no_kb`, `raw_kb`, `normalised`, `both`, `full`); `filtered` is a deprecated alias for `normalised`.
 * `run_ablation`: Boolean; if `True`, runs ablation to find all minimal sufficient KB subsets.
 * `verbose`: Boolean; enables detailed logging.
+
+### Configurable KB filtering
+
+Use one configuration object for the operational pipeline and offline F1 evaluation.
+The operational default is now **contextual POS additive lemmatization**. Other
+operational transformations retain their historical defaults. Select
+`lemmatization_kind="verb"` explicitly to recover the historical verb-additive profile.
+
+```python
+from kbprojection import FilteringConfig, ProblemConfig, pipeline_filter_kb_injections
+
+config = ProblemConfig(filtering=FilteringConfig.operational())
+results = pipeline_filter_kb_injections(
+    ["isa_wn(dogs, animals)"],
+    ["Two dogs are running."],
+    "Two animals are moving.",
+    filtering=config.filtering,
+)
+```
+
+Pass `config=config` to the public runners. Keep new filtering settings inside
+`ProblemConfig.filtering`; do not also pass the legacy `post_process` runner argument.
+
+| Setting | Operational default | Evaluation baseline |
+|---|---|---|
+| `underscores_mode` | `replacement` | `replacement` |
+| `leading_preposition_mode` | `replacement` | `replacement` |
+| `lemmatization_kind` | `pos` | `pos` |
+| `lemmatization_mode` | `additive` | `off` |
+| `diff_only_mode` | `additive` | `off` |
+| `argument_alignment_mode` | `additive` | `off` |
+| `lemma_match_policy` | `exact_or_lemma` | `exact_or_lemma` |
+| `final_ph_filter` | `True` | `False` |
+| `use_semantic` | `False` | `False` |
+
+For candidate-producing transformations, `off` leaves the input unchanged without
+calculating variants; `additive` retains the input and adds distinct variants;
+`replacement` retains only the transformed candidate when applicable and otherwise
+keeps the input. Underscore cleanup replaces `_` with spaces. The leading-preposition
+rule removes the first token only from a three-token argument whose first POS tag is
+`IN`; this can change argument content. Diff-only extracts differing corresponding
+tokens from equal-length multiword arguments.
+
+Contextual POS lemmatization looks for the argument as a contiguous token span in
+its assigned sentence (argument 1 in P, argument 2 in H). It uses noun, verb,
+adjective and adverb tags where available. If no span is found, or matching spans
+have conflicting tag sequences, it keeps the argument unchanged. This span lookup
+is distinct from the token-membership check used for P/H matching.
+
+Morphological matching is a separate policy: `exact`, `exact_or_lemma`, or
+`lemma_only`. It checks word presence using exact tokens and/or WordNet noun and
+verb lemmas; it does not generate relations or expand WordNet synonyms/hypernyms.
+Multiword presence uses token membership, not contiguous phrase matching. Turning
+KB lemmatization off does not implicitly turn morphological matching off.
+Semantic matching remains an optional final check, requires `final_ph_filter=True`,
+and is unavailable in offline F1 replay.
+
+`argument_alignment_mode="additive"` adds reversed candidates, preserving the
+predicate; the final strict P/H filter, when enabled, retains candidates whose first
+argument matches the premise and whose second argument matches the hypothesis.
+`replacement` reorients a pair only when the reverse direction matches and the
+original direction does not. Already aligned, ambiguous, or unsupported pairs remain
+unchanged. Audit records explain each decision. Lexical alignment does not establish
+the semantic validity of the reversed relation.
+
+For example (illustrative, not a dataset result), with premise “Emma is cleaning the
+room” and hypothesis “Emma is tidying up the room”, replacement can transform
+`isa_wn(tidy up, clean)` into `isa_wn(clean, tidy up)`. It changes the prediction;
+it does not make those two directed pairs equivalent in scoring.
+
+Text normalization runs first. Under additive operational settings, lemma and
+diff-only variants derive independently from the normalized base, followed by
+additive argument reversal. If either lemma or diff-only uses replacement, they run
+sequentially (lemma then diff) on current candidates, so replaced originals cannot
+reappear through a sibling branch. Argument alignment in replacement mode runs
+before these stages, allowing POS tagging to use the corrected P/H direction.
+CLI flag order never changes this order. `KBResult.transformations` and
+`alignment_reason` expose the transformation history and alignment decision.
+Syntax/predicate acceptance, identical-argument suppression and stable deduplication
+remain common pipeline controls, including when the final P/H filter is off. Their
+effects are recorded separately in the replay audit.
+
+The legacy `filter_kb_by_prem_hyp` wrapper only filters existing candidates; its
+unused `swap_args` option is deprecated. Use the main pipeline for transformations.
+Complete operational results store resolved settings and pipeline version; their
+cache keys include the input and configuration. Historical cache records without
+matching metadata are not silently reused.
+
+### Diagnose F1 with different scoring rules
+
+#### Reproducibility
+
+The current diagnostic question is how much KB scores depend on inflection and
+argument direction. Keep the saved predictions and annotations unchanged and
+vary only their scoring representations:
+
+```bash
+uv sync
+uv run python -m nltk.downloader -d .cache/nltk punkt_tab averaged_perceptron_tagger_eng wordnet
+uv run python scripts/experiments/evaluate_kb_scoring.py --compare
+```
+
+The NLTK setup is needed once for lemma scoring. Baseline and argument-order-only
+scoring need no NLP resources. For proxy/manual setup, see the resource instructions
+below. Replay performs no downloads, LLM calls or LangPro calls.
+
+| Scoring condition | Lemmatize both sides | Ignore binary argument direction |
+|---|---|---|
+| Original | No | No |
+| Lemmas | Yes | No |
+| Argument order agnostic | No | Yes |
+| Combined | Yes | Yes |
+
+The printed comparison and report contain one table per scoring condition, with
+exact match, micro-F1, micro-precision and micro-recall. Values are percentages as
+mean (± sample SD) across generation runs, rounded to one decimal place; models
+are sorted by descending mean micro-F1. Exact match requires the complete scored
+KB to equal a selected reference under that rule. The original condition is kept
+alongside the three diagnostic conditions for comparison.
+
+The command prints this four-condition comparison. The repository keeps the compact
+[report](experiment_results/scoring_diagnostics/REPORT.md),
+[`summary.csv`](experiment_results/scoring_diagnostics/summary.csv), and
+[`manifest.json`](experiment_results/scoring_diagnostics/manifest.json). The manifest
+records source, input, NLP-resource, and generated-output hashes; `code_sha256`
+identifies the source bytes even when an amend or squash changes a Git commit ID.
+
+With no flags the command prints the original baseline. Select a single rule with
+`--lemmatize` or `--argument-order-agnostic`, or combine both flags. `--compare`
+selects all four rules and cannot be mixed with individual flags. Printing requires
+no output path or JSON input. To export detailed CSVs, configurations, examples and
+a manifest, choose a fresh output directory:
+
+```bash
+uv run python scripts/experiments/evaluate_kb_scoring.py --compare --output .cache/scoring-run
+uv run python scripts/experiments/evaluate_kb_scoring.py --help
+```
+
+#### NLTK resources
+
+Installed NLTK data is discovered automatically through standard NLTK paths,
+`NLTK_DATA`, the configured runtime cache (by default `.cache/nltk`), repository
+`nltk_data`, and `nltk_data` beside the active environment directory. If a required
+resource is missing, the error names it and gives a one-time installation command.
+
+If a proxy prevents the downloader from connecting, follow the
+[official NLTK proxy or manual installation instructions](https://www.nltk.org/data.html).
+Alternatively, fetch the official archives in an environment with working access
+and transfer them to the offline machine:
+
+| Resource | Official archive | Location under `.cache/nltk/` |
+|---|---|---|
+| Tokenizer | [punkt_tab.zip](https://raw.githubusercontent.com/nltk/nltk_data/gh-pages/packages/tokenizers/punkt_tab.zip) | Extract into `tokenizers/` |
+| English POS tagger | [averaged_perceptron_tagger_eng.zip](https://raw.githubusercontent.com/nltk/nltk_data/gh-pages/packages/taggers/averaged_perceptron_tagger_eng.zip) | Extract into `taggers/` |
+| WordNet | [wordnet.zip](https://raw.githubusercontent.com/nltk/nltk_data/gh-pages/packages/corpora/wordnet.zip) | Keep as `corpora/wordnet.zip` |
+
+The resulting paths must include `tokenizers/punkt_tab/english/` and
+`taggers/averaged_perceptron_tagger_eng/`. Automatic discovery does not imply that
+NLP data is bundled with `uv sync`.
+
+#### Scoring rules
+
+These rules extend the shared scorer in `calculate_multi_reference_f1.py`, whose
+overview-CSV CLI also accepts `--lemmatize` and `--argument-order-agnostic`.
+In that CLI, `--argument-order-agnostic` preserves Jorryt's interface: it adds a
+diagnostic F1 and exact-match result alongside the directed primary score.
+`--lemmatize` compares lemmas on both sides before either metric is calculated.
+Lemma scoring requires `premise` and `hypothesis` columns for contextual POS.
+The same lemma function searches both sentences for every predicted/reference
+argument, independent of its position. Exact contiguous occurrences must agree
+on the WordNet POS sequence; missing or ambiguous spans remain unchanged. This
+conservative policy is recorded with decision counts in the report. It does not
+claim to normalize every possible inflection.
+
+Original scoring retains the legacy parser's conventions, including ignoring
+predicate names, duplicate relations and relation-list order. There is no
+filtering, P/H argument correction, underscore/preposition replacement or removal
+of self-pairs. Argument-order scoring treats binary `(a,b)`/`(b,a)` as equivalent;
+legacy other tuple arities retain their argument order. Combined scoring applies
+lemmatization first, then sorts binary arguments. Both operations are applied to
+predictions AND every reference, only for evaluation.
+
+Each condition selects its best reference separately using the existing tie-break.
+Micro counts are aggregated within each generation run, then the mean and sample
+SD are reported across runs. Canonicalization may merge tuples and change
+denominators. A score increase is not guaranteed and does not establish semantic
+correctness or LangPro proof success. The
+[scoring diagnostic results](experiment_results/scoring_diagnostics/REPORT.md)
+are the current evaluation results.
+
+### Run the tests
+
+```bash
+uv sync --group test
+uv run --group test python -m pytest tests -q
+```
+
+The `test` dependency group supplies pytest, including subtest reporting. `uv sync`
+alone installs runtime dependencies, not this test group. The suite uses fixtures
+and service mocks; it does not require NLP downloads or live LLM/LangPro access.
+
+For future generation runs, `scripts/experiments/run_repeated_multi_reference_experiment.py`
+accepts `--filtering-config PATH` to a JSON file containing one settings object and records the resolved configuration and
+pipeline version in output rows. Resume rejects incompatible or unlabelled historical
+outputs; use a new output path instead of mixing configurations.
 
 ### ExperimentResult
 
@@ -217,18 +427,19 @@ Encapsulates the results of running the pipeline on a problem.
 * `pred_with_kb`: Prediction using the filtered KB.
 * `status_with_kb`: Status of the filtered KB evaluation step.
 
-* `final_status`: `ExperimentStatus` enum summarizing the overall outcome (e.g., `FIXED`, `STILL_WRONG`).
-* `fixed_by`: String indicating which KB version fixed the problem (`"raw_kb"`, `"filtered_kb"`, or `"both"`).
+* `final_status`: `ExperimentStatus` enum summarizing the overall outcome (e.g., `BASELINE_SOLVED`, `NORMALISED_KB_SOLVED`, `KB_NOT_SOLVED`).
+* `fixed_by`: String indicating which KB version fixed the problem (`"raw_kb"`, `"normalised_kb"`, or `"both"`), or `None`.
 * `essential_kb`: Best minimal sufficient KB subset (ranked by token count). If ablation was run and multiple KB entries are redundant, this contains the simplest subset that alone fixes the problem.
 * `ablation_subsets`: List of all minimal sufficient subsets found during ablation. Each subset is a list of KB strings that independently can fix the problem.
-* `ablation_results`: Dictionary mapping tested subsets (as tuples) to their resulting label.
+* `ablation_results`: Dictionary mapping serialized tested subsets to their resulting label.
 
 ## Multi-reference KB experiment workflow
 
 The paper experiments compare LLM-generated KB relations with multiple human
-KB annotations. In this working copy, the experiment scripts and annotation
-CSVs live in the parent project directory, so run these commands from
-`../` relative to this package repository.
+KB annotations. Run the following commands from this repository's root, where
+the experiment scripts and `data/` directory are located. The `.venv/bin/python`
+examples use a Unix environment; on Windows, use `.venv/Scripts/python.exe` or
+`python` from the activated environment.
 
 ### Input data
 
@@ -254,13 +465,28 @@ Blank KB cells mean the annotator did not provide an annotation. `NO_RELATION`
 means an explicit annotation that no KB relation is needed. Do not convert
 blank cells into `NO_RELATION`.
 
+### Canonical experiment input
+
+The reproducible 362-item input is committed at
+`data/all_usable_items_362.csv`. It contains the quality-controlled SNLI/SICK
+entailment problems and the five reference LEX annotation columns used by the
+multi-reference evaluations. The file has 362 data rows and its SHA-256 is:
+
+```text
+7be06d326bdaff587368b06c86e4b28ee0d8e642fda3cbf676a5baffd816e77e
+```
+
+The experiment scripts validate the required columns and row count before
+making model calls. This prevents accidentally running the paper evaluation
+on a different or incomplete CSV.
+
 ### Run an LLM experiment
 
 Always run a small live smoke test before a full model run:
 
 ```bash
 .venv/bin/python run_multi_reference_llm_experiment.py \
-  --input-csv "all_usable_items_362.csv" \
+  --input-csv "data/all_usable_items_362.csv" \
   --output-csv "llm_outputs_smoke.csv" \
   --provider openrouter \
   --prompts ettore lasha \
@@ -273,7 +499,7 @@ Then run the full experiment:
 
 ```bash
 .venv/bin/python run_multi_reference_llm_experiment.py \
-  --input-csv "all_usable_items_362.csv" \
+  --input-csv "data/all_usable_items_362.csv" \
   --output-csv "llm_outputs_sonnet45_gpt54_gemini35flash_all_usable.csv" \
   --provider openrouter \
   --prompts ettore lasha \
@@ -304,8 +530,8 @@ The following experiment runs the improved Lasha prompt five times with eight
 models on all 362 usable annotation items:
 
 ```bash
-.venv/bin/python kbprojection/scripts/experiments/run_repeated_multi_reference_experiment.py \
-  --input-csv "all_usable_items_362.csv" \
+.venv/bin/python scripts/experiments/run_repeated_multi_reference_experiment.py \
+  --input-csv "data/all_usable_items_362.csv" \
   --sample-size 362 \
   --repeats 5 \
   --prompts lasha \
@@ -386,18 +612,40 @@ supported, temperature zero does not guarantee identical hosted-model output.
 A completed five-run experiment is available in
 [`experiment_results/lasha_all362_5runs`](experiment_results/lasha_all362_5runs).
 
-### Calculate multi-reference micro-F1
+### Reproduce the committed LEX prediction scores (no API calls)
 
-Evaluate every generated `LLM__*_KB` column against the human references:
+The saved long-format raw responses for all 5 runs, the 362 annotated items,
+and the expected score files are committed. Reparse the raw responses and
+recompute the set-based and position-sensitive scores with:
 
 ```bash
-.venv/bin/python calculate_multi_reference_f1.py \
-  --csv "llm_outputs_sonnet45_gpt54_gemini35flash_all_usable.csv" \
-  --reference-columns \
-    Alternative_KB Ettore_KB Jorryt_KB Lasha_KB Stefan_KB \
-  --summary-csv \
-    "multi_reference_f1_sonnet45_gpt54_gemini35flash_all_usable_summary.csv"
+mkdir -p /tmp/kbprojection-lex-replay
+.venv/bin/python scripts/experiments/recompute_repeated_no_filter_scores.py \
+  --input-csv experiment_results/lasha_all362_5runs/small_medium_lasha_all362_5runs_outputs.csv \
+  --sample-csv data/all_usable_items_362.csv \
+  --output-csv /tmp/kbprojection-lex-replay/no_filter_outputs.csv \
+  --metrics-csv /tmp/kbprojection-lex-replay/no_filter_stability.csv \
+  --f1-metrics-csv /tmp/kbprojection-lex-replay/no_filter_f1_by_run.csv \
+  --f1-summary-csv /tmp/kbprojection-lex-replay/no_filter_f1_summary.csv \
+  --filtered-f1-summary-csv experiment_results/lasha_all362_5runs/small_medium_lasha_all362_5runs_f1_summary.csv \
+  --comparison-csv /tmp/kbprojection-lex-replay/filtered_vs_no_filter.csv \
+  --repeats 5
+
+diff -u \
+  experiment_results/lasha_all362_5runs/small_medium_lasha_all362_5runs_no_filter_f1_by_run.csv \
+  /tmp/kbprojection-lex-replay/no_filter_f1_by_run.csv
+diff -u \
+  experiment_results/lasha_all362_5runs/small_medium_lasha_all362_5runs_no_filter_f1_summary.csv \
+  /tmp/kbprojection-lex-replay/no_filter_f1_summary.csv
 ```
+
+Both `diff` commands should produce no output and exit with status 0. The
+committed `*_no_filter_f1_by_run.csv` contains the precision, recall,
+micro-F1, exact-best-match, and position-sensitive scores for every model and
+repeat; `*_no_filter_f1_summary.csv` contains their five-run mean and sample
+standard deviation. This procedure makes no network or model API calls.
+
+### Multi-reference scoring method
 
 The evaluator works item by item:
 
@@ -428,19 +676,8 @@ Reference:  (entails, cat, sleeps); (isa, cat, animal)
 With position-sensitive scoring, neither relation is in the same position, so
 this example has `TP=0`, `FP=2`, and `FN=2`.
 
-Add `--position-sensitive` to calculate both metrics in one run:
-
-```bash
-.venv/bin/python calculate_multi_reference_f1.py \
-  --csv "llm_outputs_sonnet45_gpt54_gemini35flash_all_usable.csv" \
-  --reference-columns \
-    Alternative_KB Ettore_KB Jorryt_KB Lasha_KB Stefan_KB \
-  --position-sensitive \
-  --summary-csv \
-    "multi_reference_f1_sonnet45_gpt54_gemini35flash_all_usable_position_sensitive_summary.csv"
-```
-
-The summary retains the default `micro_f1` columns and adds
+The replay procedure above calculates both metrics in one run. Its summaries
+retain the default `micro_f1` columns and add
 `position_sensitive_precision`, `position_sensitive_recall`, and
 `position_sensitive_micro_f1`. The position-sensitive metric independently
 selects the best available human reference per item under the ordered scoring
@@ -487,15 +724,52 @@ standard deviation, minimum, and maximum fields automatically.
 
 ### Calculate inter-annotator agreement
 
-Rebuild the agreement overview from the assignment JSON files with:
+The paper's Table 2 reports post-adjudication agreement, not the initial JSON
+submissions. Its source is the tracked export of the edited project sheet:
+[`data/annotator_agreement/iaa_overview_edit.csv`](data/annotator_agreement/iaa_overview_edit.csv).
+The raw individual submissions remain available in
+[`data/annotator_assignments`](data/annotator_assignments), but they represent
+the pre-adjudication stage and do not reproduce the Table 2 scores.
+
+Recompute Table 2 without network or API calls with:
 
 ```bash
-.venv/bin/python calculate_inter_annotator_agreement.py \
-  "annotated files" \
-  --csv "inter_annotator_agreement_overview.csv" \
-  --tsv "inter_annotator_agreement_overview.tsv"
+mkdir -p /tmp/kbprojection-iaa
+.venv/bin/python scripts/experiments/recompute_paper_iaa_scores.py \
+  --iaa-csv data/annotator_agreement/iaa_overview_edit.csv \
+  --final-items-csv data/all_usable_items_362.csv \
+  --summary-csv /tmp/kbprojection-iaa/paper_table2_iaa_scores.csv
+
+diff -u experiment_results/iaa/paper_table2_iaa_scores.csv \
+  /tmp/kbprojection-iaa/paper_table2_iaa_scores.csv
 ```
 
-This reports pairwise exact KB-set agreement, weighted Cohen's kappa over the
-number of relations, pairwise relation-level micro-F1, all-annotator exact
-agreement, and nominal Krippendorff's alpha.
+For every annotator, the script filters to the final 362 IDs, selects the
+best-matching KB from the other three original annotators, and reports exact
+match and relation-level micro-F1. `Alternative_KB` is excluded because it is
+an adjudication-created fourth valid variant rather than an independent
+annotator submission. The recomputed micro-F1 values match Table 2. Ettore's
+exact rate is 205/271 = 75.645...%, which displays as 75.6% at one decimal
+place; Table 2 prints 75.7%.
+
+To analyze the initial, pre-adjudication submissions separately, run
+`calculate_inter_annotator_agreement.py data/annotator_assignments`.
+
+### Prepare the prompt-ablation comparison (no API calls)
+
+The prompt ablation uses the 223 unanimous items from the pre-finalization
+edited IAA overview. This is intentional: two of these items were excluded
+later from the 362-item final paper dataset, so do not replace the source with
+`data/all_usable_items_362.csv`.
+
+```bash
+.venv/bin/python prompt_engineering/run_lex_prompt_ablation_overnight.py \
+  --output-dir /tmp/kbprojection-prompt-ablation \
+  --prepare-only
+```
+
+This writes the derived `agreed_subset.csv` (223 items), `primary_sample.csv`,
+the deterministic stability sample, and the exact prompt templates into the
+chosen output directory. It makes no model or network calls. A later live run
+uses the same command without `--prepare-only`; it requires configured API
+credentials and may vary because hosted model outputs can change.

@@ -1,6 +1,6 @@
-from typing import List, Optional, Dict, Any
+from typing import List, Optional, Dict, Any, Literal
 
-from pydantic import BaseModel, Field, field_validator
+from pydantic import BaseModel, ConfigDict, Field, field_validator, model_validator
 from enum import Enum
 
 class NLILabel(str, Enum):
@@ -8,6 +8,52 @@ class NLILabel(str, Enum):
     CONTRADICTION = "contradiction"
     NEUTRAL = "neutral"
     UNKNOWN = "-"
+
+
+class TransformationMode(str, Enum):
+    OFF = "off"
+    ADDITIVE = "additive"
+    REPLACEMENT = "replacement"
+
+
+class FilteringConfig(BaseModel):
+    """Shared KB transformation settings for the pipeline and offline evaluation.
+
+    Matching policies check lexical alignment without emitting KB variants.
+    Argument replacement reorients only uniquely reverse-aligned pairs.
+    """
+
+    model_config = ConfigDict(extra="forbid", frozen=True)
+    underscores_mode: TransformationMode = TransformationMode.REPLACEMENT
+    leading_preposition_mode: TransformationMode = TransformationMode.REPLACEMENT
+    lemmatization_kind: Literal["pos", "verb"] = "pos"
+    lemmatization_mode: TransformationMode = TransformationMode.ADDITIVE
+    diff_only_mode: TransformationMode = TransformationMode.ADDITIVE
+    argument_alignment_mode: TransformationMode = TransformationMode.ADDITIVE
+    lemma_match_policy: Literal["exact", "exact_or_lemma", "lemma_only"] = "exact_or_lemma"
+    final_ph_filter: bool = True
+    use_semantic: bool = False
+
+    @model_validator(mode="after")
+    def _validate_matching_scope(self) -> "FilteringConfig":
+        if self.use_semantic and not self.final_ph_filter:
+            raise ValueError("use_semantic requires final_ph_filter=True")
+        return self
+
+    @classmethod
+    def operational(cls, **overrides: Any) -> "FilteringConfig":
+        """POS additive with the other historical operational defaults."""
+        return cls(**overrides)
+
+    @classmethod
+    def evaluation_baseline(cls, **overrides: Any) -> "FilteringConfig":
+        """Text normalization only; explicitly enable experimental stages."""
+        values = dict(
+            lemmatization_mode="off", diff_only_mode="off",
+            argument_alignment_mode="off", final_ph_filter=False,
+        )
+        values.update(overrides)
+        return cls(**values)
 
 class NLIProblem(BaseModel):
     """
@@ -99,6 +145,9 @@ class ExperimentResult(BaseModel):
     
     # Provenance details
     kb_details: Optional[List["KBResult"]] = None
+    resolved_config: Optional[Dict[str, Any]] = None
+    filtering_version: Optional[str] = None
+    cache_fingerprint: Optional[str] = None
 
     # Ablation results
     essential_kb: Optional[List[str]] = None  # Best minimal subset (by token count)
@@ -157,7 +206,24 @@ class ProblemConfig(BaseModel):
     prompt_style: str = "icl"
     
     # Processing options
-    post_process: bool = True
+    post_process: Optional[bool] = Field(
+        default=None, description="Legacy alias for underscore/preposition cleanup only."
+    )
+    filtering: FilteringConfig = Field(default_factory=FilteringConfig.operational)
+
+    @model_validator(mode="after")
+    def _resolve_legacy_cleanup(self) -> "ProblemConfig":
+        if self.post_process is not None:
+            mode = TransformationMode.REPLACEMENT if self.post_process else TransformationMode.OFF
+            if "filtering" in self.model_fields_set:
+                if (self.filtering.underscores_mode != mode
+                        or self.filtering.leading_preposition_mode != mode):
+                    raise ValueError("post_process conflicts with filtering cleanup modes")
+            else:
+                self.filtering = FilteringConfig.operational(
+                    underscores_mode=mode, leading_preposition_mode=mode,
+                )
+        return self
     
     # Test mode
     test_mode: TestMode = TestMode.FULL
@@ -175,6 +241,8 @@ class KBResult(BaseModel):
     relation: str
     provenance: str = "llm"  # "llm", "post_process", "derived_swap", "derived_diff"
     original_text: Optional[str] = None
+    transformations: List[str] = Field(default_factory=list)
+    alignment_reason: Optional[str] = None
 
     def __str__(self):
         return self.relation

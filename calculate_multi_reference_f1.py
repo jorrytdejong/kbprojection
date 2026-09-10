@@ -14,9 +14,82 @@ import csv
 import math
 import re
 from dataclasses import dataclass
+from functools import lru_cache
 from pathlib import Path
 
 from calculate_inter_annotator_agreement import normalize_kb
+
+
+@dataclass(frozen=True)
+class ScoringConfig:
+    """Evaluation-only normalization settings.
+
+    ``argument_order_agnostic`` is for callers which select that representation
+    as their primary metric (the four-condition replay).  The overview CLI keeps
+    its historical directed primary score and exposes order agnosticism as the
+    separate diagnostic selected by ``calculate_argument_order_agnostic``.
+    """
+
+    lemmatize: bool = False
+    argument_order_agnostic: bool = False
+
+
+def prepare_scoring_resources(configs):
+    """Verify NLP data only when contextual lemmatization is requested."""
+    if not any(config.lemmatize for config in configs):
+        return {}
+    from kbprojection.filtering_context import prepare_filtering_resources
+    from kbprojection.models import FilteringConfig
+    return prepare_filtering_resources([
+        FilteringConfig.evaluation_baseline(
+            leading_preposition_mode="off", lemmatization_mode="replacement")
+    ])
+
+
+class ScoringContext:
+    """Symmetric, lazy contextual POS representation for one P/H pair."""
+
+    def __init__(self, premise="", hypothesis=""):
+        self.premise, self.hypothesis = premise, hypothesis
+        self._nlp = None
+        self.argument = lru_cache(maxsize=None)(self._argument)
+
+    def _argument(self, argument):
+        # Keep the standard directed scorer importable with only the stdlib.
+        from kbprojection.filtering_context import FilteringContext
+
+        if self._nlp is None:
+            self._nlp = FilteringContext(self.premise, self.hypothesis, offline=True)
+        context = self._nlp
+        tokens = tuple(token.lower() for token in context.tokens(argument))
+        if not tokens:
+            return argument, "empty"
+        mapping = {"J": "a", "V": "v", "N": "n", "R": "r"}
+        matches = set()
+        for sentence in (self.premise, self.hypothesis):
+            tagged = context.tags(sentence)
+            words = tuple(word.lower() for word, _ in tagged)
+            for index in range(len(words) - len(tokens) + 1):
+                if words[index:index + len(tokens)] == tokens:
+                    matches.add(tuple(mapping.get(tag[:1]) for _, tag in tagged[index:index + len(tokens)]))
+        if not matches:
+            return argument, "absent"
+        if len(matches) != 1:
+            return argument, "ambiguous"
+        lemmas = tuple(context.lemma(token, pos) if pos else token
+                       for token, pos in zip(tokens, next(iter(matches))))
+        value = " ".join(lemmas) if lemmas != tokens else argument
+        return value, "changed" if value != argument else "unchanged"
+
+    def relation(self, relation, config):
+        if config.lemmatize:
+            relation = tuple(self.argument(argument)[0] for argument in relation)
+        if config.argument_order_agnostic:
+            relation = canonicalize_relation_arguments(relation)
+        return relation
+
+    def kb(self, relations, config):
+        return frozenset(self.relation(relation, config) for relation in relations)
 
 
 @dataclass
@@ -59,6 +132,7 @@ class EvaluationResult:
     position_sensitive_counts: Counts | None = None
     argument_order_agnostic_counts: Counts | None = None
     argument_order_agnostic_exact_best_matches: int = 0
+    scoring: ScoringConfig = ScoringConfig()
 
 
 def is_blank(value: object) -> bool:
@@ -198,11 +272,13 @@ def evaluate_prediction_column(
     calculate_position_sensitive: bool = False,
     calculate_argument_order_agnostic: bool = False,
     details_path: Path | None = None,
+    scoring: ScoringConfig = ScoringConfig(),
 ) -> EvaluationResult:
     result = EvaluationResult(
         prediction_column=prediction_column,
         reference_columns=reference_columns,
         selected_counts=Counts(),
+        scoring=scoring,
     )
     detail_rows: list[dict[str, object]] = []
     if calculate_position_sensitive:
@@ -211,13 +287,14 @@ def evaluate_prediction_column(
         result.argument_order_agnostic_counts = Counts()
 
     for row in rows:
+        context = ScoringContext(row.get("premise", ""), row.get("hypothesis", ""))
         raw_prediction = row.get(prediction_column, "")
         if is_blank(raw_prediction) and not empty_prediction_is_no_relation:
             result.skipped_missing_prediction += 1
             continue
 
         references = [
-            (column, parse_kb_cell(row.get(column, "")))
+            (column, context.kb(parse_kb_cell(row.get(column, "")), scoring))
             for column in reference_columns
             if not is_blank(row.get(column, ""))
         ]
@@ -225,7 +302,7 @@ def evaluate_prediction_column(
             result.skipped_no_reference += 1
             continue
 
-        prediction = parse_kb_cell(raw_prediction)
+        prediction = context.kb(parse_kb_cell(raw_prediction), scoring)
         scored_references = []
         for column, reference in references:
             counts = relation_counts(prediction, reference)
@@ -283,10 +360,10 @@ def evaluate_prediction_column(
         position_best_score = float("nan")
         position_best_counts: Counts | None = None
         if calculate_position_sensitive:
-            prediction_sequence = parse_kb_sequence(raw_prediction)
+            prediction_sequence = tuple(context.relation(r, scoring) for r in parse_kb_sequence(raw_prediction))
             position_scored_references = []
             for column, _ in references:
-                reference_sequence = parse_kb_sequence(row.get(column, ""))
+                reference_sequence = tuple(context.relation(r, scoring) for r in parse_kb_sequence(row.get(column, "")))
                 counts = position_sensitive_relation_counts(
                     prediction_sequence, reference_sequence
                 )
@@ -379,6 +456,7 @@ def evaluate_global_best_reference(
     reference_columns: list[str],
     *,
     empty_prediction_is_no_relation: bool,
+    scoring: ScoringConfig = ScoringConfig(),
 ) -> list[tuple[str, Counts, int]]:
     results: list[tuple[str, Counts, int]] = []
     for reference_column in reference_columns:
@@ -391,7 +469,9 @@ def evaluate_global_best_reference(
                 continue
             if is_blank(raw_reference):
                 continue
-            counts.add(relation_counts(parse_kb_cell(raw_prediction), parse_kb_cell(raw_reference)))
+            context = ScoringContext(row.get("premise", ""), row.get("hypothesis", ""))
+            counts.add(relation_counts(context.kb(parse_kb_cell(raw_prediction), scoring),
+                                       context.kb(parse_kb_cell(raw_reference), scoring)))
             evaluated_items += 1
         results.append((reference_column, counts, evaluated_items))
     return sorted(results, key=lambda entry: (-sort_score(entry[1].f1), entry[0]))
@@ -400,6 +480,7 @@ def evaluate_global_best_reference(
 def print_result(result: EvaluationResult) -> None:
     counts = result.selected_counts
     print(f"\n{result.prediction_column} vs best of {', '.join(result.reference_columns)}")
+    print(f"  scoring: lemmatize_both={result.scoring.lemmatize}, argument_order_agnostic={result.scoring.argument_order_agnostic}")
     print(
         "  multi_reference_micro_f1 "
         f"P={format_score(counts.precision)} "
@@ -476,6 +557,8 @@ def write_summary(path: Path, results: list[EvaluationResult]) -> None:
             fieldnames=[
                 "prediction_column",
                 "reference_columns",
+                "lemmatize_both",
+                "argument_order_agnostic",
                 "evaluated_items",
                 "precision",
                 "recall",
@@ -520,6 +603,8 @@ def write_summary(path: Path, results: list[EvaluationResult]) -> None:
                 {
                     "prediction_column": result.prediction_column,
                     "reference_columns": ";".join(result.reference_columns),
+                    "lemmatize_both": result.scoring.lemmatize,
+                    "argument_order_agnostic": result.scoring.argument_order_agnostic,
                     "evaluated_items": result.evaluated_items,
                     "precision": counts.precision,
                     "recall": counts.recall,
@@ -562,6 +647,8 @@ def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         description="Compute multi-reference KB micro-F1 from an agreement overview CSV."
     )
+    parser.add_argument("--lemmatize", action="store_true",
+                        help="Compare POS lemmas on BOTH predictions and references. Requires premise/hypothesis columns and installed NLTK data; ambiguous/absent spans remain unchanged.")
     parser.add_argument(
         "--csv",
         default="annotator agreement - inter_annotator_agreement_overview.csv",
@@ -618,6 +705,12 @@ def main() -> None:
     args = build_parser().parse_args()
     input_path = Path(args.csv)
     fieldnames, rows = load_rows(input_path)
+    # The CLI's order-agnostic flag is an additional diagnostic; its directed
+    # primary metric must remain compatible with the upstream interface.
+    scoring = ScoringConfig(lemmatize=args.lemmatize)
+    if scoring.lemmatize and not {"premise", "hypothesis"}.issubset(fieldnames):
+        raise SystemExit("--lemmatize requires premise and hypothesis columns for contextual POS.")
+    prepare_scoring_resources([scoring])
     available_kb_columns = kb_columns(fieldnames)
     if not available_kb_columns:
         raise SystemExit("No *_KB columns found in the input CSV.")
@@ -659,6 +752,7 @@ def main() -> None:
             calculate_position_sensitive=args.position_sensitive,
             calculate_argument_order_agnostic=args.argument_order_agnostic,
             details_path=details_path,
+            scoring=scoring,
         )
         all_results.append(result)
         print_result(result)
@@ -669,6 +763,7 @@ def main() -> None:
                 prediction_column,
                 reference_columns,
                 empty_prediction_is_no_relation=args.empty_prediction_is_no_relation,
+                scoring=scoring,
             ),
         )
 

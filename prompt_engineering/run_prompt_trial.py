@@ -30,10 +30,10 @@ from calculate_multi_reference_f1 import (
     parse_kb_cell,
     write_summary,
 )
-from kbprojection.kbprojection.filtering import pipeline_filter_kb_injections
-from kbprojection.kbprojection.llm import AsyncGenericAIClient, _extract_validated_kb_from_output
-from kbprojection.kbprojection.models import NLILabel, NLIProblem
-from kbprojection.kbprojection.prompts import ETTORE_BASE_PROMPT, LASHA_BASE_PROMPT
+from kbprojection.filtering import pipeline_filter_kb_injections
+from kbprojection.llm import AsyncGenericAIClient, _extract_validated_kb_from_output
+from kbprojection.models import NLILabel, NLIProblem
+from kbprojection.prompts import ETTORE_BASE_PROMPT, LASHA_BASE_PROMPT
 
 
 DEFAULT_REFERENCE_COLUMNS = [
@@ -923,11 +923,17 @@ def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
         "--agreement-csv",
-        default=str(ROOT / "annotator agreement - IAA_overview_edit.csv"),
+        default=str(
+            ROOT / "data" / "annotator_agreement" / "iaa_overview_edit.csv"
+        ),
+        help="Edited IAA overview used to derive the high-agreement subset.",
     )
     parser.add_argument(
         "--agreed-subset-csv",
-        default=str(ROOT / "small_models_all_present_exact_match_TRUE.csv"),
+        help=(
+            "Optional destination for the derived high-agreement subset. "
+            "Defaults beside --sample-csv."
+        ),
     )
     parser.add_argument(
         "--sample-csv",
@@ -989,8 +995,12 @@ def build_parser() -> argparse.ArgumentParser:
 
 async def async_main(args: argparse.Namespace) -> None:
     agreement_csv = Path(args.agreement_csv)
-    agreed_subset_csv = Path(args.agreed_subset_csv)
     sample_csv = Path(args.sample_csv)
+    agreed_subset_csv = (
+        Path(args.agreed_subset_csv)
+        if args.agreed_subset_csv
+        else sample_csv.with_name("agreed_subset.csv")
+    )
     output_csv = Path(args.output_csv)
     summary_csv = Path(args.summary_csv)
     leaderboard_csv = Path(args.leaderboard_csv)

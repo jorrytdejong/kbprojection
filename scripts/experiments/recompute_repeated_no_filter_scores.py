@@ -45,9 +45,7 @@ def build_parser() -> argparse.ArgumentParser:
     )
     parser.add_argument(
         "--sample-csv",
-        default=str(
-            DEFAULT_RESULTS_DIR / "small_medium_lasha_all362_sample.csv"
-        ),
+        default=str(REPOSITORY_ROOT / "data" / "all_usable_items_362.csv"),
     )
     parser.add_argument(
         "--output-csv",

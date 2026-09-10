@@ -1,4 +1,5 @@
 import asyncio
+import hashlib
 import json
 from enum import Enum
 from pathlib import Path
@@ -10,7 +11,19 @@ from .langpro import langpro_api_call
 from .llm import call_llm
 from .filtering import filter_kb_by_prem_hyp
 
-from .filtering import pipeline_filter_kb_injections
+from .filtering import FILTERING_PIPELINE_VERSION, pipeline_filter_kb_injections
+
+
+def result_cache_fingerprint(prob: NLIProblem, config: ProblemConfig) -> str:
+    """Key complete results by input content, resolved settings and pipeline version."""
+    payload = {
+        "schema": 2,
+        "filtering_version": FILTERING_PIPELINE_VERSION,
+        "problem": prob.model_dump(mode="json"),
+        "config": config.model_dump(mode="json"),
+    }
+    encoded = json.dumps(payload, sort_keys=True, ensure_ascii=False, separators=(",", ":"))
+    return hashlib.sha256(encoded.encode("utf-8")).hexdigest()
 
 def _to_jsonable(value: Any) -> Any:
     if value is None or isinstance(value, (str, int, float, bool)):
@@ -76,7 +89,12 @@ async def process_single_problem(
     log(f"[process] Hypothesis: {prob.hypothesis}")
     log(f"[process] Mode: {test_mode} | Ablation: {config.run_ablation}")
 
-    exp_result = ExperimentResult(problem=prob, prover_calls=[])
+    exp_result = ExperimentResult(
+        problem=prob, prover_calls=[],
+        resolved_config=config.model_dump(mode="json"),
+        filtering_version=FILTERING_PIPELINE_VERSION,
+        cache_fingerprint=result_cache_fingerprint(prob, config),
+    )
 
     # ----- Step 1: No-KB baseline -----
     if baseline_no_kb is None:
@@ -160,7 +178,7 @@ async def process_single_problem(
         kb_raw,
         prob.premises,
         prob.hypothesis,
-        post_process=config.post_process
+        filtering=config.filtering,
     )
 
     if raw_task is not None:
@@ -455,13 +473,18 @@ async def process_kb_examples(
         cache_file = None
         if cache_dir:
             safe_id = prob.id.replace("/", "_").replace("#", "_")
-            filename = f"{prob.dataset}_{split}_{safe_id}.json"
+            fingerprint = result_cache_fingerprint(prob, config)
+            filename = f"{prob.dataset}_{split}_{safe_id}_{fingerprint}.json"
             cache_file = cache_dir / filename
 
             if cache_file.exists():
                 try:
                     with open(cache_file, "r", encoding="utf-8") as f:
                         cached_result = ExperimentResult.model_validate_json(f.read())
+                    if (cached_result.cache_fingerprint != fingerprint
+                            or cached_result.resolved_config != config.model_dump(mode="json")
+                            or cached_result.filtering_version != FILTERING_PIPELINE_VERSION):
+                        raise ValueError("Cached result metadata does not match this configuration")
 
                     checked_count += 1
                     print(f"\n[kb-processor] #{checked_count} | Key: {prob.id} | Gold: {prob.gold_label.value} [CACHED]")

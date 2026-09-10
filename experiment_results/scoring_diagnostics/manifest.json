@@ -1,0 +1,129 @@
+{
+  "created_at_utc": "2026-09-10T14:40:04.073666+00:00",
+  "scoring_version": "1.0-symmetric-contextual-pos",
+  "code_sha256": {
+    "scripts/experiments/evaluate_kb_scoring.py": "6dfbecae8a8c72ac0b43e78a6b334f0525af949ee68da19ce096c31bff953c2a",
+    "calculate_multi_reference_f1.py": "9e3d327a3cbac7aa47db4fc9609c8673bd150a6372375a49edf423cced94c522",
+    "calculate_inter_annotator_agreement.py": "d8e13fda80c86e9e2990d751cd1e74db8992c157bcd6db91cfdaea13af641ee7",
+    "scripts/experiments/replay_utils.py": "f2ed943b5219199f89359f36d362f3336122f5743e32c9aa5b342dfb19c8b1d3",
+    "kbprojection/__init__.py": "4707200229e82e93fb3dc6d625adec569b9c85608af89b3c21c17ab61adaa90a",
+    "kbprojection/async_runtime.py": "b9e31970a9268623de079a6f337ba3e3920e3a6dc4b6a01828b8a36c5db6af2d",
+    "kbprojection/data.py": "53b9d111334b1b683633e2e684abb7ea9af1e4ae4be962a5c71b39f627af4e58",
+    "kbprojection/downloads.py": "1aab8822ee48c95be26a826986468607d97ea0e4fa2cc10d10befe5f034ede14",
+    "kbprojection/easyccg_vendor.py": "125e3ae19e3fbcdcdcf35a0fc916c804c0b2dd56ae7696a0224c96b49bbdcb2f",
+    "kbprojection/filtering.py": "a5e8eb53cecf2c0191eb323901278e973aad764eef318c8128720299e11227e6",
+    "kbprojection/filtering_context.py": "7c8f032726dd616e1527d12af9f122d9e30e78e9ab9bac85f58d5e375ae62779",
+    "kbprojection/langpro.py": "b159ca4b794f744714c14af95737a529056ee0f32000c1dfea29465d2d31ecb1",
+    "kbprojection/langpro_cache.py": "d75f2cd377ddfe576ace314ec7c16ea025aec9e21b12180c1e4467e5be603564",
+    "kbprojection/llm.py": "08eabab6b47d556e6d4df6c6233d30adf7ad75a329c2adaaa4d4cee85633cd50",
+    "kbprojection/loaders/base.py": "e2d4ce7e4e25df60eaa1ef219abf37a1fd1f2bf000555c32dd4549dbbb5e6e94",
+    "kbprojection/loaders/sick.py": "4fc532ede1d699add729c4dfc3d44be5dc33719ff07ff9d1baef3fa21f34dc48",
+    "kbprojection/loaders/snli.py": "a4919e25657c08d2c7d6f2da24e19b4d55cb7ae019d0ce94335bd02ea77a7c18",
+    "kbprojection/local_easyccg.py": "aac7ebec2d33d1aed6b78cbc74d85d3006349cb86b81aca94a51f826604cfe6f",
+    "kbprojection/models.py": "b17a6e40662c917fc5b19824522fa019294501415196a425c5e0b4a4babe2d88",
+    "kbprojection/orchestration.py": "8974193c6494c3fbeffad4db92495af66e8d3088797fd887b0de47973c1d4d3b",
+    "kbprojection/prompts.py": "2f27932e9cdb3e6f40d851e41e8df897c65c852402f02c354bd0cc3562586b3c",
+    "kbprojection/runners.py": "5ae43d4f8d6b275710ebc65a79acb93f5cbe4b5a1887225f7769b1fdc7d82837",
+    "kbprojection/runtime.py": "8b900bd95b9bf7dd29e584027e61abc86c07235e677056ff17b52eaf0d39fae0",
+    "kbprojection/scoring.py": "4823733a66c7658e5173f237e8d16f2f8987831a9a96ac3126f6a0dd0f344c71",
+    "kbprojection/settings.py": "cd512ec1b8d4673658718b1fda441ae54ce7d4d6182a60b8c4ba02eaad744754",
+    "kbprojection/utils.py": "1ca15651cc8608d318a89904fcd1571c19b4351287e0f1ed38477f799a628efe"
+  },
+  "inputs_sha256": {
+    "experiment_results/lasha_all362_5runs/small_medium_lasha_all362_5runs_no_filter_outputs.csv": "ae6d542942660ff44d317b3c2311a5b50ffad60a9a0fc8dcf6a46fa5711e34fb",
+    "data/all_usable_items_362.csv": "7be06d326bdaff587368b06c86e4b28ee0d8e642fda3cbf676a5baffd816e77e"
+  },
+  "inputs_lf_sha256": {
+    "experiment_results/lasha_all362_5runs/small_medium_lasha_all362_5runs_no_filter_outputs.csv": "809aec7d5c72de3c5bf28be29dcb5c6b9db87b0e0ebb4a1c6336716bf82f798a",
+    "data/all_usable_items_362.csv": "848884dddbfc98937d86311d247363061c46da31d13381117f9fbdc0c793c967"
+  },
+  "outputs_sha256": {
+    "configurations.json": "72fdf9ae570e50d8bee43a95e57f6a203bd69ad34413a34a491dc3d498f11d39",
+    "predictions.csv": "8464df6b67fbf6f95cf8ae911ca85218ed2954e3d82e4dc6ddb05959f0a087f9",
+    "metrics_by_run.csv": "744517eb292bba80a70fda8b1fdf7667eb54fe63026e581fcb436157c9343849",
+    "summary.csv": "62792c057a32a9122c9490a1dfbbb1c8267aa55da0135c1559d940358a5b2b0b",
+    "examples.csv": "9bf2a931927646eb3983c9a9bce25b91381fde773a42534bf37de7d512d28807",
+    "REPORT.md": "2ca0e8bfd09eae7142b7e8d448ed74b4cd7a85189d563bc44d47cef6c4465e53"
+  },
+  "nlp_resources": {
+    "averaged_perceptron_tagger_eng": {
+      "location": "C:\\Users\\Ett0r3-IA\\Documents\\Research\\LangPro-LLMkb\\repositories\\jorryt-kbprojection\\.cache\\nltk\\taggers\\averaged_perceptron_tagger_eng",
+      "files": {
+        "averaged_perceptron_tagger_eng.classes.json": "d152ffa69d45b8357276341a3d592c6c025911d52ec0d9068d4f382560dd48b6",
+        "averaged_perceptron_tagger_eng.tagdict.json": "4c713731cb06727736962bc8cd94ad919217a040e76691059af99bc0c2c9c246",
+        "averaged_perceptron_tagger_eng.weights.json": "789e8e35f6fac656d9b7eccea29ba4e8a137cbb5b525dd31f39e4291a9e80832"
+      },
+      "sha256": "8e342c2392bdc9c6472cec8d9d885cf7d655b4fde21a22b29465cac44365bdc9"
+    },
+    "punkt_tab": {
+      "location": "C:\\Users\\Ett0r3-IA\\Documents\\Research\\LangPro-LLMkb\\repositories\\jorryt-kbprojection\\.cache\\nltk\\tokenizers\\punkt_tab\\english",
+      "files": {
+        "abbrev_types.txt": "92a3e070f43d9b4c5534758ca40ad7343b04e7e29bfe0c2eb658a39445a4f779",
+        "collocations.tab": "8e2da1225e4dd2cc9dba261ee231ccb134859e21b46006e7f472c5ee269af0cf",
+        "ortho_context.tab": "4bbcca25ed3d3f06c02402abf8419b9f033b8adc06e7b482eca4e45f81a5dc4c",
+        "sent_starters.txt": "f3f8535483e1dba487241b764945168123bca3209a9645e59acd1225dc76edac"
+      },
+      "sha256": "f2bd87f6f8761696661f933cd45bd3f3e3fa6e54990969210c7377882a4a63be"
+    },
+    "wordnet": {
+      "location": "C:\\Users\\Ett0r3-IA\\Documents\\Research\\LangPro-LLMkb\\repositories\\jorryt-kbprojection\\.cache\\nltk\\corpora\\wordnet.zip",
+      "sha256": "cbda5ea6eef7f36a97a43d4a75f85e07fccbb4f23657d27b4ccbc93e2646ab59"
+    }
+  },
+  "hash_policy": "Outputs/resources: exact bytes; code and inputs_lf: CRLF converted to LF.",
+  "versions": {
+    "python": "3.12.14",
+    "nltk": "3.10.3",
+    "pydantic": "2.13.5"
+  },
+  "configurations": {
+    "original": {
+      "lemmatize": false,
+      "argument_order_agnostic": false
+    },
+    "lemmas": {
+      "lemmatize": true,
+      "argument_order_agnostic": false
+    },
+    "argument_order_agnostic": {
+      "lemmatize": false,
+      "argument_order_agnostic": true
+    },
+    "combined": {
+      "lemmatize": true,
+      "argument_order_agnostic": true
+    }
+  },
+  "slot_status_counts": {
+    "error": 38,
+    "valid": 14442
+  },
+  "expected_slots": 14480,
+  "metrics_rows": 160,
+  "summary_rows": 32,
+  "lemma_decisions_unique_problem_argument": {
+    "absent": 1161,
+    "ambiguous": 32,
+    "changed": 636,
+    "empty": 1,
+    "unchanged": 1313
+  },
+  "stored_predictions_modified": false,
+  "stored_annotations_modified": false,
+  "scoring_representation_normalized_on_both_sides": true,
+  "llm_calls": 0,
+  "langpro_calls": 0,
+  "download_calls": 0,
+  "source_identity": "Verify code_sha256 against LF-normalized source files or Git blobs. Commit IDs are omitted so amend/rebase does not invalidate source identification.",
+  "versioned_artifacts": [
+    "REPORT.md",
+    "summary.csv",
+    "manifest.json"
+  ],
+  "outputs_sha256_scope": "All six generated result exports; files outside versioned_artifacts are regenerated with --output. The manifest does not hash itself.",
+  "report_update": {
+    "updated_at_utc": "2026-09-10T15:31:33.269843+00:00",
+    "source": "Existing summary.csv; no numerical metrics recomputed",
+    "change": "One table per scoring condition: exact match, micro-F1, micro-precision and micro-recall; mean and sample SD to one decimal place, sorted by unrounded mean micro-F1."
+  }
+}

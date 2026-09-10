@@ -147,7 +147,13 @@ cython_debug/
 Thumbs.db
 
 # Data
-data/
+data/*
+!data/
+!data/all_usable_items_362.csv
+!data/annotator_assignments/
+!data/annotator_assignments/*_assignments.json
+!data/annotator_agreement/
+!data/annotator_agreement/iaa_overview_edit.csv
 
 # Notebooks
 *.ipynb
@@ -156,3 +162,9 @@ data/
 
 # Debug scripts
 debug_*.py
+
+# Scoring replay details are generated locally; keep only the compact result.
+/experiment_results/scoring_diagnostics/*
+!/experiment_results/scoring_diagnostics/REPORT.md
+!/experiment_results/scoring_diagnostics/summary.csv
+!/experiment_results/scoring_diagnostics/manifest.json

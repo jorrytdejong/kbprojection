@@ -1,7 +1,7 @@
 import os
 import tempfile
 import unittest
-from pathlib import Path
+from pathlib import Path, PureWindowsPath
 from unittest.mock import Mock, patch
 
 from kbprojection.easyccg_vendor import _find_easyccg_model_dir, install_local_easyccg
@@ -28,10 +28,13 @@ from kbprojection.settings import (
 class TestSettingsPaths(unittest.TestCase):
     def test_app_dir_uses_localappdata_on_windows(self):
         with patch.dict(os.environ, {"LOCALAPPDATA": r"C:\Users\Test\AppData\Local"}, clear=True):
-            with patch("kbprojection.settings.os.name", "nt"):
+            # Model Windows path semantics without changing the host OS globally.
+            with patch("kbprojection.settings.os", Mock(name="nt", environ=os.environ)) as windows_os, \
+                 patch("kbprojection.settings.Path", PureWindowsPath):
+                windows_os.name = "nt"
                 self.assertEqual(
                     get_app_dir(),
-                    Path(r"C:\Users\Test\AppData\Local") / "kbprojection",
+                    PureWindowsPath(r"C:\Users\Test\AppData\Local") / "kbprojection",
                 )
 
     def test_app_dir_override_wins(self):
@@ -58,9 +61,10 @@ class TestSettingsPaths(unittest.TestCase):
             self.assertEqual(settings.cache_path, Path(r"C:\app") / "langpro_cache.sqlite3")
 
     def test_dataset_loaders_default_to_app_data_dataset_dirs(self):
-        with patch.dict(os.environ, {"KBPROJECTION_DATA_DIR": r"C:\datasets"}, clear=True):
-            self.assertEqual(SICKLoader().data_dir, Path(r"C:\datasets") / "sick")
-            self.assertEqual(SNLILoader().data_dir, Path(r"C:\datasets") / "snli")
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            with patch.dict(os.environ, {"KBPROJECTION_DATA_DIR": tmp_dir}, clear=True):
+                self.assertEqual(SICKLoader().data_dir, Path(tmp_dir) / "sick")
+                self.assertEqual(SNLILoader().data_dir, Path(tmp_dir) / "snli")
 
     def test_dataset_loaders_keep_explicit_data_dir(self):
         with tempfile.TemporaryDirectory() as tmp_dir:

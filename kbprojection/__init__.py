@@ -15,7 +15,10 @@ from .models import (
     NLILabel, 
     LangProResult, 
     ExperimentResult,
-    ExperimentStepStatus
+    ExperimentStepStatus,
+    FilteringConfig,
+    TransformationMode,
+    ProblemConfig,
 )
 from .loaders.base import DatasetLoader
 from .loaders.snli import SNLILoader
@@ -44,6 +47,7 @@ from .filtering import (
     drop_leading_preposition,
     parse_kb_injection,
     filter_kb_by_prem_hyp,
+    pipeline_filter_kb_injections,
 )
 from .orchestration import collect_kb_helpful_examples_random
 from .runners import (

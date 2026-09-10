@@ -11,18 +11,32 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Iterable
 
-from kbprojection.kbprojection.filtering import pipeline_filter_kb_injections
-from kbprojection.kbprojection.llm import (
+from kbprojection.filtering import pipeline_filter_kb_injections
+from kbprojection.llm import (
     AsyncGenericAIClient,
     _extract_validated_kb_from_output,
 )
-from kbprojection.kbprojection.models import NLILabel, NLIProblem
-from kbprojection.kbprojection.prompts import fill_prompt, list_prompts
+from kbprojection.models import NLILabel, NLIProblem
+from kbprojection.prompts import fill_prompt, list_prompts
 
 
 DEFAULT_INPUT_CSV = "annotator agreement - inter_annotator_agreement_overview.csv"
 DEFAULT_OUTPUT_CSV = "llm_multi_reference_outputs.csv"
 DEFAULT_PROMPTS = ["ettore", "lasha"]
+REPOSITORY_ROOT = Path(__file__).resolve().parent
+CANONICAL_INPUT_CSV = REPOSITORY_ROOT / "data" / "all_usable_items_362.csv"
+EXPECTED_INPUT_ROWS = 362
+REQUIRED_INPUT_COLUMNS = {
+    "ID",
+    "premise",
+    "hypothesis",
+    "gold_label",
+    "Alternative_KB",
+    "Ettore_KB",
+    "Jorryt_KB",
+    "Lasha_KB",
+    "Stefan_KB",
+}
 
 
 @dataclass(frozen=True)
@@ -51,6 +65,25 @@ def load_rows(path: Path) -> tuple[list[str], list[dict[str, str]]]:
         if not reader.fieldnames:
             raise ValueError(f"{path} has no header row.")
         return reader.fieldnames, list(reader)
+
+
+def validate_input_rows(
+    path: Path,
+    fieldnames: list[str],
+    rows: list[dict[str, str]],
+) -> None:
+    missing = sorted(REQUIRED_INPUT_COLUMNS - set(fieldnames))
+    if missing:
+        raise ValueError(
+            f"{path} is missing required column(s): {', '.join(missing)}"
+        )
+    if len(rows) != EXPECTED_INPUT_ROWS:
+        raise ValueError(
+            f"{path} must contain exactly {EXPECTED_INPUT_ROWS} data rows; "
+            f"found {len(rows)}"
+        )
+    if any(not row.get("ID", "").strip() for row in rows):
+        raise ValueError(f"{path} contains a blank ID value.")
 
 
 def write_rows(path: Path, fieldnames: list[str], rows: list[dict[str, str]]) -> None:
@@ -127,7 +160,10 @@ def should_skip(row: dict[str, str], columns: GeneratedColumns, *, resume: bool)
 async def run_experiment(args: argparse.Namespace) -> None:
     input_path = Path(args.input_csv)
     output_path = Path(args.output_csv)
-    fieldnames, rows = load_rows(output_path if args.resume and output_path.exists() else input_path)
+    input_fieldnames, input_rows = load_rows(input_path)
+    validate_input_rows(input_path, input_fieldnames, input_rows)
+    source_path = output_path if args.resume and output_path.exists() else input_path
+    fieldnames, rows = load_rows(source_path)
     rows = rows[: args.limit] if args.limit is not None else rows
 
     available_prompts = set(list_prompts())
@@ -193,7 +229,7 @@ def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         description="Generate LLM KB columns for multi-reference evaluation."
     )
-    parser.add_argument("--input-csv", default=DEFAULT_INPUT_CSV)
+    parser.add_argument("--input-csv", default=str(CANONICAL_INPUT_CSV))
     parser.add_argument("--output-csv", default=DEFAULT_OUTPUT_CSV)
     parser.add_argument("--prompts", nargs="+", default=DEFAULT_PROMPTS)
     parser.add_argument("--models", nargs="+", required=True)

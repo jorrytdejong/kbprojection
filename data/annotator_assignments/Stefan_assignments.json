@@ -1,0 +1,2564 @@
+[
+  {
+    "row_number": 2,
+    "ID": 211,
+    "premise": "Two dogs are playing by a tree",
+    "hypothesis": "Two dogs are playing by a plant",
+    "KB": "(tree, plant)"
+  },
+  {
+    "row_number": 3,
+    "ID": 311,
+    "premise": "A group of people is near the ocean",
+    "hypothesis": "A crowd of people is near the water",
+    "KB": "(ocean, water)"
+  },
+  {
+    "row_number": 4,
+    "ID": 384,
+    "premise": "A white and tan dog is running through the tall and green grass",
+    "hypothesis": "A white and tan dog is running through a field",
+    "KB": ""
+  },
+  {
+    "row_number": 5,
+    "ID": 489,
+    "premise": "There is no dog playing with a red ball",
+    "hypothesis": "Two daschunds are playing with a red ball",
+    "KB": "(no, relation)"
+  },
+  {
+    "row_number": 6,
+    "ID": 747,
+    "premise": "A little boy is sticking his tongue out for the camera and another boy is looking on",
+    "hypothesis": "Two kids are looking up at the camera and one is sticking out his tongue",
+    "KB": "(no, relation)"
+  },
+  {
+    "row_number": 7,
+    "ID": 1192,
+    "premise": "A man and a woman are walking together through the woods",
+    "hypothesis": "A man and a woman are walking through a wooded area",
+    "KB": "(woods, wooded area)"
+  },
+  {
+    "row_number": 8,
+    "ID": 1262,
+    "premise": "A band is performing onstage",
+    "hypothesis": "A band is playing onstage",
+    "KB": ""
+  },
+  {
+    "row_number": 9,
+    "ID": 1412,
+    "premise": "Men are sawing logs",
+    "hypothesis": "Men are cutting wood",
+    "KB": "(saw, cut)"
+  },
+  {
+    "row_number": 10,
+    "ID": 1495,
+    "premise": "A man is playing a guitar",
+    "hypothesis": "A man is strumming a guitar",
+    "KB": "(play, strum)"
+  },
+  {
+    "row_number": 11,
+    "ID": 1497,
+    "premise": "A man is strumming a guitar",
+    "hypothesis": "A man is playing guitar",
+    "KB": "(strum, play)"
+  },
+  {
+    "row_number": 12,
+    "ID": 1584,
+    "premise": "A hole is being burrowed by the badger",
+    "hypothesis": "A badger is shrewdly digging the earth",
+    "KB": ""
+  },
+  {
+    "row_number": 13,
+    "ID": 1792,
+    "premise": "A lion is slowly walking",
+    "hypothesis": "A lion is slowly moving around",
+    "KB": "(walk, move around)"
+  },
+  {
+    "row_number": 14,
+    "ID": 2281,
+    "premise": "A dog is opening a can of food",
+    "hypothesis": "A dog is biting a can",
+    "KB": "(no, relation)"
+  },
+  {
+    "row_number": 15,
+    "ID": 2405,
+    "premise": "The lady is slicing a tomato",
+    "hypothesis": "Someone is cutting a tomato",
+    "KB": "(slice, cut); (lady, someone)"
+  },
+  {
+    "row_number": 16,
+    "ID": 2557,
+    "premise": "Someone is strumming the guitar",
+    "hypothesis": "Someone is playing the guitar",
+    "KB": ""
+  },
+  {
+    "row_number": 17,
+    "ID": 2795,
+    "premise": "A small guinea pig is gnawing and eating a piece of carrot on the floor",
+    "hypothesis": "A guinea pig is devouring a carrot",
+    "KB": "(eat, devour)"
+  },
+  {
+    "row_number": 18,
+    "ID": 2809,
+    "premise": "A cartoon airplane is landing",
+    "hypothesis": "An animated airplane is landing",
+    "KB": "(cartoon, animated)"
+  },
+  {
+    "row_number": 19,
+    "ID": 2829,
+    "premise": "The lady is penciling on eyeshadow",
+    "hypothesis": "The woman is penciling on eyeshadow",
+    "KB": "(lady, woman)"
+  },
+  {
+    "row_number": 20,
+    "ID": 2898,
+    "premise": "The man is lifting barbells",
+    "hypothesis": "The man is lifting weights",
+    "KB": ""
+  },
+  {
+    "row_number": 21,
+    "ID": 3122,
+    "premise": "A woman is using a pencil for eyes and is applying eye liner to her eyelid",
+    "hypothesis": "A woman is applying cosmetics to her eyelid",
+    "KB": "(eye liner, cosmetic)"
+  },
+  {
+    "row_number": 22,
+    "ID": 3250,
+    "premise": "A woman is placing two eggs into a pot of water",
+    "hypothesis": "A woman is putting two eggs into a pot of water",
+    "KB": "(place, put)"
+  },
+  {
+    "row_number": 23,
+    "ID": 3586,
+    "premise": "A man is playing the drum",
+    "hypothesis": "A man is practicing the drum",
+    "KB": "(play, practice)"
+  },
+  {
+    "row_number": 24,
+    "ID": 3641,
+    "premise": "The woman is handling a frog",
+    "hypothesis": "A person is holding a frog",
+    "KB": ""
+  },
+  {
+    "row_number": 25,
+    "ID": 3853,
+    "premise": "A cat is playing a piano",
+    "hypothesis": "A cat is playing keyboards",
+    "KB": "(piano, keyboard)"
+  },
+  {
+    "row_number": 26,
+    "ID": 3974,
+    "premise": "A girl is awakening",
+    "hypothesis": "A girl is waking up",
+    "KB": "(awaken, wake up)"
+  },
+  {
+    "row_number": 27,
+    "ID": 4006,
+    "premise": "A man is climbing a rope",
+    "hypothesis": "The man is climbing up a rope",
+    "KB": "(climb, climb up)"
+  },
+  {
+    "row_number": 28,
+    "ID": 4015,
+    "premise": "The lady is picking up the kangaroo",
+    "hypothesis": "The woman is picking up the kangaroo",
+    "KB": ""
+  },
+  {
+    "row_number": 29,
+    "ID": 4066,
+    "premise": "The man is hurling knives at a tree",
+    "hypothesis": "The man is throwing knives at a tree",
+    "KB": "(hurl, throw)"
+  },
+  {
+    "row_number": 30,
+    "ID": 4135,
+    "premise": "A dog is bouncing on a trampoline",
+    "hypothesis": "A dog is jumping on a trampoline",
+    "KB": "(bounce, jump)"
+  },
+  {
+    "row_number": 31,
+    "ID": 4181,
+    "premise": "A dog is eating a doll",
+    "hypothesis": "A dog is biting a doll",
+    "KB": "(eat, bite)"
+  },
+  {
+    "row_number": 32,
+    "ID": 4288,
+    "premise": "The woman is slicing cooked octopus",
+    "hypothesis": "A woman is chopping up an octopus",
+    "KB": ""
+  },
+  {
+    "row_number": 33,
+    "ID": 4297,
+    "premise": "An aircraft is taking off",
+    "hypothesis": "A plane is taking off",
+    "KB": "(no, relation)"
+  },
+  {
+    "row_number": 34,
+    "ID": 4342,
+    "premise": "A man is eating a banana",
+    "hypothesis": "A man is eating a fruit",
+    "KB": "(banana, fruit)"
+  },
+  {
+    "row_number": 35,
+    "ID": 4360,
+    "premise": "A man is cutting a note",
+    "hypothesis": "A man is cutting a paper",
+    "KB": "(note, paper)"
+  },
+  {
+    "row_number": 36,
+    "ID": 4494,
+    "premise": "A girl is combing her hair",
+    "hypothesis": "A girl is styling her hair",
+    "KB": ""
+  },
+  {
+    "row_number": 37,
+    "ID": 4505,
+    "premise": "The doctors are healing a man",
+    "hypothesis": "The doctor is helping the patient",
+    "KB": "(heal, help)"
+  },
+  {
+    "row_number": 38,
+    "ID": 4589,
+    "premise": "A hamster is singing",
+    "hypothesis": "A small animal is singing",
+    "KB": "(hamster, small animal)"
+  },
+  {
+    "row_number": 39,
+    "ID": 4661,
+    "premise": "A woman is slicing a potato",
+    "hypothesis": "A woman is cutting a potato",
+    "KB": "(slice, cut)"
+  },
+  {
+    "row_number": 40,
+    "ID": 4734,
+    "premise": "A man is fitting a silencer to a pistol",
+    "hypothesis": "A man is applying a silencer to a gun",
+    "KB": ""
+  },
+  {
+    "row_number": 41,
+    "ID": 4766,
+    "premise": "A man is cooking a snake",
+    "hypothesis": "A man is roasting a snake",
+    "KB": "(cook, roast)"
+  },
+  {
+    "row_number": 42,
+    "ID": 4916,
+    "premise": "A man is singing and playing a guitar",
+    "hypothesis": "A man is singing and playing a musical instrument",
+    "KB": "(guitar, musical instrument)"
+  },
+  {
+    "row_number": 43,
+    "ID": 4972,
+    "premise": "An onion is being chopped",
+    "hypothesis": "An onion is being sliced",
+    "KB": "(chop, slice)"
+  },
+  {
+    "row_number": 44,
+    "ID": 4974,
+    "premise": "Someone is holding a hedgehog",
+    "hypothesis": "Someone is holding a small animal",
+    "KB": ""
+  },
+  {
+    "row_number": 45,
+    "ID": 5030,
+    "premise": "The man is talking on the telephone",
+    "hypothesis": "The man is speaking on the telephone",
+    "KB": "(talk, speak)"
+  },
+  {
+    "row_number": 46,
+    "ID": 5110,
+    "premise": "A chef is preparing some food",
+    "hypothesis": "A chef is preparing a meal",
+    "KB": "(food, meal)"
+  },
+  {
+    "row_number": 47,
+    "ID": 5113,
+    "premise": "Two sumo ringers are fighting",
+    "hypothesis": "Two sumo wrestlers are fighting",
+    "KB": "(sumo ringer, sumo wrestler)"
+  },
+  {
+    "row_number": 48,
+    "ID": 5149,
+    "premise": "A lemur is hanging on a cord",
+    "hypothesis": "A lemur is hanging on a rope",
+    "KB": ""
+  },
+  {
+    "row_number": 49,
+    "ID": 5198,
+    "premise": "A boy is saying a word",
+    "hypothesis": "A child is talking",
+    "KB": "(boy, child); (say, talk)"
+  },
+  {
+    "row_number": 50,
+    "ID": 5230,
+    "premise": "A tiger is walking around",
+    "hypothesis": "A tiger is strolling around",
+    "KB": "(walk around, stroll around)"
+  },
+  {
+    "row_number": 51,
+    "ID": 5435,
+    "premise": "Two baby pandas are playing",
+    "hypothesis": "Two cubs are playing",
+    "KB": "(baby panda, cub)"
+  },
+  {
+    "row_number": 52,
+    "ID": 5462,
+    "premise": "A boy is mowing the lawn",
+    "hypothesis": "A guy is mowing the lawn",
+    "KB": ""
+  },
+  {
+    "row_number": 53,
+    "ID": 5498,
+    "premise": "A woman is cutting a lemon",
+    "hypothesis": "A woman is cutting fruit",
+    "KB": "(lemon, fruit)"
+  },
+  {
+    "row_number": 54,
+    "ID": 5554,
+    "premise": "The man is aiming a gun",
+    "hypothesis": "The man is handling a gun",
+    "KB": "(no, relation)"
+  },
+  {
+    "row_number": 55,
+    "ID": 5555,
+    "premise": "The man is aiming a gun",
+    "hypothesis": "The man is drawing a gun",
+    "KB": "(no, relation)"
+  },
+  {
+    "row_number": 56,
+    "ID": 5806,
+    "premise": "A man is rowing a canoe",
+    "hypothesis": "A man is rowing a boat",
+    "KB": ""
+  },
+  {
+    "row_number": 57,
+    "ID": 5938,
+    "premise": "Vegetables are being put into a pot by a man",
+    "hypothesis": "Someone is pouring ingredients into a pot",
+    "KB": "(vegetable, ingredient)"
+  },
+  {
+    "row_number": 58,
+    "ID": 6065,
+    "premise": "A person in a blue jacket is jumping off of a tall cement wall",
+    "hypothesis": "A person in a blue colored jacket is jumping off of a tall cement wall",
+    "KB": "(no, relation)"
+  },
+  {
+    "row_number": 59,
+    "ID": 6214,
+    "premise": "A man is on a ship in front of the sunset",
+    "hypothesis": "A man is on a boat in front of the sunset",
+    "KB": "(ship, boat)"
+  },
+  {
+    "row_number": 60,
+    "ID": 6395,
+    "premise": "A dog is herding a group of white sheep on a dusty farm",
+    "hypothesis": "A dog is herding a pack of white sheep on a dusty farm",
+    "KB": ""
+  },
+  {
+    "row_number": 61,
+    "ID": 6584,
+    "premise": "A young female is dancing",
+    "hypothesis": "A young girl is dancing",
+    "KB": "(female, girl)"
+  },
+  {
+    "row_number": 62,
+    "ID": 6634,
+    "premise": "A hurdle is being leapt by a horse that has a rider on its back",
+    "hypothesis": "A horse and its rider are leaping over a barrier",
+    "KB": "(hurdle, barrier)"
+  },
+  {
+    "row_number": 63,
+    "ID": 6756,
+    "premise": "A large brown dog and a small grey dog are standing on a rocky surface",
+    "hypothesis": "A big brown dog and a small grey dog are standing on a rocky surface",
+    "KB": "(large, big)"
+  },
+  {
+    "row_number": 64,
+    "ID": 7479,
+    "premise": "Two guys are sitting around a table and holding beers in their hands",
+    "hypothesis": "Two blokes are sitting around a table and holding beers in their hands",
+    "KB": ""
+  },
+  {
+    "row_number": 65,
+    "ID": 7795,
+    "premise": "A tennis player is lunging to the left",
+    "hypothesis": "A tennis player is jumping to the left",
+    "KB": "(lunge, jump)"
+  },
+  {
+    "row_number": 66,
+    "ID": 8021,
+    "premise": "A brown and white dog is playing on the grass",
+    "hypothesis": "A brown and white dog is playing on the lawn",
+    "KB": "(grass, lawn)"
+  },
+  {
+    "row_number": 67,
+    "ID": 8138,
+    "premise": "The girl has red hair and eyebrows, several piercings in a ear and a drawing on the back",
+    "hypothesis": "The girl has red hair and eyebrows, several piercings in a ear and a tattoo on the back",
+    "KB": "(no, relation)"
+  },
+  {
+    "row_number": 68,
+    "ID": 8163,
+    "premise": "Two people are driving a jeep and a lady is sitting on the top of it",
+    "hypothesis": "Two people are driving a jeep and a girl is sitting on the top of it",
+    "KB": ""
+  },
+  {
+    "row_number": 69,
+    "ID": 8334,
+    "premise": "A man is doing a trick on a skateboard",
+    "hypothesis": "A person is doing a trick on a skateboard",
+    "KB": "(man, person)"
+  },
+  {
+    "row_number": 70,
+    "ID": 8343,
+    "premise": "A man in a motocross uniform is wearing a helmet and rides a red motorcycle",
+    "hypothesis": "A person in a motocross uniform is wearing a helmet and rides a red motorcycle",
+    "KB": "(man, person)"
+  },
+  {
+    "row_number": 71,
+    "ID": 8383,
+    "premise": "A girl in blue is sliding down a green slide",
+    "hypothesis": "The young girl in blue is enjoying a slide",
+    "KB": "(no, relation)"
+  },
+  {
+    "row_number": 72,
+    "ID": 8624,
+    "premise": "People are sitting against a wall",
+    "hypothesis": "People are sitting near a wall",
+    "KB": ""
+  },
+  {
+    "row_number": 73,
+    "ID": 8633,
+    "premise": "A man is rock climbing, pausing and calculating the route",
+    "hypothesis": "A man is rock climbing, stopping and calculating the route",
+    "KB": "(pause, stop)"
+  },
+  {
+    "row_number": 74,
+    "ID": 8660,
+    "premise": "A group of rollerbladers is lining up on the street",
+    "hypothesis": "A group of rollerbladers is lining up on the road",
+    "KB": "(street, road)"
+  },
+  {
+    "row_number": 75,
+    "ID": 8727,
+    "premise": "A group of people are standing around a sound mixing table",
+    "hypothesis": "Some people is looking at sound equipment",
+    "KB": "(group, some people); (sound mixing table, sound equipment)"
+  },
+  {
+    "row_number": 76,
+    "ID": 8806,
+    "premise": "A dog is swimming in a body of water",
+    "hypothesis": "An animal is swimming in a body of water",
+    "KB": ""
+  },
+  {
+    "row_number": 77,
+    "ID": 8986,
+    "premise": "A young girl in a bikini is jumping on the beach",
+    "hypothesis": "A young girl in swimming suite is jumping on the beach",
+    "KB": "(bikini, swimming suit)"
+  },
+  {
+    "row_number": 78,
+    "ID": 9069,
+    "premise": "Two boys are laying in the ocean close to the beach",
+    "hypothesis": "Two boys are laying in the water close to the beach",
+    "KB": "(ocean, water)"
+  },
+  {
+    "row_number": 79,
+    "ID": 9359,
+    "premise": "A surfer is surfing a big wave",
+    "hypothesis": "A surfer is surfing a huge wave",
+    "KB": "(big, huge)"
+  },
+  {
+    "row_number": 80,
+    "ID": 9433,
+    "premise": "The black and white dog is running in a green yard",
+    "hypothesis": "A black and white dog is running outdoors",
+    "KB": ""
+  },
+  {
+    "row_number": 81,
+    "ID": 9584,
+    "premise": "The woman is holding the paintbrush next to the artist's easel",
+    "hypothesis": "The lady is holding the paintbrush next to the artist's easel",
+    "KB": "(woman, lady)"
+  },
+  {
+    "row_number": 82,
+    "ID": 9668,
+    "premise": "A shirtless man is escorting a horse that is pulling a carriage along a paved road",
+    "hypothesis": "A shirtless man is leading a horse that is pulling a carriage",
+    "KB": "(escort, lead)"
+  },
+  {
+    "row_number": 83,
+    "ID": 9713,
+    "premise": "A black and white dog is carrying a huge stick on the green grass",
+    "hypothesis": "A black and white dog with a large branch is running in the field",
+    "KB": "(huge, large); (stick, branch); (grass, field)"
+  },
+  {
+    "row_number": 84,
+    "ID": "vg_len26r4e",
+    "premise": "The spectators wear hats",
+    "hypothesis": "The onlookers wear hats",
+    "KB": ""
+  },
+  {
+    "row_number": 85,
+    "ID": "vg_len46r5e",
+    "premise": "The boat is white",
+    "hypothesis": "The boat isn't black.",
+    "KB": "(no, relation)"
+  },
+  {
+    "row_number": 86,
+    "ID": "vg_len47r3e",
+    "premise": "The man is white.",
+    "hypothesis": "The man is pale.",
+    "KB": "(white, pale)"
+  },
+  {
+    "row_number": 87,
+    "ID": "vg_len47r4e",
+    "premise": "The man is white.",
+    "hypothesis": "The man is not black.",
+    "KB": "(no, relation)"
+  },
+  {
+    "row_number": 88,
+    "ID": "vg_len66r1e",
+    "premise": "The cup is shiny.",
+    "hypothesis": "The cup glitters",
+    "KB": ""
+  },
+  {
+    "row_number": 89,
+    "ID": "vg_len84r1e",
+    "premise": "The bus is gleaming",
+    "hypothesis": "The bus is bright.",
+    "KB": "(gleaming, bright)"
+  },
+  {
+    "row_number": 90,
+    "ID": "vg_len120r5e",
+    "premise": "The sky is blue",
+    "hypothesis": "The sky is visible.",
+    "KB": "(no, relation)"
+  },
+  {
+    "row_number": 91,
+    "ID": "1184967930.jpg#4r4e",
+    "premise": "A dog in a field.",
+    "hypothesis": "A dog is in grass.",
+    "KB": "(field, grass)"
+  },
+  {
+    "row_number": 92,
+    "ID": "119364730.jpg#3r1e",
+    "premise": "A man wearing a plastic bib with a crab on it, holds up a wooden hammer.",
+    "hypothesis": "A man holding a hammer.",
+    "KB": ""
+  },
+  {
+    "row_number": 93,
+    "ID": "207584893.jpg#3r1e",
+    "premise": "Hang glider on beach",
+    "hypothesis": "air sport on beach",
+    "KB": "(hang glider, air sport)"
+  },
+  {
+    "row_number": 94,
+    "ID": "2095711097.jpg#1r1e",
+    "premise": "Construction masons at work laying concrete blocks on a multistory building.",
+    "hypothesis": "Concrete work is being done on a multistory building",
+    "KB": "(no, relation)"
+  },
+  {
+    "row_number": 95,
+    "ID": "2109479807.jpg#0r1e",
+    "premise": "Four females wearing helments are riding on an ATV.",
+    "hypothesis": "Four women are driving an all terrain vehicle.",
+    "KB": "(female, woman); (atv, all terrain vehicle)"
+  },
+  {
+    "row_number": 96,
+    "ID": "2195887578.jpg#2r1e",
+    "premise": "Two men in suits standing in front of a bus, one is wearing a medal.",
+    "hypothesis": "Two men are standing in front of a large vehicle.",
+    "KB": ""
+  },
+  {
+    "row_number": 97,
+    "ID": "2217728745.jpg#4r1e",
+    "premise": "A man in a bar.",
+    "hypothesis": "A guy in a bar.",
+    "KB": "(man, guy)"
+  },
+  {
+    "row_number": 98,
+    "ID": "228280436.jpg#1r1e",
+    "premise": "A group of people are buying fruits and vegetables from a stand located in a street market.",
+    "hypothesis": "The stand selling produce is in a street market.",
+    "KB": "(fruits and vegetables, produce)"
+  },
+  {
+    "row_number": 99,
+    "ID": "2343145630.jpg#0r4e",
+    "premise": "A black singer with short, spiked hair plays guitar and sings, while a bassist plays behind him.",
+    "hypothesis": "A person with pointy hair is singing while another person playing an instrument is in back of him.",
+    "KB": "(spiked, pointy); (singer, person)"
+  },
+  {
+    "row_number": 100,
+    "ID": "2521878609.jpg#4r1e",
+    "premise": "kid eating pasta",
+    "hypothesis": "The kid is human.",
+    "KB": ""
+  },
+  {
+    "row_number": 101,
+    "ID": "2543017787.jpg#4r1e",
+    "premise": "A child rides a swing.",
+    "hypothesis": "A kid is playing",
+    "KB": "(child, kid)"
+  },
+  {
+    "row_number": 102,
+    "ID": "2565685680.jpg#0r1e",
+    "premise": "An animal with black fur splashing about in relatively deep water.",
+    "hypothesis": "The dark animal is playing in the water.",
+    "KB": "(black, dark)"
+  },
+  {
+    "row_number": 103,
+    "ID": "2618866067.jpg#4r1e",
+    "premise": "A gray dog is yawning.",
+    "hypothesis": "A dog is tired.",
+    "KB": "(no, relation)"
+  },
+  {
+    "row_number": 104,
+    "ID": "2647049174.jpg#4r1e",
+    "premise": "A toddler eats dirt.",
+    "hypothesis": "A baby is eating dirt.",
+    "KB": ""
+  },
+  {
+    "row_number": 105,
+    "ID": "2680990587.jpg#3r1e",
+    "premise": "One boy is pushing another boy on a swing.",
+    "hypothesis": "One human pushing another.",
+    "KB": "(boy, human)"
+  },
+  {
+    "row_number": 106,
+    "ID": "2714703706.jpg#0r1e",
+    "premise": "The brown dog has a hold of the other dogs cheek with its teeth.",
+    "hypothesis": "The dog grabbed the other dog with his teeth.",
+    "KB": "(get a hold, grab)"
+  },
+  {
+    "row_number": 107,
+    "ID": "2726887594.jpg#4r1e",
+    "premise": "A man in a blue polo raises his wineglass to toast.",
+    "hypothesis": "A man holds a wineglass.",
+    "KB": ""
+  },
+  {
+    "row_number": 108,
+    "ID": "273699639.jpg#4r1e",
+    "premise": "A woman sitting with two men hugging.",
+    "hypothesis": "A group of people are sitting together.",
+    "KB": ""
+  },
+  {
+    "row_number": 109,
+    "ID": "2741990005.jpg#4r1e",
+    "premise": "A man vaults over a high bar.",
+    "hypothesis": "A man jumps.",
+    "KB": "(vault, jump)"
+  },
+  {
+    "row_number": 110,
+    "ID": "2802158972.jpg#1r1e",
+    "premise": "Eight men play instruments on stage, with a guitarist highlighted in lights.",
+    "hypothesis": "people play music",
+    "KB": "(play instrument, play music)"
+  },
+  {
+    "row_number": 111,
+    "ID": "281271503.jpg#4r1e",
+    "premise": "A man in a bright yellow shirt juggles while riding a unicycle.",
+    "hypothesis": "Man performs a juggling act on a unicycle.",
+    "KB": "(no, relation)"
+  },
+  {
+    "row_number": 112,
+    "ID": "2843629756.jpg#0r1e",
+    "premise": "A man wearing shorts and a blue t-shirt is applying signage to the display window of an ice cream shop.",
+    "hypothesis": "A man is putting a sign in the window.",
+    "KB": ""
+  },
+  {
+    "row_number": 113,
+    "ID": "303607405.jpg#4r3e",
+    "premise": "a dog shakes dry.",
+    "hypothesis": "A dog is wet.",
+    "KB": "(no, relation)"
+  },
+  {
+    "row_number": 114,
+    "ID": "3046190891.jpg#2r1e",
+    "premise": "A surfer is performing a jumping stunt in the ocean.",
+    "hypothesis": "A person in the water.",
+    "KB": "(surfer, person); (ocean, water)"
+  },
+  {
+    "row_number": 115,
+    "ID": "3134092148.jpg#3r2e",
+    "premise": "A man surfing a wave.",
+    "hypothesis": "A man catches a wave.",
+    "KB": "(surf, catch a wave)"
+  },
+  {
+    "row_number": 116,
+    "ID": "3159569570.jpg#4r1e",
+    "premise": "A group of",
+    "hypothesis": "A gathering of",
+    "KB": ""
+  },
+  {
+    "row_number": 117,
+    "ID": "3228793611.jpg#4r1e",
+    "premise": "Dog digs in sand",
+    "hypothesis": "A dog is playing",
+    "KB": "(no, relation)"
+  },
+  {
+    "row_number": 118,
+    "ID": "326456451.jpg#4r1e",
+    "premise": "A rottweiler running.",
+    "hypothesis": "An animal is running.",
+    "KB": "(rottweiler, animal)"
+  },
+  {
+    "row_number": 119,
+    "ID": "3479245321.jpg#4r1e",
+    "premise": "Concentration campsite.",
+    "hypothesis": "A concentration camp.",
+    "KB": "(campsite, camp)"
+  },
+  {
+    "row_number": 120,
+    "ID": "3614595423.jpg#4r1e",
+    "premise": "Children climb a tree.",
+    "hypothesis": "Kids climbing.",
+    "KB": ""
+  },
+  {
+    "row_number": 121,
+    "ID": "3629664676.jpg#4r1e",
+    "premise": "A dog pulling a rope.",
+    "hypothesis": "The dog drags the rope.",
+    "KB": "(pull, drag)"
+  },
+  {
+    "row_number": 122,
+    "ID": "3639967449.jpg#3r1e",
+    "premise": "Two boys sitting and eating ice cream.",
+    "hypothesis": "The boys are eating.",
+    "KB": "(no, relation)"
+  },
+  {
+    "row_number": 123,
+    "ID": "3746285587.jpg#2r1e",
+    "premise": "A woman in a brown shirt is kneeling in the street.",
+    "hypothesis": "A woman is on the ground outside.",
+    "KB": "(street, outside)"
+  },
+  {
+    "row_number": 124,
+    "ID": "3760793412.jpg#1r1e",
+    "premise": "A young boy sits on the shoulders of a woman, who is carrying a young girl.",
+    "hypothesis": "A woman is with a couple of children",
+    "KB": ""
+  },
+  {
+    "row_number": 125,
+    "ID": "3816820298.jpg#0r1e",
+    "premise": "A man on horseback in a rodeo arena is trying to lasso a black calf.",
+    "hypothesis": "A man is on a horse doing rodeo events.",
+    "KB": "(no, relation)"
+  },
+  {
+    "row_number": 126,
+    "ID": "3843254402.jpg#0r1e",
+    "premise": "A man in a white striped shirt and blue jeans using a water hose to spray water on the ground of concrete ruins.Fo.",
+    "hypothesis": "A man is spraying water on concrete.",
+    "KB": "(no, relation)"
+  },
+  {
+    "row_number": 127,
+    "ID": "4000008650.jpg#2r1e",
+    "premise": "A woman plays the tuba and another plays the cello on the street.",
+    "hypothesis": "People playing instruments on the street.",
+    "KB": "(tuba, instrument); (cello, instrument)"
+  },
+  {
+    "row_number": 128,
+    "ID": "418207489.jpg#3r1n",
+    "premise": "A man and a woman are shopping at a large hardware warehouse store.",
+    "hypothesis": "A man and woman are in a hardware store.",
+    "KB": ""
+  },
+  {
+    "row_number": 129,
+    "ID": "4183662919.jpg#3r1e",
+    "premise": "A child plays with her father's boots.",
+    "hypothesis": "A child is playing.",
+    "KB": "(no, relation)"
+  },
+  {
+    "row_number": 130,
+    "ID": "4291704682.jpg#3r1e",
+    "premise": "There are two people sweeping a sidewalk in this picture.",
+    "hypothesis": "There are a couple of people cleaning the path.",
+    "KB": "(two, couple); (sweep, clean); (sidewalk, path)"
+  },
+  {
+    "row_number": 131,
+    "ID": "4294390957.jpg#3r1e",
+    "premise": "A man talks behind a podium.",
+    "hypothesis": "A man is speaking.",
+    "KB": "(talk, speak)"
+  },
+  {
+    "row_number": 132,
+    "ID": "4355004642.jpg#0r1e",
+    "premise": "A chef and his newest creation in process, being made in an old fashioned oven.",
+    "hypothesis": "A chef creates.",
+    "KB": ""
+  },
+  {
+    "row_number": 133,
+    "ID": "436393371.jpg#3r1e",
+    "premise": "A dog is biting a twig.",
+    "hypothesis": "A dog is chewing.",
+    "KB": "(bite, chew)"
+  },
+  {
+    "row_number": 134,
+    "ID": "4379561906.jpg#4r1e",
+    "premise": "A group of people are standing inside an office",
+    "hypothesis": "Some people are seen inside a room.",
+    "KB": "(office, room)"
+  },
+  {
+    "row_number": 135,
+    "ID": "4408862587.jpg#0r1e",
+    "premise": "A woman wearing a black jacket walking down the street with a young girl wearing a backpack, getting ready to pass a group of people standing on the street.",
+    "hypothesis": "A women and child walking down the street",
+    "KB": "(young girl, child)"
+  },
+  {
+    "row_number": 136,
+    "ID": "4501954896.jpg#2r1e",
+    "premise": "Man jumping up in the air and splitting his legs with his mouth open.",
+    "hypothesis": "A man is jumping.",
+    "KB": ""
+  },
+  {
+    "row_number": 137,
+    "ID": "4524361920.jpg#0r1e",
+    "premise": "A woman in a black leather shirt trench-coat and black leather calf-high boots and carrying a colorful bag with a shoulder strap faces away from the camera with a yellow post visible just in front of her.",
+    "hypothesis": "A lady in black leather trench coat, with matching black leather boots walks away from the camera in her front with her bag strapped to her shoulders",
+    "KB": "(woman, lady)"
+  },
+  {
+    "row_number": 138,
+    "ID": "4569102627.jpg#2r1e",
+    "premise": "Little girl with very curly hair drinking her cup of juice.",
+    "hypothesis": "A girl is ingesting liquid.",
+    "KB": "(drink, ingest); (juice, liquid)"
+  },
+  {
+    "row_number": 139,
+    "ID": "4625392581.jpg#1r1e",
+    "premise": "A boy with an orange shirt and blue jeans gets a ride on a man's shoulders.",
+    "hypothesis": "A person is riding on another person's shoulders.",
+    "KB": "(boy, person); (man, person)"
+  },
+  {
+    "row_number": 140,
+    "ID": "4703790336.jpg#2r1n",
+    "premise": "A woman in a yellow dress transporting picked food from the fields to wherever it may need to go.",
+    "hypothesis": "A woman transports her crops from the fields",
+    "KB": ""
+  },
+  {
+    "row_number": 141,
+    "ID": "4704577040.jpg#1r1e",
+    "premise": "A thin man in a maroon shirt standing next to a pay phone.",
+    "hypothesis": "A man is standing next to a payphone wearing a maroon shirt.",
+    "KB": "(pay phone, payphone)"
+  },
+  {
+    "row_number": 142,
+    "ID": "4729191874.jpg#0r1e",
+    "premise": "A woman in a brown shirt and a man in a hat cross the street.",
+    "hypothesis": "A man and woman are walking in the street.",
+    "KB": "(cross, walk)"
+  },
+  {
+    "row_number": 143,
+    "ID": "4734162520.jpg#2r1e",
+    "premise": "Police officer and his motorcycle in a crowd of people at a protest.",
+    "hypothesis": "A police officer is on his motorcycle.",
+    "KB": "(no, relation)"
+  },
+  {
+    "row_number": 144,
+    "ID": "481887827.jpg#3r1e",
+    "premise": "A group of people sit before a campfire.",
+    "hypothesis": "People are around a fire",
+    "KB": ""
+  },
+  {
+    "row_number": 145,
+    "ID": "4820830153.jpg#0r1e",
+    "premise": "A local street in an Arabic country where there is a market selling Coca-Cola.",
+    "hypothesis": "A market is selling soft drinks in an Arabic country.",
+    "KB": "(coca-cola, soft drink)"
+  },
+  {
+    "row_number": 146,
+    "ID": "4887879873.jpg#2r1e",
+    "premise": "A man wearing a black jacket stands next to a body of water.",
+    "hypothesis": "A person is outside near some water.",
+    "KB": "(man, person)"
+  },
+  {
+    "row_number": 147,
+    "ID": "4985197970.jpg#0r1e",
+    "premise": "A sunny street with a red building, parked cars, and a man walking down the road.",
+    "hypothesis": "The sun is shining.",
+    "KB": "(no, relation)"
+  },
+  {
+    "row_number": 148,
+    "ID": "65847949.jpg#1r3e",
+    "premise": "Four women sitting on green outdoor furniture on a patio with a small doghouse in the backdrop.",
+    "hypothesis": "four women sitting outdoors",
+    "KB": ""
+  },
+  {
+    "row_number": 149,
+    "ID": "686293997.jpg#4r1e",
+    "premise": "Dinner and decisions, with the crew.",
+    "hypothesis": "the crew was having dinner",
+    "KB": "(no, relation)"
+  },
+  {
+    "row_number": 150,
+    "ID": "697582336.jpg#3r1e",
+    "premise": "The German shepherd runs happily in the park.",
+    "hypothesis": "Dog runs outside.",
+    "KB": "(park, outside)"
+  },
+  {
+    "row_number": 151,
+    "ID": "78347259.jpg#4r1e",
+    "premise": "A Korean gentlemen kicks up his leg.",
+    "hypothesis": "A person is kicking.",
+    "KB": "(gentleman, person)"
+  },
+  {
+    "row_number": 152,
+    "ID": "92413203.jpg#0r1e",
+    "premise": "Three people each lead one camel with riders in a silhouetted line across sand dunes and a gray sky.",
+    "hypothesis": "People walking across the sand.",
+    "KB": ""
+  },
+  {
+    "row_number": 153,
+    "ID": "941641803.jpg#3r1e",
+    "premise": "A man toy field hockey with a toddler in the grass.",
+    "hypothesis": "A man playing field hockey with a small child outside.",
+    "KB": "(toddler, small child)"
+  },
+  {
+    "row_number": 154,
+    "ID": "976581518.jpg#0r1e",
+    "premise": "A scientist studies a slide in order to work on her new creation.",
+    "hypothesis": "A scientist studies a slide that is related to her invention.",
+    "KB": "(creation, invention)"
+  },
+  {
+    "row_number": 155,
+    "ID": "3639617775.jpg#0r1e",
+    "premise": "The bride in the white dress is surrounded by the groomsmen and bridesmaids, all in black.",
+    "hypothesis": "a woman in white is surrounded by others",
+    "KB": "(bride, woman)"
+  },
+  {
+    "row_number": 156,
+    "ID": "4440438333.jpg#1r1e",
+    "premise": "The pitcher wearing black heaves the ball toward the catcher.",
+    "hypothesis": "People are playing a game.",
+    "KB": "(no, relation)"
+  },
+  {
+    "row_number": 157,
+    "ID": "2529017800.jpg#1r1e",
+    "premise": "3 people, one man playing a guitar while sitting on the floor and two people playing a game on a sofa.",
+    "hypothesis": "Several people are gathered inside.",
+    "KB": "(3, several)"
+  },
+  {
+    "row_number": 158,
+    "ID": "4833879670.jpg#0r1e",
+    "premise": "A man is standing on the sidewalk, playing a guitar and singing, with a container of tips by him.",
+    "hypothesis": "A man is performing outside.",
+    "KB": "(sidewalk, outside)"
+  },
+  {
+    "row_number": 159,
+    "ID": "4909669888.jpg#2r1e",
+    "premise": "A Black woman on the street is talking on her cellphone.",
+    "hypothesis": "A black woman is on her phone.",
+    "KB": "(cellphone, phone)"
+  },
+  {
+    "row_number": 160,
+    "ID": "5266194002.jpg#0r1e",
+    "premise": "A man in a blue t-shirt is watching two women sitting at a table in the kitchen baking.",
+    "hypothesis": "A man watches two women cook",
+    "KB": "(bake, cook)"
+  },
+  {
+    "row_number": 161,
+    "ID": "8159685316.jpg#1r1e",
+    "premise": "Female runners from Japan, Germany and China are running side by side.",
+    "hypothesis": "The runners are not from the US",
+    "KB": "(no, relation)"
+  },
+  {
+    "row_number": 162,
+    "ID": "7724666074.jpg#3r1e",
+    "premise": "A person is riding a colorful dirt bike on dirt hills.",
+    "hypothesis": "A person rides a dirt bike outside.",
+    "KB": "(dirt hill, outside)"
+  },
+  {
+    "row_number": 163,
+    "ID": "2709648336.jpg#0r1e",
+    "premise": "A large brown and black dog jumps in the air holding a white Frisbee in its mouth.",
+    "hypothesis": "An animal moving vertically and gripping a toy with its teeth.",
+    "KB": "(dog, animal); (hold, grip); (frisbee, toy)"
+  },
+  {
+    "row_number": 164,
+    "ID": "98756067.jpg#1r1e",
+    "premise": "Two men practicing a form of martial arts in a wooden-floored studio.",
+    "hypothesis": "Few men practicing martial arts in a studio, which is wooden floored",
+    "KB": "(two, few)"
+  },
+  {
+    "row_number": 165,
+    "ID": "3613264553.jpg#4r1e",
+    "premise": "A white dog is walking on a rocky hillside.",
+    "hypothesis": "A dog walks outside.",
+    "KB": "(hillside, outside)"
+  },
+  {
+    "row_number": 166,
+    "ID": "261626276.jpg#0r1e",
+    "premise": "A young man with blond dreadlocks sits on a wall reading a newspaper as a woman and a young girl pass by.",
+    "hypothesis": "A young male is looking at a newspaper while 2 females walks past him.",
+    "KB": "(man, male)"
+  },
+  {
+    "row_number": 167,
+    "ID": "3101378069.jpg#4r1e",
+    "premise": "A lady rows a canoe filled with things.",
+    "hypothesis": "A woman rows a small boat loaded with items.",
+    "KB": "(lady, woman); (canoe, small boat); (thing, item)"
+  },
+  {
+    "row_number": 168,
+    "ID": "3375549004.jpg#4r1e",
+    "premise": "Men walk in line carrying things.",
+    "hypothesis": "While carrying their load, the men walked one behind the other.",
+    "KB": "(in line, one behind the other)"
+  },
+  {
+    "row_number": 169,
+    "ID": "2518094853.jpg#3r1e",
+    "premise": "A brown dog runs through a field.",
+    "hypothesis": "A brown dog running outside.",
+    "KB": "(field, outside)"
+  },
+  {
+    "row_number": 170,
+    "ID": "4697314878.jpg#1r1e",
+    "premise": "A man walks away from a bright yellow, red and blue bounce house.",
+    "hypothesis": "A man leaves a brightly colored bounce house.",
+    "KB": "(walk away, leave)"
+  },
+  {
+    "row_number": 171,
+    "ID": "6167481552.jpg#3r1e",
+    "premise": "A football team getting ready for the coin toss in a half empty stadium.",
+    "hypothesis": "The stadium is not full.",
+    "KB": "(no, relation)"
+  },
+  {
+    "row_number": 172,
+    "ID": "6167481552.jpg#3r1n",
+    "premise": "A football team getting ready for the coin toss in a half empty stadium.",
+    "hypothesis": "There is a game about to be played.",
+    "KB": "(no, relation)"
+  },
+  {
+    "row_number": 173,
+    "ID": "4769459188.jpg#3r1e",
+    "premise": "A smiling man wearing a football jersey is carrying a stack of video games.",
+    "hypothesis": "The man totes the video games",
+    "KB": "(carry, tote)"
+  },
+  {
+    "row_number": 174,
+    "ID": "3486059684.jpg#1r1e",
+    "premise": "The restaurant employee is preparing sandwiches in the highly decorated kitchen.",
+    "hypothesis": "A service worker is making food in a nice kitchen.",
+    "KB": "(restaurant employee, service worker); (sandwich, food)"
+  },
+  {
+    "row_number": 175,
+    "ID": "36422830.jpg#0r1e",
+    "premise": "A red jeep hangs from the edge of a rocky cliff as a girl looks on.",
+    "hypothesis": "The vehicle is red.",
+    "KB": "(jeep, vehicle)"
+  },
+  {
+    "row_number": 176,
+    "ID": "3181701312.jpg#2r1e",
+    "premise": "A man takes a nap on the sidewalk in a busy city.",
+    "hypothesis": "Someone is asleep on a sidewalk.",
+    "KB": "(man, someone)"
+  },
+  {
+    "row_number": 177,
+    "ID": "3726076549.jpg#4r1e",
+    "premise": "Man sliding down stair handrails on a bike.",
+    "hypothesis": "A biker glides down handrails.",
+    "KB": "(slide, glide)"
+  },
+  {
+    "row_number": 178,
+    "ID": "477990943.jpg#0r1e",
+    "premise": "A girl with black hair and a green shirt has taken several bites from a fresh green apple.",
+    "hypothesis": "The girl is eating in this picture.",
+    "KB": "(take a bite, eat)"
+  },
+  {
+    "row_number": 179,
+    "ID": "237424188.jpg#0r1e",
+    "premise": "A girl wearing a red shirt and jeans is sitting in a rocking chair at a cluttered desk, while another girl wearing a black t-shirt and jogging pants is sitting on the floor writing on a piece of paper with other papers arranged around her.",
+    "hypothesis": "two girls in a room",
+    "KB": "(no, relation)"
+  },
+  {
+    "row_number": 180,
+    "ID": "2218743570.jpg#4r1n",
+    "premise": "A husky and a black cat nuzzling.",
+    "hypothesis": "A dog and cat are friendly.",
+    "KB": "(husky, dog)"
+  },
+  {
+    "row_number": 181,
+    "ID": "4019072184.jpg#4r1e",
+    "premise": "A man is rock climbing with protective rope.",
+    "hypothesis": "A man is being secured.",
+    "KB": "(no, relation)"
+  },
+  {
+    "row_number": 182,
+    "ID": "3696246123.jpg#3r1e",
+    "premise": "Two dogs play with tennis ball in field.",
+    "hypothesis": "The dogs are romping across the field.",
+    "KB": "(play, romp)"
+  },
+  {
+    "row_number": 183,
+    "ID": "114368470.jpg#1r1e",
+    "premise": "Boy standing in line in a grocery store with his items on the conveyor belt.",
+    "hypothesis": "He is waiting to pay.",
+    "KB": "(stand in line, wait)"
+  },
+  {
+    "row_number": 184,
+    "ID": "241346508.jpg#0r1e",
+    "premise": "Three Oklahoma Sooners playing football against another team, one of the sooners with the ball in their possession.",
+    "hypothesis": "College football players are playing a football game.",
+    "KB": "(oklahoma sooner, college football player)"
+  },
+  {
+    "row_number": 185,
+    "ID": "985982384.jpg#3r1e",
+    "premise": "Men and women in swimsuits hangout on rocks above water.",
+    "hypothesis": "The men and women are dressed in clothes for the beach.",
+    "KB": "(swimsuit, clothes for the beach)"
+  },
+  {
+    "row_number": 186,
+    "ID": "3562169000.jpg#0r1e",
+    "premise": "A blue race car slides off the racetrack and hits white median bumpers with its rear.",
+    "hypothesis": "The automobile lost control and hit something.",
+    "KB": "(race car, automobile); (slide off, lose control); (bumper, something)"
+  },
+  {
+    "row_number": 187,
+    "ID": "552863655.jpg#3r1e",
+    "premise": "A young boy kissing an old man on the forehead.",
+    "hypothesis": "There is a boy showing affection to an old man.",
+    "KB": "(kiss, show affection)"
+  },
+  {
+    "row_number": 188,
+    "ID": "506442755.jpg#3r1e",
+    "premise": "bicycles stationed while a group of people socialize.",
+    "hypothesis": "People get together near a stand of bicycles.",
+    "KB": "(socialize, get together)"
+  },
+  {
+    "row_number": 189,
+    "ID": "2275372714.jpg#3r1e",
+    "premise": "The kids watched as the soda bottle launched into the air.",
+    "hypothesis": "There is a soda bottle flying.",
+    "KB": "(no, relation)"
+  },
+  {
+    "row_number": 190,
+    "ID": "952171414.jpg#2r1e",
+    "premise": "a group of four people conversing next to a bus",
+    "hypothesis": "A group of people are talking near a vehicle.",
+    "KB": "(converse, talk); (bus, vehicle)"
+  },
+  {
+    "row_number": 191,
+    "ID": "5791070.jpg#3r1e",
+    "premise": "Interior of the restaurant chain: Planet Hollywood, various movie memorabilia decorate the space.",
+    "hypothesis": "The inside of a restaurant.",
+    "KB": "(interior, inside)"
+  },
+  {
+    "row_number": 192,
+    "ID": "2279906281.jpg#1r1e",
+    "premise": "A shirtless man is being filmed in the middle of a soccer field.",
+    "hypothesis": "A topless male is being recorded on a sports field.",
+    "KB": "(shirtless, topless); (man, male); (film, record); (soccer field, sports field)"
+  },
+  {
+    "row_number": 193,
+    "ID": "41253213.jpg#1r1e",
+    "premise": "People sit around tables watching intently under a cloth covering.",
+    "hypothesis": "People sit around tables under canopies.",
+    "KB": "(cloth covering, canopy)"
+  },
+  {
+    "row_number": 194,
+    "ID": "973353650.jpg#3r1e",
+    "premise": "An elder bearded man having a rest in a dilapidated building.",
+    "hypothesis": "An old bearded man is in an old building.",
+    "KB": "(elder, old); (dilapidated, old)"
+  },
+  {
+    "row_number": 195,
+    "ID": "4513402918.jpg#4r1e",
+    "premise": "A live band on a lawn jamming out.",
+    "hypothesis": "People are playing music.",
+    "KB": "(jam out, play music)"
+  },
+  {
+    "row_number": 196,
+    "ID": "74759622.jpg#0r1e",
+    "premise": "A guy is standing in front of a toilet with a coffee cup in one hand and a toilet brush in the other.",
+    "hypothesis": "A guy is standing in a bathroom.",
+    "KB": "(toilet, bathroom)"
+  },
+  {
+    "row_number": 197,
+    "ID": "5770115416.jpg#3r1e",
+    "premise": "Elderly man painting a picture with a small paintbrush.",
+    "hypothesis": "An old man is creating art.",
+    "KB": "(elderly, old); (painting, creating); (picture, art)"
+  },
+  {
+    "row_number": 198,
+    "ID": "3791591952.jpg#3r1e",
+    "premise": "Two entertainers on a stage performing acrobatic moves.",
+    "hypothesis": "Two entertainers are performing acrobatics.",
+    "KB": "(acrobatic move, acrobatics)"
+  },
+  {
+    "row_number": 199,
+    "ID": "2237364221.jpg#3r1e",
+    "premise": "A man tries to get himself into shape on a treadmill.",
+    "hypothesis": "A man exercising.",
+    "KB": "(get into shape, exercise)"
+  },
+  {
+    "row_number": 200,
+    "ID": "2276230068.jpg#4r1e",
+    "premise": "A baby with star shades on.",
+    "hypothesis": "A baby wearing glasses.",
+    "KB": "(shades, glasses)"
+  },
+  {
+    "row_number": 201,
+    "ID": "3799984714.jpg#0r1e",
+    "premise": "A man playing a banjo near a tree at an outdoor event.",
+    "hypothesis": "The man is playing a musical instrument at an event.",
+    "KB": "(banjo, musical instrument)"
+  },
+  {
+    "row_number": 202,
+    "ID": "3515378674.jpg#2r1e",
+    "premise": "An older man indulging in a bottle of amber liquid.",
+    "hypothesis": "An old man is drinking some amber liquid from a bottle.",
+    "KB": "(no, relation)"
+  },
+  {
+    "row_number": 203,
+    "ID": "2208055895.jpg#4r1e",
+    "premise": "Child inside of large snow fort.",
+    "hypothesis": "A child within a snowy structure.",
+    "KB": "(inside, within); (fort, structure)"
+  },
+  {
+    "row_number": 204,
+    "ID": "4309584424.jpg#4r1e",
+    "premise": "Three young men are cleaning up a classroom.",
+    "hypothesis": "Three young men clean up their class.",
+    "KB": "(classroom, class)"
+  },
+  {
+    "row_number": 205,
+    "ID": "2201978994.jpg#1r1e",
+    "premise": "Two kids in winter clothing play near a lakefront.",
+    "hypothesis": "kids playing near a lake",
+    "KB": "(lakefront, lake)"
+  },
+  {
+    "row_number": 206,
+    "ID": "3500136982.jpg#1r1e",
+    "premise": "A line of rollerbladers crouch down aerodynamically",
+    "hypothesis": "A group of rollerbladers are crouching.",
+    "KB": "(no, relation)"
+  },
+  {
+    "row_number": 207,
+    "ID": "2367387854.jpg#1r1e",
+    "premise": "A woman with dark hair wearing a dark shirt, jeans, and glasses is talking into a microphone.",
+    "hypothesis": "A woman is speaking into a device.",
+    "KB": "(talk, speak); (microphone, device)"
+  },
+  {
+    "row_number": 208,
+    "ID": "6326513189.jpg#3r1e",
+    "premise": "One of the hockey players just tried to score",
+    "hypothesis": "There are a bunch of people on the ice.",
+    "KB": "(no, relation)"
+  },
+  {
+    "row_number": 209,
+    "ID": "4935241932.jpg#3r1e",
+    "premise": "A green bike is parked next to a door.",
+    "hypothesis": "The bike is outside.",
+    "KB": "(no, relation)"
+  },
+  {
+    "row_number": 210,
+    "ID": "3760799822.jpg#2r1e",
+    "premise": "Two women behind a net check their cellphones, while two men sitting on a curb chat to each other.",
+    "hypothesis": "The two women are checking their celluar devices.",
+    "KB": "(cellphone, cellular device)"
+  },
+  {
+    "row_number": 211,
+    "ID": "147236031.jpg#1r1e",
+    "premise": "An Asian woman is looking at the camera while trimming asparagus.",
+    "hypothesis": "Woman cuts vegetables.",
+    "KB": "(trim, cut); (asparagus, vegetable)"
+  },
+  {
+    "row_number": 212,
+    "ID": "288406480.jpg#0r1e",
+    "premise": "A baby wearing yellow is pretending to be a doctor while inside a stroller.",
+    "hypothesis": "A baby is role playing as a professional",
+    "KB": "(pretend, role play); (doctor, professional)"
+  },
+  {
+    "row_number": 213,
+    "ID": "51145797.jpg#4r1e",
+    "premise": "Two people are in a green forest.",
+    "hypothesis": "The forest is not dead.",
+    "KB": "(no, relation)"
+  },
+  {
+    "row_number": 214,
+    "ID": "5280521648.jpg#0r1e",
+    "premise": "A young man and a young women in white lab coats are reading a biology textbook together and looking at a microscope in a laboratory.",
+    "hypothesis": "Two people are referencing a textbook in a laboratory.",
+    "KB": "(read, reference)"
+  },
+  {
+    "row_number": 215,
+    "ID": "3424908564.jpg#1r1e",
+    "premise": "A woman with red-hair and wearing a black tank top and short jeans shorts appears to be yelling.",
+    "hypothesis": "A woman with red-hair screams.",
+    "KB": "(yell, scream)"
+  },
+  {
+    "row_number": 216,
+    "ID": "2665904080.jpg#1r1e",
+    "premise": "A young puppy suckles from his mother.",
+    "hypothesis": "A young puppy lays at it's mothers stomach.",
+    "KB": "(no, relation)"
+  },
+  {
+    "row_number": 217,
+    "ID": "3947729724.jpg#4r1e",
+    "premise": "Woman reaching for food at the supermarket.",
+    "hypothesis": "Woman is doing groceries at the store.",
+    "KB": "(supermarket, store)"
+  },
+  {
+    "row_number": 218,
+    "ID": "2723024306.jpg#3r1e",
+    "premise": "Man builds detailed sand castle on the beach.",
+    "hypothesis": "An adult is working with sand.",
+    "KB": "(man, adult)"
+  },
+  {
+    "row_number": 219,
+    "ID": "3054989420.jpg#0r1e",
+    "premise": "Two children throw dead leaves into the air around them.",
+    "hypothesis": "The children are outside.",
+    "KB": "(no, relation)"
+  },
+  {
+    "row_number": 220,
+    "ID": "3732782360.jpg#4r1e",
+    "premise": "A man in a suit and tie is opening a door.",
+    "hypothesis": "There is one man in this picture.",
+    "KB": "(no, relation)"
+  },
+  {
+    "row_number": 221,
+    "ID": "5436986554.jpg#1r1e",
+    "premise": "Military men dressed in camouflage and white aim there weapons while out in the snowy weather.",
+    "hypothesis": "men have weapons",
+    "KB": "(no, relation)"
+  },
+  {
+    "row_number": 222,
+    "ID": "4985197970.jpg#3r1e",
+    "premise": "A person is walking down a cobblestone street.",
+    "hypothesis": "The cobblestone street is not empty.",
+    "KB": "(no, relation)"
+  },
+  {
+    "row_number": 223,
+    "ID": "5218695756.jpg#0r1e",
+    "premise": "A worker in a striped orange, gray, and white t-shirt hovers over a stand that is displaying different kinds of flat bread.",
+    "hypothesis": "A worker stands over a bread display.",
+    "KB": "(hover over, stand over); (stand, display)"
+  },
+  {
+    "row_number": 224,
+    "ID": "3115354165.jpg#4r1e",
+    "premise": "a skateboarder ollies.",
+    "hypothesis": "Someone is on a board with four wheels.",
+    "KB": "(skateboarder, someone)"
+  },
+  {
+    "row_number": 225,
+    "ID": "5871026012.jpg#3r1e",
+    "premise": "A golfer has just finished swinging his club.",
+    "hypothesis": "a human outside",
+    "KB": ""
+  },
+  {
+    "row_number": 226,
+    "ID": "3036894037.jpg#1r1e",
+    "premise": "Two commandos with gun by a staircase and an old man holding a hat is sitting on the stairs.",
+    "hypothesis": "Two soldiers carry weapons.",
+    "KB": ""
+  },
+  {
+    "row_number": 227,
+    "ID": "3208032657.jpg#2r1e",
+    "premise": "A person powerwashing stairs leading down to a pool.",
+    "hypothesis": "a person washes stairs",
+    "KB": ""
+  },
+  {
+    "row_number": 228,
+    "ID": "2021602343.jpg#2r1e",
+    "premise": "A boy with a basketballs glowers at the camera.",
+    "hypothesis": "The boy scowls",
+    "KB": ""
+  },
+  {
+    "row_number": 229,
+    "ID": "3047788420.jpg#0r1e",
+    "premise": "A lady sitting on a bench that is against a building and under a poster of a man in a uniform waving.",
+    "hypothesis": "A person sitting",
+    "KB": ""
+  },
+  {
+    "row_number": 230,
+    "ID": "3455964125.jpg#0r1e",
+    "premise": "A young woman dressed as a princess is waving to others from inside a ride where the carriage is a large replica of the Disney character, Dumbo.",
+    "hypothesis": "A female with clothes on is on a moving vehicle, waving her hands left to right in the air.",
+    "KB": ""
+  },
+  {
+    "row_number": 231,
+    "ID": "342289865.jpg#1r1e",
+    "premise": "Man in brown and red checkered button up shirt and blue jeans makes a male and female laugh.",
+    "hypothesis": "A person in casual clothing is causing two others to be merry.",
+    "KB": ""
+  },
+  {
+    "row_number": 232,
+    "ID": "5217397101.jpg#3r1e",
+    "premise": "A nun is taking a picture outside.",
+    "hypothesis": "A woman is outside",
+    "KB": ""
+  },
+  {
+    "row_number": 233,
+    "ID": "4876043682.jpg#2r1e",
+    "premise": "A boy rides on a camel in a crowded area while talking on his cellphone.",
+    "hypothesis": "A boy is riding an animal.",
+    "KB": ""
+  },
+  {
+    "row_number": 234,
+    "ID": "2853682342.jpg#1r1e",
+    "premise": "A man in a blue shirt, jumping down a hill in a park.",
+    "hypothesis": "a man is wearing blue",
+    "KB": ""
+  },
+  {
+    "row_number": 235,
+    "ID": "501699433.jpg#0r1e",
+    "premise": "Two boys are swimming underwater in a pool and a girl is swimming in the background.",
+    "hypothesis": "There are some kids in this picture",
+    "KB": ""
+  },
+  {
+    "row_number": 236,
+    "ID": "4640148862.jpg#2r1e",
+    "premise": "A woman carrying a shopping bag in front of Fisher's Popcorn.",
+    "hypothesis": "a woman is shopping by fisher's popcorn",
+    "KB": ""
+  },
+  {
+    "row_number": 237,
+    "ID": "7292157214.jpg#0r1e",
+    "premise": "A man wearing a white jacket and pink hat is speaking into a microphone while raising one arm above his head.",
+    "hypothesis": "The man is wearing a hat.",
+    "KB": ""
+  },
+  {
+    "row_number": 238,
+    "ID": "2971285079.jpg#2r1e",
+    "premise": "A girl wearing makeup playing a bass.",
+    "hypothesis": "A girl is musical.",
+    "KB": ""
+  },
+  {
+    "row_number": 239,
+    "ID": "1796608106.jpg#4r1e",
+    "premise": "A woman building herself a sand castle.",
+    "hypothesis": "a women is making a sand castle",
+    "KB": ""
+  },
+  {
+    "row_number": 240,
+    "ID": "463970752.jpg#1r1e",
+    "premise": "Ample dark-skinned man looks back at camera from behind buffet.",
+    "hypothesis": "A man looks from behind a buffet.",
+    "KB": ""
+  },
+  {
+    "row_number": 241,
+    "ID": "7391785714.jpg#4r1e",
+    "premise": "Kids are on a amusement ride.",
+    "hypothesis": "Kids ride an amusement ride.",
+    "KB": ""
+  },
+  {
+    "row_number": 242,
+    "ID": "1405221276.jpg#4r1e",
+    "premise": "Two dogs shaking themselves dry on the sand.",
+    "hypothesis": "Two dogs shake off water to get dry.",
+    "KB": ""
+  },
+  {
+    "row_number": 243,
+    "ID": "466956209.jpg#1r1e",
+    "premise": "A distant person is climbing up a very sheer mountain.",
+    "hypothesis": "People are outside climbing.",
+    "KB": ""
+  },
+  {
+    "row_number": 244,
+    "ID": "507746329.jpg#3r1e",
+    "premise": "Six children splashing in an outdoor water park.",
+    "hypothesis": "Kids are wet.",
+    "KB": ""
+  },
+  {
+    "row_number": 245,
+    "ID": "5430568615.jpg#4r1e",
+    "premise": "A crowd of people are watching hot air balloons inflate.",
+    "hypothesis": "People watching hot air balloons inflating.",
+    "KB": ""
+  },
+  {
+    "row_number": 246,
+    "ID": "3937269663.jpg#3r1e",
+    "premise": "A man in a yellow excavator on a construction site.",
+    "hypothesis": "the guy is on the excavator",
+    "KB": ""
+  },
+  {
+    "row_number": 247,
+    "ID": "5728602543.jpg#4r1e",
+    "premise": "Two young girls looking at Barbie dolls.",
+    "hypothesis": "Two girls are watching dolls.",
+    "KB": ""
+  },
+  {
+    "row_number": 248,
+    "ID": "241345721.jpg#4r1e",
+    "premise": "Men playing football.",
+    "hypothesis": "Some men are playing a game.",
+    "KB": ""
+  },
+  {
+    "row_number": 249,
+    "ID": "4586078680.jpg#1r1e",
+    "premise": "A woman sitting outside weaving a long piece of red, white, and blue cloth.",
+    "hypothesis": "She is working with cloth",
+    "KB": "(woman, she)"
+  },
+  {
+    "row_number": 250,
+    "ID": "3913959754.jpg#1r1e",
+    "premise": "A woman is standing near the water, looks to be throwing something.",
+    "hypothesis": "A woman is close to the water.",
+    "KB": "(near, close)"
+  },
+  {
+    "row_number": 251,
+    "ID": "3432730942.jpg#0r1e",
+    "premise": "Two people look at two red motorcycles in a place where there are religious murals on the wall.",
+    "hypothesis": "The two people are looking at motorcycles.",
+    "KB": ""
+  },
+  {
+    "row_number": 252,
+    "ID": "3091403322.jpg#2r1e",
+    "premise": "A man wearing a white shirt is playing the drums.",
+    "hypothesis": "A man is playing a musical instrument.",
+    "KB": "(the drums, musical instrument)"
+  },
+  {
+    "row_number": 253,
+    "ID": "3426724811.jpg#4r1e",
+    "premise": "Several men in protective suits are rolling a man on a gurnee.",
+    "hypothesis": "A man is on a gurney",
+    "KB": "(gurnee, gurney)"
+  },
+  {
+    "row_number": 254,
+    "ID": "4648416380.jpg#0r1e",
+    "premise": "Many people are listening to a concert, and TV crew is recording the audience reaction.",
+    "hypothesis": "People are listening to a concert.",
+    "KB": ""
+  },
+  {
+    "row_number": 255,
+    "ID": "4938897545.jpg#4r1e",
+    "premise": "A motorcycle rider is making a sharp turn.",
+    "hypothesis": "The motorcyclist is turning.",
+    "KB": "(motorcycle rider, motorcyclist)"
+  },
+  {
+    "row_number": 256,
+    "ID": "320199844.jpg#0r1e",
+    "premise": "A man in a Santa Claus costume is sitting on a wooden chair holding a microphone and a stringed instrument.",
+    "hypothesis": "The man is wearing a costume.",
+    "KB": "(no, relation)"
+  },
+  {
+    "row_number": 257,
+    "ID": "3064443326.jpg#2r1e",
+    "premise": "Riot police are standing in the background while a young man with a red scarf covering his face is walking.",
+    "hypothesis": "there are police",
+    "KB": ""
+  },
+  {
+    "row_number": 258,
+    "ID": "6285562381.jpg#2r1e",
+    "premise": "A man and a woman hug on a grassy hillside overlooking the countryside in the distance.",
+    "hypothesis": "The man and woman are outdoors.",
+    "KB": "(hillside, outdoors)"
+  },
+  {
+    "row_number": 259,
+    "ID": "7308951892.jpg#0r1e",
+    "premise": "A construction worker is standing on a crane placing a large arm on top of a stature in progress.",
+    "hypothesis": "A person standing",
+    "KB": "(construction worker, person)"
+  },
+  {
+    "row_number": 260,
+    "ID": "6220789654.jpg#3r1e",
+    "premise": "A woman closes her eyes as she plays her cello.",
+    "hypothesis": "A woman is making music.",
+    "KB": ""
+  },
+  {
+    "row_number": 261,
+    "ID": "96056569.jpg#3r1e",
+    "premise": "A woman and man are cutting a large cake.",
+    "hypothesis": "People are cutting a cake.",
+    "KB": "(a woman and a man, people)"
+  },
+  {
+    "row_number": 262,
+    "ID": "2232255534.jpg#0r1e",
+    "premise": "A young man in jogging slacks is checking information on his mobile devise while listening to something on a crowded commuter rail car.",
+    "hypothesis": "a man in jogging pants checks his device",
+    "KB": "(slacks, pants); (devise, device)"
+  },
+  {
+    "row_number": 263,
+    "ID": "86112925.jpg#0r1e",
+    "premise": "A woman in a patterned shirt hands a plate of food to another woman in an apron, while two women work in the background.",
+    "hypothesis": "Several women collaborate to hand out food.",
+    "KB": ""
+  },
+  {
+    "row_number": 264,
+    "ID": "72010421.jpg#0r1e",
+    "premise": "A young girl sitting on a white comforter on a bed covered with clothing, holding a yellow stuffed duck.",
+    "hypothesis": "A yellow duck being held by a girl.",
+    "KB": "(no, relation)"
+  },
+  {
+    "row_number": 265,
+    "ID": "4474429098.jpg#2r1e",
+    "premise": "A girl is using an apple laptop with her headphones in her ears.",
+    "hypothesis": "with headphones on the girl used a computer",
+    "KB": "(laptop, computer)"
+  },
+  {
+    "row_number": 266,
+    "ID": "2533414541.jpg#3r1e",
+    "premise": "A white and blue car is on the street.",
+    "hypothesis": "A vehicle is on the street.",
+    "KB": ""
+  },
+  {
+    "row_number": 267,
+    "ID": "4894267064.jpg#3r1e",
+    "premise": "2 woman walking down the street next to graffiti",
+    "hypothesis": "The woman are by grafitti.",
+    "KB": "(no, relation)"
+  },
+  {
+    "row_number": 268,
+    "ID": "4662948361.jpg#2r1e",
+    "premise": "An orange car is driving across a steel bridge in a city.",
+    "hypothesis": "A car is driving across a bridge.",
+    "KB": "(no, relation)"
+  },
+  {
+    "row_number": 269,
+    "ID": "7852369036.jpg#2r1e",
+    "premise": "A badminton player from china is sprawled out on the badminton court with his racket close by.",
+    "hypothesis": "A badminton player is laying on a court.",
+    "KB": ""
+  },
+  {
+    "row_number": 270,
+    "ID": "312691128.jpg#1r1e",
+    "premise": "A man in hat and apron flipping over his pancake by tossing it in the air back to the pan.",
+    "hypothesis": "The male is cooking food.",
+    "KB": "(man, male)"
+  },
+  {
+    "row_number": 271,
+    "ID": "7417714642.jpg#0r1e",
+    "premise": "A bride wearing her bridal gown is taking pictures with her colorful wedding bouquet in front of cows.",
+    "hypothesis": "A bride is taking wedding pictures.",
+    "KB": "(no, relation)"
+  },
+  {
+    "row_number": 272,
+    "ID": "4486280757.jpg#0r1e",
+    "premise": "A man in a black wetsuit with white shorts is windsurfing on a blue body of water with mountains in the background.",
+    "hypothesis": "The man is near the water.",
+    "KB": ""
+  },
+  {
+    "row_number": 273,
+    "ID": "3447155358.jpg#3r1e",
+    "premise": "A little girl in a red flowered dress with a tennis racket.",
+    "hypothesis": "A little girl in red.",
+    "KB": "(no, relation)"
+  },
+  {
+    "row_number": 274,
+    "ID": "3825750029.jpg#1r1e",
+    "premise": "A woman in a blue tank-top rides a blue bicycle in front of a crowd of meandering pedestrians.",
+    "hypothesis": "A woman rides a bike in front of a crowd",
+    "KB": "(bicycle, bike)"
+  },
+  {
+    "row_number": 275,
+    "ID": "4241997277.jpg#3r1e",
+    "premise": "A well dressed man and woman wearing floral dress dancing.",
+    "hypothesis": "the man is well dressed.",
+    "KB": "(no, relation)"
+  },
+  {
+    "row_number": 276,
+    "ID": "3106022785.jpg#0r1e",
+    "premise": "A woman dressed as Dorthy from the Wizard of Oz smiling at a baby, standing above her on a table, dressed as an elephant.",
+    "hypothesis": "Somebody who is depicted is wearing a costume from a movie.",
+    "KB": "(woman, somebody); (the wizard of oz, movie)"
+  },
+  {
+    "row_number": 277,
+    "ID": "4718146904.jpg#2r1e",
+    "premise": "A man selling donuts to a customer during a world exhibition event held in the city of Angeles",
+    "hypothesis": "A man selling donuts to a customer.",
+    "KB": "(no, relation)"
+  },
+  {
+    "row_number": 278,
+    "ID": "4579716766.jpg#4r1e",
+    "premise": "Weekend barbecue with some fish.",
+    "hypothesis": "Weekend barbecue with some fish",
+    "KB": "(no, relation)"
+  },
+  {
+    "row_number": 279,
+    "ID": "3168293517.jpg#2r1e",
+    "premise": "A little boy in a blue shirt holding a toy.",
+    "hypothesis": "Boy dressed in blue holds a toy.",
+    "KB": "(no, relation)"
+  },
+  {
+    "row_number": 280,
+    "ID": "530661899.jpg#2r1e",
+    "premise": "A man and women walk atop a hill.",
+    "hypothesis": "A man and woman are walking.",
+    "KB": "(no, relation)"
+  },
+  {
+    "row_number": 281,
+    "ID": "2864340145.jpg#2r1e",
+    "premise": "A black dog walking through water.",
+    "hypothesis": "The water has a black dog walking through it.",
+    "KB": "(no, relation)"
+  },
+  {
+    "row_number": 282,
+    "ID": "2760560588.jpg#3r1e",
+    "premise": "A person in a blue plaid shirt is writing on a chalkboard.",
+    "hypothesis": "The person is writing on the chalk board.",
+    "KB": "(no, relation)"
+  },
+  {
+    "row_number": 283,
+    "ID": "3246724744.jpg#0r1e",
+    "premise": "A young woman wearing a black shirt and black shorts jumps in the air at the beach.",
+    "hypothesis": "A women in black at the beach.",
+    "KB": "(no, relation)"
+  },
+  {
+    "row_number": 284,
+    "ID": "3794595430.jpg#3r1e",
+    "premise": "A woman stands at a podium with a slide show behind her.",
+    "hypothesis": "A woman is standing at a podium.",
+    "KB": "(no, relation)"
+  },
+  {
+    "row_number": 285,
+    "ID": "3440104178.jpg#4r1e",
+    "premise": "A dog with big ears holds a ball in his mouth.",
+    "hypothesis": "The dog has big ears.",
+    "KB": "(no, relation)"
+  },
+  {
+    "row_number": 286,
+    "ID": "82945847.jpg#0r1n",
+    "premise": "Three sisters, barefoot in pink dresses and who range in age from preschool to teenager are pictured on a beach as they look out at the Ocean.",
+    "hypothesis": "Three sisters, barefoot in pretty pink dresses and who range in age from preschool to teenager",
+    "KB": "(no, relation)"
+  },
+  {
+    "row_number": 287,
+    "ID": "2137789511.jpg#1r1e",
+    "premise": "A person rides his bicycle in the sand beside the ocean.",
+    "hypothesis": "A person is on a beach.",
+    "KB": "(beside the ocean, beach)"
+  },
+  {
+    "row_number": 288,
+    "ID": "6734323683.jpg#3r1e",
+    "premise": "A puppet show consisting of humans standing on tall sticks.",
+    "hypothesis": "How the puppet shows work.",
+    "KB": "(no, relation)"
+  },
+  {
+    "row_number": 289,
+    "ID": "4546261932.jpg#3r1e",
+    "premise": "Reflections of people walking in a big city.",
+    "hypothesis": "Several folks stroll through the city.",
+    "KB": "(people, folks); (walk, stroll)"
+  },
+  {
+    "row_number": 290,
+    "ID": "2079152458.jpg#0r1e",
+    "premise": "A golden-colored dog, with his eyes alert, holds a brightly colored tennis ball in his mouth.",
+    "hypothesis": "The dog is light colored",
+    "KB": "(golden-colored, light colored)"
+  },
+  {
+    "row_number": 291,
+    "ID": "8182074427.jpg#3r1e",
+    "premise": "A female basketball player dribbling down court.",
+    "hypothesis": "A female basketball player is dribbling",
+    "KB": "(no, relation)"
+  },
+  {
+    "row_number": 292,
+    "ID": "2393059551.jpg#1r1e",
+    "premise": "Two people work construction on the inside of a house.",
+    "hypothesis": "Two people work inside.",
+    "KB": "(no, relation)"
+  },
+  {
+    "row_number": 293,
+    "ID": "2255375425.jpg#2r1e",
+    "premise": "A man is sitting in on the side of the street with brass pots.",
+    "hypothesis": "A man is sitting.",
+    "KB": "(no, relation)"
+  },
+  {
+    "row_number": 294,
+    "ID": "4740975956.jpg#4r1e",
+    "premise": "Tall man being stopped by an officer.",
+    "hypothesis": "There is a tall man.",
+    "KB": "(no, relation)"
+  },
+  {
+    "row_number": 295,
+    "ID": "6473658975.jpg#3r1e",
+    "premise": "The couple are wearing glasses intended for 3D movies.",
+    "hypothesis": "A couple are both wearing accessories.",
+    "KB": "(no, relation)"
+  },
+  {
+    "row_number": 296,
+    "ID": "3707585013.jpg#4r1e",
+    "premise": "A singer is performing before a small crowd outside.",
+    "hypothesis": "A performer has a small audience outdoors.",
+    "KB": "(singer, performer); (crowd, audience); (outside, outdoors)"
+  },
+  {
+    "row_number": 297,
+    "ID": "4729746211.jpg#1r1e",
+    "premise": "A man in a hat is working with golden colored flowers.",
+    "hypothesis": "A man in a hat is working with flowers,",
+    "KB": "(no, relation)"
+  },
+  {
+    "row_number": 298,
+    "ID": "2744856447.jpg#3r1e",
+    "premise": "An Asian young man is drinking out of a metal cup.",
+    "hypothesis": "The young man is drinking a liquid.",
+    "KB": "(no, relation)"
+  },
+  {
+    "row_number": 299,
+    "ID": "4979886037.jpg#3r1e",
+    "premise": "A smiling costumed woman is holding an umbrella.",
+    "hypothesis": "A happy woman holds an umbrella.",
+    "KB": "(smiling, happy)"
+  },
+  {
+    "row_number": 300,
+    "ID": "4603247500.jpg#0r1e",
+    "premise": "A man in a white shirt is standing in a T-shirt booth.",
+    "hypothesis": "A man standing in a booth.",
+    "KB": "(no, relation)"
+  },
+  {
+    "row_number": 301,
+    "ID": "381275595.jpg#1r1e",
+    "premise": "Big hairy dog chews on a bone while lying on a furry toy.",
+    "hypothesis": "The dog is laying on an object",
+    "KB": "(toy, object)"
+  },
+  {
+    "row_number": 302,
+    "ID": "7671653534.jpg#2r1e",
+    "premise": "Bicyclists are in the street as a crowd watches them ride by a banner that say \"London 2012\".",
+    "hypothesis": "There are bikes being ridden.",
+    "KB": "(no, relation)"
+  },
+  {
+    "row_number": 303,
+    "ID": "7979042317.jpg#0r1e",
+    "premise": "A group of Asian men pose around a large table after enjoying a meal together.",
+    "hypothesis": "A group of Asian men just ate a meal together.",
+    "KB": "(enjoy a meal, eat a meal)"
+  },
+  {
+    "row_number": 304,
+    "ID": "3040999637.jpg#4r1e",
+    "premise": "A man uses stereo equipment.",
+    "hypothesis": "A man is using some audio equipment.",
+    "KB": "(stereo equipment, audio equipment)"
+  },
+  {
+    "row_number": 305,
+    "ID": "3383037991.jpg#3r1e",
+    "premise": "A dog looks content sitting on a bed after ripping up some paper",
+    "hypothesis": "a dog sitting on a bed after ripping up paper.",
+    "KB": ""
+  },
+  {
+    "row_number": 306,
+    "ID": "3860415767.jpg#2r1e",
+    "premise": "This is man standing by a fruit or vegetable cart peeling a piece of fruit.",
+    "hypothesis": "A man peels fruit.",
+    "KB": "(no, relation)"
+  },
+  {
+    "row_number": 307,
+    "ID": "1425529973.jpg#2r1e",
+    "premise": "A man perched on a row of aquariums is using a net to scoop a fish from another aquarium.",
+    "hypothesis": "A man is moving aquatic life.",
+    "KB": "(no, relation)"
+  },
+  {
+    "row_number": 308,
+    "ID": "2726887594.jpg#4r1e",
+    "premise": "A man in a blue polo raises his wineglass to toast.",
+    "hypothesis": "A man holds a wineglass.",
+    "KB": "(no, relation)"
+  },
+  {
+    "row_number": 309,
+    "ID": "359800617.jpg#0r1e",
+    "premise": "A woman is holding a baby while standing in the middle of a room.",
+    "hypothesis": "A woman holds a young child indoors.",
+    "KB": "(baby, young child); (room, indoors)"
+  },
+  {
+    "row_number": 310,
+    "ID": "4851047049.jpg#3r1e",
+    "premise": "A man playing a guitar while a woman in a checks the oven.",
+    "hypothesis": "A man plays an instrument.",
+    "KB": "(guitar, instrument)"
+  },
+  {
+    "row_number": 311,
+    "ID": "5262731925.jpg#3r1e",
+    "premise": "One man watching another man operate heavy machinery doing road construction.",
+    "hypothesis": "A man watches another do construction work.",
+    "KB": ""
+  },
+  {
+    "row_number": 312,
+    "ID": "3618525295.jpg#2r1e",
+    "premise": "a woman and her dog sitting at an outdoor cafe table",
+    "hypothesis": "A woman and her pet sit outside at a restaurant.",
+    "KB": "(dog, pet); (cafe, restaurant)"
+  },
+  {
+    "row_number": 313,
+    "ID": "4950416860.jpg#3r1e",
+    "premise": "A man in a canoe throwing a yellow net into the water.",
+    "hypothesis": "A man is in a boat",
+    "KB": "(canoe, boat)"
+  },
+  {
+    "row_number": 314,
+    "ID": "562928217.jpg#4r1e",
+    "premise": "A black and a white dog are going after a tennis ball.",
+    "hypothesis": "The dogs are chasing a ball.",
+    "KB": ""
+  },
+  {
+    "row_number": 315,
+    "ID": "4915658588.jpg#4r1e",
+    "premise": "Three people wearing black chatting on a street corner.",
+    "hypothesis": "Three people are talking outside.",
+    "KB": "(chat, talk); (street corner, outside)"
+  },
+  {
+    "row_number": 316,
+    "ID": "381750411.jpg#0r1e",
+    "premise": "Man dressed in business casual attire playing the saxophone with the rest of a band.",
+    "hypothesis": "Man plays a woodwind instrument.",
+    "KB": "(saxophone, woodwind instrument)"
+  },
+  {
+    "row_number": 317,
+    "ID": "3983185073.jpg#4r1e",
+    "premise": "A woman observes a rusted antique car.",
+    "hypothesis": "A woman looks at an old car.",
+    "KB": ""
+  },
+  {
+    "row_number": 318,
+    "ID": "461139075.jpg#2r1e",
+    "premise": "A lady is standing up holing a lamp that is turned on.",
+    "hypothesis": "A lady is holding a lit lamp.",
+    "KB": "(no, relation)"
+  },
+  {
+    "row_number": 319,
+    "ID": "3827183336.jpg#2r1e",
+    "premise": "A Latin American weaving fabric.",
+    "hypothesis": "The person is making fabic",
+    "KB": "(latin american, person)"
+  },
+  {
+    "row_number": 320,
+    "ID": "2602415701.jpg#0r1e",
+    "premise": "Five young boys in swim trunks jump into a swimming pool at the same time.",
+    "hypothesis": "Kids leaping into a swimming pool",
+    "KB": ""
+  },
+  {
+    "row_number": 321,
+    "ID": "7852369036.jpg#0r1e",
+    "premise": "An Asian badminton player at the Olympics is sprawled on the court, face down with his racket at his side.",
+    "hypothesis": "A sports contestant in an international competition, is on the ground still holding onto his sporting equipment.",
+    "KB": "(olympics, international competition); (racket, sporting equipment)"
+  },
+  {
+    "row_number": 322,
+    "ID": "3232994074.jpg#4r1e",
+    "premise": "A man and child working on a puzzle.",
+    "hypothesis": "An adult and a kid are engaged in an activity.",
+    "KB": "(man, adult)"
+  },
+  {
+    "row_number": 323,
+    "ID": "89332423.jpg#4r1e",
+    "premise": "A man holding a large swordfish.",
+    "hypothesis": "There is a person with a fish.",
+    "KB": ""
+  },
+  {
+    "row_number": 324,
+    "ID": "3584860179.jpg#1r1e",
+    "premise": "An old man is sitting in a chair outside a colorfully painted building.",
+    "hypothesis": "Elderly man is sitting on a chair in outside of a building",
+    "KB": "(old, elderly)"
+  },
+  {
+    "row_number": 325,
+    "ID": "823425327.jpg#4r1e",
+    "premise": "There are three woman conversing at a table with drinks.",
+    "hypothesis": "Women are talking",
+    "KB": "(converse, talk)"
+  },
+  {
+    "row_number": 326,
+    "ID": "4929903531.jpg#1r1e",
+    "premise": "A child is looking at some colorful dresses.",
+    "hypothesis": "A person is looking at some colorful dresses.",
+    "KB": ""
+  },
+  {
+    "row_number": 327,
+    "ID": "3426144752.jpg#0r1e",
+    "premise": "The blond-haired and blue eyed child holds the wooden airplane in his hands.",
+    "hypothesis": "A child is playing with a toy airplane.",
+    "KB": "(no, relation)"
+  },
+  {
+    "row_number": 328,
+    "ID": "255091927.jpg#4r1e",
+    "premise": "People laying in massage chairs",
+    "hypothesis": "People relaxing in charis.",
+    "KB": "(chairs, charis)"
+  },
+  {
+    "row_number": 329,
+    "ID": "3091921457.jpg#2r1e",
+    "premise": "Several children are standing in a house looking out the window.",
+    "hypothesis": "kids stare out the window",
+    "KB": ""
+  },
+  {
+    "row_number": 330,
+    "ID": "3612249030.jpg#1r1e",
+    "premise": "A boy is carrying a black body board across the sand.",
+    "hypothesis": "The boy is holding an item.",
+    "KB": "(body board, item); (carry, hold)"
+  },
+  {
+    "row_number": 331,
+    "ID": "507035997.jpg#2r1e",
+    "premise": "A man cooking kabobs on a barbecue in his backyard.",
+    "hypothesis": "The man is have a cookout.",
+    "KB": "(no, relation)"
+  },
+  {
+    "row_number": 332,
+    "ID": "2671880562.jpg#3r1e",
+    "premise": "A man in a staff shirt break-dancing.",
+    "hypothesis": "A man is moving around.",
+    "KB": ""
+  },
+  {
+    "row_number": 333,
+    "ID": "3471514734.jpg#1r1e",
+    "premise": "A small girl in a blue shirt with a posy pattern brushes her teeth with a red and yellow toothbrush.",
+    "hypothesis": "The girl is cleaning her teeth with a colorful toothbrush",
+    "KB": "(brush, clean)"
+  },
+  {
+    "row_number": 334,
+    "ID": "481888930.jpg#1r1e",
+    "premise": "A woman with sneakers and a skirt is sweeping out a storage building.",
+    "hypothesis": "Casually dressed woman cleans out storage building.",
+    "KB": "(sweep out, clean out)"
+  },
+  {
+    "row_number": 335,
+    "ID": "4760159167.jpg#3r1e",
+    "premise": "A man walking by a cement column next to the sea.",
+    "hypothesis": "There is a person near some water.",
+    "KB": ""
+  },
+  {
+    "row_number": 336,
+    "ID": "23012662.jpg#4r1e",
+    "premise": "Blond tennis player pauses to view the crowd.",
+    "hypothesis": "A tennis player is looking at the crowd.",
+    "KB": "(view, look)"
+  },
+  {
+    "row_number": 337,
+    "ID": "347186933.jpg#2r1e",
+    "premise": "A woman dangles from a blue fabric connected to a tree.",
+    "hypothesis": "A woman is hanging from a tree.",
+    "KB": "(dangle, hang)"
+  },
+  {
+    "row_number": 338,
+    "ID": "5042057368.jpg#3r1e",
+    "premise": "Old woman chasing away two lambs with a broom.",
+    "hypothesis": "There is a woman and some animals.",
+    "KB": ""
+  },
+  {
+    "row_number": 339,
+    "ID": "3182517887.jpg#1r1e",
+    "premise": "A man with a tattoo is wearing sunglasses while holding a small boy.",
+    "hypothesis": "There is a man with body art who is holding a young person.",
+    "KB": "(tattoo, body art); (small boy, young person)"
+  },
+  {
+    "row_number": 340,
+    "ID": "493507605.jpg#2r1e",
+    "premise": "Two black dogs run along the green grass.",
+    "hypothesis": "Two dogs run along the lawn.",
+    "KB": "(no, relation)"
+  },
+  {
+    "row_number": 341,
+    "ID": "4688301633.jpg#3r1n",
+    "premise": "A surgeon is performing an open surgery.",
+    "hypothesis": "A doctor is doing some kind of medical operation.",
+    "KB": ""
+  },
+  {
+    "row_number": 342,
+    "ID": "4786470364.jpg#0r1e",
+    "premise": "A man in a blue shirt and light blue cap walks by a working scale model of an antique freight train.",
+    "hypothesis": "a guy with a shirt and hat walks past a train",
+    "KB": "(cap, hat)"
+  },
+  {
+    "row_number": 343,
+    "ID": "7123721879.jpg#0r1e",
+    "premise": "A single runner, clothed in appropriate attire, jogging on a sidewalk next to a body of water, with buildings in the backdrop on the other side of the water.",
+    "hypothesis": "A jogger, dressed for jogging, jogs on a sidewalk near water.",
+    "KB": "(runner, jogger); (clothed, dressed)"
+  },
+  {
+    "row_number": 344,
+    "ID": "3523115345.jpg#4r1e",
+    "premise": "A female researcher videotaping a specimen.",
+    "hypothesis": "A female is recording her research.",
+    "KB": ""
+  },
+  {
+    "row_number": 345,
+    "ID": "463848726.jpg#3r1e",
+    "premise": "A man is scrapping paint off a window.",
+    "hypothesis": "A man is removing paint.",
+    "KB": "(scrap off, remove)"
+  },
+  {
+    "row_number": 346,
+    "ID": "4803960387.jpg#0r1e",
+    "premise": "A man wearing a white and blue shirt cooking corn on the cob while a different man buys a piece of corn.",
+    "hypothesis": "A man is holding to some vegetables near another man.",
+    "KB": "(corn, vegetable)"
+  },
+  {
+    "row_number": 347,
+    "ID": "3552435734.jpg#2r1e",
+    "premise": "The black dog is running through water.",
+    "hypothesis": "The dog with the black fur gets wet running in water.",
+    "KB": ""
+  },
+  {
+    "row_number": 348,
+    "ID": "2384728877.jpg#0r1e",
+    "premise": "The woman is holding the hand of the little girl in the red dress with the polka-dotted skirt.",
+    "hypothesis": "A little girl wearing a red dress holds a woman's hand.",
+    "KB": "(no, relation)"
+  },
+  {
+    "row_number": 349,
+    "ID": "7700959654.jpg#4r1e",
+    "premise": "A woman and a man are sword fighting.",
+    "hypothesis": "Two people are opposing each other in a sword fight.",
+    "KB": "(no, relation)"
+  },
+  {
+    "row_number": 350,
+    "ID": "7757111016.jpg#1r1e",
+    "premise": "a maintenance worker at the airport carries a small girl.",
+    "hypothesis": "A person carries a child.",
+    "KB": ""
+  },
+  {
+    "row_number": 351,
+    "ID": "1403064674.jpg#3r1e",
+    "premise": "A guy looking out over the scenic forest.",
+    "hypothesis": "A person is viewing the forest.",
+    "KB": "(guy, person); (look out, view)"
+  },
+  {
+    "row_number": 352,
+    "ID": "3256433677.jpg#2r1n",
+    "premise": "A woman, in a green shirt, preparing to run on a treadmill.",
+    "hypothesis": "A woman is getting a workout.",
+    "KB": "(no, relation)"
+  },
+  {
+    "row_number": 353,
+    "ID": "4570069538.jpg#4r1e",
+    "premise": "A large crowd gathered in front of McDonald's.",
+    "hypothesis": "A group of people assembled in front of a fast food restaurant.",
+    "KB": ""
+  },
+  {
+    "row_number": 354,
+    "ID": "6336028231.jpg#0r1e",
+    "premise": "A skydiving instructor with a student strapped together while skydiving.",
+    "hypothesis": "People are jumping from a plane.",
+    "KB": "(no, relation)"
+  },
+  {
+    "row_number": 355,
+    "ID": "2421824693.jpg#3r1e",
+    "premise": "A man is standing on a rooftop looking at his camera.",
+    "hypothesis": "A man is on the roof with a camera.",
+    "KB": "(rooftop, roof)"
+  },
+  {
+    "row_number": 356,
+    "ID": "2573969957.jpg#1r1e",
+    "premise": "Two men in uniform hold up sign with young children.",
+    "hypothesis": "Two men are holding up something with young kids.",
+    "KB": ""
+  },
+  {
+    "row_number": 357,
+    "ID": "533601247.jpg#2r1e",
+    "premise": "A boy in sandals is looking at a camera in a busy street.",
+    "hypothesis": "A boy is in a busy street, wearing sandals, looking at a camera",
+    "KB": "(rooftop, roof)"
+  },
+  {
+    "row_number": 358,
+    "ID": "7081260077.jpg#3r1e",
+    "premise": "Rugby player in blue dives to tackle the ball carrier in white.",
+    "hypothesis": "A rugby player is playing in a match.",
+    "KB": "(no, relation)"
+  },
+  {
+    "row_number": 359,
+    "ID": "4636978915.jpg#0r1e",
+    "premise": "A standing man in a suit finishes his turn in a chess game as his seated opponent begins his in a crowded park.",
+    "hypothesis": "A male with clothes on is in front of another male in a crowded park.",
+    "KB": ""
+  },
+  {
+    "row_number": 360,
+    "ID": "6063730184.jpg#0r1n",
+    "premise": "A young blond child wearing only a diaper sits on a large rock at the edge of a body of water while a large black dog stands in the water nearby.",
+    "hypothesis": "A black lab stands in some water while a small child sits on a rock.",
+    "KB": "(no, relation)"
+  },
+  {
+    "row_number": 361,
+    "ID": "4980505768.jpg#1r1e",
+    "premise": "A woman dressed as Snow White walks with other girls in costume down a street.",
+    "hypothesis": "A woman is dressed as a fairy tale character.",
+    "KB": "(snow white, fairy tale character)"
+  },
+  {
+    "row_number": 362,
+    "ID": "7764955218.jpg#4r1e",
+    "premise": "Two men in yellow jackets and black pants have medals.",
+    "hypothesis": "The men have been given an award at some point.",
+    "KB": ""
+  },
+  {
+    "row_number": 363,
+    "ID": "761479953.jpg#2r1e",
+    "premise": "A young boy wearing safety swimming gear and goggles is in a pool.",
+    "hypothesis": "A kid uses eye protection while in the water.",
+    "KB": "(young boy, kid); (goggles, eye protection); (pool, water)"
+  },
+  {
+    "row_number": 364,
+    "ID": "4813609768.jpg#3r1e",
+    "premise": "A woman in a blue shirt stands with her hands on her hips.",
+    "hypothesis": "The woman in the blue shirt is touching herself.",
+    "KB": "(no, relation)"
+  },
+  {
+    "row_number": 365,
+    "ID": "158827073.jpg#2r1e",
+    "premise": "Young girl playing with chocolate milk powder.",
+    "hypothesis": "There is a girl playing with food",
+    "KB": ""
+  },
+  {
+    "row_number": 366,
+    "ID": "3072611047.jpg#1r1e",
+    "premise": "Two children are diving side by side into a river.",
+    "hypothesis": "Two humans are about to enter a river.",
+    "KB": "(child, human)"
+  },
+  {
+    "row_number": 367,
+    "ID": "3518365400.jpg#3r1e",
+    "premise": "A young girl throws sand toward the ocean.",
+    "hypothesis": "The girl is tossing sand into the ocean",
+    "KB": "(throw, toss); (toward, into)"
+  }
+]
