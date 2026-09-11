@@ -526,8 +526,11 @@ model should process every item multiple times. Unlike the standard experiment
 runner, this script writes one row per item, prompt, model, and repetition. This
 long format allows accuracy and output stability to be evaluated separately.
 
-The following experiment runs the improved Lasha prompt five times with eight
-models on all 362 usable annotation items:
+The following experiment reproduces the paper's intrinsic LEX-prediction
+evaluation: it runs the improved Lasha prompt five times with eight models on
+all 362 usable annotation items. `--no-filter-kb` is intentional: the paper
+scores the relations explicitly produced by each model, without KB-projection
+normalization or premise--hypothesis filtering.
 
 ```bash
 .venv/bin/python scripts/experiments/run_repeated_multi_reference_experiment.py \
@@ -550,7 +553,8 @@ models on all 362 usable annotation items:
   --concurrency 4 \
   --write-every-jobs 40 \
   --request-timeout 120 \
-  --max-retries 2
+  --max-retries 2 \
+  --no-filter-kb
 ```
 
 This creates `362 x 8 x 5 = 14,480` model calls. The production prompt name
@@ -591,6 +595,11 @@ Both F1 variants use the same multi-reference best-match procedure as
 `calculate_multi_reference_f1.py`. For each item, the model prediction is
 compared with every available non-blank human reference, and the best reference
 is selected before TP, FP, and FN are accumulated.
+
+With `--no-filter-kb`, the parsed model relations are scored as generated. Do
+not remove this flag when reproducing the paper's intrinsic LEX results;
+omitting it enables the operational KB normalization/filtering pipeline and
+therefore evaluates a different condition.
 
 The standard metric treats relations as an unordered set.
 
