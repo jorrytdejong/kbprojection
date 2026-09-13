@@ -1,6 +1,6 @@
 # LangPro results for sharing
 
-Historical Stefan Table 4 files contain the exact 1,000-problem population and are copied byte-for-byte. Both LLM-only versions are retained; they are not independent replications. The historical WordNet+LLM file includes 190 credit errors. These historical exports do not establish prompt/version equivalence with current runs.
+Historical Stefan Table 4 files contain the exact 1,000-problem population and are copied byte-for-byte. Both LLM-only versions are retained; they are not independent replications. The historical WordNet+LLM file includes 190 credit errors. These historical exports do not establish prompt/version equivalence with current runs. `historical-stefan-table4/gemini-3.1-flash-lite-final-results.xlsx` is the original summary workbook for the historical Gemini 3.1 Flash-Lite results; the corresponding per-problem JSON exports are in the same directory.
 
 Current exports use the same `config` + `records` JSON envelope. Agent records use `problem`, `outcome`, and `timeline`; WordNet-only records use Stefan's flat structure. Each model and initial prompt has five configuration files. Only completed branches are included in LLM configuration files; completed technical failures remain included and explicitly labelled. Missing records are omitted, counted in config/manifest, and listed by state in branch_status_snapshot.json. Baselines include all available baseline results.
 
