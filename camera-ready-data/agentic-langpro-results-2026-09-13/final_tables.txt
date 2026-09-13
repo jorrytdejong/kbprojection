@@ -1,0 +1,90 @@
+openai/gpt-oss-20b x 1000 problems
+Prompt  Conf                Acc     mF1  Unkn LLMerr LPerr
+LEX     WN only          15.70%  17.71%   227      0     0
+LEX     LLM one-shot     15.80%  17.78%   216      7     0
+LEX     LLM agentic      19.40%  22.77%   221     75     0
+LEX     WN+LLM os        17.40%  19.76%   232      7     0
+LEX     WN+LLM agentic   21.20%  25.18%   237     79     0
+Stefan  WN only          15.70%  17.71%   227      0     0
+Stefan  LLM one-shot     16.80%  19.49%   219     57     0
+Stefan  LLM agentic      19.10%  23.03%   221    120     0
+Stefan  WN+LLM os        18.70%  21.87%   237     53     0
+Stefan  WN+LLM agentic   21.20%  25.95%   238    128     0
+
+google/gemma-3-4b-it x 1000 problems
+Prompt  Conf                Acc     mF1  Unkn LLMerr LPerr
+LEX     WN only          15.70%  17.71%   227      0     0
+LEX     LLM one-shot     16.30%  18.36%   224      0     0
+LEX     LLM agentic      16.30%  28.03%   199    638     0
+LEX     WN+LLM os        18.20%  20.67%   239      0     0
+LEX     WN+LLM agentic   18.20%  30.80%   227    591     0
+Stefan  WN only          15.70%  17.71%   227      0     0
+Stefan  LLM one-shot     12.20%  21.63%   199    673     0
+Stefan  LLM agentic      12.20%  21.75%   199    679     0
+Stefan  WN+LLM os        15.70%  27.00%   227    610     0
+Stefan  WN+LLM agentic   15.70%  27.14%   227    616     0
+
+openai/gpt-5.4-mini x 1000 problems
+Prompt  Conf                Acc     mF1  Unkn LLMerr LPerr
+LEX     WN only          15.70%  17.71%   227      0     0
+LEX     LLM one-shot     16.20%  18.17%   217      0     0
+LEX     LLM agentic      18.30%  20.53%   217      0     0
+LEX     WN+LLM os        17.80%  20.16%   234      0     0
+LEX     WN+LLM agentic   19.90%  22.59%   238      0     0
+Stefan  WN only          15.70%  17.71%   227      0     0
+Stefan  LLM one-shot     17.60%  19.75%   218      0     0
+Stefan  LLM agentic      18.80%  21.06%   215      0     0
+Stefan  WN+LLM os        18.80%  21.33%   237      0     0
+Stefan  WN+LLM agentic   20.30%  22.99%   234      0     0
+
+anthropic/claude-haiku-4.5 x 1000 problems
+Prompt  Conf                Acc     mF1  Unkn LLMerr LPerr
+LEX     WN only          15.70%  17.71%   227      0     0
+LEX     LLM one-shot     16.50%  18.50%   216      0     0
+LEX     LLM agentic      17.60%  19.75%   218      0     0
+LEX     WN+LLM os        17.90%  20.26%   233      0     0
+LEX     WN+LLM agentic   19.00%  21.52%   234      0     0
+Stefan  WN only          15.70%  17.71%   227      0     0
+Stefan  LLM one-shot     17.20%  19.31%   219      0     0
+Stefan  LLM agentic      18.00%  20.15%   213      0     0
+Stefan  WN+LLM os        18.40%  20.84%   234      0     0
+Stefan  WN+LLM agentic   19.80%  22.45%   236      0     0
+
+google/gemini-3.5-flash x 365 problems
+Prompt  Conf                Acc     mF1  Unkn LLMerr LPerr
+LEX     WN only          18.08%  20.47%    85      0     0
+LEX     LLM one-shot     23.29%  26.73%    94      0     0
+LEX     LLM agentic      33.15%  38.54%   102      0     0
+LEX     WN+LLM os        27.95%  31.92%    91      0     0
+LEX     WN+LLM agentic   36.71%  42.47%    99      0     0
+Stefan  WN only          18.08%  20.47%    85      0     0
+Stefan  LLM one-shot     30.41%  35.29%   101      0     0
+Stefan  LLM agentic      34.25%  39.94%   104      0     0
+Stefan  WN+LLM os        34.25%  39.49%    97      0     0
+Stefan  WN+LLM agentic   37.26%  43.24%   101      0     0
+
+openai/gpt-5.4 x 365 problems
+Prompt  Conf                Acc     mF1  Unkn LLMerr LPerr
+LEX     WN only          18.08%  20.47%    85      0     0
+LEX     LLM one-shot     24.11%  27.63%    93      0     0
+LEX     LLM agentic      30.41%  35.13%    98      0     0
+LEX     WN+LLM os        29.04%  33.18%    91      0     0
+LEX     WN+LLM agentic   35.34%  40.63%    95      0     0
+Stefan  WN only          18.08%  20.47%    85      0     0
+Stefan  LLM one-shot     30.41%  35.13%    98      0     0
+Stefan  LLM agentic      32.33%  37.17%    95      0     0
+Stefan  WN+LLM os        34.25%  39.49%    97      0     0
+Stefan  WN+LLM agentic   36.44%  41.82%    94      0     0
+
+anthropic/claude-sonnet-4.5 x 365 problems
+Prompt  Conf                Acc     mF1  Unkn LLMerr LPerr
+LEX     WN only          18.08%  20.47%    85      0     0
+LEX     LLM one-shot     25.21%  29.02%    96      0     0
+LEX     LLM agentic      31.78%  36.59%    96      0     0
+LEX     WN+LLM os        29.86%  34.33%    95      0     0
+LEX     WN+LLM agentic   35.07%  40.19%    93      0     0
+Stefan  WN only          18.08%  20.47%    85      0     0
+Stefan  LLM one-shot     29.32%  33.91%    99      0     0
+Stefan  LLM agentic      32.60%  37.54%    96      0     0
+Stefan  WN+LLM os        33.70%  38.86%    97      0     0
+Stefan  WN+LLM agentic   36.71%  42.27%    96      0     0

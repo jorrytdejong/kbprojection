@@ -1,0 +1,82 @@
+{
+  "authorization": "Ti autorizzo, basta che abbiamo tutti i dati. fai veloce, ho 10 minuti",
+  "local_parses": {
+    "241346508.jpg#0r1e": {
+      "ccg_sha256": "ed6cc50799a16576b4f8f59f188b6429ee928631bae0a7fa4098d211f7acea8a",
+      "hypothesis": "College football players are playing a football game.",
+      "premise": "Three Oklahoma Sooners playing football against another team, one of the sooners with the ball in their possession.",
+      "seed": "repair_20260913\\seeds\\e91a4d04e0f5c77057eda6523b6e7d759f46ac8f338024bb3188a43e7ed1de31.json",
+      "source": "experiments\\local_parser_remaining_6\\case_01\\1a1021246df243e099f9be30a9c5c32309889c2eeff23d17861ed723ad28ca18\\stdout.txt.gz",
+      "source_sha256": "1ef9420682c107ddf91cda7052028f935d085261bb0ce43eae8e1c6b901e4af4"
+    },
+    "3440104178.jpg#4r1e": {
+      "ccg_sha256": "09b94af0e5841080e9ecba637ea1773df02be82cb7b7dd44782d3ca38e2f5a5f",
+      "hypothesis": "The dog has big ears.",
+      "premise": "A dog with big ears holds a ball in his mouth.",
+      "seed": "repair_20260913\\seeds\\f2ec341df5caf4facaf47132108ddedc604ed1df3b922feaf62ecc7aa071a74d.json",
+      "source": "experiments\\local_parser_remaining_6\\case_02\\00116cbc019bdd7add7e38f2c180758e6b1807e5ac11b7e9a4ba42dbd310241a\\stdout.txt.gz",
+      "source_sha256": "c314093e96c0dc13f2000988391117829001937f931da5fc36e99a6cc1043979"
+    },
+    "3523115345.jpg#4r1e": {
+      "ccg_sha256": "c8ac4f62208e14cee6abf97cf79d40c73449e6e7499722f10c27d1d054070b97",
+      "hypothesis": "A female is recording her research. `",
+      "premise": "A female researcher videotaping a specimen.",
+      "seed": "repair_20260913\\seeds\\9bf65c06ec3b898531f2e32f843f06aff32c4e80f1cae86dd45680b032629710.json",
+      "source": "experiments\\local_parser_remaining_6\\case_03\\3f98131df8c7c907bf3258c485e533fb1630054ac444f6b6cdef003a2ae96a2a\\stdout.txt.gz",
+      "source_sha256": "b2174c8b80d4728da5bf6e24352b1a6305981f4de7999a8f4be4e5eaed78871e"
+    },
+    "3791591952.jpg#3r1e": {
+      "ccg_sha256": "f483032b19964f884794fbd03abc03d7a29aaced2369d39fa43b36e5830ce622",
+      "hypothesis": "Two entertainers are performing acrobatics.",
+      "premise": "Two entertainers on a stage performing acrobatic moves.",
+      "seed": "repair_20260913\\seeds\\6fee1a4e4954c2af4629fc5133e496a91c2456ac67eabe2ced6ed9f70f656c7b.json",
+      "source": "experiments\\local_parser_remaining_6\\case_04\\989d1869b7d58c6351d148a807ab03d2932ff302bb2d846f26d803a72720828c\\stdout.txt.gz",
+      "source_sha256": "04a322ffd56e149bb156dbc2f08bef49a7f5941b9e3eeac439576903ed205030"
+    },
+    "65847949.jpg#1r3e": {
+      "ccg_sha256": "b04ec91d3be1fa55b0c73a2db53ed76bc5c0f4ce3a5d00bc2a4345f238dd0325",
+      "hypothesis": "four women sitting outdoors",
+      "premise": "Four women sitting on green outdoor furniture on a patio with a small doghouse in the backdrop.",
+      "seed": "repair_20260913\\seeds\\d2c1134a199f050da9340c1d4b093cf1ba14ec7b859ddbbc31c591189d0636bf.json",
+      "source": "experiments\\local_parser_remaining_6\\case_05\\db9e683d95475889643723e11625c26c98321bbf8ce3410a7d1fd0884a2b1532\\stdout.txt.gz",
+      "source_sha256": "2fabf36c093bf1d858cdb5fd7d07b2fe616cd00c1201efab7d50b54027f7a2f9"
+    },
+    "7671653534.jpg#2r1e": {
+      "ccg_sha256": "862f0828765eef326ab10269c3f1090e92a8fd2da71db850b663b2ad0b3a29d8",
+      "hypothesis": "There are bikes being ridden.",
+      "premise": "Bicyclists are in the street as a crowd watches them ride by a banner that say \"London 2012\".",
+      "seed": "repair_20260913\\seeds\\a45f0a4ebe3742a52df14da81e202bd64b1f6f4692e673d9b8524506de919693.json",
+      "source": "experiments\\local_parser_remaining_6\\case_06\\2de57fe6f59440ad1779c21dac40579369dbd1f75df334ef5845471b58c2134e\\stdout.txt.gz",
+      "source_sha256": "95f7a0350f15b3446923cdbc1a3261ef733d27258d04641b8b8381c71aad9c72"
+    }
+  },
+  "profile": {
+    "experiments/c5_exact223/snapshots/stefan/src/agentic_pipeline_langpro/langpro_trace.py": "658df43b4faaeee0020c5434a877c35648b7001f78edc8633deefe094e342996",
+    "experiments/c5_exact223/snapshots/stefan/src/kbprojection/langpro.py": "37aca229eb86692803625cfde4fc7b2bbcfcdb623b0e4dd087ba34f3bbddedcc",
+    "experiments/c5_exact223/snapshots/stefan/src/kbprojection/models.py": "0f2ffc1e3ba257e310e956736cfbee11a39e3efa9a698d4c22cf7e0ecfdf7f57",
+    "experiments/c5_exact223_stefan/local_backend_check/run.py": "4cbf0b5d13448d9349b46953503b518c1e5cd49f97eedd1f162ceb7562b14ad0",
+    "repositories/LangPro/WNProlog/wn_hyp.pl": "80ce77ce5adf15094a47074a1ab48fc5696e5f8ef6bb750fb294a00fb5c5c8a4",
+    "repositories/LangPro/WNProlog/wn_s.pl": "dd6822e4b71f8e2970a58bbd390a5483fef56623455d76bc4b838c7b6e16b89a",
+    "repositories/LangPro/prolog/main.pl": "3006d6d1d82b12ec54ddcec05dccf86dda0065e2fdfbe16b10b41423a5ea65ea",
+    "repositories/LangPro/prolog/task/online_demo.pl": "c1452d005958f57accd130fb095b34ea14946b948af8de02171141a037fce356"
+  },
+  "utc": "2026-09-13T15:35:30.631288+00:00",
+  "worker_retries": {
+    "28fc10149a3a9e5b67180173f1388b0935485323ac0d7d358b99ec7f75f2de51": {
+      "original_key": "e8a5211277a38cdf18e08191780d58ef68bc958d5380fa191e52e65bffa2d400",
+      "response": "local_error_retry_20260913/e8a5211277a38cdf18e08191780d58ef68bc958d5380fa191e52e65bffa2d400/response.json"
+    },
+    "33541796beed3563c58a0f291100fd1b70d825461cd6cca8f229d02403d46849": {
+      "original_key": "9ab8864e1465f39af06da2cb541ae88e932aeb27bbd8118f473e6e72266bd2da",
+      "response": "local_error_retry_20260913/9ab8864e1465f39af06da2cb541ae88e932aeb27bbd8118f473e6e72266bd2da/response.json"
+    },
+    "66c0d15760f0e62958b99a81b1ac414700240259bd586ab5c23d35011f783dec": {
+      "original_key": "6bfcef3e995100bb25c1efbcbf6bca043efb55794977015a91211c2f7779af53",
+      "response": "local_error_retry_20260913/6bfcef3e995100bb25c1efbcbf6bca043efb55794977015a91211c2f7779af53/response.json"
+    },
+    "7385910a2217d89ae8d6d637ae5a5e9a7a09fd5db61ae104a032dd792bba3c48": {
+      "original_key": "62fea8532d8d40382a519df678bd24fff3d2c3f62c0565c60c33679c94095a59",
+      "response": "local_error_retry_20260913/62fea8532d8d40382a519df678bd24fff3d2c3f62c0565c60c33679c94095a59/response.json"
+    }
+  }
+}

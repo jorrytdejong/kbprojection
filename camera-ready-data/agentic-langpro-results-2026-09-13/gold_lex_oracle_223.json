@@ -1,0 +1,5648 @@
+{
+  "config": {
+    "purpose": "gold lexical-entailment oracle baseline",
+    "input": "/Users/jorrytdejong/Documents/RNL paper publication/annotator agreement - IAA_overview_edit.csv",
+    "min_annotators": 2,
+    "filtering": "disabled; exact human relations only",
+    "relation_format": "(x, y) converted only to isa_wn(x, y)",
+    "skipped_rows": {
+      "no_exact_human_agreement": 142,
+      "missing_gold_label": 35
+    }
+  },
+  "summary": {
+    "problems": 223,
+    "baseline_solved": 48,
+    "oracle_solved": 83,
+    "oracle_added_over_baseline": 37,
+    "oracle_failed": 140
+  },
+  "records": [
+    {
+      "id": "1192",
+      "dataset": "sick",
+      "split": "dev",
+      "premise": "A man and a woman are walking together through the woods",
+      "hypothesis": "A man and a woman are walking through a wooded area",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "woods",
+          "wooded area"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(woods, wooded area)"
+      ],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      }
+    },
+    {
+      "id": "1262",
+      "dataset": "sick",
+      "split": "test",
+      "premise": "A band is performing onstage",
+      "hypothesis": "A band is playing onstage",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "perform",
+          "play"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(perform, play)"
+      ],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      }
+    },
+    {
+      "id": "1405221276.jpg#4r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "Two dogs shaking themselves dry on the sand.",
+      "hypothesis": "Two dogs shake off water to get dry.",
+      "gold_label": "entailment",
+      "human_relations": [],
+      "kb_sent": [],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      }
+    },
+    {
+      "id": "1412",
+      "dataset": "sick",
+      "split": "dev",
+      "premise": "Men are sawing logs",
+      "hypothesis": "Men are cutting wood",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "log",
+          "wood"
+        ],
+        [
+          "saw",
+          "cut"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(log, wood)",
+        "isa_wn(saw, cut)"
+      ],
+      "baseline": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      }
+    },
+    {
+      "id": "147236031.jpg#1r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "An Asian woman is looking at the camera while trimming asparagus.",
+      "hypothesis": "Woman cuts vegetables.",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "asparagus",
+          "vegetable"
+        ],
+        [
+          "trim",
+          "cut"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(asparagus, vegetable)",
+        "isa_wn(trim, cut)"
+      ],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      }
+    },
+    {
+      "id": "1497",
+      "dataset": "sick",
+      "split": "test",
+      "premise": "A man is strumming a guitar",
+      "hypothesis": "A man is playing guitar",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "strum",
+          "play"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(strum, play)"
+      ],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      }
+    },
+    {
+      "id": "158827073.jpg#2r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "Young girl playing with chocolate milk powder.",
+      "hypothesis": "There is a girl playing with food",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "chocolate milk powder",
+          "food"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(chocolate milk powder, food)"
+      ],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      }
+    },
+    {
+      "id": "1796608106.jpg#4r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "A woman building herself a sand castle.",
+      "hypothesis": "a women is making a sand castle",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "build",
+          "make"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(build, make)"
+      ],
+      "baseline": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      }
+    },
+    {
+      "id": "2021602343.jpg#2r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "A boy with a basketballs glowers at the camera.",
+      "hypothesis": "The boy scowls",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "glower",
+          "scowl"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(glower, scowl)"
+      ],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      }
+    },
+    {
+      "id": "207584893.jpg#3r1e",
+      "dataset": "snli",
+      "split": "train",
+      "premise": "Hang glider on beach",
+      "hypothesis": "air sport on beach",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "hang glider",
+          "air sport"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(hang glider, air sport)"
+      ],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      }
+    },
+    {
+      "id": "211",
+      "dataset": "sick",
+      "split": "dev",
+      "premise": "Two dogs are playing by a tree",
+      "hypothesis": "Two dogs are playing by a plant",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "tree",
+          "plant"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(tree, plant)"
+      ],
+      "baseline": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      }
+    },
+    {
+      "id": "2195887578.jpg#2r1e",
+      "dataset": "snli",
+      "split": "test",
+      "premise": "Two men in suits standing in front of a bus, one is wearing a medal.",
+      "hypothesis": "Two men are standing in front of a large vehicle.",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "bus",
+          "large vehicle"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(bus, large vehicle)"
+      ],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      }
+    },
+    {
+      "id": "2217728745.jpg#4r1e",
+      "dataset": "snli",
+      "split": "train",
+      "premise": "A man in a bar.",
+      "hypothesis": "A guy in a bar.",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "man",
+          "guy"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(man, guy)"
+      ],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      }
+    },
+    {
+      "id": "2237364221.jpg#3r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "A man tries to get himself into shape on a treadmill.",
+      "hypothesis": "A man exercising.",
+      "gold_label": "entailment",
+      "human_relations": [],
+      "kb_sent": [],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      }
+    },
+    {
+      "id": "2255375425.jpg#2r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "A man is sitting in on the side of the street with brass pots.",
+      "hypothesis": "A man is sitting.",
+      "gold_label": "entailment",
+      "human_relations": [],
+      "kb_sent": [],
+      "baseline": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      }
+    },
+    {
+      "id": "2367387854.jpg#1r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "A woman with dark hair wearing a dark shirt, jeans, and glasses is talking into a microphone.",
+      "hypothesis": "A woman is speaking into a device.",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "microphone",
+          "device"
+        ],
+        [
+          "talk",
+          "speak"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(microphone, device)",
+        "isa_wn(talk, speak)"
+      ],
+      "baseline": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      }
+    },
+    {
+      "id": "237424188.jpg#0r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "A girl wearing a red shirt and jeans is sitting in a rocking chair at a cluttered desk, while another girl wearing a black t-shirt and jogging pants is sitting on the floor writing on a piece of paper with other papers arranged around her.",
+      "hypothesis": "two girls in a room",
+      "gold_label": "entailment",
+      "human_relations": [],
+      "kb_sent": [],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      }
+    },
+    {
+      "id": "2384728877.jpg#0r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "The woman is holding the hand of the little girl in the red dress with the polka-dotted skirt.",
+      "hypothesis": "A little girl wearing a red dress holds a woman's hand.",
+      "gold_label": "entailment",
+      "human_relations": [],
+      "kb_sent": [],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      }
+    },
+    {
+      "id": "2393059551.jpg#1r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "Two people work construction on the inside of a house.",
+      "hypothesis": "Two people work inside.",
+      "gold_label": "entailment",
+      "human_relations": [],
+      "kb_sent": [],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      }
+    },
+    {
+      "id": "2405",
+      "dataset": "sick",
+      "split": "dev",
+      "premise": "The lady is slicing a tomato",
+      "hypothesis": "Someone is cutting a tomato",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "lady",
+          "someone"
+        ],
+        [
+          "slice",
+          "cut"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(lady, someone)",
+        "isa_wn(slice, cut)"
+      ],
+      "baseline": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      }
+    },
+    {
+      "id": "241345721.jpg#4r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "Men playing football.",
+      "hypothesis": "Some men are playing a game.",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "football",
+          "game"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(football, game)"
+      ],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      }
+    },
+    {
+      "id": "2421824693.jpg#3r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "A man is standing on a rooftop looking at his camera.",
+      "hypothesis": "A man is on the roof with a camera.",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "rooftop",
+          "roof"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(rooftop, roof)"
+      ],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      }
+    },
+    {
+      "id": "2521878609.jpg#4r1e",
+      "dataset": "snli",
+      "split": "train",
+      "premise": "kid eating pasta",
+      "hypothesis": "The kid is human.",
+      "gold_label": "entailment",
+      "human_relations": [],
+      "kb_sent": [],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      }
+    },
+    {
+      "id": "2533414541.jpg#3r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "A white and blue car is on the street.",
+      "hypothesis": "A vehicle is on the street.",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "car",
+          "vehicle"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(car, vehicle)"
+      ],
+      "baseline": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      }
+    },
+    {
+      "id": "2543017787.jpg#4r1e",
+      "dataset": "snli",
+      "split": "train",
+      "premise": "A child rides a swing.",
+      "hypothesis": "A kid is playing",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "child",
+          "kid"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(child, kid)"
+      ],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      }
+    },
+    {
+      "id": "2557",
+      "dataset": "sick",
+      "split": "dev",
+      "premise": "Someone is strumming the guitar",
+      "hypothesis": "Someone is playing the guitar",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "strum",
+          "play"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(strum, play)"
+      ],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      }
+    },
+    {
+      "id": "2618866067.jpg#4r1e",
+      "dataset": "snli",
+      "split": "train",
+      "premise": "A gray dog is yawning.",
+      "hypothesis": "A dog is tired.",
+      "gold_label": "entailment",
+      "human_relations": [],
+      "kb_sent": [],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      }
+    },
+    {
+      "id": "2647049174.jpg#4r1e",
+      "dataset": "snli",
+      "split": "train",
+      "premise": "A toddler eats dirt.",
+      "hypothesis": "A baby is eating dirt.",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "toddler",
+          "baby"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(toddler, baby)"
+      ],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      }
+    },
+    {
+      "id": "2665904080.jpg#1r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "A young puppy suckles from his mother.",
+      "hypothesis": "A young puppy lays at it's mothers stomach.",
+      "gold_label": "entailment",
+      "human_relations": [],
+      "kb_sent": [],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      }
+    },
+    {
+      "id": "2680990587.jpg#3r1e",
+      "dataset": "snli",
+      "split": "train",
+      "premise": "One boy is pushing another boy on a swing.",
+      "hypothesis": "One human pushing another.",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "boy",
+          "human"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(boy, human)"
+      ],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      }
+    },
+    {
+      "id": "273699639.jpg#4r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "A woman sitting with two men hugging.",
+      "hypothesis": "A group of people are sitting together.",
+      "gold_label": "entailment",
+      "human_relations": [],
+      "kb_sent": [],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      }
+    },
+    {
+      "id": "2741990005.jpg#4r1e",
+      "dataset": "snli",
+      "split": "train",
+      "premise": "A man vaults over a high bar.",
+      "hypothesis": "A man jumps.",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "vault",
+          "jump"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(vault, jump)"
+      ],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      }
+    },
+    {
+      "id": "2744856447.jpg#3r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "An Asian young man is drinking out of a metal cup.",
+      "hypothesis": "The young man is drinking a liquid.",
+      "gold_label": "entailment",
+      "human_relations": [],
+      "kb_sent": [],
+      "baseline": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      }
+    },
+    {
+      "id": "2760560588.jpg#3r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "A person in a blue plaid shirt is writing on a chalkboard.",
+      "hypothesis": "The person is writing on the chalk board.",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "chalkboard",
+          "chalk board"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(chalkboard, chalk board)"
+      ],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      }
+    },
+    {
+      "id": "2809",
+      "dataset": "sick",
+      "split": "train",
+      "premise": "A cartoon airplane is landing",
+      "hypothesis": "An animated airplane is landing",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "cartoon",
+          "animated"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(cartoon, animated)"
+      ],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      }
+    },
+    {
+      "id": "281271503.jpg#4r1e",
+      "dataset": "snli",
+      "split": "test",
+      "premise": "A man in a bright yellow shirt juggles while riding a unicycle.",
+      "hypothesis": "Man performs a juggling act on a unicycle.",
+      "gold_label": "entailment",
+      "human_relations": [],
+      "kb_sent": [],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      }
+    },
+    {
+      "id": "2829",
+      "dataset": "sick",
+      "split": "dev",
+      "premise": "The lady is penciling on eyeshadow",
+      "hypothesis": "The woman is penciling on eyeshadow",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "lady",
+          "woman"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(lady, woman)"
+      ],
+      "baseline": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      }
+    },
+    {
+      "id": "2853682342.jpg#1r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "A man in a blue shirt, jumping down a hill in a park.",
+      "hypothesis": "a man is wearing blue",
+      "gold_label": "entailment",
+      "human_relations": [],
+      "kb_sent": [],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      }
+    },
+    {
+      "id": "2864340145.jpg#2r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "A black dog walking through water.",
+      "hypothesis": "The water has a black dog walking through it.",
+      "gold_label": "entailment",
+      "human_relations": [],
+      "kb_sent": [],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      }
+    },
+    {
+      "id": "288406480.jpg#0r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "A baby wearing yellow is pretending to be a doctor while inside a stroller.",
+      "hypothesis": "A baby is role playing as a professional",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "doctor",
+          "professional"
+        ],
+        [
+          "pretend",
+          "role play"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(doctor, professional)",
+        "isa_wn(pretend, role play)"
+      ],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      }
+    },
+    {
+      "id": "2898",
+      "dataset": "sick",
+      "split": "dev",
+      "premise": "The man is lifting barbells",
+      "hypothesis": "The man is lifting weights",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "barbell",
+          "weight"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(barbell, weight)"
+      ],
+      "baseline": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      }
+    },
+    {
+      "id": "2971285079.jpg#2r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "A girl wearing makeup playing a bass.",
+      "hypothesis": "A girl is musical.",
+      "gold_label": "entailment",
+      "human_relations": [],
+      "kb_sent": [],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      }
+    },
+    {
+      "id": "303607405.jpg#4r3e",
+      "dataset": "snli",
+      "split": "train",
+      "premise": "a dog shakes dry.",
+      "hypothesis": "A dog is wet.",
+      "gold_label": "entailment",
+      "human_relations": [],
+      "kb_sent": [],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      }
+    },
+    {
+      "id": "3036894037.jpg#1r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "Two commandos with gun by a staircase and an old man holding a hat is sitting on the stairs.",
+      "hypothesis": "Two soldiers carry weapons.",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "commando",
+          "soldier"
+        ],
+        [
+          "gun",
+          "weapon"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(commando, soldier)",
+        "isa_wn(gun, weapon)"
+      ],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      }
+    },
+    {
+      "id": "3040999637.jpg#4r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "A man uses stereo equipment.",
+      "hypothesis": "A man is using some audio equipment.",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "stereo equipment",
+          "audio equipment"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(stereo equipment, audio equipment)"
+      ],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      }
+    },
+    {
+      "id": "3046190891.jpg#2r1e",
+      "dataset": "snli",
+      "split": "test",
+      "premise": "A surfer is performing a jumping stunt in the ocean.",
+      "hypothesis": "A person in the water.",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "ocean",
+          "water"
+        ],
+        [
+          "surfer",
+          "person"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(ocean, water)",
+        "isa_wn(surfer, person)"
+      ],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      }
+    },
+    {
+      "id": "3047788420.jpg#0r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "A lady sitting on a bench that is against a building and under a poster of a man in a uniform waving.",
+      "hypothesis": "A person sitting",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "lady",
+          "person"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(lady, person)"
+      ],
+      "baseline": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      }
+    },
+    {
+      "id": "3054989420.jpg#0r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "Two children throw dead leaves into the air around them.",
+      "hypothesis": "The children are outside.",
+      "gold_label": "entailment",
+      "human_relations": [],
+      "kb_sent": [],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      }
+    },
+    {
+      "id": "3064443326.jpg#2r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "Riot police are standing in the background while a young man with a red scarf covering his face is walking.",
+      "hypothesis": "there are police",
+      "gold_label": "entailment",
+      "human_relations": [],
+      "kb_sent": [],
+      "baseline": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      }
+    },
+    {
+      "id": "3091403322.jpg#2r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "A man wearing a white shirt is playing the drums.",
+      "hypothesis": "A man is playing a musical instrument.",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "drum",
+          "musical instrument"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(drum, musical instrument)"
+      ],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      }
+    },
+    {
+      "id": "3101378069.jpg#4r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "A lady rows a canoe filled with things.",
+      "hypothesis": "A woman rows a small boat loaded with items.",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "canoe",
+          "small boat"
+        ],
+        [
+          "filled",
+          "loaded"
+        ],
+        [
+          "lady",
+          "woman"
+        ],
+        [
+          "thing",
+          "item"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(canoe, small boat)",
+        "isa_wn(filled, loaded)",
+        "isa_wn(lady, woman)",
+        "isa_wn(thing, item)"
+      ],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      }
+    },
+    {
+      "id": "3115354165.jpg#4r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "a skateboarder ollies.",
+      "hypothesis": "Someone is on a board with four wheels.",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "skateboarder",
+          "someone"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(skateboarder, someone)"
+      ],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      }
+    },
+    {
+      "id": "3134092148.jpg#3r2e",
+      "dataset": "snli",
+      "split": "train",
+      "premise": "A man surfing a wave.",
+      "hypothesis": "A man catches a wave.",
+      "gold_label": "entailment",
+      "human_relations": [],
+      "kb_sent": [],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      }
+    },
+    {
+      "id": "3168293517.jpg#2r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "A little boy in a blue shirt holding a toy.",
+      "hypothesis": "Boy dressed in blue holds a toy.",
+      "gold_label": "entailment",
+      "human_relations": [],
+      "kb_sent": [],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      }
+    },
+    {
+      "id": "320199844.jpg#0r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "A man in a Santa Claus costume is sitting on a wooden chair holding a microphone and a stringed instrument.",
+      "hypothesis": "The man is wearing a costume.",
+      "gold_label": "entailment",
+      "human_relations": [],
+      "kb_sent": [],
+      "baseline": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      }
+    },
+    {
+      "id": "3208032657.jpg#2r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "A person powerwashing stairs leading down to a pool.",
+      "hypothesis": "a person washes stairs",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "powerwash",
+          "wash"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(powerwash, wash)"
+      ],
+      "baseline": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      }
+    },
+    {
+      "id": "3232994074.jpg#4r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "A man and child working on a puzzle.",
+      "hypothesis": "An adult and a kid are engaged in an activity.",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "child",
+          "kid"
+        ],
+        [
+          "man",
+          "adult"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(child, kid)",
+        "isa_wn(man, adult)"
+      ],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      }
+    },
+    {
+      "id": "3246724744.jpg#0r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "A young woman wearing a black shirt and black shorts jumps in the air at the beach.",
+      "hypothesis": "A women in black at the beach.",
+      "gold_label": "entailment",
+      "human_relations": [],
+      "kb_sent": [],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      }
+    },
+    {
+      "id": "3250",
+      "dataset": "sick",
+      "split": "dev",
+      "premise": "A woman is placing two eggs into a pot of water",
+      "hypothesis": "A woman is putting two eggs into a pot of water",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "place",
+          "put"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(place, put)"
+      ],
+      "baseline": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      }
+    },
+    {
+      "id": "3256433677.jpg#2r1n",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "A woman, in a green shirt, preparing to run on a treadmill.",
+      "hypothesis": "A woman is getting a workout.",
+      "gold_label": "entailment",
+      "human_relations": [],
+      "kb_sent": [],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      }
+    },
+    {
+      "id": "326456451.jpg#4r1e",
+      "dataset": "snli",
+      "split": "train",
+      "premise": "A rottweiler running.",
+      "hypothesis": "An animal is running.",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "rottweiler",
+          "animal"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(rottweiler, animal)"
+      ],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      }
+    },
+    {
+      "id": "3375549004.jpg#4r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "Men walk in line carrying things.",
+      "hypothesis": "While carrying their load, the men walked one behind the other.",
+      "gold_label": "entailment",
+      "human_relations": [],
+      "kb_sent": [],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      }
+    },
+    {
+      "id": "3383037991.jpg#3r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "A dog looks content sitting on a bed after ripping up some paper",
+      "hypothesis": "a dog sitting on a bed after ripping up paper.",
+      "gold_label": "entailment",
+      "human_relations": [],
+      "kb_sent": [],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      }
+    },
+    {
+      "id": "3424908564.jpg#1r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "A woman with red-hair and wearing a black tank top and short jeans shorts appears to be yelling.",
+      "hypothesis": "A woman with red-hair screams.",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "yell",
+          "scream"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(yell, scream)"
+      ],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      }
+    },
+    {
+      "id": "3432730942.jpg#0r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "Two people look at two red motorcycles in a place where there are religious murals on the wall.",
+      "hypothesis": "The two people are looking at motorcycles.",
+      "gold_label": "entailment",
+      "human_relations": [],
+      "kb_sent": [],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      }
+    },
+    {
+      "id": "3440104178.jpg#4r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "A dog with big ears holds a ball in his mouth.",
+      "hypothesis": "The dog has big ears.",
+      "gold_label": "entailment",
+      "human_relations": [],
+      "kb_sent": [],
+      "baseline": {
+        "prediction": "-",
+        "correct": false,
+        "error": "Server error '500 INTERNAL SERVER ERROR' for url 'https://langpro.hum.uu.nl/langpro-api/prove/'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/500"
+      },
+      "oracle": {
+        "prediction": "-",
+        "correct": false,
+        "error": "Server error '500 INTERNAL SERVER ERROR' for url 'https://langpro.hum.uu.nl/langpro-api/prove/'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/500"
+      }
+    },
+    {
+      "id": "3447155358.jpg#3r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "A little girl in a red flowered dress with a tennis racket.",
+      "hypothesis": "A little girl in red.",
+      "gold_label": "entailment",
+      "human_relations": [],
+      "kb_sent": [],
+      "baseline": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      }
+    },
+    {
+      "id": "347186933.jpg#2r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "A woman dangles from a blue fabric connected to a tree.",
+      "hypothesis": "A woman is hanging from a tree.",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "dangle",
+          "hang"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(dangle, hang)"
+      ],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      }
+    },
+    {
+      "id": "3479245321.jpg#4r1e",
+      "dataset": "snli",
+      "split": "train",
+      "premise": "Concentration campsite.",
+      "hypothesis": "A concentration camp.",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "campsite",
+          "camp"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(campsite, camp)"
+      ],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      }
+    },
+    {
+      "id": "3552435734.jpg#2r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "The black dog is running through water.",
+      "hypothesis": "The dog with the black fur gets wet running in water.",
+      "gold_label": "entailment",
+      "human_relations": [],
+      "kb_sent": [],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      }
+    },
+    {
+      "id": "3584860179.jpg#1r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "An old man is sitting in a chair outside a colorfully painted building.",
+      "hypothesis": "Elderly man is sitting on a chair in outside of a building",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "old",
+          "elderly"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(old, elderly)"
+      ],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      }
+    },
+    {
+      "id": "3586",
+      "dataset": "sick",
+      "split": "dev",
+      "premise": "A man is playing the drum",
+      "hypothesis": "A man is practicing the drum",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "play",
+          "practice"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(play, practice)"
+      ],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      }
+    },
+    {
+      "id": "3612249030.jpg#1r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "A boy is carrying a black body board across the sand.",
+      "hypothesis": "The boy is holding an item.",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "body board",
+          "item"
+        ],
+        [
+          "carry",
+          "hold"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(body board, item)",
+        "isa_wn(carry, hold)"
+      ],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      }
+    },
+    {
+      "id": "3614595423.jpg#4r1e",
+      "dataset": "snli",
+      "split": "train",
+      "premise": "Children climb a tree.",
+      "hypothesis": "Kids climbing.",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "child",
+          "kid"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(child, kid)"
+      ],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      }
+    },
+    {
+      "id": "3618525295.jpg#2r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "a woman and her dog sitting at an outdoor cafe table",
+      "hypothesis": "A woman and her pet sit outside at a restaurant.",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "cafe",
+          "restaurant"
+        ],
+        [
+          "dog",
+          "pet"
+        ],
+        [
+          "outdoor",
+          "outside"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(cafe, restaurant)",
+        "isa_wn(dog, pet)",
+        "isa_wn(outdoor, outside)"
+      ],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      }
+    },
+    {
+      "id": "3629664676.jpg#4r1e",
+      "dataset": "snli",
+      "split": "train",
+      "premise": "A dog pulling a rope.",
+      "hypothesis": "The dog drags the rope.",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "pull",
+          "drag"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(pull, drag)"
+      ],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      }
+    },
+    {
+      "id": "3639617775.jpg#0r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "The bride in the white dress is surrounded by the groomsmen and bridesmaids, all in black.",
+      "hypothesis": "a woman in white is surrounded by others",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "bride",
+          "woman"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(bride, woman)"
+      ],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      }
+    },
+    {
+      "id": "3639967449.jpg#3r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "Two boys sitting and eating ice cream.",
+      "hypothesis": "The boys are eating.",
+      "gold_label": "entailment",
+      "human_relations": [],
+      "kb_sent": [],
+      "baseline": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      }
+    },
+    {
+      "id": "36422830.jpg#0r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "A red jeep hangs from the edge of a rocky cliff as a girl looks on.",
+      "hypothesis": "The vehicle is red.",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "jeep",
+          "vehicle"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(jeep, vehicle)"
+      ],
+      "baseline": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      }
+    },
+    {
+      "id": "3732782360.jpg#4r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "A man in a suit and tie is opening a door.",
+      "hypothesis": "There is one man in this picture.",
+      "gold_label": "entailment",
+      "human_relations": [],
+      "kb_sent": [],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      }
+    },
+    {
+      "id": "3791591952.jpg#3r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "Two entertainers on a stage performing acrobatic moves.",
+      "hypothesis": "Two entertainers are performing acrobatics.",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "acrobatic move",
+          "acrobatics"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(acrobatic move, acrobatics)"
+      ],
+      "baseline": {
+        "prediction": "-",
+        "correct": false,
+        "error": "Server error '500 INTERNAL SERVER ERROR' for url 'https://langpro.hum.uu.nl/langpro-api/prove/'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/500"
+      },
+      "oracle": {
+        "prediction": "-",
+        "correct": false,
+        "error": "Server error '500 INTERNAL SERVER ERROR' for url 'https://langpro.hum.uu.nl/langpro-api/prove/'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/500"
+      }
+    },
+    {
+      "id": "3794595430.jpg#3r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "A woman stands at a podium with a slide show behind her.",
+      "hypothesis": "A woman is standing at a podium.",
+      "gold_label": "entailment",
+      "human_relations": [],
+      "kb_sent": [],
+      "baseline": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      }
+    },
+    {
+      "id": "3799984714.jpg#0r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "A man playing a banjo near a tree at an outdoor event.",
+      "hypothesis": "The man is playing a musical instrument at an event.",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "banjo",
+          "musical instrument"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(banjo, musical instrument)"
+      ],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      }
+    },
+    {
+      "id": "381275595.jpg#1r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "Big hairy dog chews on a bone while lying on a furry toy.",
+      "hypothesis": "The dog is laying on an object",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "toy",
+          "object"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(toy, object)"
+      ],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      }
+    },
+    {
+      "id": "381750411.jpg#0r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "Man dressed in business casual attire playing the saxophone with the rest of a band.",
+      "hypothesis": "Man plays a woodwind instrument.",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "saxophone",
+          "woodwind instrument"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(saxophone, woodwind instrument)"
+      ],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      }
+    },
+    {
+      "id": "3825750029.jpg#1r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "A woman in a blue tank-top rides a blue bicycle in front of a crowd of meandering pedestrians.",
+      "hypothesis": "A woman rides a bike in front of a crowd",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "bicycle",
+          "bike"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(bicycle, bike)"
+      ],
+      "baseline": {
+        "prediction": "-",
+        "correct": false,
+        "error": ""
+      },
+      "oracle": {
+        "prediction": "-",
+        "correct": false,
+        "error": ""
+      }
+    },
+    {
+      "id": "3843254402.jpg#0r1e",
+      "dataset": "snli",
+      "split": "test",
+      "premise": "A man in a white striped shirt and blue jeans using a water hose to spray water on the ground of concrete ruins.Fo.",
+      "hypothesis": "A man is spraying water on concrete.",
+      "gold_label": "entailment",
+      "human_relations": [],
+      "kb_sent": [],
+      "baseline": {
+        "prediction": "-",
+        "correct": false,
+        "error": ""
+      },
+      "oracle": {
+        "prediction": "-",
+        "correct": false,
+        "error": ""
+      }
+    },
+    {
+      "id": "3853",
+      "dataset": "sick",
+      "split": "train",
+      "premise": "A cat is playing a piano",
+      "hypothesis": "A cat is playing keyboards",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "piano",
+          "keyboard"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(piano, keyboard)"
+      ],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      }
+    },
+    {
+      "id": "3860415767.jpg#2r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "This is man standing by a fruit or vegetable cart peeling a piece of fruit.",
+      "hypothesis": "A man peels fruit.",
+      "gold_label": "entailment",
+      "human_relations": [],
+      "kb_sent": [],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      }
+    },
+    {
+      "id": "3913959754.jpg#1r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "A woman is standing near the water, looks to be throwing something.",
+      "hypothesis": "A woman is close to the water.",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "near",
+          "close"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(near, close)"
+      ],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      }
+    },
+    {
+      "id": "3937269663.jpg#3r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "A man in a yellow excavator on a construction site.",
+      "hypothesis": "the guy is on the excavator",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "man",
+          "guy"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(man, guy)"
+      ],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      }
+    },
+    {
+      "id": "3974",
+      "dataset": "sick",
+      "split": "test",
+      "premise": "A girl is awakening",
+      "hypothesis": "A girl is waking up",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "awaken",
+          "wake up"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(awaken, wake up)"
+      ],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      }
+    },
+    {
+      "id": "4000008650.jpg#2r1e",
+      "dataset": "snli",
+      "split": "train",
+      "premise": "A woman plays the tuba and another plays the cello on the street.",
+      "hypothesis": "People playing instruments on the street.",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "cello",
+          "instrument"
+        ],
+        [
+          "tuba",
+          "instrument"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(cello, instrument)",
+        "isa_wn(tuba, instrument)"
+      ],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      }
+    },
+    {
+      "id": "4006",
+      "dataset": "sick",
+      "split": "dev",
+      "premise": "A man is climbing a rope",
+      "hypothesis": "The man is climbing up a rope",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "climb",
+          "climb up"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(climb, climb up)"
+      ],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      }
+    },
+    {
+      "id": "4015",
+      "dataset": "sick",
+      "split": "dev",
+      "premise": "The lady is picking up the kangaroo",
+      "hypothesis": "The woman is picking up the kangaroo",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "lady",
+          "woman"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(lady, woman)"
+      ],
+      "baseline": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      }
+    },
+    {
+      "id": "4019072184.jpg#4r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "A man is rock climbing with protective rope.",
+      "hypothesis": "A man is being secured.",
+      "gold_label": "entailment",
+      "human_relations": [],
+      "kb_sent": [],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      }
+    },
+    {
+      "id": "4066",
+      "dataset": "sick",
+      "split": "dev",
+      "premise": "The man is hurling knives at a tree",
+      "hypothesis": "The man is throwing knives at a tree",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "hurl",
+          "throw"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(hurl, throw)"
+      ],
+      "baseline": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      }
+    },
+    {
+      "id": "4135",
+      "dataset": "sick",
+      "split": "dev",
+      "premise": "A dog is bouncing on a trampoline",
+      "hypothesis": "A dog is jumping on a trampoline",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "bounce",
+          "jump"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(bounce, jump)"
+      ],
+      "baseline": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      }
+    },
+    {
+      "id": "4181",
+      "dataset": "sick",
+      "split": "train",
+      "premise": "A dog is eating a doll",
+      "hypothesis": "A dog is biting a doll",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "eat",
+          "bite"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(eat, bite)"
+      ],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      }
+    },
+    {
+      "id": "4183662919.jpg#3r1e",
+      "dataset": "snli",
+      "split": "test",
+      "premise": "A child plays with her father's boots.",
+      "hypothesis": "A child is playing.",
+      "gold_label": "entailment",
+      "human_relations": [],
+      "kb_sent": [],
+      "baseline": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      }
+    },
+    {
+      "id": "4241997277.jpg#3r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "A well dressed man and woman wearing floral dress dancing.",
+      "hypothesis": "the man is well dressed.",
+      "gold_label": "entailment",
+      "human_relations": [],
+      "kb_sent": [],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      }
+    },
+    {
+      "id": "4291704682.jpg#3r1e",
+      "dataset": "snli",
+      "split": "train",
+      "premise": "There are two people sweeping a sidewalk in this picture.",
+      "hypothesis": "There are a couple of people cleaning the path.",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "sidewalk",
+          "path"
+        ],
+        [
+          "sweep",
+          "clean"
+        ],
+        [
+          "two",
+          "couple"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(sidewalk, path)",
+        "isa_wn(sweep, clean)",
+        "isa_wn(two, couple)"
+      ],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      }
+    },
+    {
+      "id": "4294390957.jpg#3r1e",
+      "dataset": "snli",
+      "split": "train",
+      "premise": "A man talks behind a podium.",
+      "hypothesis": "A man is speaking.",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "talk",
+          "speak"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(talk, speak)"
+      ],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      }
+    },
+    {
+      "id": "4342",
+      "dataset": "sick",
+      "split": "dev",
+      "premise": "A man is eating a banana",
+      "hypothesis": "A man is eating a fruit",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "banana",
+          "fruit"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(banana, fruit)"
+      ],
+      "baseline": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      }
+    },
+    {
+      "id": "4355004642.jpg#0r1e",
+      "dataset": "snli",
+      "split": "train",
+      "premise": "A chef and his newest creation in process, being made in an old fashioned oven.",
+      "hypothesis": "A chef creates.",
+      "gold_label": "entailment",
+      "human_relations": [],
+      "kb_sent": [],
+      "baseline": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      }
+    },
+    {
+      "id": "4440438333.jpg#1r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "The pitcher wearing black heaves the ball toward the catcher.",
+      "hypothesis": "People are playing a game.",
+      "gold_label": "entailment",
+      "human_relations": [],
+      "kb_sent": [],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      }
+    },
+    {
+      "id": "4486280757.jpg#0r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "A man in a black wetsuit with white shorts is windsurfing on a blue body of water with mountains in the background.",
+      "hypothesis": "The man is near the water.",
+      "gold_label": "entailment",
+      "human_relations": [],
+      "kb_sent": [],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      }
+    },
+    {
+      "id": "4494",
+      "dataset": "sick",
+      "split": "test",
+      "premise": "A girl is combing her hair",
+      "hypothesis": "A girl is styling her hair",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "comb",
+          "style"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(comb, style)"
+      ],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      }
+    },
+    {
+      "id": "4501954896.jpg#2r1e",
+      "dataset": "snli",
+      "split": "test",
+      "premise": "Man jumping up in the air and splitting his legs with his mouth open.",
+      "hypothesis": "A man is jumping.",
+      "gold_label": "entailment",
+      "human_relations": [],
+      "kb_sent": [],
+      "baseline": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      }
+    },
+    {
+      "id": "4505",
+      "dataset": "sick",
+      "split": "dev",
+      "premise": "The doctors are healing a man",
+      "hypothesis": "The doctor is helping the patient",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "heal",
+          "help"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(heal, help)"
+      ],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      }
+    },
+    {
+      "id": "4524361920.jpg#0r1e",
+      "dataset": "snli",
+      "split": "test",
+      "premise": "A woman in a black leather shirt trench-coat and black leather calf-high boots and carrying a colorful bag with a shoulder strap faces away from the camera with a yellow post visible just in front of her.",
+      "hypothesis": "A lady in black leather trench coat, with matching black leather boots walks away from the camera in her front with her bag strapped to her shoulders",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "woman",
+          "lady"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(woman, lady)"
+      ],
+      "baseline": {
+        "prediction": "-",
+        "correct": false,
+        "error": ""
+      },
+      "oracle": {
+        "prediction": "-",
+        "correct": false,
+        "error": ""
+      }
+    },
+    {
+      "id": "4569102627.jpg#2r1e",
+      "dataset": "snli",
+      "split": "test",
+      "premise": "Little girl with very curly hair drinking her cup of juice.",
+      "hypothesis": "A girl is ingesting liquid.",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "drink",
+          "ingest"
+        ],
+        [
+          "juice",
+          "liquid"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(drink, ingest)",
+        "isa_wn(juice, liquid)"
+      ],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      }
+    },
+    {
+      "id": "4579716766.jpg#4r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "Weekend barbecue with some fish.",
+      "hypothesis": "Weekend barbecue with some fish",
+      "gold_label": "entailment",
+      "human_relations": [],
+      "kb_sent": [],
+      "baseline": {
+        "prediction": "-",
+        "correct": false,
+        "error": ""
+      },
+      "oracle": {
+        "prediction": "-",
+        "correct": false,
+        "error": ""
+      }
+    },
+    {
+      "id": "4589",
+      "dataset": "sick",
+      "split": "test",
+      "premise": "A hamster is singing",
+      "hypothesis": "A small animal is singing",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "hamster",
+          "small animal"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(hamster, small animal)"
+      ],
+      "baseline": {
+        "prediction": "-",
+        "correct": false,
+        "error": ""
+      },
+      "oracle": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      }
+    },
+    {
+      "id": "4603247500.jpg#0r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "A man in a white shirt is standing in a T-shirt booth.",
+      "hypothesis": "A man standing in a booth.",
+      "gold_label": "entailment",
+      "human_relations": [],
+      "kb_sent": [],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      }
+    },
+    {
+      "id": "461139075.jpg#2r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "A lady is standing up holing a lamp that is turned on.",
+      "hypothesis": "A lady is holding a lit lamp.",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "turned on",
+          "lit"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(turned on, lit)"
+      ],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      }
+    },
+    {
+      "id": "4625392581.jpg#1r1e",
+      "dataset": "snli",
+      "split": "train",
+      "premise": "A boy with an orange shirt and blue jeans gets a ride on a man's shoulders.",
+      "hypothesis": "A person is riding on another person's shoulders.",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "boy",
+          "person"
+        ],
+        [
+          "man",
+          "person"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(boy, person)",
+        "isa_wn(man, person)"
+      ],
+      "baseline": {
+        "prediction": "-",
+        "correct": false,
+        "error": ""
+      },
+      "oracle": {
+        "prediction": "-",
+        "correct": false,
+        "error": ""
+      }
+    },
+    {
+      "id": "463848726.jpg#3r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "A man is scrapping paint off a window.",
+      "hypothesis": "A man is removing paint.",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "scrap off",
+          "remove"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(scrap off, remove)"
+      ],
+      "baseline": {
+        "prediction": "-",
+        "correct": false,
+        "error": ""
+      },
+      "oracle": {
+        "prediction": "-",
+        "correct": false,
+        "error": ""
+      }
+    },
+    {
+      "id": "463970752.jpg#1r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "Ample dark-skinned man looks back at camera from behind buffet.",
+      "hypothesis": "A man looks from behind a buffet.",
+      "gold_label": "entailment",
+      "human_relations": [],
+      "kb_sent": [],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      }
+    },
+    {
+      "id": "4640148862.jpg#2r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "A woman carrying a shopping bag in front of Fisher's Popcorn.",
+      "hypothesis": "a woman is shopping by fisher's popcorn",
+      "gold_label": "entailment",
+      "human_relations": [],
+      "kb_sent": [],
+      "baseline": {
+        "prediction": "-",
+        "correct": false,
+        "error": ""
+      },
+      "oracle": {
+        "prediction": "-",
+        "correct": false,
+        "error": ""
+      }
+    },
+    {
+      "id": "4648416380.jpg#0r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "Many people are listening to a concert, and TV crew is recording the audience reaction.",
+      "hypothesis": "People are listening to a concert.",
+      "gold_label": "entailment",
+      "human_relations": [],
+      "kb_sent": [],
+      "baseline": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      }
+    },
+    {
+      "id": "4661",
+      "dataset": "sick",
+      "split": "dev",
+      "premise": "A woman is slicing a potato",
+      "hypothesis": "A woman is cutting a potato",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "slice",
+          "cut"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(slice, cut)"
+      ],
+      "baseline": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      }
+    },
+    {
+      "id": "4662948361.jpg#2r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "An orange car is driving across a steel bridge in a city.",
+      "hypothesis": "A car is driving across a bridge.",
+      "gold_label": "entailment",
+      "human_relations": [],
+      "kb_sent": [],
+      "baseline": {
+        "prediction": "-",
+        "correct": false,
+        "error": ""
+      },
+      "oracle": {
+        "prediction": "-",
+        "correct": false,
+        "error": ""
+      }
+    },
+    {
+      "id": "4704577040.jpg#1r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "A thin man in a maroon shirt standing next to a pay phone.",
+      "hypothesis": "A man is standing next to a payphone wearing a maroon shirt.",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "pay phone",
+          "payphone"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(pay phone, payphone)"
+      ],
+      "baseline": {
+        "prediction": "-",
+        "correct": false,
+        "error": ""
+      },
+      "oracle": {
+        "prediction": "-",
+        "correct": false,
+        "error": ""
+      }
+    },
+    {
+      "id": "4718146904.jpg#2r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "A man selling donuts to a customer during a world exhibition event held in the city of Angeles",
+      "hypothesis": "A man selling donuts to a customer.",
+      "gold_label": "entailment",
+      "human_relations": [],
+      "kb_sent": [],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      }
+    },
+    {
+      "id": "4729191874.jpg#0r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "A woman in a brown shirt and a man in a hat cross the street.",
+      "hypothesis": "A man and woman are walking in the street.",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "cross",
+          "walk"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(cross, walk)"
+      ],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      }
+    },
+    {
+      "id": "4729746211.jpg#1r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "A man in a hat is working with golden colored flowers.",
+      "hypothesis": "A man in a hat is working with flowers,",
+      "gold_label": "entailment",
+      "human_relations": [],
+      "kb_sent": [],
+      "baseline": {
+        "prediction": "-",
+        "correct": false,
+        "error": ""
+      },
+      "oracle": {
+        "prediction": "-",
+        "correct": false,
+        "error": ""
+      }
+    },
+    {
+      "id": "4734",
+      "dataset": "sick",
+      "split": "dev",
+      "premise": "A man is fitting a silencer to a pistol",
+      "hypothesis": "A man is applying a silencer to a gun",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "fit",
+          "apply"
+        ],
+        [
+          "pistol",
+          "gun"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(fit, apply)",
+        "isa_wn(pistol, gun)"
+      ],
+      "baseline": {
+        "prediction": "-",
+        "correct": false,
+        "error": ""
+      },
+      "oracle": {
+        "prediction": "-",
+        "correct": false,
+        "error": ""
+      }
+    },
+    {
+      "id": "4734162520.jpg#2r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "Police officer and his motorcycle in a crowd of people at a protest.",
+      "hypothesis": "A police officer is on his motorcycle.",
+      "gold_label": "entailment",
+      "human_relations": [],
+      "kb_sent": [],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      }
+    },
+    {
+      "id": "4740975956.jpg#4r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "Tall man being stopped by an officer.",
+      "hypothesis": "There is a tall man.",
+      "gold_label": "entailment",
+      "human_relations": [],
+      "kb_sent": [],
+      "baseline": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      }
+    },
+    {
+      "id": "4760159167.jpg#3r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "A man walking by a cement column next to the sea.",
+      "hypothesis": "There is a person near some water.",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "man",
+          "person"
+        ],
+        [
+          "next to",
+          "near"
+        ],
+        [
+          "sea",
+          "water"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(man, person)",
+        "isa_wn(next to, near)",
+        "isa_wn(sea, water)"
+      ],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      }
+    },
+    {
+      "id": "477990943.jpg#0r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "A girl with black hair and a green shirt has taken several bites from a fresh green apple.",
+      "hypothesis": "The girl is eating in this picture.",
+      "gold_label": "entailment",
+      "human_relations": [],
+      "kb_sent": [],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      }
+    },
+    {
+      "id": "4786470364.jpg#0r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "A man in a blue shirt and light blue cap walks by a working scale model of an antique freight train.",
+      "hypothesis": "a guy with a shirt and hat walks past a train",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "cap",
+          "hat"
+        ],
+        [
+          "man",
+          "guy"
+        ],
+        [
+          "walk by",
+          "walk past"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(cap, hat)",
+        "isa_wn(man, guy)",
+        "isa_wn(walk by, walk past)"
+      ],
+      "baseline": {
+        "prediction": "-",
+        "correct": false,
+        "error": ""
+      },
+      "oracle": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      }
+    },
+    {
+      "id": "4803960387.jpg#0r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "A man wearing a white and blue shirt cooking corn on the cob while a different man buys a piece of corn.",
+      "hypothesis": "A man is holding to some vegetables near another man.",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "corn",
+          "vegetable"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(corn, vegetable)"
+      ],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      }
+    },
+    {
+      "id": "4813609768.jpg#3r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "A woman in a blue shirt stands with her hands on her hips.",
+      "hypothesis": "The woman in the blue shirt is touching herself.",
+      "gold_label": "entailment",
+      "human_relations": [],
+      "kb_sent": [],
+      "baseline": {
+        "prediction": "-",
+        "correct": false,
+        "error": ""
+      },
+      "oracle": {
+        "prediction": "-",
+        "correct": false,
+        "error": ""
+      }
+    },
+    {
+      "id": "481887827.jpg#3r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "A group of people sit before a campfire.",
+      "hypothesis": "People are around a fire",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "campfire",
+          "fire"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(campfire, fire)"
+      ],
+      "baseline": {
+        "prediction": "-",
+        "correct": false,
+        "error": ""
+      },
+      "oracle": {
+        "prediction": "-",
+        "correct": false,
+        "error": ""
+      }
+    },
+    {
+      "id": "4851047049.jpg#3r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "A man playing a guitar while a woman in a checks the oven.",
+      "hypothesis": "A man plays an instrument.",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "guitar",
+          "instrument"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(guitar, instrument)"
+      ],
+      "baseline": {
+        "prediction": "-",
+        "correct": false,
+        "error": ""
+      },
+      "oracle": {
+        "prediction": "-",
+        "correct": false,
+        "error": ""
+      }
+    },
+    {
+      "id": "4876043682.jpg#2r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "A boy rides on a camel in a crowded area while talking on his cellphone.",
+      "hypothesis": "A boy is riding an animal.",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "camel",
+          "animal"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(camel, animal)"
+      ],
+      "baseline": {
+        "prediction": "-",
+        "correct": false,
+        "error": ""
+      },
+      "oracle": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      }
+    },
+    {
+      "id": "4887879873.jpg#2r1e",
+      "dataset": "snli",
+      "split": "test",
+      "premise": "A man wearing a black jacket stands next to a body of water.",
+      "hypothesis": "A person is outside near some water.",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "man",
+          "person"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(man, person)"
+      ],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      }
+    },
+    {
+      "id": "489",
+      "dataset": "sick",
+      "split": "train",
+      "premise": "There is no dog playing with a red ball",
+      "hypothesis": "Two daschunds are playing with a red ball",
+      "gold_label": "contradiction",
+      "human_relations": [
+        [
+          "daschund",
+          "dog"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(daschund, dog)"
+      ],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "contradiction",
+        "correct": true,
+        "error": null
+      }
+    },
+    {
+      "id": "4894267064.jpg#3r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "2 woman walking down the street next to graffiti",
+      "hypothesis": "The woman are by grafitti.",
+      "gold_label": "entailment",
+      "human_relations": [],
+      "kb_sent": [],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      }
+    },
+    {
+      "id": "4909669888.jpg#2r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "A Black woman on the street is talking on her cellphone.",
+      "hypothesis": "A black woman is on her phone.",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "cellphone",
+          "phone"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(cellphone, phone)"
+      ],
+      "baseline": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "-",
+        "correct": false,
+        "error": ""
+      }
+    },
+    {
+      "id": "4916",
+      "dataset": "sick",
+      "split": "dev",
+      "premise": "A man is singing and playing a guitar",
+      "hypothesis": "A man is singing and playing a musical instrument",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "guitar",
+          "musical instrument"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(guitar, musical instrument)"
+      ],
+      "baseline": {
+        "prediction": "-",
+        "correct": false,
+        "error": ""
+      },
+      "oracle": {
+        "prediction": "-",
+        "correct": false,
+        "error": ""
+      }
+    },
+    {
+      "id": "4929903531.jpg#1r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "A child is looking at some colorful dresses.",
+      "hypothesis": "A person is looking at some colorful dresses.",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "child",
+          "person"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(child, person)"
+      ],
+      "baseline": {
+        "prediction": "-",
+        "correct": false,
+        "error": ""
+      },
+      "oracle": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      }
+    },
+    {
+      "id": "4935241932.jpg#3r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "A green bike is parked next to a door.",
+      "hypothesis": "The bike is outside.",
+      "gold_label": "entailment",
+      "human_relations": [],
+      "kb_sent": [],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      }
+    },
+    {
+      "id": "4938897545.jpg#4r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "A motorcycle rider is making a sharp turn.",
+      "hypothesis": "The motorcyclist is turning.",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "motorcycle rider",
+          "motorcyclist"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(motorcycle rider, motorcyclist)"
+      ],
+      "baseline": {
+        "prediction": "-",
+        "correct": false,
+        "error": ""
+      },
+      "oracle": {
+        "prediction": "-",
+        "correct": false,
+        "error": ""
+      }
+    },
+    {
+      "id": "4950416860.jpg#3r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "A man in a canoe throwing a yellow net into the water.",
+      "hypothesis": "A man is in a boat",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "canoe",
+          "boat"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(canoe, boat)"
+      ],
+      "baseline": {
+        "prediction": "-",
+        "correct": false,
+        "error": ""
+      },
+      "oracle": {
+        "prediction": "-",
+        "correct": false,
+        "error": ""
+      }
+    },
+    {
+      "id": "4972",
+      "dataset": "sick",
+      "split": "test",
+      "premise": "An onion is being chopped",
+      "hypothesis": "An onion is being sliced",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "chop",
+          "slice"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(chop, slice)"
+      ],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      }
+    },
+    {
+      "id": "4974",
+      "dataset": "sick",
+      "split": "train",
+      "premise": "Someone is holding a hedgehog",
+      "hypothesis": "Someone is holding a small animal",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "hedgehog",
+          "small animal"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(hedgehog, small animal)"
+      ],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      }
+    },
+    {
+      "id": "4979886037.jpg#3r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "A smiling costumed woman is holding an umbrella.",
+      "hypothesis": "A happy woman holds an umbrella.",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "smiling",
+          "happy"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(smiling, happy)"
+      ],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "-",
+        "correct": false,
+        "error": ""
+      }
+    },
+    {
+      "id": "4980505768.jpg#1r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "A woman dressed as Snow White walks with other girls in costume down a street.",
+      "hypothesis": "A woman is dressed as a fairy tale character.",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "snow white",
+          "fairy tale character"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(snow white, fairy tale character)"
+      ],
+      "baseline": {
+        "prediction": "-",
+        "correct": false,
+        "error": ""
+      },
+      "oracle": {
+        "prediction": "-",
+        "correct": false,
+        "error": ""
+      }
+    },
+    {
+      "id": "4985197970.jpg#0r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "A sunny street with a red building, parked cars, and a man walking down the road.",
+      "hypothesis": "The sun is shining.",
+      "gold_label": "entailment",
+      "human_relations": [],
+      "kb_sent": [],
+      "baseline": {
+        "prediction": "-",
+        "correct": false,
+        "error": ""
+      },
+      "oracle": {
+        "prediction": "-",
+        "correct": false,
+        "error": ""
+      }
+    },
+    {
+      "id": "4985197970.jpg#3r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "A person is walking down a cobblestone street.",
+      "hypothesis": "The cobblestone street is not empty.",
+      "gold_label": "entailment",
+      "human_relations": [],
+      "kb_sent": [],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      }
+    },
+    {
+      "id": "5030",
+      "dataset": "sick",
+      "split": "dev",
+      "premise": "The man is talking on the telephone",
+      "hypothesis": "The man is speaking on the telephone",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "talk",
+          "speak"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(talk, speak)"
+      ],
+      "baseline": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      }
+    },
+    {
+      "id": "5042057368.jpg#3r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "Old woman chasing away two lambs with a broom.",
+      "hypothesis": "There is a woman and some animals.",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "lamb",
+          "animal"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(lamb, animal)"
+      ],
+      "baseline": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      }
+    },
+    {
+      "id": "507035997.jpg#2r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "A man cooking kabobs on a barbecue in his backyard.",
+      "hypothesis": "The man is have a cookout.",
+      "gold_label": "entailment",
+      "human_relations": [],
+      "kb_sent": [],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      }
+    },
+    {
+      "id": "5110",
+      "dataset": "sick",
+      "split": "dev",
+      "premise": "A chef is preparing some food",
+      "hypothesis": "A chef is preparing a meal",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "food",
+          "meal"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(food, meal)"
+      ],
+      "baseline": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "-",
+        "correct": false,
+        "error": ""
+      }
+    },
+    {
+      "id": "5113",
+      "dataset": "sick",
+      "split": "dev",
+      "premise": "Two sumo ringers are fighting",
+      "hypothesis": "Two sumo wrestlers are fighting",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "sumo ringer",
+          "sumo wrestler"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(sumo ringer, sumo wrestler)"
+      ],
+      "baseline": {
+        "prediction": "-",
+        "correct": false,
+        "error": ""
+      },
+      "oracle": {
+        "prediction": "-",
+        "correct": false,
+        "error": ""
+      }
+    },
+    {
+      "id": "51145797.jpg#4r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "Two people are in a green forest.",
+      "hypothesis": "The forest is not dead.",
+      "gold_label": "entailment",
+      "human_relations": [],
+      "kb_sent": [],
+      "baseline": {
+        "prediction": "-",
+        "correct": false,
+        "error": ""
+      },
+      "oracle": {
+        "prediction": "-",
+        "correct": false,
+        "error": ""
+      }
+    },
+    {
+      "id": "5149",
+      "dataset": "sick",
+      "split": "train",
+      "premise": "A lemur is hanging on a cord",
+      "hypothesis": "A lemur is hanging on a rope",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "cord",
+          "rope"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(cord, rope)"
+      ],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      }
+    },
+    {
+      "id": "5198",
+      "dataset": "sick",
+      "split": "train",
+      "premise": "A boy is saying a word",
+      "hypothesis": "A child is talking",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "boy",
+          "child"
+        ],
+        [
+          "say",
+          "talk"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(boy, child)",
+        "isa_wn(say, talk)"
+      ],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      }
+    },
+    {
+      "id": "5217397101.jpg#3r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "A nun is taking a picture outside.",
+      "hypothesis": "A woman is outside",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "nun",
+          "woman"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(nun, woman)"
+      ],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      }
+    },
+    {
+      "id": "5266194002.jpg#0r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "A man in a blue t-shirt is watching two women sitting at a table in the kitchen baking.",
+      "hypothesis": "A man watches two women cook",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "bake",
+          "cook"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(bake, cook)"
+      ],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      }
+    },
+    {
+      "id": "530661899.jpg#2r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "A man and women walk atop a hill.",
+      "hypothesis": "A man and woman are walking.",
+      "gold_label": "entailment",
+      "human_relations": [],
+      "kb_sent": [],
+      "baseline": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      }
+    },
+    {
+      "id": "533601247.jpg#2r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "A boy in sandals is looking at a camera in a busy street.",
+      "hypothesis": "A boy is in a busy street, wearing sandals, looking at a camera",
+      "gold_label": "entailment",
+      "human_relations": [],
+      "kb_sent": [],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      }
+    },
+    {
+      "id": "5435",
+      "dataset": "sick",
+      "split": "train",
+      "premise": "Two baby pandas are playing",
+      "hypothesis": "Two cubs are playing",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "baby panda",
+          "cub"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(baby panda, cub)"
+      ],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      }
+    },
+    {
+      "id": "5436986554.jpg#1r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "Military men dressed in camouflage and white aim there weapons while out in the snowy weather.",
+      "hypothesis": "men have weapons",
+      "gold_label": "entailment",
+      "human_relations": [],
+      "kb_sent": [],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      }
+    },
+    {
+      "id": "5462",
+      "dataset": "sick",
+      "split": "train",
+      "premise": "A boy is mowing the lawn",
+      "hypothesis": "A guy is mowing the lawn",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "boy",
+          "guy"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(boy, guy)"
+      ],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      }
+    },
+    {
+      "id": "5498",
+      "dataset": "sick",
+      "split": "dev",
+      "premise": "A woman is cutting a lemon",
+      "hypothesis": "A woman is cutting fruit",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "lemon",
+          "fruit"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(lemon, fruit)"
+      ],
+      "baseline": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      }
+    },
+    {
+      "id": "5554",
+      "dataset": "sick",
+      "split": "train",
+      "premise": "The man is aiming a gun",
+      "hypothesis": "The man is handling a gun",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "aim",
+          "handle"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(aim, handle)"
+      ],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      }
+    },
+    {
+      "id": "5555",
+      "dataset": "sick",
+      "split": "train",
+      "premise": "The man is aiming a gun",
+      "hypothesis": "The man is drawing a gun",
+      "gold_label": "entailment",
+      "human_relations": [],
+      "kb_sent": [],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      }
+    },
+    {
+      "id": "562928217.jpg#4r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "A black and a white dog are going after a tennis ball.",
+      "hypothesis": "The dogs are chasing a ball.",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "go after",
+          "chase"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(go after, chase)"
+      ],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      }
+    },
+    {
+      "id": "5728602543.jpg#4r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "Two young girls looking at Barbie dolls.",
+      "hypothesis": "Two girls are watching dolls.",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "look",
+          "watch"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(look, watch)"
+      ],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      }
+    },
+    {
+      "id": "5791070.jpg#3r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "Interior of the restaurant chain: Planet Hollywood, various movie memorabilia decorate the space.",
+      "hypothesis": "The inside of a restaurant.",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "interior",
+          "inside"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(interior, inside)"
+      ],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      }
+    },
+    {
+      "id": "5806",
+      "dataset": "sick",
+      "split": "dev",
+      "premise": "A man is rowing a canoe",
+      "hypothesis": "A man is rowing a boat",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "canoe",
+          "boat"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(canoe, boat)"
+      ],
+      "baseline": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      }
+    },
+    {
+      "id": "5871026012.jpg#3r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "A golfer has just finished swinging his club.",
+      "hypothesis": "a human outside",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "golfer",
+          "human"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(golfer, human)"
+      ],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      }
+    },
+    {
+      "id": "6167481552.jpg#3r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "A football team getting ready for the coin toss in a half empty stadium.",
+      "hypothesis": "The stadium is not full.",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "half empty",
+          "not full"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(half empty, not full)"
+      ],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      }
+    },
+    {
+      "id": "6167481552.jpg#3r1n",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "A football team getting ready for the coin toss in a half empty stadium.",
+      "hypothesis": "There is a game about to be played.",
+      "gold_label": "entailment",
+      "human_relations": [],
+      "kb_sent": [],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      }
+    },
+    {
+      "id": "6214",
+      "dataset": "sick",
+      "split": "train",
+      "premise": "A man is on a ship in front of the sunset",
+      "hypothesis": "A man is on a boat in front of the sunset",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "ship",
+          "boat"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(ship, boat)"
+      ],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      }
+    },
+    {
+      "id": "6220789654.jpg#3r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "A woman closes her eyes as she plays her cello.",
+      "hypothesis": "A woman is making music.",
+      "gold_label": "entailment",
+      "human_relations": [],
+      "kb_sent": [],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      }
+    },
+    {
+      "id": "6285562381.jpg#2r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "A man and a woman hug on a grassy hillside overlooking the countryside in the distance.",
+      "hypothesis": "The man and woman are outdoors.",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "hillside",
+          "outdoors"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(hillside, outdoors)"
+      ],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      }
+    },
+    {
+      "id": "6336028231.jpg#0r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "A skydiving instructor with a student strapped together while skydiving.",
+      "hypothesis": "People are jumping from a plane.",
+      "gold_label": "entailment",
+      "human_relations": [],
+      "kb_sent": [],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      }
+    },
+    {
+      "id": "65847949.jpg#1r3e",
+      "dataset": "snli",
+      "split": "train",
+      "premise": "Four women sitting on green outdoor furniture on a patio with a small doghouse in the backdrop.",
+      "hypothesis": "four women sitting outdoors",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "patio",
+          "outdoors"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(patio, outdoors)"
+      ],
+      "baseline": {
+        "prediction": "-",
+        "correct": false,
+        "error": "Server error '500 INTERNAL SERVER ERROR' for url 'https://langpro.hum.uu.nl/langpro-api/prove/'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/500"
+      },
+      "oracle": {
+        "prediction": "-",
+        "correct": false,
+        "error": "Server error '500 INTERNAL SERVER ERROR' for url 'https://langpro.hum.uu.nl/langpro-api/prove/'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/500"
+      }
+    },
+    {
+      "id": "6634",
+      "dataset": "sick",
+      "split": "dev",
+      "premise": "A hurdle is being leapt by a horse that has a rider on its back",
+      "hypothesis": "A horse and its rider are leaping over a barrier",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "hurdle",
+          "barrier"
+        ],
+        [
+          "leap",
+          "leap over"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(hurdle, barrier)",
+        "isa_wn(leap, leap over)"
+      ],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      }
+    },
+    {
+      "id": "6756",
+      "dataset": "sick",
+      "split": "dev",
+      "premise": "A large brown dog and a small grey dog are standing on a rocky surface",
+      "hypothesis": "A big brown dog and a small grey dog are standing on a rocky surface",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "large",
+          "big"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(large, big)"
+      ],
+      "baseline": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      }
+    },
+    {
+      "id": "686293997.jpg#4r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "Dinner and decisions, with the crew.",
+      "hypothesis": "the crew was having dinner",
+      "gold_label": "entailment",
+      "human_relations": [],
+      "kb_sent": [],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      }
+    },
+    {
+      "id": "7081260077.jpg#3r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "Rugby player in blue dives to tackle the ball carrier in white.",
+      "hypothesis": "A rugby player is playing in a match.",
+      "gold_label": "entailment",
+      "human_relations": [],
+      "kb_sent": [],
+      "baseline": {
+        "prediction": "-",
+        "correct": false,
+        "error": ""
+      },
+      "oracle": {
+        "prediction": "-",
+        "correct": false,
+        "error": ""
+      }
+    },
+    {
+      "id": "7123721879.jpg#0r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "A single runner, clothed in appropriate attire, jogging on a sidewalk next to a body of water, with buildings in the backdrop on the other side of the water.",
+      "hypothesis": "A jogger, dressed for jogging, jogs on a sidewalk near water.",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "clothed",
+          "dressed"
+        ],
+        [
+          "next to",
+          "near"
+        ],
+        [
+          "runner",
+          "jogger"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(clothed, dressed)",
+        "isa_wn(next to, near)",
+        "isa_wn(runner, jogger)"
+      ],
+      "baseline": {
+        "prediction": "-",
+        "correct": false,
+        "error": ""
+      },
+      "oracle": {
+        "prediction": "-",
+        "correct": false,
+        "error": "Server error '502 Proxy Error' for url 'https://langpro.hum.uu.nl/langpro-api/prove/'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/502"
+      }
+    },
+    {
+      "id": "72010421.jpg#0r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "A young girl sitting on a white comforter on a bed covered with clothing, holding a yellow stuffed duck.",
+      "hypothesis": "A yellow duck being held by a girl.",
+      "gold_label": "entailment",
+      "human_relations": [],
+      "kb_sent": [],
+      "baseline": {
+        "prediction": "-",
+        "correct": false,
+        "error": ""
+      },
+      "oracle": {
+        "prediction": "-",
+        "correct": false,
+        "error": ""
+      }
+    },
+    {
+      "id": "7292157214.jpg#0r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "A man wearing a white jacket and pink hat is speaking into a microphone while raising one arm above his head.",
+      "hypothesis": "The man is wearing a hat.",
+      "gold_label": "entailment",
+      "human_relations": [],
+      "kb_sent": [],
+      "baseline": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      }
+    },
+    {
+      "id": "7391785714.jpg#4r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "Kids are on a amusement ride.",
+      "hypothesis": "Kids ride an amusement ride.",
+      "gold_label": "entailment",
+      "human_relations": [],
+      "kb_sent": [],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      }
+    },
+    {
+      "id": "7417714642.jpg#0r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "A bride wearing her bridal gown is taking pictures with her colorful wedding bouquet in front of cows.",
+      "hypothesis": "A bride is taking wedding pictures.",
+      "gold_label": "entailment",
+      "human_relations": [],
+      "kb_sent": [],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      }
+    },
+    {
+      "id": "7479",
+      "dataset": "sick",
+      "split": "train",
+      "premise": "Two guys are sitting around a table and holding beers in their hands",
+      "hypothesis": "Two blokes are sitting around a table and holding beers in their hands",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "guy",
+          "bloke"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(guy, bloke)"
+      ],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      }
+    },
+    {
+      "id": "761479953.jpg#2r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "A young boy wearing safety swimming gear and goggles is in a pool.",
+      "hypothesis": "A kid uses eye protection while in the water.",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "goggles",
+          "eye protection"
+        ],
+        [
+          "pool",
+          "water"
+        ],
+        [
+          "young boy",
+          "kid"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(goggles, eye protection)",
+        "isa_wn(pool, water)",
+        "isa_wn(young boy, kid)"
+      ],
+      "baseline": {
+        "prediction": "-",
+        "correct": false,
+        "error": ""
+      },
+      "oracle": {
+        "prediction": "-",
+        "correct": false,
+        "error": ""
+      }
+    },
+    {
+      "id": "7671653534.jpg#2r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "Bicyclists are in the street as a crowd watches them ride by a banner that say \"London 2012\".",
+      "hypothesis": "There are bikes being ridden.",
+      "gold_label": "entailment",
+      "human_relations": [],
+      "kb_sent": [],
+      "baseline": {
+        "prediction": "-",
+        "correct": false,
+        "error": ""
+      },
+      "oracle": {
+        "prediction": "-",
+        "correct": false,
+        "error": ""
+      }
+    },
+    {
+      "id": "7700959654.jpg#4r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "A woman and a man are sword fighting.",
+      "hypothesis": "Two people are opposing each other in a sword fight.",
+      "gold_label": "entailment",
+      "human_relations": [],
+      "kb_sent": [],
+      "baseline": {
+        "prediction": "-",
+        "correct": false,
+        "error": ""
+      },
+      "oracle": {
+        "prediction": "-",
+        "correct": false,
+        "error": ""
+      }
+    },
+    {
+      "id": "7764955218.jpg#4r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "Two men in yellow jackets and black pants have medals.",
+      "hypothesis": "The men have been given an award at some point.",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "medal",
+          "award"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(medal, award)"
+      ],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      }
+    },
+    {
+      "id": "7795",
+      "dataset": "sick",
+      "split": "dev",
+      "premise": "A tennis player is lunging to the left",
+      "hypothesis": "A tennis player is jumping to the left",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "lunge",
+          "jump"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(lunge, jump)"
+      ],
+      "baseline": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      }
+    },
+    {
+      "id": "7852369036.jpg#2r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "A badminton player from china is sprawled out on the badminton court with his racket close by.",
+      "hypothesis": "A badminton player is laying on a court.",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "sprawl out",
+          "lay"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(sprawl out, lay)"
+      ],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      }
+    },
+    {
+      "id": "8021",
+      "dataset": "sick",
+      "split": "train",
+      "premise": "A brown and white dog is playing on the grass",
+      "hypothesis": "A brown and white dog is playing on the lawn",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "grass",
+          "lawn"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(grass, lawn)"
+      ],
+      "baseline": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      }
+    },
+    {
+      "id": "8159685316.jpg#1r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "Female runners from Japan, Germany and China are running side by side.",
+      "hypothesis": "The runners are not from the US",
+      "gold_label": "entailment",
+      "human_relations": [],
+      "kb_sent": [],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      }
+    },
+    {
+      "id": "8182074427.jpg#3r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "A female basketball player dribbling down court.",
+      "hypothesis": "A female basketball player is dribbling",
+      "gold_label": "entailment",
+      "human_relations": [],
+      "kb_sent": [],
+      "baseline": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      }
+    },
+    {
+      "id": "823425327.jpg#4r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "There are three woman conversing at a table with drinks.",
+      "hypothesis": "Women are talking",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "converse",
+          "talk"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(converse, talk)"
+      ],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      }
+    },
+    {
+      "id": "82945847.jpg#0r1n",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "Three sisters, barefoot in pink dresses and who range in age from preschool to teenager are pictured on a beach as they look out at the Ocean.",
+      "hypothesis": "Three sisters, barefoot in pretty pink dresses and who range in age from preschool to teenager",
+      "gold_label": "entailment",
+      "human_relations": [],
+      "kb_sent": [],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      }
+    },
+    {
+      "id": "8334",
+      "dataset": "sick",
+      "split": "dev",
+      "premise": "A man is doing a trick on a skateboard",
+      "hypothesis": "A person is doing a trick on a skateboard",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "man",
+          "person"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(man, person)"
+      ],
+      "baseline": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      }
+    },
+    {
+      "id": "8343",
+      "dataset": "sick",
+      "split": "dev",
+      "premise": "A man in a motocross uniform is wearing a helmet and rides a red motorcycle",
+      "hypothesis": "A person in a motocross uniform is wearing a helmet and rides a red motorcycle",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "man",
+          "person"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(man, person)"
+      ],
+      "baseline": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      }
+    },
+    {
+      "id": "86112925.jpg#0r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "A woman in a patterned shirt hands a plate of food to another woman in an apron, while two women work in the background.",
+      "hypothesis": "Several women collaborate to hand out food.",
+      "gold_label": "entailment",
+      "human_relations": [],
+      "kb_sent": [],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      }
+    },
+    {
+      "id": "8624",
+      "dataset": "sick",
+      "split": "train",
+      "premise": "People are sitting against a wall",
+      "hypothesis": "People are sitting near a wall",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "against",
+          "near"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(against, near)"
+      ],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      }
+    },
+    {
+      "id": "8633",
+      "dataset": "sick",
+      "split": "dev",
+      "premise": "A man is rock climbing, pausing and calculating the route",
+      "hypothesis": "A man is rock climbing, stopping and calculating the route",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "pause",
+          "stop"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(pause, stop)"
+      ],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      }
+    },
+    {
+      "id": "8660",
+      "dataset": "sick",
+      "split": "dev",
+      "premise": "A group of rollerbladers is lining up on the street",
+      "hypothesis": "A group of rollerbladers is lining up on the road",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "street",
+          "road"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(street, road)"
+      ],
+      "baseline": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      }
+    },
+    {
+      "id": "8806",
+      "dataset": "sick",
+      "split": "dev",
+      "premise": "A dog is swimming in a body of water",
+      "hypothesis": "An animal is swimming in a body of water",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "dog",
+          "animal"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(dog, animal)"
+      ],
+      "baseline": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      }
+    },
+    {
+      "id": "89332423.jpg#4r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "A man holding a large swordfish.",
+      "hypothesis": "There is a person with a fish.",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "man",
+          "person"
+        ],
+        [
+          "swordfish",
+          "fish"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(man, person)",
+        "isa_wn(swordfish, fish)"
+      ],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      }
+    },
+    {
+      "id": "9069",
+      "dataset": "sick",
+      "split": "dev",
+      "premise": "Two boys are laying in the ocean close to the beach",
+      "hypothesis": "Two boys are laying in the water close to the beach",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "ocean",
+          "water"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(ocean, water)"
+      ],
+      "baseline": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      }
+    },
+    {
+      "id": "9359",
+      "dataset": "sick",
+      "split": "dev",
+      "premise": "A surfer is surfing a big wave",
+      "hypothesis": "A surfer is surfing a huge wave",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "big",
+          "huge"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(big, huge)"
+      ],
+      "baseline": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      }
+    },
+    {
+      "id": "9433",
+      "dataset": "sick",
+      "split": "dev",
+      "premise": "The black and white dog is running in a green yard",
+      "hypothesis": "A black and white dog is running outdoors",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "yard",
+          "outdoors"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(yard, outdoors)"
+      ],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      }
+    },
+    {
+      "id": "952171414.jpg#2r1e",
+      "dataset": "snli",
+      "split": "dev",
+      "premise": "a group of four people conversing next to a bus",
+      "hypothesis": "A group of people are talking near a vehicle.",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "bus",
+          "vehicle"
+        ],
+        [
+          "converse",
+          "talk"
+        ],
+        [
+          "next to",
+          "near"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(bus, vehicle)",
+        "isa_wn(converse, talk)",
+        "isa_wn(next to, near)"
+      ],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      }
+    },
+    {
+      "id": "9584",
+      "dataset": "sick",
+      "split": "dev",
+      "premise": "The woman is holding the paintbrush next to the artist's easel",
+      "hypothesis": "The lady is holding the paintbrush next to the artist's easel",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "woman",
+          "lady"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(woman, lady)"
+      ],
+      "baseline": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      }
+    },
+    {
+      "id": "9668",
+      "dataset": "sick",
+      "split": "train",
+      "premise": "A shirtless man is escorting a horse that is pulling a carriage along a paved road",
+      "hypothesis": "A shirtless man is leading a horse that is pulling a carriage",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "escort",
+          "lead"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(escort, lead)"
+      ],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      }
+    },
+    {
+      "id": "976581518.jpg#0r1e",
+      "dataset": "snli",
+      "split": "test",
+      "premise": "A scientist studies a slide in order to work on her new creation.",
+      "hypothesis": "A scientist studies a slide that is related to her invention.",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "creation",
+          "invention"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(creation, invention)"
+      ],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      }
+    },
+    {
+      "id": "vg_len26r4e",
+      "dataset": "snli",
+      "split": "train",
+      "premise": "The spectators wear hats",
+      "hypothesis": "The onlookers wear hats",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "spectator",
+          "onlooker"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(spectator, onlooker)"
+      ],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "entailment",
+        "correct": true,
+        "error": null
+      }
+    },
+    {
+      "id": "vg_len47r4e",
+      "dataset": "snli",
+      "split": "train",
+      "premise": "The man is white.",
+      "hypothesis": "The man is not black.",
+      "gold_label": "entailment",
+      "human_relations": [],
+      "kb_sent": [],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      }
+    },
+    {
+      "id": "vg_len66r1e",
+      "dataset": "snli",
+      "split": "train",
+      "premise": "The cup is shiny.",
+      "hypothesis": "The cup glitters",
+      "gold_label": "entailment",
+      "human_relations": [],
+      "kb_sent": [],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      }
+    },
+    {
+      "id": "vg_len84r1e",
+      "dataset": "snli",
+      "split": "train",
+      "premise": "The bus is gleaming",
+      "hypothesis": "The bus is bright.",
+      "gold_label": "entailment",
+      "human_relations": [
+        [
+          "gleaming",
+          "bright"
+        ]
+      ],
+      "kb_sent": [
+        "isa_wn(gleaming, bright)"
+      ],
+      "baseline": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      },
+      "oracle": {
+        "prediction": "neutral",
+        "correct": false,
+        "error": null
+      }
+    }
+  ]
+}

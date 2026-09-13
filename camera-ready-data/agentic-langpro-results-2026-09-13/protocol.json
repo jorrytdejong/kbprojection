@@ -1,0 +1,184 @@
+{
+  "arms": {
+    "stefan": {
+      "initial_prompt": "snapshots/stefan/prompts/knowledge_generation.txt",
+      "initial_parser": "agentic_pipeline_langpro.agent_llm original KB parser",
+      "renderer": "Stefan fill_kb_prompt; format premise and hypothesis"
+    },
+    "lex": {
+      "initial_parser": "kbprojection.llm._extract_lasha_kb_from_output",
+      "initial_prompt": "snapshots/prompts/lasha_calibrated.txt",
+      "renderer": "Replace ${PREMISE} and ${HYPOTHESIS} only",
+      "template_variant": "production_lasha_calibrated"
+    }
+  },
+  "common_adapter_deviations_from_july": {
+    "classification_order": [
+      "Any Lim status: UNKNOWN (-), even if a proof is closed",
+      "Both Ter and both closed: UNKNOWN (-), reason inconsistent; separate report category",
+      "Both Ter and exactly one closed: entailment/contradiction according to the closed proof",
+      "Both Ter and both open: neutral"
+    ],
+    "comparability": "Common interpretation/feedback correction in both new arms; not an exact replay of unmodified July or September runs",
+    "critic_feedback": "When trace.pred is '-', closure formatter returns 'unknown (incomplete or conflicting proofs)' instead of claiming neutral; critic template unchanged",
+    "preserved_evidence": [
+      "legacy parsed label",
+      "raw proof_info",
+      "raw API response"
+    ],
+    "proof_status_validation": "Both proof info arrays must contain at least 3 entries; info[1] must be open/closed and info[2] must fully match (Ter|Lim)\\d*. Missing/malformed status is a technical error",
+    "purpose": "Keep unknown, technical errors and neutral distinct in both arms"
+  },
+  "common_prompts": {
+    "critic": "snapshots/prompts/stefan_failure_analysis.txt",
+    "refinement": "snapshots/prompts/stefan_knowledge_refinement.txt",
+    "retry_rules": "snapshots/prompts/stefan_knowledge_generation.txt"
+  },
+  "configurations": [
+    [
+      "wordnet_only",
+      true,
+      0
+    ],
+    [
+      "llm_only_one_shot",
+      false,
+      1
+    ],
+    [
+      "llm_only_agentic",
+      false,
+      2
+    ],
+    [
+      "wordnet_llm_one_shot",
+      true,
+      1
+    ],
+    [
+      "wordnet_llm_agentic",
+      true,
+      2
+    ]
+  ],
+  "execution": {
+    "agentic": "Same initial phases as one-shot, then at most one Stefan critic and refinement; no critic_stop adapter",
+    "automatic_retries": 0,
+    "baseline_policy": "Baseline per ID and WN condition with complete raw response; no label-only reuse",
+    "denominators": "1000 fixed for every model/prompt/configuration; semantic coverage separately",
+    "eligibility": "July/pilot: generate only when baseline is neutral and incorrect; correct/error/other predictions stop",
+    "global_langpro_concurrency": 1,
+    "global_langpro_lock": "experiments\\parser_normalization\\cache\\.network-request.lock",
+    "one_shot": "At most one KB generation; result from the shared baseline and initial generation/proof phases",
+    "refinement_sharing": "Only same input, whole request, attempt, parser and WN condition; initial prompt is WN-independent",
+    "sharing": "WN on/off baseline requests globally shared; initial per model/prompt shared across WN; one-shot derived from first shared attempt; critic/refinement only exact phase context",
+    "source_limit": "New pilot-derived protocol, not a certified replay of historical September exports",
+    "stop_file": "STOP",
+    "unknown_policy": "Lim => unknown; malformed => technical_error; both closed => inconsistent; both Ter open => neutral",
+    "wordnet_off_flags": [
+      "aall",
+      "allInt",
+      "no_kb",
+      "no_wn"
+    ],
+    "wordnet_on_flags": [
+      "aall",
+      "allInt"
+    ],
+    "scheduling": "One model at a time ascending frozen estimated total cost; concurrent independent problems",
+    "backend": "remote only, no backend switches",
+    "cache_key_policy": "LangPro: effective text, normalized effective KB, endpoint/parser/RAL/senses/flags/backend/interpretation version. Exclude model,prompt,ID,gold. LLM: complete request,model,all effective params,phase,parser,context.",
+    "stop_policy": "STOP prevents new sends; drain active calls; uncertain remote requests retain global lock, never automatically resend"
+  },
+  "filtering": {
+    "diagnostic_scorer": false,
+    "pos_additive": false,
+    "post_process": true,
+    "profile": "July Stefan/pilot; original+all-verb lemma+diff-only+inverse then strict filter",
+    "sha256": "e464d1e81f15cf68835ceade0e0ef2f0b0e453e15cc5bb727bd72759b6af4469",
+    "source": "snapshots/stefan/src/kbprojection/filtering.py",
+    "use_semantic": false
+  },
+  "langpro": {
+    "automatic_retries": 0,
+    "extra_flags": [],
+    "flags": [
+      "aall",
+      "allInt"
+    ],
+    "global_max_concurrent_requests": 1,
+    "intersective": true,
+    "parser": "easyccg",
+    "ral": 200,
+    "strong_align": true,
+    "timeout_seconds": 60,
+    "url": "https://langpro-annotator.hum.uu.nl/langpro-api/prove/",
+    "wordnet_enabled": true,
+    "wordnet_senses": "all"
+  },
+  "llm": {
+    "automatic_retries": 0,
+    "base_url": "https://openrouter.ai/api/v1",
+    "max_iterations": 2,
+    "max_iterations_meaning": "Initial KB generation plus at most one refinement",
+    "omitted_parameters": [
+      "max_tokens",
+      "top_p",
+      "seed",
+      "reasoning"
+    ],
+    "omitted_parameters_policy": "Provider defaults; record actual request parameters",
+    "provider": "openrouter",
+    "roles": [
+      "initial",
+      "critic",
+      "refinement"
+    ],
+    "temperature": 0,
+    "timeout_seconds": 120,
+    "models": [
+      "openai/gpt-oss-20b",
+      "google/gemma-3-4b-it",
+      "google/gemini-3.1-flash-lite",
+      "openai/gpt-5.4-mini",
+      "anthropic/claude-haiku-4.5",
+      "google/gemini-3.5-flash",
+      "openai/gpt-5.4",
+      "anthropic/claude-sonnet-4.5"
+    ],
+    "model_order_file": "preparation/models.json",
+    "temperature_policy": "Send temperature0 as frozen pilot; user accepts providers which ignore/do not support it"
+  },
+  "phase_source_sha256": {
+    "snapshots/prompts/lasha_calibrated.txt": "0bd5d7670f2c326db3b242bce6f283a352eba222a86cba06a30c67cf107d689a",
+    "snapshots/prompts/stefan_failure_analysis.txt": "e8104cf2a830bf76f904e999183937f94e933649a442e6c2b23dc9b3e27d3b59",
+    "snapshots/prompts/stefan_knowledge_generation.txt": "11486db70483cfe229b340ccc58f356149424e64cb6df37d72bc58ca569b87f5",
+    "snapshots/prompts/stefan_knowledge_refinement.txt": "18c5324375b66e30eeeafb27ea5f0c6ac94aa0b17fc1be5699ac7eed7aac6061",
+    "snapshots/stefan/src/agentic_pipeline_langpro/agent_llm.py": "0eff4d8102c9413a156ec071dc93f5485e114db8b3cf4dcbfbda07655b6b628d",
+    "snapshots/stefan/src/agentic_pipeline_langpro/critic.py": "278a378b841ca9db6295f6da9340d3fe983ed3bcf2462738859bfedf9f953256",
+    "snapshots/stefan/src/agentic_pipeline_langpro/pipeline.py": "489046fea71df51aec62924a11f42d1f248a7f67ea2b2fbd32dedbe3afe7b562",
+    "snapshots/stefan/src/agentic_pipeline_langpro/prompts.py": "f2d35d77263d642db3c780b4261bb01ed52dede923eda6e25dd67a831dd2201b",
+    "snapshots/stefan/src/kbprojection/llm.py": "9db892632cd8f1a8d10dd53d751b968142b2d2efe7e80755aef79d25cf51a4fc"
+  },
+  "population": "preparation/population_1000.jsonl",
+  "population_sha256": "e10f9b3b596f84026f8990ba4acffc1e2ad123498973d27f43aaf793d9ca02b7",
+  "pricing": {
+    "catalog": "preparation/pricing_catalog.json",
+    "currency": "USD",
+    "cost": "usage.cost for each unique new request; unknown cost pauses"
+  },
+  "protocol_id": "extrinsic1000-lex-stefan-pilot-20260911-v1",
+  "scientific_metric": "LangPro prediction agreement with gold; never KB F1",
+  "selection": "Exact input tuples in all four historical Table4 exports, original WordNet-only order; no subset restriction",
+  "source_repository": "repositories/jorryt-kbprojection",
+  "source_repository_revision": "1be943f2d6b59693ea2415cbfd33692029e9f8ad",
+  "controlled_comparison": {
+    "controlled_variables": [
+      "model",
+      "initial prompt and its required parser"
+    ],
+    "common": "Exact 1000 inputs, filtering, critic/refinement, baseline eligibility and gold stop, Ter/Lim guard, RAL200 flags, at most2 KB attempts",
+    "baseline_policy": "Fresh common WN on/off requests unless exact compatible journal exists; cache shared globally across models/prompts/configurations"
+  },
+  "source_components": "Reuse verified immutable experiments/c5_exact223_stefan snapshots and pilot_support; initial LEX template identical to lex_agentic_pilot"
+}
