@@ -1,0 +1,44 @@
+% Counts verified by reconcile_proof_coverage.py; see TABLE_PROVENANCE.md.
+\begin{table*}[t]
+\centering
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}llrrrrrrr@{}}
+\toprule
+& & & \multicolumn{3}{c}{LLM only} & \multicolumn{3}{c}{WordNet + LLM} \\
+\cmidrule(lr){4-6}\cmidrule(l){7-9}
+Model & Prompt & WN & One-shot & Agentic & $\Delta$ & One-shot & Agentic & $\Delta$ \\
+\midrule
+Gemini 3.1 Flash-Lite$^{J}$ & LEX & 162 & 124 & 149 & +25 & 192 & 202 & +10 \\
+\addlinespace[2pt]
+GPT-OSS-20B & LEX & 157 & 158 & 194 & +36 & 174 & 212 & +38 \\
+GPT-OSS-20B & Stefan & 157 & 168 & 191 & +23 & 187 & 212 & +25 \\
+\addlinespace[2pt]
+Gemma 3 4B & LEX & 157 & 163 & 163 & 0 & 182 & 182 & 0 \\
+Gemma 3 4B & Stefan & 157 & 122 & 122 & 0 & 157 & 157 & 0 \\
+\addlinespace[2pt]
+GPT-5.4 Mini & LEX & 157 & 162 & 183 & +21 & 178 & 199 & +21 \\
+GPT-5.4 Mini & Stefan & 157 & 176 & 188 & +12 & 188 & 203 & +15 \\
+\addlinespace[2pt]
+Claude Haiku 4.5 & LEX & 157 & 165 & 176 & +11 & 179 & 190 & +11 \\
+Claude Haiku 4.5 & Stefan & 157 & 172 & 180 & +8 & 184 & 198 & +14 \\
+\midrule
+Prior draft$^{U}$ & Unresolved & 162 & 97 & 195 & +98 & 193 & 214 & +21 \\
+\bottomrule
+\end{tabular}
+\caption{LangPro entailment-proof coverage on 1,000 SNLI entailment problems,
+expanded by model and initial prompt. WN is the corresponding WordNet-only
+baseline; one-shot uses the initial KB attempt (plus baseline success where
+enabled), and agentic allows at most one refinement. $\Delta$ is agentic
+minus one-shot. $^{J}$Jorryt's LEX-prompt pipeline, using the second LLM-only
+export: the earlier export gives 125 rather than 124 one-shot proofs, with
+the same 149 final proofs. Other model rows use the recent shared protocol.
+All use the same 1,000 problem IDs, but five baseline outcomes classified
+as entailment in Jorryt's export are unknown in the recent exports
+(162 versus 157); these versions are not an exact controlled replay.
+Technical failures remain in the denominator, notably for Gemma.
+$^{U}$Original draft values retained for reconciliation only: their
+model, prompt, and supporting export remain unresolved and they are
+not used for ranking.}
+\label{tab:langpro-results}
+\end{table*}

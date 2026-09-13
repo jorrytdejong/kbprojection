@@ -1,0 +1,32 @@
+% Counts verified by reconcile_proof_coverage.py; see TABLE_PROVENANCE.md.
+\begin{table*}[t]
+\centering
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}llrrrrrrr@{}}
+\toprule
+& & & \multicolumn{3}{c}{LLM only} & \multicolumn{3}{c}{WordNet + LLM} \\
+\cmidrule(lr){4-6}\cmidrule(l){7-9}
+Model & Prompt & WN & One-shot & Agentic & $\Delta$ & One-shot & Agentic & $\Delta$ \\
+\midrule
+Gemini 3.5 Flash & LEX & 66 & 85 & 121 & +36 & 102 & 134 & +32 \\
+Gemini 3.5 Flash & Stefan & 66 & 111 & 125 & +14 & 125 & 136 & +11 \\
+\addlinespace[2pt]
+GPT-5.4 & LEX & 66 & 88 & 111 & +23 & 106 & 129 & +23 \\
+GPT-5.4 & Stefan & 66 & 111 & 118 & +7 & 125 & 133 & +8 \\
+\addlinespace[2pt]
+Claude Sonnet 4.5 & LEX & 66 & 92 & 116 & +24 & 109 & 128 & +19 \\
+Claude Sonnet 4.5 & Stefan & 66 & 107 & 119 & +12 & 123 & 134 & +11 \\
+\bottomrule
+\end{tabular}
+\caption{Separate evaluation on the curated 365-problem population:
+363 entailments, one contradiction, and one neutral example. Counts are
+correct gold-label predictions, not exclusively entailment proofs (the
+WordNet baseline includes one correct neutral prediction). WN denotes the
+WordNet-only baseline; $\Delta$ is agentic minus one-shot. These runs use
+the recent shared protocol, with LEX or Stefan as the initial prompt and
+at most one refinement. Do not compare these absolute counts directly
+with the 1,000-problem table. The documented repair supplement uses local
+CCG parses for six problems; all configurations retain the full denominator.}
+\label{tab:langpro-results-365}
+\end{table*}

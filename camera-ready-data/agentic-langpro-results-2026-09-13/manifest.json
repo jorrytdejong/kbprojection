@@ -1117,7 +1117,10 @@
   "additional_experiment_metadata": {
     "owner": "Jorryt de Jong",
     "model": "google/gemini-3.1-flash-lite",
-    "prompt": "New prompt; exact template/version stored outside this archive",
+    "prompt": "LEX prompt in the agentic pipeline, confirmed by Jorryt; exact template revision not recorded in these exports",
+    "prompt_arm": "lex",
+    "pipeline": "Initial KB generation plus at most one refinement; max_iterations=2",
+    "table_export": "Use llm-only-second-run.json for baseline/attempt-1 versus final outcomes; first export differs by one one-shot proof",
     "population": "1,000 SNLI entailment problems",
     "summary_workbook": {
       "file": "gemini-3.1-flash-lite-jorryt-new-prompt-1000\\final_results.xlsx",

@@ -1,0 +1,16 @@
+model,prompt,population,version,wordnet,llm_one_shot,llm_agentic,llm_delta,wordnet_llm_one_shot,wordnet_llm_agentic,wordnet_llm_delta
+google/gemini-3.1-flash-lite,lex,1000,jorryt-v2,162,124,149,25,192,202,10
+openai/gpt-oss-20b,lex,1000,recent-protocol,157,158,194,36,174,212,38
+openai/gpt-oss-20b,stefan,1000,recent-protocol,157,168,191,23,187,212,25
+google/gemma-3-4b-it,lex,1000,recent-protocol,157,163,163,0,182,182,0
+google/gemma-3-4b-it,stefan,1000,recent-protocol,157,122,122,0,157,157,0
+openai/gpt-5.4-mini,lex,1000,recent-protocol,157,162,183,21,178,199,21
+openai/gpt-5.4-mini,stefan,1000,recent-protocol,157,176,188,12,188,203,15
+anthropic/claude-haiku-4.5,lex,1000,recent-protocol,157,165,176,11,179,190,11
+anthropic/claude-haiku-4.5,stefan,1000,recent-protocol,157,172,180,8,184,198,14
+google/gemini-3.5-flash,lex,365,recent-protocol,66,85,121,36,102,134,32
+google/gemini-3.5-flash,stefan,365,recent-protocol,66,111,125,14,125,136,11
+openai/gpt-5.4,lex,365,recent-protocol,66,88,111,23,106,129,23
+openai/gpt-5.4,stefan,365,recent-protocol,66,111,118,7,125,133,8
+anthropic/claude-sonnet-4.5,lex,365,recent-protocol,66,92,116,24,109,128,19
+anthropic/claude-sonnet-4.5,stefan,365,recent-protocol,66,107,119,12,123,134,11
