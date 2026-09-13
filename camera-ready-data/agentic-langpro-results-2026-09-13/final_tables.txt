@@ -88,3 +88,16 @@ Stefan  LLM one-shot     29.32%  33.91%    99      0     0
 Stefan  LLM agentic      32.60%  37.54%    96      0     0
 Stefan  WN+LLM os        33.70%  38.86%    97      0     0
 Stefan  WN+LLM agentic   36.71%  42.27%    96      0     0
+
+Gemini 3.1 Flash Lite x 1000 problems
+Prompt  Conf                Acc     mF1  Unkn LLMerr LPerr
+LEX     WN only          15.70%  17.71%   227      0     0
+LEX     LLM one-shot     16.50%  18.50%   216      0     0
+LEX     LLM agentic      18.00%  20.20%   218      0     0
+LEX     WN+LLM os        17.90%  20.26%   233      0     0
+LEX     WN+LLM agentic   19.30%  21.86%   234      0     0
+Stefan  WN only          15.70%  17.71%   227      0     0
+Stefan  LLM one-shot     16.60%  18.68%   223      0     0
+Stefan  LLM agentic      18.10%  20.34%   220      0     0
+Stefan  WN+LLM os        18.10%  20.53%   237      0     0
+Stefan  WN+LLM agentic   19.70%  22.32%   235      0     0

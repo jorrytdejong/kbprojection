@@ -15,6 +15,8 @@ One-shot means the initial KB attempt with baseline success retained where appli
 | Model | Prompt | WN | LLM one-shot | LLM agentic | Gain | WN+LLM one-shot | WN+LLM agentic | Gain |
 |---|---|---:|---:|---:|---:|---:|---:|---:|
 | Gemini 3.1 Flash-Lite | LEX | 162 | 124 | 149 | +25 | 192 | 202 | +10 |
+| Gemini 3.1 Flash-Lite (shared protocol) | LEX | 157 | 165 | 180 | +15 | 179 | 193 | +14 |
+| Gemini 3.1 Flash-Lite (shared protocol) | Stefan | 157 | 166 | 181 | +15 | 181 | 197 | +16 |
 | GPT-OSS-20B | LEX | 157 | 158 | 194 | +36 | 174 | 212 | +38 |
 | GPT-OSS-20B | Stefan | 157 | 168 | 191 | +23 | 187 | 212 | +25 |
 | Gemma 3 4B | LEX | 157 | 163 | 163 | 0 | 182 | 182 | 0 |
@@ -66,11 +68,11 @@ These snapshot paths identify files in the source archive; the actual prompt tex
 
 Agent files contain `problem_id`, `problem`, `outcome`, and `timeline`. Current WordNet-only records instead use flat `id`, `gold_label`, `pred`, and `outcome`. Full raw prover responses are outside this portable archive; trace/source references are not a claim that those raw files are included.
 
-The two `current-1000/google__gemini-3.1-flash-lite/<prompt>/` folders contain shared baselines only. They are not additional completed Gemini LLM experiments.
+The two `current-1000/google__gemini-3.1-flash-lite/<prompt>/` folders contain the completed shared-protocol Flash Lite experiment: 1,000 problems, both LEX and Stefan, and all five configurations. These results are separate from Jorryt's version above and use the same 157-success WordNet baseline as the other current models.
 
 ## Technical failures and limits on interpretation
 
-All 70 recent configuration files used in the table have complete, unique populations; all counts agree with `final_metrics.json`. No current LangPro errors are reported. Some LLM-error counts are substantial:
+All 80 recent configuration files used in the table have complete, unique populations; all counts agree with `final_metrics.json`. No current LangPro errors are reported. Some LLM-error counts are substantial:
 
 | Model / prompt | LLM one-shot | LLM agentic | WN+LLM one-shot | WN+LLM agentic |
 |---|---:|---:|---:|---:|
@@ -89,6 +91,6 @@ Before final submission, identify that original run and attach its source, or re
 
 ## Reproduce and inspect
 
-Run `python3 reconcile_proof_coverage.py` from this folder (standard library only). It is read-only and prints the audit JSON. `proof_coverage_audit.ipynb` provides an inspectable entry point; `proof_coverage_audit.json` records the full result. The CSV contains the 15 verified rows only; the original draft row is excluded.
+Run `python3 reconcile_proof_coverage.py` from this folder (standard library only). It is read-only and prints the audit JSON. `proof_coverage_audit.ipynb` provides an inspectable entry point; `proof_coverage_audit.json` records the full result. The CSV contains the 17 verified rows only; the original draft row is excluded.
 
 The two standalone LaTeX snippets require `booktabs` and span both columns using `table*`. The manuscript includes them with `\\input{include/langpro-results-1000}` and `\\input{include/langpro-results-365}`. Updated prose uses source-backed counts; the gold-223 table and original JSONs are unchanged.

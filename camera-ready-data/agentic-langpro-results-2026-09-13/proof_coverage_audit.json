@@ -297,6 +297,46 @@
         "current-365/openai__gpt-5.4/stefan/wordnet_llm_one_shot.json",
         "current-365/openai__gpt-5.4/stefan/wordnet_llm_agentic.json"
       ]
+    },
+    {
+      "model": "google/gemini-3.1-flash-lite",
+      "prompt": "lex",
+      "population": 1000,
+      "version": "recent-protocol",
+      "wordnet": 157,
+      "llm_one_shot": 165,
+      "llm_agentic": 180,
+      "llm_delta": 15,
+      "wordnet_llm_one_shot": 179,
+      "wordnet_llm_agentic": 193,
+      "wordnet_llm_delta": 14,
+      "sources": [
+        "current-1000\\google__gemini-3.1-flash-lite\\lex\\wordnet_only.json",
+        "current-1000\\google__gemini-3.1-flash-lite\\lex\\llm_only_one_shot.json",
+        "current-1000\\google__gemini-3.1-flash-lite\\lex\\llm_only_agentic.json",
+        "current-1000\\google__gemini-3.1-flash-lite\\lex\\wordnet_llm_one_shot.json",
+        "current-1000\\google__gemini-3.1-flash-lite\\lex\\wordnet_llm_agentic.json"
+      ]
+    },
+    {
+      "model": "google/gemini-3.1-flash-lite",
+      "prompt": "stefan",
+      "population": 1000,
+      "version": "recent-protocol",
+      "wordnet": 157,
+      "llm_one_shot": 166,
+      "llm_agentic": 181,
+      "llm_delta": 15,
+      "wordnet_llm_one_shot": 181,
+      "wordnet_llm_agentic": 197,
+      "wordnet_llm_delta": 16,
+      "sources": [
+        "current-1000\\google__gemini-3.1-flash-lite\\stefan\\wordnet_only.json",
+        "current-1000\\google__gemini-3.1-flash-lite\\stefan\\llm_only_one_shot.json",
+        "current-1000\\google__gemini-3.1-flash-lite\\stefan\\llm_only_agentic.json",
+        "current-1000\\google__gemini-3.1-flash-lite\\stefan\\wordnet_llm_one_shot.json",
+        "current-1000\\google__gemini-3.1-flash-lite\\stefan\\wordnet_llm_agentic.json"
+      ]
     }
   ],
   "gemini_export_versions": [
@@ -352,10 +392,7 @@
       "recent_category": "unknown"
     }
   ],
-  "baseline_only_folders_not_treated_as_experiments": [
-    "current-1000/google__gemini-3.1-flash-lite/lex",
-    "current-1000/google__gemini-3.1-flash-lite/stefan"
-  ],
+  "baseline_only_folders_not_treated_as_experiments": [],
   "technical_outcomes": [
     {
       "model": "anthropic/claude-haiku-4.5",
@@ -986,6 +1023,96 @@
       "llm_errors": 0,
       "langpro_errors": 0,
       "unknown": 94
+    },
+    {
+      "model": "google/gemini-3.1-flash-lite",
+      "prompt": "lex",
+      "population": 1000,
+      "configuration": "wordnet_only",
+      "llm_errors": 0,
+      "langpro_errors": 0,
+      "unknown": 227
+    },
+    {
+      "model": "google/gemini-3.1-flash-lite",
+      "prompt": "lex",
+      "population": 1000,
+      "configuration": "llm_only_one_shot",
+      "llm_errors": 0,
+      "langpro_errors": 0,
+      "unknown": 216
+    },
+    {
+      "model": "google/gemini-3.1-flash-lite",
+      "prompt": "lex",
+      "population": 1000,
+      "configuration": "llm_only_agentic",
+      "llm_errors": 0,
+      "langpro_errors": 0,
+      "unknown": 218
+    },
+    {
+      "model": "google/gemini-3.1-flash-lite",
+      "prompt": "lex",
+      "population": 1000,
+      "configuration": "wordnet_llm_one_shot",
+      "llm_errors": 0,
+      "langpro_errors": 0,
+      "unknown": 233
+    },
+    {
+      "model": "google/gemini-3.1-flash-lite",
+      "prompt": "lex",
+      "population": 1000,
+      "configuration": "wordnet_llm_agentic",
+      "llm_errors": 0,
+      "langpro_errors": 0,
+      "unknown": 234
+    },
+    {
+      "model": "google/gemini-3.1-flash-lite",
+      "prompt": "stefan",
+      "population": 1000,
+      "configuration": "wordnet_only",
+      "llm_errors": 0,
+      "langpro_errors": 0,
+      "unknown": 227
+    },
+    {
+      "model": "google/gemini-3.1-flash-lite",
+      "prompt": "stefan",
+      "population": 1000,
+      "configuration": "llm_only_one_shot",
+      "llm_errors": 0,
+      "langpro_errors": 0,
+      "unknown": 223
+    },
+    {
+      "model": "google/gemini-3.1-flash-lite",
+      "prompt": "stefan",
+      "population": 1000,
+      "configuration": "llm_only_agentic",
+      "llm_errors": 0,
+      "langpro_errors": 0,
+      "unknown": 220
+    },
+    {
+      "model": "google/gemini-3.1-flash-lite",
+      "prompt": "stefan",
+      "population": 1000,
+      "configuration": "wordnet_llm_one_shot",
+      "llm_errors": 0,
+      "langpro_errors": 0,
+      "unknown": 237
+    },
+    {
+      "model": "google/gemini-3.1-flash-lite",
+      "prompt": "stefan",
+      "population": 1000,
+      "configuration": "wordnet_llm_agentic",
+      "llm_errors": 0,
+      "langpro_errors": 0,
+      "unknown": 235
     }
   ],
   "checks": {
