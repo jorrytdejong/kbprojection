@@ -10,6 +10,8 @@ This is schema adaptation, not a new scientific run. Unknown/resource-limit outc
 
 Phase references identify source journal requests and reuse. Large raw prover responses are intentionally not duplicated; source_result and request keys refer to the original workspace archive, not files inside this ZIP. This is a portable analysis export, not a full raw-response backup. No API keys or authorization headers are exported. No files have been uploaded to Drive.
 
+`run_oracle_baseline.py` is archived beside `gold_lex_oracle_223.json`. It is copied verbatim from the local `agentic-pipeline-langpro` commit `b50a63b`, which could not be pushed to Stefan's repository. The archived script is for provenance; running it requires the source project's `src/kbprojection` package, its Python dependencies, and the original annotator CSV.
+
 ## Authorized repair supplement
 All current runs are complete. Six curated365 problems use archived autonomous local CCG, with exact unchanged text verified; see repair_manifest.json for parser provenance and hashes. Other cases retain remote CCG. Four local worker failures were recovered with identical requests and original remote CCG. Dependent agentic stages were resumed under the same scientific protocol. Original affected ledger results are preserved in repair_original_results.json. This replaces the earlier partial snapshot; LP errors, if any, remain explicit in final_tables.txt.
 
