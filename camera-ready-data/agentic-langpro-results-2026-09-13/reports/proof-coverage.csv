@@ -16,3 +16,5 @@ anthropic/claude-sonnet-4.5,lex,365,recent-protocol,66,92,116,24,109,128,19
 anthropic/claude-sonnet-4.5,stefan,365,recent-protocol,66,107,119,12,123,134,11
 google/gemini-3.1-flash-lite,lex,1000,recent-protocol,157,165,180,15,179,193,14
 google/gemini-3.1-flash-lite,stefan,1000,recent-protocol,157,166,181,15,181,197,16
+google/gemini-3.1-flash-lite,lex,365,recent-protocol,66,90,115,25,106,126,20
+google/gemini-3.1-flash-lite,stefan,365,recent-protocol,66,111,121,10,125,131,6

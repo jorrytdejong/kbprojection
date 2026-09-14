@@ -1,0 +1,574 @@
+{
+  "path_base": "archive root",
+  "moves": {
+    "current-1000": "results/1000",
+    "current-365": "results/365",
+    "gemini-3.1-flash-lite-jorryt-new-prompt-1000": "reference/jorryt-flash-lite-1000",
+    "gold_lex_oracle_223.json": "reference/gold-oracle-223/results.json",
+    "run_oracle_baseline.py": "reference/gold-oracle-223/run_oracle_baseline.py",
+    "final_tables_no_lperr.txt": "reports/tables.txt",
+    "final_tables.txt": "audit/tables-with-prover-errors.txt",
+    "final_metrics.json": "reports/metrics.json",
+    "expanded_proof_coverage.csv": "reports/proof-coverage.csv",
+    "TABLE_PROVENANCE.md": "reports/table-guide.md",
+    "langpro-results-1000.tex": "reports/latex/langpro-results-1000.tex",
+    "langpro-results-365.tex": "reports/latex/langpro-results-365.tex",
+    "population_1000.jsonl": "protocol/problems-1000.jsonl",
+    "population_curated365.jsonl": "protocol/problems-365.jsonl",
+    "protocol.json": "protocol/protocol.json",
+    "routing.json": "protocol/routing.json",
+    "branch_status_snapshot.json": "audit/branch-status.json",
+    "validation.json": "audit/validation.json",
+    "repair_manifest.json": "audit/recovery-manifest.json",
+    "repair_original_results.json": "audit/results-before-recovery.json",
+    "flash_lite_365_provenance.json": "audit/flash-lite-365-provenance.json",
+    "proof_coverage_audit.json": "audit/proof-coverage.json",
+    "proof_coverage_audit.ipynb": "audit/proof-coverage.ipynb",
+    "reconcile_proof_coverage.py": "audit/reconcile_proof_coverage.py",
+    "README.md": "audit/archive-notes.md"
+  },
+  "immutable_artifacts": [
+    {
+      "previous": "current-1000/openai__gpt-oss-20b/lex/llm_only_agentic.json",
+      "current": "results/1000/openai__gpt-oss-20b/lex/llm_only_agentic.json",
+      "sha256": "9adb541073ec848668ac3a9c1614684e233c22601b313f53134ae97dd9c88cc6"
+    },
+    {
+      "previous": "current-1000/openai__gpt-oss-20b/lex/llm_only_one_shot.json",
+      "current": "results/1000/openai__gpt-oss-20b/lex/llm_only_one_shot.json",
+      "sha256": "1e82aacbed6b1fd557d75d2c7a3d576c776f28d8e22a854f48d49a9cacf9ddd4"
+    },
+    {
+      "previous": "current-1000/openai__gpt-oss-20b/lex/wordnet_llm_agentic.json",
+      "current": "results/1000/openai__gpt-oss-20b/lex/wordnet_llm_agentic.json",
+      "sha256": "410da19530ac4e4f8c173ffc7c3e266a5ad33e9f0f3d9899533f9b60d6c6743f"
+    },
+    {
+      "previous": "current-1000/openai__gpt-oss-20b/lex/wordnet_llm_one_shot.json",
+      "current": "results/1000/openai__gpt-oss-20b/lex/wordnet_llm_one_shot.json",
+      "sha256": "f98fcaa716183919704895c6bbf973678ebe8a9be7891e0197cb670405c9c01a"
+    },
+    {
+      "previous": "current-1000/openai__gpt-oss-20b/lex/wordnet_only.json",
+      "current": "results/1000/openai__gpt-oss-20b/lex/wordnet_only.json",
+      "sha256": "732f988d84eec36ae1e6c3cafe8423548c4f0e51cf7347229e10252dd33a9f3a"
+    },
+    {
+      "previous": "current-1000/openai__gpt-oss-20b/stefan/llm_only_agentic.json",
+      "current": "results/1000/openai__gpt-oss-20b/stefan/llm_only_agentic.json",
+      "sha256": "f1afe0351db60194d81ef3a1627a9030a11709ba09994fcc4bba34de32ba6668"
+    },
+    {
+      "previous": "current-1000/openai__gpt-oss-20b/stefan/llm_only_one_shot.json",
+      "current": "results/1000/openai__gpt-oss-20b/stefan/llm_only_one_shot.json",
+      "sha256": "9053bcd95c606d5fb1c82b46364592a6d26a5c27b8047905526b03804d10abe8"
+    },
+    {
+      "previous": "current-1000/openai__gpt-oss-20b/stefan/wordnet_llm_agentic.json",
+      "current": "results/1000/openai__gpt-oss-20b/stefan/wordnet_llm_agentic.json",
+      "sha256": "0aa198222d91ea3b764bc878ca7fabeced5a331b1fc988abfd3aaee691c11b1c"
+    },
+    {
+      "previous": "current-1000/openai__gpt-oss-20b/stefan/wordnet_llm_one_shot.json",
+      "current": "results/1000/openai__gpt-oss-20b/stefan/wordnet_llm_one_shot.json",
+      "sha256": "d2b49eea30c976fe664780f7df69413e2b5287e5a81541273b971688a97ac390"
+    },
+    {
+      "previous": "current-1000/openai__gpt-oss-20b/stefan/wordnet_only.json",
+      "current": "results/1000/openai__gpt-oss-20b/stefan/wordnet_only.json",
+      "sha256": "755e1ebca20d6409d88b422772ee0822b901034fa9db2283ab1b11b4606e4737"
+    },
+    {
+      "previous": "current-1000/openai__gpt-5.4-mini/lex/llm_only_agentic.json",
+      "current": "results/1000/openai__gpt-5.4-mini/lex/llm_only_agentic.json",
+      "sha256": "1615625619f2ee635e7c8faec844e2e311dfc98f6afca9ba0ddf5ceff11e48ac"
+    },
+    {
+      "previous": "current-1000/openai__gpt-5.4-mini/lex/llm_only_one_shot.json",
+      "current": "results/1000/openai__gpt-5.4-mini/lex/llm_only_one_shot.json",
+      "sha256": "224d32d10874390ea8feb1d94b6759ffbae444ebb0cff1c05ab29aecd6cce575"
+    },
+    {
+      "previous": "current-1000/openai__gpt-5.4-mini/lex/wordnet_llm_agentic.json",
+      "current": "results/1000/openai__gpt-5.4-mini/lex/wordnet_llm_agentic.json",
+      "sha256": "1a3b3d63dbe2992db9a3738a408ed3c5fb19e2d53721aa9c8ff9e4a7a3c36dda"
+    },
+    {
+      "previous": "current-1000/openai__gpt-5.4-mini/lex/wordnet_llm_one_shot.json",
+      "current": "results/1000/openai__gpt-5.4-mini/lex/wordnet_llm_one_shot.json",
+      "sha256": "7a8a9858fb0e7c38799738196cc95b79cf4b4fb8642443e6bc6f1195bc49c66d"
+    },
+    {
+      "previous": "current-1000/openai__gpt-5.4-mini/lex/wordnet_only.json",
+      "current": "results/1000/openai__gpt-5.4-mini/lex/wordnet_only.json",
+      "sha256": "40a11c6987c81d620aba079be6e7533250d620c7f6b795defc9f93f6747c9d3d"
+    },
+    {
+      "previous": "current-1000/openai__gpt-5.4-mini/stefan/llm_only_agentic.json",
+      "current": "results/1000/openai__gpt-5.4-mini/stefan/llm_only_agentic.json",
+      "sha256": "0b8cc38783a0319d7955d3a193487f872a18a3b33bdbb827f12808a9fed7107a"
+    },
+    {
+      "previous": "current-1000/openai__gpt-5.4-mini/stefan/llm_only_one_shot.json",
+      "current": "results/1000/openai__gpt-5.4-mini/stefan/llm_only_one_shot.json",
+      "sha256": "d4ebbbd2eb285323da9a85cd47ad79745d32b3ed634358960525e82e5ddcee6a"
+    },
+    {
+      "previous": "current-1000/openai__gpt-5.4-mini/stefan/wordnet_llm_agentic.json",
+      "current": "results/1000/openai__gpt-5.4-mini/stefan/wordnet_llm_agentic.json",
+      "sha256": "7ab60c9e27cba1635759f4655dbf842c0a5d4617674fa8b42657b09031c9604a"
+    },
+    {
+      "previous": "current-1000/openai__gpt-5.4-mini/stefan/wordnet_llm_one_shot.json",
+      "current": "results/1000/openai__gpt-5.4-mini/stefan/wordnet_llm_one_shot.json",
+      "sha256": "268948a136af2598e0fe5639482f9e2b4ce1a669f515611971495f87aaf0c2cd"
+    },
+    {
+      "previous": "current-1000/openai__gpt-5.4-mini/stefan/wordnet_only.json",
+      "current": "results/1000/openai__gpt-5.4-mini/stefan/wordnet_only.json",
+      "sha256": "14c3db470dc35a7c0cc516be90996c245d80973dbd8fc93318a831a5407eb81f"
+    },
+    {
+      "previous": "current-1000/google__gemma-3-4b-it/lex/llm_only_agentic.json",
+      "current": "results/1000/google__gemma-3-4b-it/lex/llm_only_agentic.json",
+      "sha256": "c6a465d76e28d7c57fa80ded29b72a9e2de0e922c20fd143d3567cf4992f8e09"
+    },
+    {
+      "previous": "current-1000/google__gemma-3-4b-it/lex/llm_only_one_shot.json",
+      "current": "results/1000/google__gemma-3-4b-it/lex/llm_only_one_shot.json",
+      "sha256": "9ed84a90c83f1adcf7154d9a15f91a6dc598708aaf5d77606b7b0ccb84b9eb31"
+    },
+    {
+      "previous": "current-1000/google__gemma-3-4b-it/lex/wordnet_llm_agentic.json",
+      "current": "results/1000/google__gemma-3-4b-it/lex/wordnet_llm_agentic.json",
+      "sha256": "b2a949387b846495a8532fdea2ca5065ecef87fbe3c6ae51c1b180a2e4848f44"
+    },
+    {
+      "previous": "current-1000/google__gemma-3-4b-it/lex/wordnet_llm_one_shot.json",
+      "current": "results/1000/google__gemma-3-4b-it/lex/wordnet_llm_one_shot.json",
+      "sha256": "b0a47ba6b1cb3d922b4d516b0c0e2f76aa42b6f8f096b6aed1ad1e178fc23a01"
+    },
+    {
+      "previous": "current-1000/google__gemma-3-4b-it/lex/wordnet_only.json",
+      "current": "results/1000/google__gemma-3-4b-it/lex/wordnet_only.json",
+      "sha256": "3deafad6897160b22e771a5e4e8497a34d2b6ab9d5f7af48bf5f237b77bc412d"
+    },
+    {
+      "previous": "current-1000/google__gemma-3-4b-it/stefan/llm_only_agentic.json",
+      "current": "results/1000/google__gemma-3-4b-it/stefan/llm_only_agentic.json",
+      "sha256": "2398c6015cbcc955a03ded33dec90c074b9192a3c13b7502278404c219792d8e"
+    },
+    {
+      "previous": "current-1000/google__gemma-3-4b-it/stefan/llm_only_one_shot.json",
+      "current": "results/1000/google__gemma-3-4b-it/stefan/llm_only_one_shot.json",
+      "sha256": "c03a5ec3c55967150970a1dc9e0773d7949518a9ee6c99c06c438bf4b734b3dd"
+    },
+    {
+      "previous": "current-1000/google__gemma-3-4b-it/stefan/wordnet_llm_agentic.json",
+      "current": "results/1000/google__gemma-3-4b-it/stefan/wordnet_llm_agentic.json",
+      "sha256": "c49c99918327e3e1901216eaa982deaaae3eeb964db853f64c1a1cc361a2214e"
+    },
+    {
+      "previous": "current-1000/google__gemma-3-4b-it/stefan/wordnet_llm_one_shot.json",
+      "current": "results/1000/google__gemma-3-4b-it/stefan/wordnet_llm_one_shot.json",
+      "sha256": "1a05a1c63a14d3827f912834bb3b8732eb616a12c875588dd13f1951d8ce6455"
+    },
+    {
+      "previous": "current-1000/google__gemma-3-4b-it/stefan/wordnet_only.json",
+      "current": "results/1000/google__gemma-3-4b-it/stefan/wordnet_only.json",
+      "sha256": "74757140ec97a77c0557472a2934267999d6d45fb899d1bdb3b6e83fbc05dc13"
+    },
+    {
+      "previous": "current-1000/google__gemini-3.1-flash-lite/lex/llm_only_agentic.json",
+      "current": "results/1000/google__gemini-3.1-flash-lite/lex/llm_only_agentic.json",
+      "sha256": "176bef00f281b398f073fc442308a8c6ef543845c4a63b2ef531330142ffbf02",
+      "source_worktree_sha256": "dc324871c83cbe063ba4fdbbb484a2d9107341954a78b8daa0ee2080818e81d4",
+      "line_endings": "Git text normalization: CRLF to LF; content unchanged"
+    },
+    {
+      "previous": "current-1000/google__gemini-3.1-flash-lite/lex/llm_only_one_shot.json",
+      "current": "results/1000/google__gemini-3.1-flash-lite/lex/llm_only_one_shot.json",
+      "sha256": "2c7786116190871e45f63b1a0ce48250c86cf7611b0de0ebb063f455366a50d9",
+      "source_worktree_sha256": "60ec10f4e65009a63e6dcfd63cdbdf2c59aac639fb317e43237a808884d588d9",
+      "line_endings": "Git text normalization: CRLF to LF; content unchanged"
+    },
+    {
+      "previous": "current-1000/google__gemini-3.1-flash-lite/lex/wordnet_llm_agentic.json",
+      "current": "results/1000/google__gemini-3.1-flash-lite/lex/wordnet_llm_agentic.json",
+      "sha256": "2c5682a6f3228fbcb08cb682317d72547c763ac5f00040cac5076cff081b9d5f",
+      "source_worktree_sha256": "c2fac9d11d8652e882a69e7b1c1e68b90ead1434e937c7bebf0a25b3d436acc1",
+      "line_endings": "Git text normalization: CRLF to LF; content unchanged"
+    },
+    {
+      "previous": "current-1000/google__gemini-3.1-flash-lite/lex/wordnet_llm_one_shot.json",
+      "current": "results/1000/google__gemini-3.1-flash-lite/lex/wordnet_llm_one_shot.json",
+      "sha256": "6b9eac71e1fa1bb1483de89d23662052433c6a72098c736e8ef2ff90051c6063",
+      "source_worktree_sha256": "7b8295434e83ab29308b8e915d3dee3f1eb755a1fae84335b3b4b6f1862895ae",
+      "line_endings": "Git text normalization: CRLF to LF; content unchanged"
+    },
+    {
+      "previous": "current-1000/google__gemini-3.1-flash-lite/lex/wordnet_only.json",
+      "current": "results/1000/google__gemini-3.1-flash-lite/lex/wordnet_only.json",
+      "sha256": "93fcd5fcf6180c39a4c7db7e166514fe61b82b6bc906b0a2e055b3d9f55094be"
+    },
+    {
+      "previous": "current-1000/google__gemini-3.1-flash-lite/stefan/llm_only_agentic.json",
+      "current": "results/1000/google__gemini-3.1-flash-lite/stefan/llm_only_agentic.json",
+      "sha256": "ab18563defa119fc32808e4b126f24b10d498cdf361188a8f9a9bb8a228ad70c",
+      "source_worktree_sha256": "5ffd7886816ace088b3d171601f5cd675481bb58457da26d2ff2a9c68c65da85",
+      "line_endings": "Git text normalization: CRLF to LF; content unchanged"
+    },
+    {
+      "previous": "current-1000/google__gemini-3.1-flash-lite/stefan/llm_only_one_shot.json",
+      "current": "results/1000/google__gemini-3.1-flash-lite/stefan/llm_only_one_shot.json",
+      "sha256": "40b33bc1234e6d889d808bac8aae6a865bb777357cdd9e8dbc3ae0cee5b825b0",
+      "source_worktree_sha256": "3e43e3ecaeae25ac5f9775fc967b4ecfd773793abce81f13f983da42daf6f9c0",
+      "line_endings": "Git text normalization: CRLF to LF; content unchanged"
+    },
+    {
+      "previous": "current-1000/google__gemini-3.1-flash-lite/stefan/wordnet_llm_agentic.json",
+      "current": "results/1000/google__gemini-3.1-flash-lite/stefan/wordnet_llm_agentic.json",
+      "sha256": "0ecebf7112aa4a57a75da7b36845b7190823de4ef735b8e7aa544fa5becffb86",
+      "source_worktree_sha256": "679d1c4f34aea3f2d04094ffd093fa22582bffa22ddbf22c0a501ccbcebffe69",
+      "line_endings": "Git text normalization: CRLF to LF; content unchanged"
+    },
+    {
+      "previous": "current-1000/google__gemini-3.1-flash-lite/stefan/wordnet_llm_one_shot.json",
+      "current": "results/1000/google__gemini-3.1-flash-lite/stefan/wordnet_llm_one_shot.json",
+      "sha256": "ee5c79a753a8b8e1c451f3fe0acdee5c5615732e910f264f3a28da472f216460",
+      "source_worktree_sha256": "60e22efc7e50f9350497fbc4337951fbf99b3109b4b7c1d3539640b26b1e1ca6",
+      "line_endings": "Git text normalization: CRLF to LF; content unchanged"
+    },
+    {
+      "previous": "current-1000/google__gemini-3.1-flash-lite/stefan/wordnet_only.json",
+      "current": "results/1000/google__gemini-3.1-flash-lite/stefan/wordnet_only.json",
+      "sha256": "5f96c4e46a566d070f96bf76f3275fd8c23f4acd5f23fade0922d28188abb900"
+    },
+    {
+      "previous": "current-1000/anthropic__claude-haiku-4.5/lex/llm_only_agentic.json",
+      "current": "results/1000/anthropic__claude-haiku-4.5/lex/llm_only_agentic.json",
+      "sha256": "17010101c3ffdc2fc4545181c1159a52020cec5c353d8755290aca1762b386bd"
+    },
+    {
+      "previous": "current-1000/anthropic__claude-haiku-4.5/lex/llm_only_one_shot.json",
+      "current": "results/1000/anthropic__claude-haiku-4.5/lex/llm_only_one_shot.json",
+      "sha256": "40b985506ab0d7ea1a85f6d21a7002fe5c66c984ed301b293c46356a0a99da23"
+    },
+    {
+      "previous": "current-1000/anthropic__claude-haiku-4.5/lex/wordnet_llm_agentic.json",
+      "current": "results/1000/anthropic__claude-haiku-4.5/lex/wordnet_llm_agentic.json",
+      "sha256": "4ddb24df968ef1d87999e31c0e82b8b0773c18e69e9e3799699b2b9d3f7599d8"
+    },
+    {
+      "previous": "current-1000/anthropic__claude-haiku-4.5/lex/wordnet_llm_one_shot.json",
+      "current": "results/1000/anthropic__claude-haiku-4.5/lex/wordnet_llm_one_shot.json",
+      "sha256": "c81f786dbe9fa548c2b8819976f79c95fdfe89d30485cc564656aaf6b57d0b98"
+    },
+    {
+      "previous": "current-1000/anthropic__claude-haiku-4.5/lex/wordnet_only.json",
+      "current": "results/1000/anthropic__claude-haiku-4.5/lex/wordnet_only.json",
+      "sha256": "9b2155c75cf0c69befc9156384b13f5e78d417ac4865b71ba0982a08868a791d"
+    },
+    {
+      "previous": "current-1000/anthropic__claude-haiku-4.5/stefan/llm_only_agentic.json",
+      "current": "results/1000/anthropic__claude-haiku-4.5/stefan/llm_only_agentic.json",
+      "sha256": "ad731ab84f7d0069bf30ace6dcae499587f712c1efae8985614d20583ea98e38"
+    },
+    {
+      "previous": "current-1000/anthropic__claude-haiku-4.5/stefan/llm_only_one_shot.json",
+      "current": "results/1000/anthropic__claude-haiku-4.5/stefan/llm_only_one_shot.json",
+      "sha256": "a27a17b5785ca7cf3a9d5b6f74de9dd9cb6ef3ac207b0666752b6439a2f4289d"
+    },
+    {
+      "previous": "current-1000/anthropic__claude-haiku-4.5/stefan/wordnet_llm_agentic.json",
+      "current": "results/1000/anthropic__claude-haiku-4.5/stefan/wordnet_llm_agentic.json",
+      "sha256": "de64034910cda154fdd63d7802cf1d9ec1eb879fd9def2b9ac87078f61b4a7ee"
+    },
+    {
+      "previous": "current-1000/anthropic__claude-haiku-4.5/stefan/wordnet_llm_one_shot.json",
+      "current": "results/1000/anthropic__claude-haiku-4.5/stefan/wordnet_llm_one_shot.json",
+      "sha256": "1616af9e51f035500d7c3e15ed27d3471cfda4721c2b569b45811455b7c6f723"
+    },
+    {
+      "previous": "current-1000/anthropic__claude-haiku-4.5/stefan/wordnet_only.json",
+      "current": "results/1000/anthropic__claude-haiku-4.5/stefan/wordnet_only.json",
+      "sha256": "0953278b848616b4a20a26b6d2323579089cef50763fc018a0bf6197bd259093"
+    },
+    {
+      "previous": "current-365/openai__gpt-5.4/lex/llm_only_agentic.json",
+      "current": "results/365/openai__gpt-5.4/lex/llm_only_agentic.json",
+      "sha256": "0dff18235679e68586917e4354da63b4041c0e407d2ef35a7fb285e784e5ec2d"
+    },
+    {
+      "previous": "current-365/openai__gpt-5.4/lex/llm_only_one_shot.json",
+      "current": "results/365/openai__gpt-5.4/lex/llm_only_one_shot.json",
+      "sha256": "714921d40dc72d1cf55e26cc1bdb3a04384a0a237f90b70a3b3137c68aae2252"
+    },
+    {
+      "previous": "current-365/openai__gpt-5.4/lex/wordnet_llm_agentic.json",
+      "current": "results/365/openai__gpt-5.4/lex/wordnet_llm_agentic.json",
+      "sha256": "98dbbfe266a4c0fdd5573d623e14c8e69e4f783e020747b1932c74fa5afb00e9"
+    },
+    {
+      "previous": "current-365/openai__gpt-5.4/lex/wordnet_llm_one_shot.json",
+      "current": "results/365/openai__gpt-5.4/lex/wordnet_llm_one_shot.json",
+      "sha256": "d9486cbf6348ac8f9c416d47c6bdbb714582a1abc4a0613869b28efbd8c78795"
+    },
+    {
+      "previous": "current-365/openai__gpt-5.4/lex/wordnet_only.json",
+      "current": "results/365/openai__gpt-5.4/lex/wordnet_only.json",
+      "sha256": "bd261c9da3957d85e8a2537b684da6040db97b36ac4d01788bf89de2bde0ea33"
+    },
+    {
+      "previous": "current-365/openai__gpt-5.4/stefan/llm_only_agentic.json",
+      "current": "results/365/openai__gpt-5.4/stefan/llm_only_agentic.json",
+      "sha256": "1b1eb02b6049e0fd56088d65818cf7aaee8f040cb6614a221c443da8596bb5f6"
+    },
+    {
+      "previous": "current-365/openai__gpt-5.4/stefan/llm_only_one_shot.json",
+      "current": "results/365/openai__gpt-5.4/stefan/llm_only_one_shot.json",
+      "sha256": "d1ff2d5cf753c509b867ba72e971700e79f7313155f8fb8ec8643c41edded557"
+    },
+    {
+      "previous": "current-365/openai__gpt-5.4/stefan/wordnet_llm_agentic.json",
+      "current": "results/365/openai__gpt-5.4/stefan/wordnet_llm_agentic.json",
+      "sha256": "01a0cd7a0190dc751464ea2cdcb244a3e1ff3b346d13130b1e72c043e2191dbb"
+    },
+    {
+      "previous": "current-365/openai__gpt-5.4/stefan/wordnet_llm_one_shot.json",
+      "current": "results/365/openai__gpt-5.4/stefan/wordnet_llm_one_shot.json",
+      "sha256": "87aed10af86fd4c4767a6aa51396df850bcfb68da4b682dbf18e720e419999c8"
+    },
+    {
+      "previous": "current-365/openai__gpt-5.4/stefan/wordnet_only.json",
+      "current": "results/365/openai__gpt-5.4/stefan/wordnet_only.json",
+      "sha256": "7f46a450bcd5bad3e223da48319de84d0aadbb11f119d0206d02a0bd6fb7b91e"
+    },
+    {
+      "previous": "current-365/google__gemini-3.5-flash/lex/llm_only_agentic.json",
+      "current": "results/365/google__gemini-3.5-flash/lex/llm_only_agentic.json",
+      "sha256": "bdab47722bf4cb743c094574febe5a6c5ee07b3d2a416c72341634145874d3be"
+    },
+    {
+      "previous": "current-365/google__gemini-3.5-flash/lex/llm_only_one_shot.json",
+      "current": "results/365/google__gemini-3.5-flash/lex/llm_only_one_shot.json",
+      "sha256": "d4ed4b66bde0af1df4abb26750dff78c0ed87aeb5189d32da63fb5ea39b24550"
+    },
+    {
+      "previous": "current-365/google__gemini-3.5-flash/lex/wordnet_llm_agentic.json",
+      "current": "results/365/google__gemini-3.5-flash/lex/wordnet_llm_agentic.json",
+      "sha256": "510a7149cf577fb5b73ae03a6a84f1e2a928d96aedf3bba2c62dc712723644da"
+    },
+    {
+      "previous": "current-365/google__gemini-3.5-flash/lex/wordnet_llm_one_shot.json",
+      "current": "results/365/google__gemini-3.5-flash/lex/wordnet_llm_one_shot.json",
+      "sha256": "74bfca07d2112aeac2bfbc8f5e6d9cd7bf764e94eb66363dce9265c5d1768f45"
+    },
+    {
+      "previous": "current-365/google__gemini-3.5-flash/lex/wordnet_only.json",
+      "current": "results/365/google__gemini-3.5-flash/lex/wordnet_only.json",
+      "sha256": "7e9f2608fc067b5c5110a41fd2cb8be7867f90bcca03d7ddd339012e7d1d8fe7"
+    },
+    {
+      "previous": "current-365/google__gemini-3.5-flash/stefan/llm_only_agentic.json",
+      "current": "results/365/google__gemini-3.5-flash/stefan/llm_only_agentic.json",
+      "sha256": "96b429558821364415a10502331b7c601fd8ea96b6e1378cf80f48e88c0cb9ea"
+    },
+    {
+      "previous": "current-365/google__gemini-3.5-flash/stefan/llm_only_one_shot.json",
+      "current": "results/365/google__gemini-3.5-flash/stefan/llm_only_one_shot.json",
+      "sha256": "7589b679649f6f38057e3cfe53f0a41ebdcf08c695e1fe72ccf28d71a874977f"
+    },
+    {
+      "previous": "current-365/google__gemini-3.5-flash/stefan/wordnet_llm_agentic.json",
+      "current": "results/365/google__gemini-3.5-flash/stefan/wordnet_llm_agentic.json",
+      "sha256": "a2fb1e14f5ec95709c970f3b3b2d56b180c96c40f5e1a61d9d958df9c3920728"
+    },
+    {
+      "previous": "current-365/google__gemini-3.5-flash/stefan/wordnet_llm_one_shot.json",
+      "current": "results/365/google__gemini-3.5-flash/stefan/wordnet_llm_one_shot.json",
+      "sha256": "44df1c9ff1cd074ae79a9289228b71d21aafda29def33d4d65da03143eda7dae"
+    },
+    {
+      "previous": "current-365/google__gemini-3.5-flash/stefan/wordnet_only.json",
+      "current": "results/365/google__gemini-3.5-flash/stefan/wordnet_only.json",
+      "sha256": "2c3578a270b2d28e219be92d94b4b71750f0e31dac93407bc2a173a221d151ac"
+    },
+    {
+      "previous": "current-365/google__gemini-3.1-flash-lite/lex/llm_only_agentic.json",
+      "current": "results/365/google__gemini-3.1-flash-lite/lex/llm_only_agentic.json",
+      "sha256": "66672c5d1aa2ae03f6da42ba02290eed36d45ffbef42180eb79b32640f19a40b",
+      "source_worktree_sha256": "ccd9eebe4a1c639eb086595bbd7ab3549ca7e1408023ebf0ddd58842dabb2613",
+      "line_endings": "Git text normalization: CRLF to LF; content unchanged"
+    },
+    {
+      "previous": "current-365/google__gemini-3.1-flash-lite/lex/llm_only_one_shot.json",
+      "current": "results/365/google__gemini-3.1-flash-lite/lex/llm_only_one_shot.json",
+      "sha256": "66aad4812d3dc2743740a7be75a28b87e400fc185cdf9a43ae92c7d584fa5085",
+      "source_worktree_sha256": "c9e2690d943ae4861dbe59b64e462d30f10b9494ceb7d50175b374d1a798870b",
+      "line_endings": "Git text normalization: CRLF to LF; content unchanged"
+    },
+    {
+      "previous": "current-365/google__gemini-3.1-flash-lite/lex/wordnet_llm_agentic.json",
+      "current": "results/365/google__gemini-3.1-flash-lite/lex/wordnet_llm_agentic.json",
+      "sha256": "d9d25689438b4a28814f06c5c612d3ef31d3d0fc803dc0cba48b7a271bb54710",
+      "source_worktree_sha256": "266302098751ee149efe08b5003d5839b2b44f91a7fc09f1a131fbcd1000845a",
+      "line_endings": "Git text normalization: CRLF to LF; content unchanged"
+    },
+    {
+      "previous": "current-365/google__gemini-3.1-flash-lite/lex/wordnet_llm_one_shot.json",
+      "current": "results/365/google__gemini-3.1-flash-lite/lex/wordnet_llm_one_shot.json",
+      "sha256": "3a57043739afc1977c1cba83f9072b1db0802f275519777bd94c3f5ebdec6e77",
+      "source_worktree_sha256": "2bc419710ef57feabdb3d04bb7ab81bb3bdc0befbcaca4aebda72bac8ec26d7f",
+      "line_endings": "Git text normalization: CRLF to LF; content unchanged"
+    },
+    {
+      "previous": "current-365/google__gemini-3.1-flash-lite/lex/wordnet_only.json",
+      "current": "results/365/google__gemini-3.1-flash-lite/lex/wordnet_only.json",
+      "sha256": "9d8d45900ab956e2f3b80b4879030d30380bd3152c07c20112a3b4906196331e",
+      "source_worktree_sha256": "2811c00900f76351a2257dca29f62881ed516feb86ae773c9560bd762d109011",
+      "line_endings": "Git text normalization: CRLF to LF; content unchanged"
+    },
+    {
+      "previous": "current-365/google__gemini-3.1-flash-lite/stefan/llm_only_agentic.json",
+      "current": "results/365/google__gemini-3.1-flash-lite/stefan/llm_only_agentic.json",
+      "sha256": "87b95829b8a8c4063c084c255293993a93ed3bd8b718e1f854ed784eda38291f",
+      "source_worktree_sha256": "69eee61941f036983f403f64846c43004e628d51981ca087ab272a0b172ed5e7",
+      "line_endings": "Git text normalization: CRLF to LF; content unchanged"
+    },
+    {
+      "previous": "current-365/google__gemini-3.1-flash-lite/stefan/llm_only_one_shot.json",
+      "current": "results/365/google__gemini-3.1-flash-lite/stefan/llm_only_one_shot.json",
+      "sha256": "975928e39e3ebc999e2565d60c9a221c262b98d80ca58dec7a6661add779a89a",
+      "source_worktree_sha256": "6992d8273c36896e9880ba7b9754c5f9372e89f2a3cc5d073ed1c36ac80f8981",
+      "line_endings": "Git text normalization: CRLF to LF; content unchanged"
+    },
+    {
+      "previous": "current-365/google__gemini-3.1-flash-lite/stefan/wordnet_llm_agentic.json",
+      "current": "results/365/google__gemini-3.1-flash-lite/stefan/wordnet_llm_agentic.json",
+      "sha256": "e492d6dcfa19d822e808cb966629bcaaca66100d106d8fd3511ac897f92f1d33",
+      "source_worktree_sha256": "91dbae5903b7da67ecbb1d296a957be5d93c5b4a37fe599228113502a609ad20",
+      "line_endings": "Git text normalization: CRLF to LF; content unchanged"
+    },
+    {
+      "previous": "current-365/google__gemini-3.1-flash-lite/stefan/wordnet_llm_one_shot.json",
+      "current": "results/365/google__gemini-3.1-flash-lite/stefan/wordnet_llm_one_shot.json",
+      "sha256": "fa7adf640440d6e9d285913e46995cad306d00f99bb11c1302c05b13cefe6598",
+      "source_worktree_sha256": "39f8fe6c10f44afe0b6b3a33377598b4bd9d25880bf41232d325fee681109e42",
+      "line_endings": "Git text normalization: CRLF to LF; content unchanged"
+    },
+    {
+      "previous": "current-365/google__gemini-3.1-flash-lite/stefan/wordnet_only.json",
+      "current": "results/365/google__gemini-3.1-flash-lite/stefan/wordnet_only.json",
+      "sha256": "ecc6bb00eeb8162080f02e755ade9d6b13ec39a5f869391b2684713bdfc35736",
+      "source_worktree_sha256": "c1a9138f877cc2222ec45f3a59aaac35845137eb67e2d7e2b7c12ca7cb092297",
+      "line_endings": "Git text normalization: CRLF to LF; content unchanged"
+    },
+    {
+      "previous": "current-365/anthropic__claude-sonnet-4.5/lex/llm_only_agentic.json",
+      "current": "results/365/anthropic__claude-sonnet-4.5/lex/llm_only_agentic.json",
+      "sha256": "952c81006485aa24cd45fee93346bd19171fb48459c952221bf94f7a74302bf5"
+    },
+    {
+      "previous": "current-365/anthropic__claude-sonnet-4.5/lex/llm_only_one_shot.json",
+      "current": "results/365/anthropic__claude-sonnet-4.5/lex/llm_only_one_shot.json",
+      "sha256": "78029202048b18911e8d0bba01efea53eb1ee73f1161dce461f7c5649ba05386"
+    },
+    {
+      "previous": "current-365/anthropic__claude-sonnet-4.5/lex/wordnet_llm_agentic.json",
+      "current": "results/365/anthropic__claude-sonnet-4.5/lex/wordnet_llm_agentic.json",
+      "sha256": "5f141508ee9e05e89fcaa698a15f6489a91a318d284f7e2c95e5b5e9a4eeb134"
+    },
+    {
+      "previous": "current-365/anthropic__claude-sonnet-4.5/lex/wordnet_llm_one_shot.json",
+      "current": "results/365/anthropic__claude-sonnet-4.5/lex/wordnet_llm_one_shot.json",
+      "sha256": "4ca83390f58b47b6d62f459f7f44c92681146052ca4b0a65831244947a954fa1"
+    },
+    {
+      "previous": "current-365/anthropic__claude-sonnet-4.5/lex/wordnet_only.json",
+      "current": "results/365/anthropic__claude-sonnet-4.5/lex/wordnet_only.json",
+      "sha256": "844640684773ef8ef182311355619c2c6fbe2f286ae37ec131f8d3fb1f4d4db0"
+    },
+    {
+      "previous": "current-365/anthropic__claude-sonnet-4.5/stefan/llm_only_agentic.json",
+      "current": "results/365/anthropic__claude-sonnet-4.5/stefan/llm_only_agentic.json",
+      "sha256": "cfdba07bd71bb8ad2fd5b4976eccdd32167845ff0c78c3e5e9435be96d94248f"
+    },
+    {
+      "previous": "current-365/anthropic__claude-sonnet-4.5/stefan/llm_only_one_shot.json",
+      "current": "results/365/anthropic__claude-sonnet-4.5/stefan/llm_only_one_shot.json",
+      "sha256": "b803b15cda1a0df728ec0acac0acb99dd0ce00a5d2b78bd7de9b8b547b7cc5b4"
+    },
+    {
+      "previous": "current-365/anthropic__claude-sonnet-4.5/stefan/wordnet_llm_agentic.json",
+      "current": "results/365/anthropic__claude-sonnet-4.5/stefan/wordnet_llm_agentic.json",
+      "sha256": "26557696c43ef44b35b7a1b9446f35a30a865fb2bb37f6e9580096d774b0a4fa"
+    },
+    {
+      "previous": "current-365/anthropic__claude-sonnet-4.5/stefan/wordnet_llm_one_shot.json",
+      "current": "results/365/anthropic__claude-sonnet-4.5/stefan/wordnet_llm_one_shot.json",
+      "sha256": "31526ba2d9804162f77efeaaacbf5cba8167cb52cc353a344a358cc57035a583"
+    },
+    {
+      "previous": "current-365/anthropic__claude-sonnet-4.5/stefan/wordnet_only.json",
+      "current": "results/365/anthropic__claude-sonnet-4.5/stefan/wordnet_only.json",
+      "sha256": "67108ac4fb47a5a434fe70059761640f5b71d34c99ee734b0d91e535b78fe8b3"
+    },
+    {
+      "previous": "gemini-3.1-flash-lite-jorryt-new-prompt-1000/final_results.xlsx",
+      "current": "reference/jorryt-flash-lite-1000/final_results.xlsx",
+      "sha256": "5726e6e84404f825319b9858f58b1f996bb88f1a1a947e93d06c60fed8e34dea"
+    },
+    {
+      "previous": "gemini-3.1-flash-lite-jorryt-new-prompt-1000/llm-and-wordnet.json",
+      "current": "reference/jorryt-flash-lite-1000/llm-and-wordnet.json",
+      "sha256": "bc81d85af232649a0464a755a4463e97cb9ff5169b516db971071654221bb08e"
+    },
+    {
+      "previous": "gemini-3.1-flash-lite-jorryt-new-prompt-1000/llm-only-first-run.json",
+      "current": "reference/jorryt-flash-lite-1000/llm-only-first-run.json",
+      "sha256": "8cdfd363d263b701958ecbed583ce1ce0a90b3d3edcda743a50cbff72de90870"
+    },
+    {
+      "previous": "gemini-3.1-flash-lite-jorryt-new-prompt-1000/llm-only-second-run.json",
+      "current": "reference/jorryt-flash-lite-1000/llm-only-second-run.json",
+      "sha256": "32e7c9e21861a5f319b65a883fcea7a24fca6d05f92c896b2d46a8f2aef608dd"
+    },
+    {
+      "previous": "gemini-3.1-flash-lite-jorryt-new-prompt-1000/wordnet-only.json",
+      "current": "reference/jorryt-flash-lite-1000/wordnet-only.json",
+      "sha256": "8ce7ff6d05c95eba198565f1259b38c58e16ddc3cae888735014ee4a2d0e17dc"
+    },
+    {
+      "previous": "gold_lex_oracle_223.json",
+      "current": "reference/gold-oracle-223/results.json",
+      "sha256": "b27d5817c86212273dc119e7d7f075b01025f8ed5b25c9bd809154fc4848b741"
+    },
+    {
+      "previous": "run_oracle_baseline.py",
+      "current": "reference/gold-oracle-223/run_oracle_baseline.py",
+      "sha256": "78d831871b4069eb20c214d27740471a0ed61333636628225d4b4a9a08695871"
+    },
+    {
+      "previous": "protocol.json",
+      "current": "protocol/protocol.json",
+      "sha256": "ef3eafb859de199741af2cef4122b3813f086f0cfb7adde68629b779972b63f7"
+    },
+    {
+      "previous": "routing.json",
+      "current": "protocol/routing.json",
+      "sha256": "887e21a3e5bf8b47c36c85797c650791d70bcba3423a6a9eef00d08249b1da92"
+    },
+    {
+      "previous": "population_1000.jsonl",
+      "current": "protocol/problems-1000.jsonl",
+      "sha256": "e10f9b3b596f84026f8990ba4acffc1e2ad123498973d27f43aaf793d9ca02b7"
+    },
+    {
+      "previous": "population_curated365.jsonl",
+      "current": "protocol/problems-365.jsonl",
+      "sha256": "a45786602c5629c7a758303610b13d8b3b8114100536f49daf800b8139e99825"
+    }
+  ],
+  "hash_scope": "sha256 refers to the committed artifact; source_worktree_sha256 is retained where Git normalized line endings."
+}

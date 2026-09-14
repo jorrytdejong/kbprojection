@@ -1,6 +1,6 @@
 """Read-only reconciliation of the expanded LangPro tables (Python stdlib only).
 
-Run beside the archived exports: python3 reconcile_proof_coverage.py
+Run from the archive root: python3 audit/reconcile_proof_coverage.py
 One row per population/model/prompt; no averaging across exports or populations.
 """
 
@@ -64,13 +64,13 @@ def table_row(model, prompt, population, counts, sources, version):
 def audit(root):
     root = Path(root)
     metrics = {(m["model"], m["prompt"], m["configuration"], m["total"]): m
-               for m in read(root / "final_metrics.json")}
+               for m in read(root / "reports/metrics.json")}
     populations = {}
     rows, errors, baselines_only = [], [], []
     for n in (1000, 365):
         labels = {"entailment": 1000} if n == 1000 else {
             "entailment": 363, "contradiction": 1, "neutral": 1}
-        for arm in sorted((root / f"current-{n}").glob("*/*")):
+        for arm in sorted((root / "results" / str(n)).glob("*/*")):
             files = [arm / (name + ".json") for name in CONFIGURATIONS]
             if not all(f.exists() for f in files):
                 assert [f.name for f in files if f.exists()] == ["wordnet_only.json"]
@@ -95,7 +95,7 @@ def audit(root):
                                    langpro_errors=metric["langpro_errors"], unknown=metric["unknown"]))
             rows.append(table_row(model, arm.name, n, counts, source_paths, "recent-protocol"))
 
-    gemini_dir = root / "gemini-3.1-flash-lite-jorryt-new-prompt-1000"
+    gemini_dir = root / "reference/jorryt-flash-lite-1000"
     gemini = {}
     for name in ("wordnet-only", "llm-only-first-run", "llm-only-second-run", "llm-and-wordnet"):
         path = gemini_dir / (name + ".json")
@@ -123,7 +123,7 @@ def audit(root):
                                 first_export_agentic=solved(old[i]), second_export_agentic=solved(new[i]))
                             for i in old if first_attempt_solved(old[i]) != first_attempt_solved(new[i])
                             or solved(old[i]) != solved(new[i])]
-    recent_path = root / "current-1000/openai__gpt-oss-20b/lex/wordnet_only.json"
+    recent_path = root / "results/1000/openai__gpt-oss-20b/lex/wordnet_only.json"
     recent_baseline = {r["id"]: r for r in read(recent_path)["records"]}
     baseline_disagreements = [dict(problem_id=r["id"], jorryt_pred=r["pred"],
                                    recent_pred=recent_baseline[r["id"]]["pred"],
@@ -144,4 +144,4 @@ def audit(root):
 
 
 if __name__ == "__main__":
-    print(json.dumps(audit(Path(__file__).resolve().parent), indent=2))
+    print(json.dumps(audit(Path(__file__).resolve().parents[1]), indent=2))

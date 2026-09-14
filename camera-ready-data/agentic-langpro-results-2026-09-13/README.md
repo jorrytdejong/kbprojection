@@ -1,22 +1,44 @@
-# LangPro results for sharing
+# LangPro evaluation results
 
-Jorryt's Gemini 3.1 Flash-Lite experiment on 1,000 SNLI entailment problems is in `gemini-3.1-flash-lite-jorryt-new-prompt-1000/`. It used the LEX prompt in the agentic pipeline, as confirmed by Jorryt; these are his results, not Stefan's historical Table 4 data. The folder contains the WordNet baseline, two LLM-only exports, the WordNet+LLM export, and the original summary workbook. `max_iterations: 2` allows initial generation plus one refinement. One-shot counts come from baseline/attempt-1 timeline results, while agentic counts use final `outcome.solved`. The second LLM-only export gives 124 to 149 proofs, and WordNet+LLM gives 192 to 202. On this all-entailment population the corresponding accuracy percentages agree with these counts. The exact Gemini prompt template revision is not recorded in the exports; see `PROOF_COVERAGE.md`.
+Start with [the result tables](reports/tables.txt) or [the source and interpretation guide](reports/table-guide.md).
 
-Current exports use the same `config` + `records` JSON envelope. Agent records use `problem`, `outcome`, and `timeline`; WordNet-only records use Stefan's flat structure. Each model and initial prompt has five configuration files. Only completed branches are included in LLM configuration files; completed technical failures remain included and explicitly labelled. Missing records are omitted, counted in config/manifest, and listed by state in branch_status_snapshot.json. Baselines include all available baseline results.
+| Folder | Contents |
+|---|---|
+| `results/1000/` | Five completed models, both prompts, five configurations on the 1,000-problem population. |
+| `results/365/` | Four completed models, including Flash Lite, both prompts, five configurations on curated365. |
+| `reports/` | Aligned text tables, machine-readable metrics, proof-coverage CSV and the source guide. |
+| `reports/latex/` | Separate paper tables for the 1,000- and 365-problem populations. |
+| `protocol/` | Frozen problem lists and original scientific/execution configuration snapshots. |
+| `reference/` | Jorryt's earlier Flash Lite run and the separate 223-problem gold oracle. |
+| `audit/` | Verification script/notebook, recorded checks, branch status, recovery provenance and original archive notes. |
 
-The five completed current 1,000-problem models and the completed Gemini 3.5 Flash 365-problem model are distinguished by folder. GPT and Sonnet are complete in this snapshot. The current Gemini 3.1 Flash-Lite directory contains all five configurations for both LEX and Stefan on 1,000 problems, under the shared protocol. Its WordNet baseline has 157 successes; all 4,000 branches are complete, with no remaining LLM or LangPro technical errors. Recorded Flash Lite API cost is $3.05493125. Jorryt's actual Gemini results are stored in the folder noted above and appear under LEX in the expanded comparison. They use the same 1,000 problem IDs, but their baseline interpretation differs from the recent shared-protocol exports (162 versus 157); storage provenance is not a separate prompt arm.
+## Results and populations
 
-This is schema adaptation, not a new scientific run. Unknown/resource-limit outcomes are not neutral. Correctness and categories are copied from the authoritative result ledger and checked against saved evaluations. One-shot timelines exclude critic/refinement; one-shot predictions are taken directly from the first-attempt evaluation, including empty-KB fallback. Normalisation candidate details are included when archived; no historical transformations or critic decisions are invented. Compact proof information replaces historical textual proof excerpts. `final_status` is the explicit current outcome category, not an invented historical stop code.
+Each current model directory contains `lex/` and `stefan/`, each with WordNet-only, LLM-only one-shot/agentic, and WordNet+LLM one-shot/agentic JSON files. There are **90 current configuration exports and 64,600 records**. Repeated configurations and prompts share underlying work; these are not 64,600 independent problems.
 
-Phase references identify source journal requests and reuse. Large raw prover responses are intentionally not duplicated; source_result and request keys refer to the original workspace archive, not files inside this ZIP. This is a portable analysis export, not a full raw-response backup. No API keys or authorization headers are exported. No files have been uploaded to Drive.
+The 1,000 and 365 populations are distinct. Flash Lite appears in both, as two separate evaluations. The reference Jorryt run uses a different execution version and stays separate. Unknown, technical error and missing outcomes must not be converted to neutral.
 
-`run_oracle_baseline.py` is archived beside `gold_lex_oracle_223.json`. It is copied verbatim from the local `agentic-pipeline-langpro` commit `b50a63b`, which could not be pushed to Stefan's repository. The archived script is for provenance; running it requires the source project's `src/kbprojection` package, its Python dependencies, and the original annotator CSV.
+## Main files
 
-## Authorized repair supplement
-All current runs are complete. Six curated365 problems use archived autonomous local CCG, with exact unchanged text verified; see repair_manifest.json for parser provenance and hashes. Other cases retain remote CCG. Four local worker failures were recovered with identical requests and original remote CCG. Dependent agentic stages were resumed under the same scientific protocol. Original affected ledger results are preserved in repair_original_results.json. This replaces the earlier partial snapshot; LP errors, if any, remain explicit in final_tables.txt.
+- [Tables](reports/tables.txt)
+- [Metrics](reports/metrics.json)
+- [Proof coverage](reports/proof-coverage.csv)
+- [Table provenance and interpretation](reports/table-guide.md)
+- [1,000-problem LaTeX table](reports/latex/langpro-results-1000.tex)
+- [365-problem LaTeX table](reports/latex/langpro-results-365.tex)
+- [Manifest](manifest.json)
+- [Flash Lite curated365 reuse provenance](audit/flash-lite-365-provenance.json)
 
-Stefan's historical Table 4 data is not included in the Gemini 3.1 Flash-Lite experiment folder. The Gemini JSONs there are Jorryt's own LEX-prompt agentic results; full raw prover responses and exact Gemini prompt-version metadata remain outside this archive. Original source documents such as `protocol.json` are preserved as received; their historical-export terminology does not override this corrected ownership note.
+## Verification
 
-## Expanded manuscript tables
+From this archive root, run:
 
-Use `langpro-results-1000.tex` and `langpro-results-365.tex`, with the source guide in `TABLE_PROVENANCE.md`. The 365 population has 363 entailments, one contradiction and one neutral example; its table therefore reports correct labels, not exclusively entailment proofs. `expanded_proof_coverage.csv` contains only the 17 source-backed model/prompt rows. The LaTeX also preserves the original, unresolved prior-draft row explicitly outside the verified comparison. Reproduce the checks with `python3 reconcile_proof_coverage.py` or `proof_coverage_audit.ipynb`; the recorded output is `proof_coverage_audit.json`.
+```sh
+python audit/reconcile_proof_coverage.py
+```
+
+This reads saved data only; it makes no API or prover calls. The notebook in `audit/` runs the same checks. The oracle runner under `reference/gold-oracle-223/` is an archived original, not part of this verification command; it requires its original source environment and annotation input.
+
+Problem-level exports are preserved byte-for-byte. Their embedded source-workspace paths, timestamps and configuration references are original provenance, not rewritten package paths. Use `manifest.json` for current package paths and [the path map](audit/path-map.json) for old-to-new filenames. Large raw prover responses remain in the original workspace rather than duplicated in this portable archive. Configuration snapshots in `protocol/` preserve their original scope; later changes and recoveries are documented in `audit/`.
+
+The table with the extra prover-error column is retained in `audit/tables-with-prover-errors.txt`; the normal summary is `reports/tables.txt`.

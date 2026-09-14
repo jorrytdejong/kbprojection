@@ -1,3 +1,4 @@
+<!-- Paths in this guide are relative to the archive root unless explicitly described as original source-workspace paths. -->
 # Gemini 3.1 Flash-Lite: Jorryt's LEX-prompt agentic pipeline
 
 Jorryt confirms that these are his LEX-prompt agentic-pipeline results on 1,000 SNLI entailment problems, not Stefan's historical Table 4 results. Model: `google/gemini-3.1-flash-lite`, provider: OpenRouter. The exact prompt template revision is not recorded in these JSONs; do not infer byte-identical templates from the shared LEX label.
@@ -17,4 +18,4 @@ Every export has 1,000 unique IDs and gold label entailment throughout. Conseque
 
 The other recent model exports use the same 1,000 IDs but a WordNet baseline of 157. Five baseline successes here are classified as unknown there. The shared protocol documents stricter resource-limit/conflicting-proof interpretation; this is not an exact replay of this export. The table includes Gemini under LEX while explicitly identifying this version difference.
 
-See `../reconcile_proof_coverage.py`, `../proof_coverage_audit.json`, and `../TABLE_PROVENANCE.md` for checks and source mapping. No original JSON or workbook was changed.
+See `audit/reconcile_proof_coverage.py`, `audit/proof-coverage.json`, and `reports/table-guide.md` for checks and source mapping. No original JSON or workbook was changed.

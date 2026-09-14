@@ -1,3 +1,4 @@
+<!-- Paths in this guide are relative to the archive root unless explicitly described as original source-workspace paths. -->
 # Expanded LangPro tables: source and version guide
 
 ## Scope and metric
@@ -6,7 +7,7 @@ The original five configurations become columns, with one row per model and init
 
 - **1,000 SNLI problems:** all gold labels are entailment. Count successful entailment predictions/proofs.
 - **365 curated problems:** 363 entailments, one contradiction and one neutral. Count correct gold-label predictions. The baseline's 66 successes include the neutral example; these are not 66 entailment proofs.
-- **223 human-agreed gold LEX problems:** retain the separate 48/223 to 83/223 oracle table. Direct gold-relation injection uses no LLM prompt. Its JSON and `run_oracle_baseline.py` remain adjacent here.
+- **223 human-agreed gold LEX problems:** retain the separate 48/223 to 83/223 oracle table. Direct gold-relation injection uses no LLM prompt. Its JSON and `reference/gold-oracle-223/run_oracle_baseline.py` remain adjacent here.
 
 One-shot means the initial KB attempt with baseline success retained where applicable. Agentic permits at most one refinement; the difference column is agentic minus one-shot. Technical failures and unknown outcomes stay in the fixed denominator. Do not use micro-F1 as proof coverage.
 
@@ -34,6 +35,8 @@ All 1,000-problem files have the same 1,000 unique IDs. Baselines differ by vers
 
 | Model | Prompt | WN | LLM one-shot | LLM agentic | Gain | WN+LLM one-shot | WN+LLM agentic | Gain |
 |---|---|---:|---:|---:|---:|---:|---:|---:|
+| Gemini 3.1 Flash-Lite | LEX | 66 | 90 | 115 | +25 | 106 | 126 | +20 |
+| Gemini 3.1 Flash-Lite | Stefan | 66 | 111 | 121 | +10 | 125 | 131 | +6 |
 | Gemini 3.5 Flash | LEX | 66 | 85 | 121 | +36 | 102 | 134 | +32 |
 | Gemini 3.5 Flash | Stefan | 66 | 111 | 125 | +14 | 125 | 136 | +11 |
 | GPT-5.4 | LEX | 66 | 88 | 111 | +23 | 106 | 129 | +23 |
@@ -41,14 +44,14 @@ All 1,000-problem files have the same 1,000 unique IDs. Baselines differ by vers
 | Claude Sonnet 4.5 | LEX | 66 | 92 | 116 | +24 | 109 | 128 | +19 |
 | Claude Sonnet 4.5 | Stefan | 66 | 107 | 119 | +12 | 123 | 134 | +11 |
 
-These are counts of correct labels on the curated population, not directly comparable with the 1,000-problem totals. The supplied `repair_manifest.json` documents six local-CCG parse repairs and recovered worker failures; it supplements the original protocol's remote-only statement. The input labels are retained, not silently relabelled as entailments.
+These are counts of correct labels on the curated population, not directly comparable with the 1,000-problem totals. The supplied `audit/recovery-manifest.json` documents six local-CCG parse repairs and recovered worker failures; it supplements the original protocol's remote-only statement. The input labels are retained, not silently relabelled as entailments.
 
 ## Initial prompt and execution provenance
 
 | Rows | Initial prompt identity | Version evidence |
 |---|---|---|
-| Recent LEX rows | Lasha/LEX, `production_lasha_calibrated` | `protocol.json`: `snapshots/prompts/lasha_calibrated.txt`; SHA-256 `0bd5d7670f2c326db3b242bce6f283a352eba222a86cba06a30c67cf107d689a` |
-| Recent Stefan rows | Stefan's knowledge-generation prompt | `protocol.json`: `snapshots/stefan/prompts/knowledge_generation.txt`; no separate initial-template hash recorded in the phase-hash map |
+| Recent LEX rows | Lasha/LEX, `production_lasha_calibrated` | `protocol/protocol.json`: `snapshots/prompts/lasha_calibrated.txt`; SHA-256 `0bd5d7670f2c326db3b242bce6f283a352eba222a86cba06a30c67cf107d689a` |
+| Recent Stefan rows | Stefan's knowledge-generation prompt | `protocol/protocol.json`: `snapshots/stefan/prompts/knowledge_generation.txt`; no separate initial-template hash recorded in the phase-hash map |
 | Jorryt Gemini 3.1 Flash-Lite | LEX, experimenter-confirmed | JSON run `v2` and `with_baseline_v2`, `max_iterations: 2`; exact template revision absent |
 | WordNet-only / gold oracle | No LLM prompt | Baseline configuration / gold injection runner |
 
@@ -60,19 +63,19 @@ These snapshot paths identify files in the source archive; the actual prompt tex
 
 ## Where the problem-level predictions are
 
-- Recent 1,000-problem results: `current-1000/<model-slug>/<lex-or-stefan>/{wordnet_only,llm_only_one_shot,llm_only_agentic,wordnet_llm_one_shot,wordnet_llm_agentic}.json`.
-- Curated 365-problem results: the same structure under `current-365/`.
-- Jorryt Gemini: `gemini-3.1-flash-lite-jorryt-new-prompt-1000/`, with `wordnet-only.json`, both `llm-only-*-run.json` exports, and `llm-and-wordnet.json`.
-- Gold oracle: `gold_lex_oracle_223.json`, next to `run_oracle_baseline.py`.
-- Each audited row has exact relative source filenames in `proof_coverage_audit.json`.
+- Recent 1,000-problem results: `results/1000/<model-slug>/<lex-or-stefan>/{wordnet_only,llm_only_one_shot,llm_only_agentic,wordnet_llm_one_shot,wordnet_llm_agentic}.json`.
+- Curated 365-problem results: the same structure under `results/365/`.
+- Jorryt Gemini: `reference/jorryt-flash-lite-1000/`, with `wordnet-only.json`, both `llm-only-*-run.json` exports, and `llm-and-wordnet.json`.
+- Gold oracle: `reference/gold-oracle-223/results.json`, next to `reference/gold-oracle-223/run_oracle_baseline.py`.
+- Each audited row has exact relative source filenames in `audit/proof-coverage.json`.
 
 Agent files contain `problem_id`, `problem`, `outcome`, and `timeline`. Current WordNet-only records instead use flat `id`, `gold_label`, `pred`, and `outcome`. Full raw prover responses are outside this portable archive; trace/source references are not a claim that those raw files are included.
 
-The two `current-1000/google__gemini-3.1-flash-lite/<prompt>/` folders contain the completed shared-protocol Flash Lite experiment: 1,000 problems, both LEX and Stefan, and all five configurations. These results are separate from Jorryt's version above and use the same 157-success WordNet baseline as the other current models.
+The two `results/1000/google__gemini-3.1-flash-lite/<prompt>/` folders contain the completed shared-protocol Flash Lite experiment: 1,000 problems, both LEX and Stefan, and all five configurations. These results are separate from Jorryt's version above and use the same 157-success WordNet baseline as the other current models.
 
 ## Technical failures and limits on interpretation
 
-All 80 recent configuration files used in the table have complete, unique populations; all counts agree with `final_metrics.json`. No current LangPro errors are reported. Some LLM-error counts are substantial:
+All 90 recent configuration files used in the table have complete, unique populations; all counts agree with `reports/metrics.json`. No current LangPro errors are reported. Some LLM-error counts are substantial:
 
 | Model / prompt | LLM one-shot | LLM agentic | WN+LLM one-shot | WN+LLM agentic |
 |---|---:|---:|---:|---:|
@@ -81,7 +84,7 @@ All 80 recent configuration files used in the table have complete, unique popula
 | Gemma 3 4B / LEX | 0 | 638 | 0 | 591 |
 | Gemma 3 4B / Stefan | 673 | 679 | 610 | 616 |
 
-The other recent model/prompt configurations report zero LLM errors. In particular, Gemma's zero net refinement gain is not evidence, by itself, that successful refinement requests cannot help. Detailed unknown/error counts remain in `final_tables.txt` and the audit JSON.
+The other recent model/prompt configurations report zero LLM errors. In particular, Gemma's zero net refinement gain is not evidence, by itself, that successful refinement requests cannot help. Detailed unknown/error counts remain in `audit/tables-with-prover-errors.txt` and the audit JSON.
 
 ## Original paper numbers
 
@@ -91,6 +94,8 @@ Before final submission, identify that original run and attach its source, or re
 
 ## Reproduce and inspect
 
-Run `python3 reconcile_proof_coverage.py` from this folder (standard library only). It is read-only and prints the audit JSON. `proof_coverage_audit.ipynb` provides an inspectable entry point; `proof_coverage_audit.json` records the full result. The CSV contains the 17 verified rows only; the original draft row is excluded.
+Run `python3 audit/reconcile_proof_coverage.py` from the archive root (standard library only). It is read-only and prints the audit JSON. `audit/proof-coverage.ipynb` provides an inspectable entry point; `audit/proof-coverage.json` records the full result. The CSV contains the 19 verified rows only; the original draft row is excluded.
 
 The two standalone LaTeX snippets require `booktabs` and span both columns using `table*`. The manuscript includes them with `\\input{include/langpro-results-1000}` and `\\input{include/langpro-results-365}`. Updated prose uses source-backed counts; the gold-223 table and original JSONs are unchanged.
+
+Flash Lite is also complete on the separate curated365 population under the shared protocol. See `audit/flash-lite-365-provenance.json` for archived phase reuse and new-call cost. The 1,000-problem results remain separate.

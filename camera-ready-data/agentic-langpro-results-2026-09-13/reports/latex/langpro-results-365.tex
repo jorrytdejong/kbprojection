@@ -1,4 +1,4 @@
-% Counts verified by reconcile_proof_coverage.py; see TABLE_PROVENANCE.md.
+% Counts verified by audit/reconcile_proof_coverage.py; see reports/table-guide.md.
 \begin{table*}[t]
 \centering
 \small
@@ -9,6 +9,9 @@
 \cmidrule(lr){4-6}\cmidrule(l){7-9}
 Model & Prompt & WN & One-shot & Agentic & $\Delta$ & One-shot & Agentic & $\Delta$ \\
 \midrule
+Gemini 3.1 Flash-Lite & LEX & 66 & 90 & 115 & +25 & 106 & 126 & +20 \\
+Gemini 3.1 Flash-Lite & Stefan & 66 & 111 & 121 & +10 & 125 & 131 & +6 \\
+\addlinespace[2pt]
 Gemini 3.5 Flash & LEX & 66 & 85 & 121 & +36 & 102 & 134 & +32 \\
 Gemini 3.5 Flash & Stefan & 66 & 111 & 125 & +14 & 125 & 136 & +11 \\
 \addlinespace[2pt]
