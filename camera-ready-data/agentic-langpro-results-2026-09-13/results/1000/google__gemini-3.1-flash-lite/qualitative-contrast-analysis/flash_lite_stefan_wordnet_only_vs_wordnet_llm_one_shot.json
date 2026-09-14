@@ -1,0 +1,789 @@
+{
+  "schema_version": 1,
+  "model": "google/gemini-3.1-flash-lite",
+  "prompt_variant": "stefan",
+  "comparison": {
+    "unsolved_configuration": "wordnet_only",
+    "solved_configuration": "wordnet_llm_one_shot",
+    "selection": "unsolved in the first configuration and solved in the second"
+  },
+  "source_files": [
+    "results/1000/google__gemini-3.1-flash-lite/stefan/wordnet_only.json",
+    "results/1000/google__gemini-3.1-flash-lite/stefan/wordnet_llm_one_shot.json"
+  ],
+  "example_count": 24,
+  "examples": [
+    {
+      "problem_id": "10101477.jpg#4r3e",
+      "premise": "Asian man sweeping the walkway.",
+      "hypothesis": "A man cleaning the floor.",
+      "gold_label": "entailment",
+      "unsolved_system": {
+        "configuration": "wordnet_only",
+        "prediction": "neutral",
+        "correct": false,
+        "final_kb": null,
+        "kb_attempts": [],
+        "kb_note": "This WordNet-only artifact records outcomes but not the per-problem built-in WordNet relations supplied to LangPro."
+      },
+      "solved_system": {
+        "configuration": "wordnet_llm_one_shot",
+        "prediction": "entailment",
+        "correct": true,
+        "final_kb": [
+          "isa_wn(sweep, clean)",
+          "isa_wn(walkway, floor)"
+        ],
+        "kb_attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(sweep, clean)",
+              "isa_wn(walkway, floor)"
+            ],
+            "prediction": "entailment"
+          }
+        ]
+      }
+    },
+    {
+      "problem_id": "1207159468.jpg#3r1e",
+      "premise": "A boy and a person suspended above a dome structure.",
+      "hypothesis": "The boy is above a building.",
+      "gold_label": "entailment",
+      "unsolved_system": {
+        "configuration": "wordnet_only",
+        "prediction": "neutral",
+        "correct": false,
+        "final_kb": null,
+        "kb_attempts": [],
+        "kb_note": "This WordNet-only artifact records outcomes but not the per-problem built-in WordNet relations supplied to LangPro."
+      },
+      "solved_system": {
+        "configuration": "wordnet_llm_one_shot",
+        "prediction": "entailment",
+        "correct": true,
+        "final_kb": [
+          "isa_wn(dome structure, building)",
+          "isa_wn(dome structure, build)"
+        ],
+        "kb_attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(dome structure, building)",
+              "isa_wn(dome structure, build)"
+            ],
+            "prediction": "entailment"
+          }
+        ]
+      }
+    },
+    {
+      "problem_id": "171211612.jpg#4r3e",
+      "premise": "A man holding a camera underwater.",
+      "hypothesis": "A man is using a camera.",
+      "gold_label": "entailment",
+      "unsolved_system": {
+        "configuration": "wordnet_only",
+        "prediction": "neutral",
+        "correct": false,
+        "final_kb": null,
+        "kb_attempts": [],
+        "kb_note": "This WordNet-only artifact records outcomes but not the per-problem built-in WordNet relations supplied to LangPro."
+      },
+      "solved_system": {
+        "configuration": "wordnet_llm_one_shot",
+        "prediction": "entailment",
+        "correct": true,
+        "final_kb": [
+          "isa_wn(hold, use)"
+        ],
+        "kb_attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(hold, use)"
+            ],
+            "prediction": "entailment"
+          }
+        ]
+      }
+    },
+    {
+      "problem_id": "19023618.jpg#2r1e",
+      "premise": "A man in a green machine is cleaning a pump in front of the Drake hotel.",
+      "hypothesis": "the man is working",
+      "gold_label": "entailment",
+      "unsolved_system": {
+        "configuration": "wordnet_only",
+        "prediction": "neutral",
+        "correct": false,
+        "final_kb": null,
+        "kb_attempts": [],
+        "kb_note": "This WordNet-only artifact records outcomes but not the per-problem built-in WordNet relations supplied to LangPro."
+      },
+      "solved_system": {
+        "configuration": "wordnet_llm_one_shot",
+        "prediction": "entailment",
+        "correct": true,
+        "final_kb": [
+          "isa_wn(clean, work)"
+        ],
+        "kb_attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(clean, work)"
+            ],
+            "prediction": "entailment"
+          }
+        ]
+      }
+    },
+    {
+      "problem_id": "2596100297.jpg#4r1e",
+      "premise": "Two boys stand in the surf.",
+      "hypothesis": "The kids are in the water.",
+      "gold_label": "entailment",
+      "unsolved_system": {
+        "configuration": "wordnet_only",
+        "prediction": "neutral",
+        "correct": false,
+        "final_kb": null,
+        "kb_attempts": [],
+        "kb_note": "This WordNet-only artifact records outcomes but not the per-problem built-in WordNet relations supplied to LangPro."
+      },
+      "solved_system": {
+        "configuration": "wordnet_llm_one_shot",
+        "prediction": "entailment",
+        "correct": true,
+        "final_kb": [
+          "isa_wn(boy, kid)",
+          "isa_wn(surf, water)"
+        ],
+        "kb_attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(boy, kid)",
+              "isa_wn(surf, water)"
+            ],
+            "prediction": "entailment"
+          }
+        ]
+      }
+    },
+    {
+      "problem_id": "2832033116.jpg#3r1e",
+      "premise": "A woman attaching a carabiner to a guide wire.",
+      "hypothesis": "a woman is holding a carabiner",
+      "gold_label": "entailment",
+      "unsolved_system": {
+        "configuration": "wordnet_only",
+        "prediction": "neutral",
+        "correct": false,
+        "final_kb": null,
+        "kb_attempts": [],
+        "kb_note": "This WordNet-only artifact records outcomes but not the per-problem built-in WordNet relations supplied to LangPro."
+      },
+      "solved_system": {
+        "configuration": "wordnet_llm_one_shot",
+        "prediction": "entailment",
+        "correct": true,
+        "final_kb": [
+          "isa_wn(attach, hold)"
+        ],
+        "kb_attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(attach, hold)"
+            ],
+            "prediction": "entailment"
+          }
+        ]
+      }
+    },
+    {
+      "problem_id": "3135504530.jpg#0r1e",
+      "premise": "One girl is wearing a white t-shirt with red sleeves; the other has words on hers.",
+      "hypothesis": "The girls are wearing clothes.",
+      "gold_label": "entailment",
+      "unsolved_system": {
+        "configuration": "wordnet_only",
+        "prediction": "neutral",
+        "correct": false,
+        "final_kb": null,
+        "kb_attempts": [],
+        "kb_note": "This WordNet-only artifact records outcomes but not the per-problem built-in WordNet relations supplied to LangPro."
+      },
+      "solved_system": {
+        "configuration": "wordnet_llm_one_shot",
+        "prediction": "entailment",
+        "correct": true,
+        "final_kb": [
+          "isa_wn(t-shirt, clothes)",
+          "isa_wn(t-shirt, clothe)"
+        ],
+        "kb_attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(t-shirt, clothes)",
+              "isa_wn(t-shirt, clothe)"
+            ],
+            "prediction": "entailment"
+          }
+        ]
+      }
+    },
+    {
+      "problem_id": "3253174263.jpg#3r1e",
+      "premise": "A man is laying on a bed opening a package.",
+      "hypothesis": "A man is on a bed opening a box.",
+      "gold_label": "entailment",
+      "unsolved_system": {
+        "configuration": "wordnet_only",
+        "prediction": "neutral",
+        "correct": false,
+        "final_kb": null,
+        "kb_attempts": [],
+        "kb_note": "This WordNet-only artifact records outcomes but not the per-problem built-in WordNet relations supplied to LangPro."
+      },
+      "solved_system": {
+        "configuration": "wordnet_llm_one_shot",
+        "prediction": "entailment",
+        "correct": true,
+        "final_kb": [
+          "isa_wn(package, box)"
+        ],
+        "kb_attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(package, box)"
+            ],
+            "prediction": "entailment"
+          }
+        ]
+      }
+    },
+    {
+      "problem_id": "3564007203.jpg#2r1e",
+      "premise": "A man is talking to a mounted policeman outside a stadium.",
+      "hypothesis": "A man is talking to the police.",
+      "gold_label": "entailment",
+      "unsolved_system": {
+        "configuration": "wordnet_only",
+        "prediction": "neutral",
+        "correct": false,
+        "final_kb": null,
+        "kb_attempts": [],
+        "kb_note": "This WordNet-only artifact records outcomes but not the per-problem built-in WordNet relations supplied to LangPro."
+      },
+      "solved_system": {
+        "configuration": "wordnet_llm_one_shot",
+        "prediction": "entailment",
+        "correct": true,
+        "final_kb": [
+          "isa_wn(mounted policeman, police)",
+          "isa_wn(mount policeman, police)"
+        ],
+        "kb_attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(mounted policeman, police)",
+              "isa_wn(mount policeman, police)"
+            ],
+            "prediction": "entailment"
+          }
+        ]
+      }
+    },
+    {
+      "problem_id": "4253367177.jpg#3r2e",
+      "premise": "A man is sleeping on a bench.",
+      "hypothesis": "The man is asleep",
+      "gold_label": "entailment",
+      "unsolved_system": {
+        "configuration": "wordnet_only",
+        "prediction": "neutral",
+        "correct": false,
+        "final_kb": null,
+        "kb_attempts": [],
+        "kb_note": "This WordNet-only artifact records outcomes but not the per-problem built-in WordNet relations supplied to LangPro."
+      },
+      "solved_system": {
+        "configuration": "wordnet_llm_one_shot",
+        "prediction": "entailment",
+        "correct": true,
+        "final_kb": [
+          "isa_wn(sleep, asleep)"
+        ],
+        "kb_attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(sleep, asleep)"
+            ],
+            "prediction": "entailment"
+          }
+        ]
+      }
+    },
+    {
+      "problem_id": "4552725875.jpg#4r1e",
+      "premise": "A paramedic looks at a firetruck.",
+      "hypothesis": "A person glances at a firetruck",
+      "gold_label": "entailment",
+      "unsolved_system": {
+        "configuration": "wordnet_only",
+        "prediction": "neutral",
+        "correct": false,
+        "final_kb": null,
+        "kb_attempts": [],
+        "kb_note": "This WordNet-only artifact records outcomes but not the per-problem built-in WordNet relations supplied to LangPro."
+      },
+      "solved_system": {
+        "configuration": "wordnet_llm_one_shot",
+        "prediction": "entailment",
+        "correct": true,
+        "final_kb": [
+          "isa_wn(paramedic, person)",
+          "isa_wn(look, glance)"
+        ],
+        "kb_attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(paramedic, person)",
+              "isa_wn(look, glance)"
+            ],
+            "prediction": "entailment"
+          }
+        ]
+      }
+    },
+    {
+      "problem_id": "4656715193.jpg#1r1e",
+      "premise": "A motorbike racing sitting on a white, pink, blue, and green motorbike.",
+      "hypothesis": "A motorbike racer is sitting.",
+      "gold_label": "entailment",
+      "unsolved_system": {
+        "configuration": "wordnet_only",
+        "prediction": "neutral",
+        "correct": false,
+        "final_kb": null,
+        "kb_attempts": [],
+        "kb_note": "This WordNet-only artifact records outcomes but not the per-problem built-in WordNet relations supplied to LangPro."
+      },
+      "solved_system": {
+        "configuration": "wordnet_llm_one_shot",
+        "prediction": "entailment",
+        "correct": true,
+        "final_kb": [
+          "isa_wn(motorbike racing, motorbike racer)",
+          "isa_wn(motorbike race, motorbike racer)",
+          "isa_wn(racing, racer)"
+        ],
+        "kb_attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(motorbike racing, motorbike racer)",
+              "isa_wn(motorbike race, motorbike racer)",
+              "isa_wn(racing, racer)"
+            ],
+            "prediction": "entailment"
+          }
+        ]
+      }
+    },
+    {
+      "problem_id": "4690278994.jpg#2r1e",
+      "premise": "A man is running with a water bottle in his hand.",
+      "hypothesis": "The man is holding a water bottle.",
+      "gold_label": "entailment",
+      "unsolved_system": {
+        "configuration": "wordnet_only",
+        "prediction": "neutral",
+        "correct": false,
+        "final_kb": null,
+        "kb_attempts": [],
+        "kb_note": "This WordNet-only artifact records outcomes but not the per-problem built-in WordNet relations supplied to LangPro."
+      },
+      "solved_system": {
+        "configuration": "wordnet_llm_one_shot",
+        "prediction": "entailment",
+        "correct": true,
+        "final_kb": [
+          "isa_wn(run, hold)"
+        ],
+        "kb_attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(run, hold)"
+            ],
+            "prediction": "entailment"
+          }
+        ]
+      }
+    },
+    {
+      "problem_id": "470458461.jpg#2r1e",
+      "premise": "A child wearing a rainbow striped shirt is pushing a toy cart.",
+      "hypothesis": "A child has a toy.",
+      "gold_label": "entailment",
+      "unsolved_system": {
+        "configuration": "wordnet_only",
+        "prediction": "neutral",
+        "correct": false,
+        "final_kb": null,
+        "kb_attempts": [],
+        "kb_note": "This WordNet-only artifact records outcomes but not the per-problem built-in WordNet relations supplied to LangPro."
+      },
+      "solved_system": {
+        "configuration": "wordnet_llm_one_shot",
+        "prediction": "entailment",
+        "correct": true,
+        "final_kb": [
+          "isa_wn(push, have)"
+        ],
+        "kb_attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(push, have)"
+            ],
+            "prediction": "entailment"
+          }
+        ]
+      }
+    },
+    {
+      "problem_id": "4742703949.jpg#2r1e",
+      "premise": "A male and a female sitting in a living room playing Jenga.",
+      "hypothesis": "Some humans sitting.",
+      "gold_label": "entailment",
+      "unsolved_system": {
+        "configuration": "wordnet_only",
+        "prediction": "neutral",
+        "correct": false,
+        "final_kb": null,
+        "kb_attempts": [],
+        "kb_note": "This WordNet-only artifact records outcomes but not the per-problem built-in WordNet relations supplied to LangPro."
+      },
+      "solved_system": {
+        "configuration": "wordnet_llm_one_shot",
+        "prediction": "entailment",
+        "correct": true,
+        "final_kb": [
+          "isa_wn(male, human)",
+          "isa_wn(female, human)"
+        ],
+        "kb_attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(male, human)",
+              "isa_wn(female, human)"
+            ],
+            "prediction": "entailment"
+          }
+        ]
+      }
+    },
+    {
+      "problem_id": "4823235614.jpg#0r3e",
+      "premise": "A crying man looking at a motorcycle and another man in jean shorts sits in a white plastic chair in front of a bungalow store open for business.",
+      "hypothesis": "A man is unhappy.",
+      "gold_label": "entailment",
+      "unsolved_system": {
+        "configuration": "wordnet_only",
+        "prediction": "neutral",
+        "correct": false,
+        "final_kb": null,
+        "kb_attempts": [],
+        "kb_note": "This WordNet-only artifact records outcomes but not the per-problem built-in WordNet relations supplied to LangPro."
+      },
+      "solved_system": {
+        "configuration": "wordnet_llm_one_shot",
+        "prediction": "entailment",
+        "correct": true,
+        "final_kb": [
+          "isa_wn(crying, unhappy)",
+          "isa_wn(cry, unhappy)"
+        ],
+        "kb_attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(crying, unhappy)",
+              "isa_wn(cry, unhappy)"
+            ],
+            "prediction": "entailment"
+          }
+        ]
+      }
+    },
+    {
+      "problem_id": "4950416860.jpg#4r1e",
+      "premise": "A fisherman with a cast net fishes from a canoe.",
+      "hypothesis": "A man is fishing from a canoe.",
+      "gold_label": "entailment",
+      "unsolved_system": {
+        "configuration": "wordnet_only",
+        "prediction": "neutral",
+        "correct": false,
+        "final_kb": null,
+        "kb_attempts": [],
+        "kb_note": "This WordNet-only artifact records outcomes but not the per-problem built-in WordNet relations supplied to LangPro."
+      },
+      "solved_system": {
+        "configuration": "wordnet_llm_one_shot",
+        "prediction": "entailment",
+        "correct": true,
+        "final_kb": [
+          "isa_wn(fisherman, man)"
+        ],
+        "kb_attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(fisherman, man)"
+            ],
+            "prediction": "entailment"
+          }
+        ]
+      }
+    },
+    {
+      "problem_id": "4970966523.jpg#4r1e",
+      "premise": "Lunch outdoors on a sunny day.",
+      "hypothesis": "Lunch outdoors on a beautiful day.",
+      "gold_label": "entailment",
+      "unsolved_system": {
+        "configuration": "wordnet_only",
+        "prediction": "neutral",
+        "correct": false,
+        "final_kb": null,
+        "kb_attempts": [],
+        "kb_note": "This WordNet-only artifact records outcomes but not the per-problem built-in WordNet relations supplied to LangPro."
+      },
+      "solved_system": {
+        "configuration": "wordnet_llm_one_shot",
+        "prediction": "entailment",
+        "correct": true,
+        "final_kb": [
+          "isa_wn(sunny, beautiful)"
+        ],
+        "kb_attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(sunny, beautiful)"
+            ],
+            "prediction": "entailment"
+          }
+        ]
+      }
+    },
+    {
+      "problem_id": "5923507305.jpg#2r1e",
+      "premise": "An older man wearing a suit is playing the flute inside a tunnel.",
+      "hypothesis": "The man is holding the flute.",
+      "gold_label": "entailment",
+      "unsolved_system": {
+        "configuration": "wordnet_only",
+        "prediction": "neutral",
+        "correct": false,
+        "final_kb": null,
+        "kb_attempts": [],
+        "kb_note": "This WordNet-only artifact records outcomes but not the per-problem built-in WordNet relations supplied to LangPro."
+      },
+      "solved_system": {
+        "configuration": "wordnet_llm_one_shot",
+        "prediction": "entailment",
+        "correct": true,
+        "final_kb": [
+          "isa_wn(play, hold)"
+        ],
+        "kb_attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(play, hold)"
+            ],
+            "prediction": "entailment"
+          }
+        ]
+      }
+    },
+    {
+      "problem_id": "6498058475.jpg#4r1e",
+      "premise": "A man in a green shirt is about to throw the ball.",
+      "hypothesis": "A man in a shirt is about to throw a round object.",
+      "gold_label": "entailment",
+      "unsolved_system": {
+        "configuration": "wordnet_only",
+        "prediction": "neutral",
+        "correct": false,
+        "final_kb": null,
+        "kb_attempts": [],
+        "kb_note": "This WordNet-only artifact records outcomes but not the per-problem built-in WordNet relations supplied to LangPro."
+      },
+      "solved_system": {
+        "configuration": "wordnet_llm_one_shot",
+        "prediction": "entailment",
+        "correct": true,
+        "final_kb": [
+          "isa_wn(ball, round object)"
+        ],
+        "kb_attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(ball, round object)"
+            ],
+            "prediction": "entailment"
+          }
+        ]
+      }
+    },
+    {
+      "problem_id": "7339914832.jpg#4r1e",
+      "premise": "Two female kickboxers, one with a purple sports bra, battle it out in an arena.",
+      "hypothesis": "Two kickboxers are fighting.",
+      "gold_label": "entailment",
+      "unsolved_system": {
+        "configuration": "wordnet_only",
+        "prediction": "neutral",
+        "correct": false,
+        "final_kb": null,
+        "kb_attempts": [],
+        "kb_note": "This WordNet-only artifact records outcomes but not the per-problem built-in WordNet relations supplied to LangPro."
+      },
+      "solved_system": {
+        "configuration": "wordnet_llm_one_shot",
+        "prediction": "entailment",
+        "correct": true,
+        "final_kb": [
+          "isa_wn(battle, fight)"
+        ],
+        "kb_attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(battle, fight)"
+            ],
+            "prediction": "entailment"
+          }
+        ]
+      }
+    },
+    {
+      "problem_id": "78984436.jpg#4r1e",
+      "premise": "Two German shepherds playing with a stick.",
+      "hypothesis": "The dogs are playing.",
+      "gold_label": "entailment",
+      "unsolved_system": {
+        "configuration": "wordnet_only",
+        "prediction": "neutral",
+        "correct": false,
+        "final_kb": null,
+        "kb_attempts": [],
+        "kb_note": "This WordNet-only artifact records outcomes but not the per-problem built-in WordNet relations supplied to LangPro."
+      },
+      "solved_system": {
+        "configuration": "wordnet_llm_one_shot",
+        "prediction": "entailment",
+        "correct": true,
+        "final_kb": [
+          "isa_wn(german shepherd, dog)"
+        ],
+        "kb_attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(german shepherd, dog)"
+            ],
+            "prediction": "entailment"
+          }
+        ]
+      }
+    },
+    {
+      "problem_id": "vg_len95r3e",
+      "premise": "The blonde tennis player is wearing a white shirt and a green tennis skirt.",
+      "hypothesis": "The tennis playing is wearing a green skirt.",
+      "gold_label": "entailment",
+      "unsolved_system": {
+        "configuration": "wordnet_only",
+        "prediction": "neutral",
+        "correct": false,
+        "final_kb": null,
+        "kb_attempts": [],
+        "kb_note": "This WordNet-only artifact records outcomes but not the per-problem built-in WordNet relations supplied to LangPro."
+      },
+      "solved_system": {
+        "configuration": "wordnet_llm_one_shot",
+        "prediction": "entailment",
+        "correct": true,
+        "final_kb": [
+          "isa_wn(tennis player, tennis playing)",
+          "isa_wn(tennis player, tennis play)",
+          "isa_wn(player, playing)",
+          "isa_wn(tennis skirt, skirt)",
+          "isa_wn(skirt, tennis skirt)"
+        ],
+        "kb_attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(tennis player, tennis playing)",
+              "isa_wn(tennis player, tennis play)",
+              "isa_wn(player, playing)",
+              "isa_wn(tennis skirt, skirt)",
+              "isa_wn(skirt, tennis skirt)"
+            ],
+            "prediction": "entailment"
+          }
+        ]
+      }
+    },
+    {
+      "problem_id": "vg_verb51r3e",
+      "premise": "The bird's feet are grasping the window tightly.",
+      "hypothesis": "there is a bird resting",
+      "gold_label": "entailment",
+      "unsolved_system": {
+        "configuration": "wordnet_only",
+        "prediction": "neutral",
+        "correct": false,
+        "final_kb": null,
+        "kb_attempts": [],
+        "kb_note": "This WordNet-only artifact records outcomes but not the per-problem built-in WordNet relations supplied to LangPro."
+      },
+      "solved_system": {
+        "configuration": "wordnet_llm_one_shot",
+        "prediction": "entailment",
+        "correct": true,
+        "final_kb": [
+          "isa_wn(grasp, rest)"
+        ],
+        "kb_attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(grasp, rest)"
+            ],
+            "prediction": "entailment"
+          }
+        ]
+      }
+    }
+  ]
+}
