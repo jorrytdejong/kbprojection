@@ -1,0 +1,2305 @@
+{
+  "metadata": {
+    "model": "google/gemini-3.1-flash-lite",
+    "population": 1000,
+    "prompt": "lex",
+    "prompt_number": 1,
+    "run": "Ettore shared-protocol run; excludes the historical Jorryt reference run",
+    "unsolved_configuration": "wordnet_only",
+    "solved_configuration": "llm_only_one_shot",
+    "selection": "Same problem ID; first system solved=false and second system solved=true.",
+    "count": 26,
+    "sources": [
+      {
+        "file": "results/1000/google__gemini-3.1-flash-lite/lex/wordnet_only.json",
+        "sha256_lf": "93fcd5fcf6180c39a4c7db7e166514fe61b82b6bc906b0a2e055b3d9f55094be"
+      },
+      {
+        "file": "results/1000/google__gemini-3.1-flash-lite/lex/llm_only_one_shot.json",
+        "sha256_lf": "2c7786116190871e45f63b1a0ce48250c86cf7611b0de0ebb063f455366a50d9"
+      }
+    ],
+    "notes": [
+      "kb contains additional injected relations. An empty list does not mean built-in WordNet is empty.",
+      "One-shot is baseline plus attempt 1 of the shared agentic execution, not an independent run.",
+      "Unsolved includes unknown outcomes; category and prediction are preserved.",
+      "Cases may overlap across contrasts. No judgment of lexical validity is inferred from proof success."
+    ]
+  },
+  "records": [
+    {
+      "problem_id": "4552725875.jpg#4r1e",
+      "premise": "A paramedic looks at a firetruck.",
+      "hypothesis": "A person glances at a firetruck",
+      "gold_label": "entailment",
+      "unsolved_system": {
+        "configuration": "wordnet_only",
+        "wordnet_enabled": true,
+        "wordnet_internal_relations": null,
+        "wordnet_internal_relations_note": "Built-in WordNet is enabled; its internal relations are not enumerated in this export.",
+        "solved": false,
+        "prediction": "neutral",
+        "category": "neutral",
+        "kb": [],
+        "kb_scope": "Additional injected relations only; not the built-in WordNet KB.",
+        "selected_attempt": 0,
+        "kb_source": "WordNet baseline; no additional KB injected.",
+        "attempts": [],
+        "source_problem_id": "4552725875.jpg#4r1e"
+      },
+      "solved_system": {
+        "configuration": "llm_only_one_shot",
+        "wordnet_enabled": false,
+        "wordnet_internal_relations": null,
+        "wordnet_internal_relations_note": "Built-in WordNet is disabled.",
+        "solved": true,
+        "prediction": "entailment",
+        "category": "entailment",
+        "kb": [
+          "isa_wn(paramedic, person)",
+          "isa_wn(look at, glance at)",
+          "isa_wn(look, glance)"
+        ],
+        "kb_scope": "Additional injected relations only; not the built-in WordNet KB.",
+        "selected_attempt": 1,
+        "kb_source": "timeline: langpro_with_kb.input.kb_sent at selected_attempt",
+        "attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(paramedic, person)",
+              "isa_wn(look at, glance at)",
+              "isa_wn(look, glance)"
+            ],
+            "prediction": "entailment",
+            "proof_info": {
+              "contradiction": {
+                "closed": false,
+                "info": [
+                  "na",
+                  "open",
+                  "Ter18"
+                ]
+              },
+              "entailment": {
+                "closed": true,
+                "info": [
+                  "al",
+                  "closed",
+                  "Ter",
+                  10
+                ]
+              }
+            }
+          }
+        ],
+        "stop_reason": "one_shot_complete",
+        "provenance": {
+          "slot_key": "1e090194a2ecf21530d5c6e108e410807bc775194e28c41199750d9e7e2c79f3",
+          "source_result": "experiments\\extrinsic1000\\results\\1e090194a2ecf21530d5c6e108e410807bc775194e28c41199750d9e7e2c79f3\\result.json",
+          "protocol_sha256": "2d1e7442b7fb5a985251900c6e051211435e547a1b6cc4a7e6e53a4bcaa47d7d",
+          "phase_references": [
+            {
+              "request_key": "c8274042b7e295ef94f3ba0215ba2d011a24dd0e74df72c06ece5f5ec950731e",
+              "kind": "langpro",
+              "phase": "baseline_langpro",
+              "attempt": 0,
+              "cache_hit": true
+            },
+            {
+              "request_key": "861b1f978c643130d45ebdaaa603fd1ae2cd4adbfe63e3f7999f11f40fd175ca",
+              "kind": "llm",
+              "phase": "kb_generation",
+              "attempt": 1,
+              "cache_hit": false
+            },
+            {
+              "request_key": "8c510dd9ae480717e6ec6f94df1da7341133d5fc685345f92c6ddd616c4bea91",
+              "kind": "langpro",
+              "phase": "langpro_with_kb",
+              "attempt": 1,
+              "cache_hit": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "problem_id": "4253367177.jpg#3r2e",
+      "premise": "A man is sleeping on a bench.",
+      "hypothesis": "The man is asleep",
+      "gold_label": "entailment",
+      "unsolved_system": {
+        "configuration": "wordnet_only",
+        "wordnet_enabled": true,
+        "wordnet_internal_relations": null,
+        "wordnet_internal_relations_note": "Built-in WordNet is enabled; its internal relations are not enumerated in this export.",
+        "solved": false,
+        "prediction": "neutral",
+        "category": "neutral",
+        "kb": [],
+        "kb_scope": "Additional injected relations only; not the built-in WordNet KB.",
+        "selected_attempt": 0,
+        "kb_source": "WordNet baseline; no additional KB injected.",
+        "attempts": [],
+        "source_problem_id": "4253367177.jpg#3r2e"
+      },
+      "solved_system": {
+        "configuration": "llm_only_one_shot",
+        "wordnet_enabled": false,
+        "wordnet_internal_relations": null,
+        "wordnet_internal_relations_note": "Built-in WordNet is disabled.",
+        "solved": true,
+        "prediction": "entailment",
+        "category": "entailment",
+        "kb": [
+          "isa_wn(sleep, asleep)"
+        ],
+        "kb_scope": "Additional injected relations only; not the built-in WordNet KB.",
+        "selected_attempt": 1,
+        "kb_source": "timeline: langpro_with_kb.input.kb_sent at selected_attempt",
+        "attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(sleep, asleep)"
+            ],
+            "prediction": "entailment",
+            "proof_info": {
+              "contradiction": {
+                "closed": false,
+                "info": [
+                  "na",
+                  "open",
+                  "Ter10"
+                ]
+              },
+              "entailment": {
+                "closed": true,
+                "info": [
+                  "al",
+                  "closed",
+                  "Ter",
+                  10
+                ]
+              }
+            }
+          }
+        ],
+        "stop_reason": "one_shot_complete",
+        "provenance": {
+          "slot_key": "a0bf0313d83ffbad2366fcf7bc51012eb0f2e2400bafe4032d1214eace1a1170",
+          "source_result": "experiments\\extrinsic1000\\results\\a0bf0313d83ffbad2366fcf7bc51012eb0f2e2400bafe4032d1214eace1a1170\\result.json",
+          "protocol_sha256": "2d1e7442b7fb5a985251900c6e051211435e547a1b6cc4a7e6e53a4bcaa47d7d",
+          "phase_references": [
+            {
+              "request_key": "cd230b73f54d98c5a0962750ca3b5401e61e8acc42ccaabd9cb92ddfcf164422",
+              "kind": "langpro",
+              "phase": "baseline_langpro",
+              "attempt": 0,
+              "cache_hit": true
+            },
+            {
+              "request_key": "b0db7bc0758448aa5460e91e3e88e8f9476cd01a096dfb07ff7d89767c071db0",
+              "kind": "llm",
+              "phase": "kb_generation",
+              "attempt": 1,
+              "cache_hit": false
+            },
+            {
+              "request_key": "3835227e96b487a3de134f974579df400de76276cd9be3c181eb42129614f23b",
+              "kind": "langpro",
+              "phase": "langpro_with_kb",
+              "attempt": 1,
+              "cache_hit": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "problem_id": "78984436.jpg#4r1e",
+      "premise": "Two German shepherds playing with a stick.",
+      "hypothesis": "The dogs are playing.",
+      "gold_label": "entailment",
+      "unsolved_system": {
+        "configuration": "wordnet_only",
+        "wordnet_enabled": true,
+        "wordnet_internal_relations": null,
+        "wordnet_internal_relations_note": "Built-in WordNet is enabled; its internal relations are not enumerated in this export.",
+        "solved": false,
+        "prediction": "neutral",
+        "category": "neutral",
+        "kb": [],
+        "kb_scope": "Additional injected relations only; not the built-in WordNet KB.",
+        "selected_attempt": 0,
+        "kb_source": "WordNet baseline; no additional KB injected.",
+        "attempts": [],
+        "source_problem_id": "78984436.jpg#4r1e"
+      },
+      "solved_system": {
+        "configuration": "llm_only_one_shot",
+        "wordnet_enabled": false,
+        "wordnet_internal_relations": null,
+        "wordnet_internal_relations_note": "Built-in WordNet is disabled.",
+        "solved": true,
+        "prediction": "entailment",
+        "category": "entailment",
+        "kb": [
+          "isa_wn(german shepherd, dog)"
+        ],
+        "kb_scope": "Additional injected relations only; not the built-in WordNet KB.",
+        "selected_attempt": 1,
+        "kb_source": "timeline: langpro_with_kb.input.kb_sent at selected_attempt",
+        "attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(german shepherd, dog)"
+            ],
+            "prediction": "entailment",
+            "proof_info": {
+              "contradiction": {
+                "closed": false,
+                "info": [
+                  "na",
+                  "open",
+                  "Ter34"
+                ]
+              },
+              "entailment": {
+                "closed": true,
+                "info": [
+                  "al",
+                  "closed",
+                  "Ter",
+                  36
+                ]
+              }
+            }
+          }
+        ],
+        "stop_reason": "one_shot_complete",
+        "provenance": {
+          "slot_key": "7e0bbfc170a0058e0a16a834f114896db0052305a7934f280f7db7b353ac4045",
+          "source_result": "experiments\\extrinsic1000\\results\\7e0bbfc170a0058e0a16a834f114896db0052305a7934f280f7db7b353ac4045\\result.json",
+          "protocol_sha256": "2d1e7442b7fb5a985251900c6e051211435e547a1b6cc4a7e6e53a4bcaa47d7d",
+          "phase_references": [
+            {
+              "request_key": "bf2581d8b2810b51b110812a41308c5fc8a07835421ac17a575c778e961d91b1",
+              "kind": "langpro",
+              "phase": "baseline_langpro",
+              "attempt": 0,
+              "cache_hit": true
+            },
+            {
+              "request_key": "2a775fac273a63ff03c681e1fa3e905c4d426523c21ff5a21ae59032df7d7a4a",
+              "kind": "llm",
+              "phase": "kb_generation",
+              "attempt": 1,
+              "cache_hit": false
+            },
+            {
+              "request_key": "8631476a707d21d49779e1606486e2cc55143f0e7f341a40c5ab15fb1f4af546",
+              "kind": "langpro",
+              "phase": "langpro_with_kb",
+              "attempt": 1,
+              "cache_hit": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "problem_id": "1207159468.jpg#3r1e",
+      "premise": "A boy and a person suspended above a dome structure.",
+      "hypothesis": "The boy is above a building.",
+      "gold_label": "entailment",
+      "unsolved_system": {
+        "configuration": "wordnet_only",
+        "wordnet_enabled": true,
+        "wordnet_internal_relations": null,
+        "wordnet_internal_relations_note": "Built-in WordNet is enabled; its internal relations are not enumerated in this export.",
+        "solved": false,
+        "prediction": "neutral",
+        "category": "neutral",
+        "kb": [],
+        "kb_scope": "Additional injected relations only; not the built-in WordNet KB.",
+        "selected_attempt": 0,
+        "kb_source": "WordNet baseline; no additional KB injected.",
+        "attempts": [],
+        "source_problem_id": "1207159468.jpg#3r1e"
+      },
+      "solved_system": {
+        "configuration": "llm_only_one_shot",
+        "wordnet_enabled": false,
+        "wordnet_internal_relations": null,
+        "wordnet_internal_relations_note": "Built-in WordNet is disabled.",
+        "solved": true,
+        "prediction": "entailment",
+        "category": "entailment",
+        "kb": [
+          "isa_wn(dome structure, building)",
+          "isa_wn(dome structure, build)"
+        ],
+        "kb_scope": "Additional injected relations only; not the built-in WordNet KB.",
+        "selected_attempt": 1,
+        "kb_source": "timeline: langpro_with_kb.input.kb_sent at selected_attempt",
+        "attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(dome structure, building)",
+              "isa_wn(dome structure, build)"
+            ],
+            "prediction": "entailment",
+            "proof_info": {
+              "contradiction": {
+                "closed": false,
+                "info": [
+                  "na",
+                  "open",
+                  "Ter27"
+                ]
+              },
+              "entailment": {
+                "closed": true,
+                "info": [
+                  "al",
+                  "closed",
+                  "Ter",
+                  127
+                ]
+              }
+            }
+          }
+        ],
+        "stop_reason": "one_shot_complete",
+        "provenance": {
+          "slot_key": "c87838f5f1ecb5e42e82f1f097a14639e64cc6808956418b6af15b11eb7fb8e8",
+          "source_result": "experiments\\extrinsic1000\\results\\c87838f5f1ecb5e42e82f1f097a14639e64cc6808956418b6af15b11eb7fb8e8\\result.json",
+          "protocol_sha256": "2d1e7442b7fb5a985251900c6e051211435e547a1b6cc4a7e6e53a4bcaa47d7d",
+          "phase_references": [
+            {
+              "request_key": "7abd7bc69da11cef68b7b9be6e1d2273da7792ac221058f08391415062ed9e10",
+              "kind": "langpro",
+              "phase": "baseline_langpro",
+              "attempt": 0,
+              "cache_hit": true
+            },
+            {
+              "request_key": "98663b3ee6dbc0f592050e466a51bbc50abfaf1a49e867ed84a1ae986680e671",
+              "kind": "llm",
+              "phase": "kb_generation",
+              "attempt": 1,
+              "cache_hit": false
+            },
+            {
+              "request_key": "fc5db59570ecc085b618ed7d2a93b68a3ab9342f344abd29ca40576fe7f1b53d",
+              "kind": "langpro",
+              "phase": "langpro_with_kb",
+              "attempt": 1,
+              "cache_hit": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "problem_id": "3643022155.jpg#0r1e",
+      "premise": "A woman who is holding a bright pink purse and has sunglasses clipped to her shirt is leaning against a wall.",
+      "hypothesis": "A lady leans on a wall.",
+      "gold_label": "entailment",
+      "unsolved_system": {
+        "configuration": "wordnet_only",
+        "wordnet_enabled": true,
+        "wordnet_internal_relations": null,
+        "wordnet_internal_relations_note": "Built-in WordNet is enabled; its internal relations are not enumerated in this export.",
+        "solved": false,
+        "prediction": "-",
+        "category": "unknown",
+        "kb": [],
+        "kb_scope": "Additional injected relations only; not the built-in WordNet KB.",
+        "selected_attempt": 0,
+        "kb_source": "WordNet baseline; no additional KB injected.",
+        "attempts": [],
+        "source_problem_id": "3643022155.jpg#0r1e"
+      },
+      "solved_system": {
+        "configuration": "llm_only_one_shot",
+        "wordnet_enabled": false,
+        "wordnet_internal_relations": null,
+        "wordnet_internal_relations_note": "Built-in WordNet is disabled.",
+        "solved": true,
+        "prediction": "entailment",
+        "category": "entailment",
+        "kb": [
+          "isa_wn(woman, lady)",
+          "isa_wn(lean against, lean on)",
+          "isa_wn(against, on)"
+        ],
+        "kb_scope": "Additional injected relations only; not the built-in WordNet KB.",
+        "selected_attempt": 1,
+        "kb_source": "timeline: langpro_with_kb.input.kb_sent at selected_attempt",
+        "attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(woman, lady)",
+              "isa_wn(lean against, lean on)",
+              "isa_wn(against, on)"
+            ],
+            "prediction": "entailment",
+            "proof_info": {
+              "contradiction": {
+                "closed": false,
+                "info": [
+                  "na",
+                  "open",
+                  "Ter44"
+                ]
+              },
+              "entailment": {
+                "closed": true,
+                "info": [
+                  "al",
+                  "closed",
+                  "Ter",
+                  39
+                ]
+              }
+            }
+          }
+        ],
+        "stop_reason": "one_shot_complete",
+        "provenance": {
+          "slot_key": "03966d210444960fcc7c20e78bb7be19af32d0fe79103e261b2b536d005efa7d",
+          "source_result": "experiments\\extrinsic1000\\results\\03966d210444960fcc7c20e78bb7be19af32d0fe79103e261b2b536d005efa7d\\result.json",
+          "protocol_sha256": "2d1e7442b7fb5a985251900c6e051211435e547a1b6cc4a7e6e53a4bcaa47d7d",
+          "phase_references": [
+            {
+              "request_key": "34973b8a197e76732446e4975091ce40a3beaf2aa69495e05ae459920a5e6df6",
+              "kind": "langpro",
+              "phase": "baseline_langpro",
+              "attempt": 0,
+              "cache_hit": true
+            },
+            {
+              "request_key": "af2d7f0dfc09f6a8d37e45d9655e18cb6b5ddfdf471cb4f83caca7aabfa95087",
+              "kind": "llm",
+              "phase": "kb_generation",
+              "attempt": 1,
+              "cache_hit": false
+            },
+            {
+              "request_key": "87f350344a768dfb016d35ea4e492cff9f43038070dd32b2a6d7b2e79d8614a5",
+              "kind": "langpro",
+              "phase": "langpro_with_kb",
+              "attempt": 1,
+              "cache_hit": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "problem_id": "3564007203.jpg#2r1e",
+      "premise": "A man is talking to a mounted policeman outside a stadium.",
+      "hypothesis": "A man is talking to the police.",
+      "gold_label": "entailment",
+      "unsolved_system": {
+        "configuration": "wordnet_only",
+        "wordnet_enabled": true,
+        "wordnet_internal_relations": null,
+        "wordnet_internal_relations_note": "Built-in WordNet is enabled; its internal relations are not enumerated in this export.",
+        "solved": false,
+        "prediction": "neutral",
+        "category": "neutral",
+        "kb": [],
+        "kb_scope": "Additional injected relations only; not the built-in WordNet KB.",
+        "selected_attempt": 0,
+        "kb_source": "WordNet baseline; no additional KB injected.",
+        "attempts": [],
+        "source_problem_id": "3564007203.jpg#2r1e"
+      },
+      "solved_system": {
+        "configuration": "llm_only_one_shot",
+        "wordnet_enabled": false,
+        "wordnet_internal_relations": null,
+        "wordnet_internal_relations_note": "Built-in WordNet is disabled.",
+        "solved": true,
+        "prediction": "entailment",
+        "category": "entailment",
+        "kb": [
+          "isa_wn(mounted policeman, police)",
+          "isa_wn(mount policeman, police)"
+        ],
+        "kb_scope": "Additional injected relations only; not the built-in WordNet KB.",
+        "selected_attempt": 1,
+        "kb_source": "timeline: langpro_with_kb.input.kb_sent at selected_attempt",
+        "attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(mounted policeman, police)",
+              "isa_wn(mount policeman, police)"
+            ],
+            "prediction": "entailment",
+            "proof_info": {
+              "contradiction": {
+                "closed": false,
+                "info": [
+                  "na",
+                  "open",
+                  "Ter33"
+                ]
+              },
+              "entailment": {
+                "closed": true,
+                "info": [
+                  "al",
+                  "closed",
+                  "Ter",
+                  64
+                ]
+              }
+            }
+          }
+        ],
+        "stop_reason": "one_shot_complete",
+        "provenance": {
+          "slot_key": "5fb5098968c84ba700c73a5f41b55c2bea3dceddfd34f99b08af7000b8e2535e",
+          "source_result": "experiments\\extrinsic1000\\results\\5fb5098968c84ba700c73a5f41b55c2bea3dceddfd34f99b08af7000b8e2535e\\result.json",
+          "protocol_sha256": "2d1e7442b7fb5a985251900c6e051211435e547a1b6cc4a7e6e53a4bcaa47d7d",
+          "phase_references": [
+            {
+              "request_key": "049d01b8fe71cc13eb8b8ba563fef7075fb5267045ccef31c97e1496f02208a2",
+              "kind": "langpro",
+              "phase": "baseline_langpro",
+              "attempt": 0,
+              "cache_hit": true
+            },
+            {
+              "request_key": "f7d78d9356c751cea8e9dcb1e9eefb78d81af7d07185a3f0aa54bdeb272bdfb3",
+              "kind": "llm",
+              "phase": "kb_generation",
+              "attempt": 1,
+              "cache_hit": false
+            },
+            {
+              "request_key": "f14b3a1b958914aac86dd6ec9b5419684275d42dc20e8dcee79ebaa37f7c4e7d",
+              "kind": "langpro",
+              "phase": "langpro_with_kb",
+              "attempt": 1,
+              "cache_hit": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "problem_id": "3253174263.jpg#3r1e",
+      "premise": "A man is laying on a bed opening a package.",
+      "hypothesis": "A man is on a bed opening a box.",
+      "gold_label": "entailment",
+      "unsolved_system": {
+        "configuration": "wordnet_only",
+        "wordnet_enabled": true,
+        "wordnet_internal_relations": null,
+        "wordnet_internal_relations_note": "Built-in WordNet is enabled; its internal relations are not enumerated in this export.",
+        "solved": false,
+        "prediction": "neutral",
+        "category": "neutral",
+        "kb": [],
+        "kb_scope": "Additional injected relations only; not the built-in WordNet KB.",
+        "selected_attempt": 0,
+        "kb_source": "WordNet baseline; no additional KB injected.",
+        "attempts": [],
+        "source_problem_id": "3253174263.jpg#3r1e"
+      },
+      "solved_system": {
+        "configuration": "llm_only_one_shot",
+        "wordnet_enabled": false,
+        "wordnet_internal_relations": null,
+        "wordnet_internal_relations_note": "Built-in WordNet is disabled.",
+        "solved": true,
+        "prediction": "entailment",
+        "category": "entailment",
+        "kb": [
+          "isa_wn(package, box)"
+        ],
+        "kb_scope": "Additional injected relations only; not the built-in WordNet KB.",
+        "selected_attempt": 1,
+        "kb_source": "timeline: langpro_with_kb.input.kb_sent at selected_attempt",
+        "attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(package, box)"
+            ],
+            "prediction": "entailment",
+            "proof_info": {
+              "contradiction": {
+                "closed": false,
+                "info": [
+                  "na",
+                  "open",
+                  "Ter28"
+                ]
+              },
+              "entailment": {
+                "closed": true,
+                "info": [
+                  "al",
+                  "closed",
+                  "Ter",
+                  31
+                ]
+              }
+            }
+          }
+        ],
+        "stop_reason": "one_shot_complete",
+        "provenance": {
+          "slot_key": "00d3079357a2f1052efc9eb42d36aa45e369c9aa911bb2ed301f1a568057f0f7",
+          "source_result": "experiments\\extrinsic1000\\results\\00d3079357a2f1052efc9eb42d36aa45e369c9aa911bb2ed301f1a568057f0f7\\result.json",
+          "protocol_sha256": "2d1e7442b7fb5a985251900c6e051211435e547a1b6cc4a7e6e53a4bcaa47d7d",
+          "phase_references": [
+            {
+              "request_key": "08246344582ba1a85dfc241791249d093baf4c06dfbe7c27529193f766f5ab25",
+              "kind": "langpro",
+              "phase": "baseline_langpro",
+              "attempt": 0,
+              "cache_hit": true
+            },
+            {
+              "request_key": "4af153283c5968a83fceb43cd86f19b6c75ad35eb6cb12fd87c1cddf73afe79d",
+              "kind": "llm",
+              "phase": "kb_generation",
+              "attempt": 1,
+              "cache_hit": false
+            },
+            {
+              "request_key": "417688be0c230bca344a775c82761e76b408d807f830e16909f35a97dd29a3c6",
+              "kind": "langpro",
+              "phase": "langpro_with_kb",
+              "attempt": 1,
+              "cache_hit": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "problem_id": "3135504530.jpg#0r1e",
+      "premise": "One girl is wearing a white t-shirt with red sleeves; the other has words on hers.",
+      "hypothesis": "The girls are wearing clothes.",
+      "gold_label": "entailment",
+      "unsolved_system": {
+        "configuration": "wordnet_only",
+        "wordnet_enabled": true,
+        "wordnet_internal_relations": null,
+        "wordnet_internal_relations_note": "Built-in WordNet is enabled; its internal relations are not enumerated in this export.",
+        "solved": false,
+        "prediction": "neutral",
+        "category": "neutral",
+        "kb": [],
+        "kb_scope": "Additional injected relations only; not the built-in WordNet KB.",
+        "selected_attempt": 0,
+        "kb_source": "WordNet baseline; no additional KB injected.",
+        "attempts": [],
+        "source_problem_id": "3135504530.jpg#0r1e"
+      },
+      "solved_system": {
+        "configuration": "llm_only_one_shot",
+        "wordnet_enabled": false,
+        "wordnet_internal_relations": null,
+        "wordnet_internal_relations_note": "Built-in WordNet is disabled.",
+        "solved": true,
+        "prediction": "entailment",
+        "category": "entailment",
+        "kb": [
+          "isa_wn(t-shirt, clothes)",
+          "isa_wn(t-shirt, clothe)"
+        ],
+        "kb_scope": "Additional injected relations only; not the built-in WordNet KB.",
+        "selected_attempt": 1,
+        "kb_source": "timeline: langpro_with_kb.input.kb_sent at selected_attempt",
+        "attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(t-shirt, clothes)",
+              "isa_wn(t-shirt, clothe)"
+            ],
+            "prediction": "entailment",
+            "proof_info": {
+              "contradiction": {
+                "closed": false,
+                "info": [
+                  "na",
+                  "open",
+                  "Ter27"
+                ]
+              },
+              "entailment": {
+                "closed": true,
+                "info": [
+                  "al",
+                  "closed",
+                  "Ter",
+                  66
+                ]
+              }
+            }
+          }
+        ],
+        "stop_reason": "one_shot_complete",
+        "provenance": {
+          "slot_key": "30ce68c6c79abc0e7a595280d766986bdb31e62267a12834b800347451afba94",
+          "source_result": "experiments\\extrinsic1000\\results\\30ce68c6c79abc0e7a595280d766986bdb31e62267a12834b800347451afba94\\result.json",
+          "protocol_sha256": "2d1e7442b7fb5a985251900c6e051211435e547a1b6cc4a7e6e53a4bcaa47d7d",
+          "phase_references": [
+            {
+              "request_key": "d858a67d01b71fc99ae417f5c23ab4e2503dcd7b39fdfee3cefb5c6b0d376617",
+              "kind": "langpro",
+              "phase": "baseline_langpro",
+              "attempt": 0,
+              "cache_hit": true
+            },
+            {
+              "request_key": "89f7a9598efbd8ff8b7f68ffb63a674a4a633ef3ba893653ce43a31a6910e566",
+              "kind": "llm",
+              "phase": "kb_generation",
+              "attempt": 1,
+              "cache_hit": false
+            },
+            {
+              "request_key": "c2c005451a1075b35575d3ef021b23f7ef82b86ab9de0b1c39b09c01d0c611aa",
+              "kind": "langpro",
+              "phase": "langpro_with_kb",
+              "attempt": 1,
+              "cache_hit": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "problem_id": "5171265627.jpg#4r1e",
+      "premise": "A man in a suit rides a brown horse.",
+      "hypothesis": "The man rides a horse.",
+      "gold_label": "entailment",
+      "unsolved_system": {
+        "configuration": "wordnet_only",
+        "wordnet_enabled": true,
+        "wordnet_internal_relations": null,
+        "wordnet_internal_relations_note": "Built-in WordNet is enabled; its internal relations are not enumerated in this export.",
+        "solved": false,
+        "prediction": "-",
+        "category": "unknown",
+        "kb": [],
+        "kb_scope": "Additional injected relations only; not the built-in WordNet KB.",
+        "selected_attempt": 0,
+        "kb_source": "WordNet baseline; no additional KB injected.",
+        "attempts": [],
+        "source_problem_id": "5171265627.jpg#4r1e"
+      },
+      "solved_system": {
+        "configuration": "llm_only_one_shot",
+        "wordnet_enabled": false,
+        "wordnet_internal_relations": null,
+        "wordnet_internal_relations_note": "Built-in WordNet is disabled.",
+        "solved": true,
+        "prediction": "entailment",
+        "category": "entailment",
+        "kb": [],
+        "kb_scope": "Additional injected relations only; not the built-in WordNet KB.",
+        "selected_attempt": 0,
+        "kb_source": "Baseline retained; no additional KB evaluated at the final attempt.",
+        "attempts": [],
+        "stop_reason": "one_shot_complete",
+        "provenance": {
+          "slot_key": "689dd411b266bbb7389a47a3144ad86f57afa157c041103929612157c0594aae",
+          "source_result": "experiments\\extrinsic1000\\results\\689dd411b266bbb7389a47a3144ad86f57afa157c041103929612157c0594aae\\result.json",
+          "protocol_sha256": "2d1e7442b7fb5a985251900c6e051211435e547a1b6cc4a7e6e53a4bcaa47d7d",
+          "phase_references": [
+            {
+              "request_key": "0e4ad8dfe7d6e1771a2d04998370904444b665528b592215d60ce037a07c62de",
+              "kind": "langpro",
+              "phase": "baseline_langpro",
+              "attempt": 0,
+              "cache_hit": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "problem_id": "4970966523.jpg#4r1e",
+      "premise": "Lunch outdoors on a sunny day.",
+      "hypothesis": "Lunch outdoors on a beautiful day.",
+      "gold_label": "entailment",
+      "unsolved_system": {
+        "configuration": "wordnet_only",
+        "wordnet_enabled": true,
+        "wordnet_internal_relations": null,
+        "wordnet_internal_relations_note": "Built-in WordNet is enabled; its internal relations are not enumerated in this export.",
+        "solved": false,
+        "prediction": "neutral",
+        "category": "neutral",
+        "kb": [],
+        "kb_scope": "Additional injected relations only; not the built-in WordNet KB.",
+        "selected_attempt": 0,
+        "kb_source": "WordNet baseline; no additional KB injected.",
+        "attempts": [],
+        "source_problem_id": "4970966523.jpg#4r1e"
+      },
+      "solved_system": {
+        "configuration": "llm_only_one_shot",
+        "wordnet_enabled": false,
+        "wordnet_internal_relations": null,
+        "wordnet_internal_relations_note": "Built-in WordNet is disabled.",
+        "solved": true,
+        "prediction": "entailment",
+        "category": "entailment",
+        "kb": [
+          "isa_wn(sunny day, beautiful day)",
+          "isa_wn(sunny, beautiful)"
+        ],
+        "kb_scope": "Additional injected relations only; not the built-in WordNet KB.",
+        "selected_attempt": 1,
+        "kb_source": "timeline: langpro_with_kb.input.kb_sent at selected_attempt",
+        "attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(sunny day, beautiful day)",
+              "isa_wn(sunny, beautiful)"
+            ],
+            "prediction": "entailment",
+            "proof_info": {
+              "contradiction": {
+                "closed": false,
+                "info": [
+                  "na",
+                  "open",
+                  "Ter30"
+                ]
+              },
+              "entailment": {
+                "closed": true,
+                "info": [
+                  "al",
+                  "closed",
+                  "Ter",
+                  4
+                ]
+              }
+            }
+          }
+        ],
+        "stop_reason": "one_shot_complete",
+        "provenance": {
+          "slot_key": "debfdb280e62d1eb6124d015b2ea86846133a799e4d4519c4757f0c973fbb40e",
+          "source_result": "experiments\\extrinsic1000\\results\\debfdb280e62d1eb6124d015b2ea86846133a799e4d4519c4757f0c973fbb40e\\result.json",
+          "protocol_sha256": "2d1e7442b7fb5a985251900c6e051211435e547a1b6cc4a7e6e53a4bcaa47d7d",
+          "phase_references": [
+            {
+              "request_key": "72fabd7b869e83f57466f20d81cc8a3dbbd043c2f8ee7bdef3a7882650720e94",
+              "kind": "langpro",
+              "phase": "baseline_langpro",
+              "attempt": 0,
+              "cache_hit": true
+            },
+            {
+              "request_key": "e7b3ef1598785450c170bd35b8d1d44ddbc81de4ddcedf56b1adea23d9497d11",
+              "kind": "llm",
+              "phase": "kb_generation",
+              "attempt": 1,
+              "cache_hit": false
+            },
+            {
+              "request_key": "1b753e37b2ba5780321b2ba2df105cf49fb719e4aad45ff0d6c82cb6e3b4b112",
+              "kind": "langpro",
+              "phase": "langpro_with_kb",
+              "attempt": 1,
+              "cache_hit": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "problem_id": "4656715193.jpg#1r1e",
+      "premise": "A motorbike racing sitting on a white, pink, blue, and green motorbike.",
+      "hypothesis": "A motorbike racer is sitting.",
+      "gold_label": "entailment",
+      "unsolved_system": {
+        "configuration": "wordnet_only",
+        "wordnet_enabled": true,
+        "wordnet_internal_relations": null,
+        "wordnet_internal_relations_note": "Built-in WordNet is enabled; its internal relations are not enumerated in this export.",
+        "solved": false,
+        "prediction": "neutral",
+        "category": "neutral",
+        "kb": [],
+        "kb_scope": "Additional injected relations only; not the built-in WordNet KB.",
+        "selected_attempt": 0,
+        "kb_source": "WordNet baseline; no additional KB injected.",
+        "attempts": [],
+        "source_problem_id": "4656715193.jpg#1r1e"
+      },
+      "solved_system": {
+        "configuration": "llm_only_one_shot",
+        "wordnet_enabled": false,
+        "wordnet_internal_relations": null,
+        "wordnet_internal_relations_note": "Built-in WordNet is disabled.",
+        "solved": true,
+        "prediction": "entailment",
+        "category": "entailment",
+        "kb": [
+          "isa_wn(motorbike racing, motorbike racer)",
+          "isa_wn(motorbike race, motorbike racer)",
+          "isa_wn(racing, racer)"
+        ],
+        "kb_scope": "Additional injected relations only; not the built-in WordNet KB.",
+        "selected_attempt": 1,
+        "kb_source": "timeline: langpro_with_kb.input.kb_sent at selected_attempt",
+        "attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(motorbike racing, motorbike racer)",
+              "isa_wn(motorbike race, motorbike racer)",
+              "isa_wn(racing, racer)"
+            ],
+            "prediction": "entailment",
+            "proof_info": {
+              "contradiction": {
+                "closed": false,
+                "info": [
+                  "na",
+                  "open",
+                  "Ter37"
+                ]
+              },
+              "entailment": {
+                "closed": true,
+                "info": [
+                  "al",
+                  "closed",
+                  "Ter",
+                  38
+                ]
+              }
+            }
+          }
+        ],
+        "stop_reason": "one_shot_complete",
+        "provenance": {
+          "slot_key": "9a823378e78bf7cf616d176dafab48f2df11816fbac056e79e38e7ea121c7305",
+          "source_result": "experiments\\extrinsic1000\\results\\9a823378e78bf7cf616d176dafab48f2df11816fbac056e79e38e7ea121c7305\\result.json",
+          "protocol_sha256": "2d1e7442b7fb5a985251900c6e051211435e547a1b6cc4a7e6e53a4bcaa47d7d",
+          "phase_references": [
+            {
+              "request_key": "2b4e0f7d72bfd0a41878fb9b38b50f6c881a39821a5d2a6fbeed4b12af484530",
+              "kind": "langpro",
+              "phase": "baseline_langpro",
+              "attempt": 0,
+              "cache_hit": true
+            },
+            {
+              "request_key": "bdda479ce6f310318cf50bfcded3685ee0fe77dcadead513972be61b24a33ad8",
+              "kind": "llm",
+              "phase": "kb_generation",
+              "attempt": 1,
+              "cache_hit": false
+            },
+            {
+              "request_key": "5347e5a0ec551ef0479a17d71cdf2a9f28b908331ce8bfbb16316dc97eae4e4d",
+              "kind": "langpro",
+              "phase": "langpro_with_kb",
+              "attempt": 1,
+              "cache_hit": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "problem_id": "19023618.jpg#2r1e",
+      "premise": "A man in a green machine is cleaning a pump in front of the Drake hotel.",
+      "hypothesis": "the man is working",
+      "gold_label": "entailment",
+      "unsolved_system": {
+        "configuration": "wordnet_only",
+        "wordnet_enabled": true,
+        "wordnet_internal_relations": null,
+        "wordnet_internal_relations_note": "Built-in WordNet is enabled; its internal relations are not enumerated in this export.",
+        "solved": false,
+        "prediction": "neutral",
+        "category": "neutral",
+        "kb": [],
+        "kb_scope": "Additional injected relations only; not the built-in WordNet KB.",
+        "selected_attempt": 0,
+        "kb_source": "WordNet baseline; no additional KB injected.",
+        "attempts": [],
+        "source_problem_id": "19023618.jpg#2r1e"
+      },
+      "solved_system": {
+        "configuration": "llm_only_one_shot",
+        "wordnet_enabled": false,
+        "wordnet_internal_relations": null,
+        "wordnet_internal_relations_note": "Built-in WordNet is disabled.",
+        "solved": true,
+        "prediction": "entailment",
+        "category": "entailment",
+        "kb": [
+          "isa_wn(clean, work)"
+        ],
+        "kb_scope": "Additional injected relations only; not the built-in WordNet KB.",
+        "selected_attempt": 1,
+        "kb_source": "timeline: langpro_with_kb.input.kb_sent at selected_attempt",
+        "attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(clean, work)"
+            ],
+            "prediction": "entailment",
+            "proof_info": {
+              "contradiction": {
+                "closed": false,
+                "info": [
+                  "na",
+                  "open",
+                  "Ter27"
+                ]
+              },
+              "entailment": {
+                "closed": true,
+                "info": [
+                  "al",
+                  "closed",
+                  "Ter",
+                  25
+                ]
+              }
+            }
+          }
+        ],
+        "stop_reason": "one_shot_complete",
+        "provenance": {
+          "slot_key": "7dbbd1dcde102c0b4843e9b4780ec3eeeda06396ddd7f024f72af8ea1134d7a0",
+          "source_result": "experiments\\extrinsic1000\\results\\7dbbd1dcde102c0b4843e9b4780ec3eeeda06396ddd7f024f72af8ea1134d7a0\\result.json",
+          "protocol_sha256": "2d1e7442b7fb5a985251900c6e051211435e547a1b6cc4a7e6e53a4bcaa47d7d",
+          "phase_references": [
+            {
+              "request_key": "5951975c90f4a045560c1581fecdc0cabd8b483eac64c0c1f0a8b8499983ddca",
+              "kind": "langpro",
+              "phase": "baseline_langpro",
+              "attempt": 0,
+              "cache_hit": true
+            },
+            {
+              "request_key": "1c397200024d673eefbecebbbd5997cbb89abbe253cb2ab0e37a5ce9324a5461",
+              "kind": "llm",
+              "phase": "kb_generation",
+              "attempt": 1,
+              "cache_hit": false
+            },
+            {
+              "request_key": "bd9346f744d676bdce90608e2ac207406eccd6477b076ac9f0a0e92e25ff46aa",
+              "kind": "langpro",
+              "phase": "langpro_with_kb",
+              "attempt": 1,
+              "cache_hit": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "problem_id": "4934343751.jpg#0r1e",
+      "premise": "A man with a blue shirt is looking over a railing with his hands at his sides and an orange hard hat in one hand.",
+      "hypothesis": "A man is looking over a railing.",
+      "gold_label": "entailment",
+      "unsolved_system": {
+        "configuration": "wordnet_only",
+        "wordnet_enabled": true,
+        "wordnet_internal_relations": null,
+        "wordnet_internal_relations_note": "Built-in WordNet is enabled; its internal relations are not enumerated in this export.",
+        "solved": false,
+        "prediction": "-",
+        "category": "unknown",
+        "kb": [],
+        "kb_scope": "Additional injected relations only; not the built-in WordNet KB.",
+        "selected_attempt": 0,
+        "kb_source": "WordNet baseline; no additional KB injected.",
+        "attempts": [],
+        "source_problem_id": "4934343751.jpg#0r1e"
+      },
+      "solved_system": {
+        "configuration": "llm_only_one_shot",
+        "wordnet_enabled": false,
+        "wordnet_internal_relations": null,
+        "wordnet_internal_relations_note": "Built-in WordNet is disabled.",
+        "solved": true,
+        "prediction": "entailment",
+        "category": "entailment",
+        "kb": [],
+        "kb_scope": "Additional injected relations only; not the built-in WordNet KB.",
+        "selected_attempt": 0,
+        "kb_source": "Baseline retained; no additional KB evaluated at the final attempt.",
+        "attempts": [],
+        "stop_reason": "one_shot_complete",
+        "provenance": {
+          "slot_key": "7d1c99e08f2eb7548797037385b5c1991b27e9b563b4089a6edd581bbe75e918",
+          "source_result": "experiments\\extrinsic1000\\results\\7d1c99e08f2eb7548797037385b5c1991b27e9b563b4089a6edd581bbe75e918\\result.json",
+          "protocol_sha256": "2d1e7442b7fb5a985251900c6e051211435e547a1b6cc4a7e6e53a4bcaa47d7d",
+          "phase_references": [
+            {
+              "request_key": "2cbb20aaae6c4aeaf4ab179eb205152a94bff758571fed3a76735a93ef8fa351",
+              "kind": "langpro",
+              "phase": "baseline_langpro",
+              "attempt": 0,
+              "cache_hit": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "problem_id": "5923507305.jpg#2r1e",
+      "premise": "An older man wearing a suit is playing the flute inside a tunnel.",
+      "hypothesis": "The man is holding the flute.",
+      "gold_label": "entailment",
+      "unsolved_system": {
+        "configuration": "wordnet_only",
+        "wordnet_enabled": true,
+        "wordnet_internal_relations": null,
+        "wordnet_internal_relations_note": "Built-in WordNet is enabled; its internal relations are not enumerated in this export.",
+        "solved": false,
+        "prediction": "neutral",
+        "category": "neutral",
+        "kb": [],
+        "kb_scope": "Additional injected relations only; not the built-in WordNet KB.",
+        "selected_attempt": 0,
+        "kb_source": "WordNet baseline; no additional KB injected.",
+        "attempts": [],
+        "source_problem_id": "5923507305.jpg#2r1e"
+      },
+      "solved_system": {
+        "configuration": "llm_only_one_shot",
+        "wordnet_enabled": false,
+        "wordnet_internal_relations": null,
+        "wordnet_internal_relations_note": "Built-in WordNet is disabled.",
+        "solved": true,
+        "prediction": "entailment",
+        "category": "entailment",
+        "kb": [
+          "isa_wn(play, hold)"
+        ],
+        "kb_scope": "Additional injected relations only; not the built-in WordNet KB.",
+        "selected_attempt": 1,
+        "kb_source": "timeline: langpro_with_kb.input.kb_sent at selected_attempt",
+        "attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(play, hold)"
+            ],
+            "prediction": "entailment",
+            "proof_info": {
+              "contradiction": {
+                "closed": false,
+                "info": [
+                  "na",
+                  "open",
+                  "Ter32"
+                ]
+              },
+              "entailment": {
+                "closed": true,
+                "info": [
+                  "al",
+                  "closed",
+                  "Ter",
+                  15
+                ]
+              }
+            }
+          }
+        ],
+        "stop_reason": "one_shot_complete",
+        "provenance": {
+          "slot_key": "68c9bccc7e4e1f202a6ab5db6d375dc795b721b516882a4aa377eae1d48bb7b9",
+          "source_result": "experiments\\extrinsic1000\\results\\68c9bccc7e4e1f202a6ab5db6d375dc795b721b516882a4aa377eae1d48bb7b9\\result.json",
+          "protocol_sha256": "2d1e7442b7fb5a985251900c6e051211435e547a1b6cc4a7e6e53a4bcaa47d7d",
+          "phase_references": [
+            {
+              "request_key": "bb3a4eb9c0f8228af3d727422dd288e2ff145f53ca0e81957b59a299d859d517",
+              "kind": "langpro",
+              "phase": "baseline_langpro",
+              "attempt": 0,
+              "cache_hit": true
+            },
+            {
+              "request_key": "f377b99f595f20aaabb094302284cfa0280a470495d829616f181df71c5a09d0",
+              "kind": "llm",
+              "phase": "kb_generation",
+              "attempt": 1,
+              "cache_hit": false
+            },
+            {
+              "request_key": "bbb905bab178dfb86dd08a3cdad1a036f29db91655ca069c4389f028edd95505",
+              "kind": "langpro",
+              "phase": "langpro_with_kb",
+              "attempt": 1,
+              "cache_hit": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "problem_id": "2769731772.jpg#0r1e",
+      "premise": "The girl with a baby on her back stand and look at the tall mountain",
+      "hypothesis": "The mountain is tall.",
+      "gold_label": "entailment",
+      "unsolved_system": {
+        "configuration": "wordnet_only",
+        "wordnet_enabled": true,
+        "wordnet_internal_relations": null,
+        "wordnet_internal_relations_note": "Built-in WordNet is enabled; its internal relations are not enumerated in this export.",
+        "solved": false,
+        "prediction": "-",
+        "category": "unknown",
+        "kb": [],
+        "kb_scope": "Additional injected relations only; not the built-in WordNet KB.",
+        "selected_attempt": 0,
+        "kb_source": "WordNet baseline; no additional KB injected.",
+        "attempts": [],
+        "source_problem_id": "2769731772.jpg#0r1e"
+      },
+      "solved_system": {
+        "configuration": "llm_only_one_shot",
+        "wordnet_enabled": false,
+        "wordnet_internal_relations": null,
+        "wordnet_internal_relations_note": "Built-in WordNet is disabled.",
+        "solved": true,
+        "prediction": "entailment",
+        "category": "entailment",
+        "kb": [],
+        "kb_scope": "Additional injected relations only; not the built-in WordNet KB.",
+        "selected_attempt": 0,
+        "kb_source": "Baseline retained; no additional KB evaluated at the final attempt.",
+        "attempts": [],
+        "stop_reason": "one_shot_complete",
+        "provenance": {
+          "slot_key": "914659e6f998f94a9309f556cfaae71f63a397440f84b3d033c15a3e141db45d",
+          "source_result": "experiments\\extrinsic1000\\results\\914659e6f998f94a9309f556cfaae71f63a397440f84b3d033c15a3e141db45d\\result.json",
+          "protocol_sha256": "2d1e7442b7fb5a985251900c6e051211435e547a1b6cc4a7e6e53a4bcaa47d7d",
+          "phase_references": [
+            {
+              "request_key": "30dad84f68d731710154b96b5445e20d1d3864e4ec77b0684fc796c31591f9c9",
+              "kind": "langpro",
+              "phase": "baseline_langpro",
+              "attempt": 0,
+              "cache_hit": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "problem_id": "vg_verb17r2e",
+      "premise": "The cat is squinting.",
+      "hypothesis": "The cat is alive",
+      "gold_label": "entailment",
+      "unsolved_system": {
+        "configuration": "wordnet_only",
+        "wordnet_enabled": true,
+        "wordnet_internal_relations": null,
+        "wordnet_internal_relations_note": "Built-in WordNet is enabled; its internal relations are not enumerated in this export.",
+        "solved": false,
+        "prediction": "neutral",
+        "category": "neutral",
+        "kb": [],
+        "kb_scope": "Additional injected relations only; not the built-in WordNet KB.",
+        "selected_attempt": 0,
+        "kb_source": "WordNet baseline; no additional KB injected.",
+        "attempts": [],
+        "source_problem_id": "vg_verb17r2e"
+      },
+      "solved_system": {
+        "configuration": "llm_only_one_shot",
+        "wordnet_enabled": false,
+        "wordnet_internal_relations": null,
+        "wordnet_internal_relations_note": "Built-in WordNet is disabled.",
+        "solved": true,
+        "prediction": "entailment",
+        "category": "entailment",
+        "kb": [
+          "isa_wn(squint, be alive)"
+        ],
+        "kb_scope": "Additional injected relations only; not the built-in WordNet KB.",
+        "selected_attempt": 1,
+        "kb_source": "timeline: langpro_with_kb.input.kb_sent at selected_attempt",
+        "attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(squint, be alive)"
+            ],
+            "prediction": "entailment",
+            "proof_info": {
+              "contradiction": {
+                "closed": false,
+                "info": [
+                  "na",
+                  "open",
+                  "Ter4"
+                ]
+              },
+              "entailment": {
+                "closed": true,
+                "info": [
+                  "al",
+                  "closed",
+                  "Ter",
+                  6
+                ]
+              }
+            }
+          }
+        ],
+        "stop_reason": "one_shot_complete",
+        "provenance": {
+          "slot_key": "c4eb3af7b3f6a353d35ebcdf826db161ed21290e79d50c40c822bd121085d19d",
+          "source_result": "experiments\\extrinsic1000\\results\\c4eb3af7b3f6a353d35ebcdf826db161ed21290e79d50c40c822bd121085d19d\\result.json",
+          "protocol_sha256": "2d1e7442b7fb5a985251900c6e051211435e547a1b6cc4a7e6e53a4bcaa47d7d",
+          "phase_references": [
+            {
+              "request_key": "a3c1e2111d61eb12359614f4ebcc9f5f348320df69347b0764b3cd5943b5df4e",
+              "kind": "langpro",
+              "phase": "baseline_langpro",
+              "attempt": 0,
+              "cache_hit": true
+            },
+            {
+              "request_key": "bb885d8f9074fce2102499a968c96d2b10ac04d16c6ae8b6270cfb2b760fdcb9",
+              "kind": "llm",
+              "phase": "kb_generation",
+              "attempt": 1,
+              "cache_hit": false
+            },
+            {
+              "request_key": "f988944a6ad8e952730294412e959c17600ef15af0d4c125f180141b7ff9ee03",
+              "kind": "langpro",
+              "phase": "langpro_with_kb",
+              "attempt": 1,
+              "cache_hit": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "problem_id": "10101477.jpg#4r3e",
+      "premise": "Asian man sweeping the walkway.",
+      "hypothesis": "A man cleaning the floor.",
+      "gold_label": "entailment",
+      "unsolved_system": {
+        "configuration": "wordnet_only",
+        "wordnet_enabled": true,
+        "wordnet_internal_relations": null,
+        "wordnet_internal_relations_note": "Built-in WordNet is enabled; its internal relations are not enumerated in this export.",
+        "solved": false,
+        "prediction": "neutral",
+        "category": "neutral",
+        "kb": [],
+        "kb_scope": "Additional injected relations only; not the built-in WordNet KB.",
+        "selected_attempt": 0,
+        "kb_source": "WordNet baseline; no additional KB injected.",
+        "attempts": [],
+        "source_problem_id": "10101477.jpg#4r3e"
+      },
+      "solved_system": {
+        "configuration": "llm_only_one_shot",
+        "wordnet_enabled": false,
+        "wordnet_internal_relations": null,
+        "wordnet_internal_relations_note": "Built-in WordNet is disabled.",
+        "solved": true,
+        "prediction": "entailment",
+        "category": "entailment",
+        "kb": [
+          "isa_wn(sweep, clean)",
+          "isa_wn(walkway, floor)"
+        ],
+        "kb_scope": "Additional injected relations only; not the built-in WordNet KB.",
+        "selected_attempt": 1,
+        "kb_source": "timeline: langpro_with_kb.input.kb_sent at selected_attempt",
+        "attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(sweep, clean)",
+              "isa_wn(walkway, floor)"
+            ],
+            "prediction": "entailment",
+            "proof_info": {
+              "contradiction": {
+                "closed": false,
+                "info": [
+                  "na",
+                  "open",
+                  "Ter19"
+                ]
+              },
+              "entailment": {
+                "closed": true,
+                "info": [
+                  "al",
+                  "closed",
+                  "Ter",
+                  15
+                ]
+              }
+            }
+          }
+        ],
+        "stop_reason": "one_shot_complete",
+        "provenance": {
+          "slot_key": "63c56e1913e40cd98d8a369cf3ff4ce6983717818d85f021357ea3784a6c3d09",
+          "source_result": "experiments\\extrinsic1000\\results\\63c56e1913e40cd98d8a369cf3ff4ce6983717818d85f021357ea3784a6c3d09\\result.json",
+          "protocol_sha256": "2d1e7442b7fb5a985251900c6e051211435e547a1b6cc4a7e6e53a4bcaa47d7d",
+          "phase_references": [
+            {
+              "request_key": "b7dafc7473390bf64c94fb2cd669585a90461ce9a0dc55b125495d022015f994",
+              "kind": "langpro",
+              "phase": "baseline_langpro",
+              "attempt": 0,
+              "cache_hit": true
+            },
+            {
+              "request_key": "be0d29e18ab0669c867155bc3f8b5f411baeca12056876a5aaead30519ff47ca",
+              "kind": "llm",
+              "phase": "kb_generation",
+              "attempt": 1,
+              "cache_hit": false
+            },
+            {
+              "request_key": "6e5d530f3f3793e402c9a47813b95c51716b516e567e19149c732e3a2e9ef63e",
+              "kind": "langpro",
+              "phase": "langpro_with_kb",
+              "attempt": 1,
+              "cache_hit": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "problem_id": "4823235614.jpg#0r3e",
+      "premise": "A crying man looking at a motorcycle and another man in jean shorts sits in a white plastic chair in front of a bungalow store open for business.",
+      "hypothesis": "A man is unhappy.",
+      "gold_label": "entailment",
+      "unsolved_system": {
+        "configuration": "wordnet_only",
+        "wordnet_enabled": true,
+        "wordnet_internal_relations": null,
+        "wordnet_internal_relations_note": "Built-in WordNet is enabled; its internal relations are not enumerated in this export.",
+        "solved": false,
+        "prediction": "neutral",
+        "category": "neutral",
+        "kb": [],
+        "kb_scope": "Additional injected relations only; not the built-in WordNet KB.",
+        "selected_attempt": 0,
+        "kb_source": "WordNet baseline; no additional KB injected.",
+        "attempts": [],
+        "source_problem_id": "4823235614.jpg#0r3e"
+      },
+      "solved_system": {
+        "configuration": "llm_only_one_shot",
+        "wordnet_enabled": false,
+        "wordnet_internal_relations": null,
+        "wordnet_internal_relations_note": "Built-in WordNet is disabled.",
+        "solved": true,
+        "prediction": "entailment",
+        "category": "entailment",
+        "kb": [
+          "isa_wn(crying, unhappy)",
+          "isa_wn(cry, unhappy)"
+        ],
+        "kb_scope": "Additional injected relations only; not the built-in WordNet KB.",
+        "selected_attempt": 1,
+        "kb_source": "timeline: langpro_with_kb.input.kb_sent at selected_attempt",
+        "attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(crying, unhappy)",
+              "isa_wn(cry, unhappy)"
+            ],
+            "prediction": "entailment",
+            "proof_info": {
+              "contradiction": {
+                "closed": false,
+                "info": [
+                  "na",
+                  "open",
+                  "Ter58"
+                ]
+              },
+              "entailment": {
+                "closed": true,
+                "info": [
+                  "al",
+                  "closed",
+                  "Ter",
+                  8
+                ]
+              }
+            }
+          }
+        ],
+        "stop_reason": "one_shot_complete",
+        "provenance": {
+          "slot_key": "492de12bb04fbdb778ed6a615ab124ec8c742a25f18a6c2b4b598bbb1b8e140b",
+          "source_result": "experiments\\extrinsic1000\\results\\492de12bb04fbdb778ed6a615ab124ec8c742a25f18a6c2b4b598bbb1b8e140b\\result.json",
+          "protocol_sha256": "2d1e7442b7fb5a985251900c6e051211435e547a1b6cc4a7e6e53a4bcaa47d7d",
+          "phase_references": [
+            {
+              "request_key": "1c13b272cec27c205aa4d7384e4545ea9b66602ce917045f7fac988f8e0cf85d",
+              "kind": "langpro",
+              "phase": "baseline_langpro",
+              "attempt": 0,
+              "cache_hit": true
+            },
+            {
+              "request_key": "b8d3a212c242441e313ebf75b936f5d0731b512bf2d1e613ed4a57bd0ac5554f",
+              "kind": "llm",
+              "phase": "kb_generation",
+              "attempt": 1,
+              "cache_hit": false
+            },
+            {
+              "request_key": "511bad495fde075b15c6d6329d4425ace30d06183432aeeaed6b1453d163e232",
+              "kind": "langpro",
+              "phase": "langpro_with_kb",
+              "attempt": 1,
+              "cache_hit": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "problem_id": "4742703949.jpg#2r1e",
+      "premise": "A male and a female sitting in a living room playing Jenga.",
+      "hypothesis": "Some humans sitting.",
+      "gold_label": "entailment",
+      "unsolved_system": {
+        "configuration": "wordnet_only",
+        "wordnet_enabled": true,
+        "wordnet_internal_relations": null,
+        "wordnet_internal_relations_note": "Built-in WordNet is enabled; its internal relations are not enumerated in this export.",
+        "solved": false,
+        "prediction": "neutral",
+        "category": "neutral",
+        "kb": [],
+        "kb_scope": "Additional injected relations only; not the built-in WordNet KB.",
+        "selected_attempt": 0,
+        "kb_source": "WordNet baseline; no additional KB injected.",
+        "attempts": [],
+        "source_problem_id": "4742703949.jpg#2r1e"
+      },
+      "solved_system": {
+        "configuration": "llm_only_one_shot",
+        "wordnet_enabled": false,
+        "wordnet_internal_relations": null,
+        "wordnet_internal_relations_note": "Built-in WordNet is disabled.",
+        "solved": true,
+        "prediction": "entailment",
+        "category": "entailment",
+        "kb": [
+          "isa_wn(male, human)",
+          "isa_wn(female, human)"
+        ],
+        "kb_scope": "Additional injected relations only; not the built-in WordNet KB.",
+        "selected_attempt": 1,
+        "kb_source": "timeline: langpro_with_kb.input.kb_sent at selected_attempt",
+        "attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(male, human)",
+              "isa_wn(female, human)"
+            ],
+            "prediction": "entailment",
+            "proof_info": {
+              "contradiction": {
+                "closed": false,
+                "info": [
+                  "na",
+                  "open",
+                  "Ter24"
+                ]
+              },
+              "entailment": {
+                "closed": true,
+                "info": [
+                  "al",
+                  "closed",
+                  "Ter",
+                  14
+                ]
+              }
+            }
+          }
+        ],
+        "stop_reason": "one_shot_complete",
+        "provenance": {
+          "slot_key": "e14228269c835ae89ccea4c7bce71963674a97fa0786144d203ca68cdc4cabdc",
+          "source_result": "experiments\\extrinsic1000\\results\\e14228269c835ae89ccea4c7bce71963674a97fa0786144d203ca68cdc4cabdc\\result.json",
+          "protocol_sha256": "2d1e7442b7fb5a985251900c6e051211435e547a1b6cc4a7e6e53a4bcaa47d7d",
+          "phase_references": [
+            {
+              "request_key": "5610068cadcfe38f57da8655ba4c0b00c232f7c06d54af51381868f7c36b2b6e",
+              "kind": "langpro",
+              "phase": "baseline_langpro",
+              "attempt": 0,
+              "cache_hit": true
+            },
+            {
+              "request_key": "620334272c5be0d3c381bfea96bae665cd4027e2a0f3d944e36f0992c0f49759",
+              "kind": "llm",
+              "phase": "kb_generation",
+              "attempt": 1,
+              "cache_hit": false
+            },
+            {
+              "request_key": "e431ff29f9679763b36def9e89f1de5acc89c27489bc3e2605e7a2d5289c1826",
+              "kind": "langpro",
+              "phase": "langpro_with_kb",
+              "attempt": 1,
+              "cache_hit": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "problem_id": "171211612.jpg#4r3e",
+      "premise": "A man holding a camera underwater.",
+      "hypothesis": "A man is using a camera.",
+      "gold_label": "entailment",
+      "unsolved_system": {
+        "configuration": "wordnet_only",
+        "wordnet_enabled": true,
+        "wordnet_internal_relations": null,
+        "wordnet_internal_relations_note": "Built-in WordNet is enabled; its internal relations are not enumerated in this export.",
+        "solved": false,
+        "prediction": "neutral",
+        "category": "neutral",
+        "kb": [],
+        "kb_scope": "Additional injected relations only; not the built-in WordNet KB.",
+        "selected_attempt": 0,
+        "kb_source": "WordNet baseline; no additional KB injected.",
+        "attempts": [],
+        "source_problem_id": "171211612.jpg#4r3e"
+      },
+      "solved_system": {
+        "configuration": "llm_only_one_shot",
+        "wordnet_enabled": false,
+        "wordnet_internal_relations": null,
+        "wordnet_internal_relations_note": "Built-in WordNet is disabled.",
+        "solved": true,
+        "prediction": "entailment",
+        "category": "entailment",
+        "kb": [
+          "isa_wn(hold, use)"
+        ],
+        "kb_scope": "Additional injected relations only; not the built-in WordNet KB.",
+        "selected_attempt": 1,
+        "kb_source": "timeline: langpro_with_kb.input.kb_sent at selected_attempt",
+        "attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(hold, use)"
+            ],
+            "prediction": "entailment",
+            "proof_info": {
+              "contradiction": {
+                "closed": false,
+                "info": [
+                  "na",
+                  "open",
+                  "Ter15"
+                ]
+              },
+              "entailment": {
+                "closed": true,
+                "info": [
+                  "al",
+                  "closed",
+                  "Ter",
+                  16
+                ]
+              }
+            }
+          }
+        ],
+        "stop_reason": "one_shot_complete",
+        "provenance": {
+          "slot_key": "f1490203b13f4d7b7e184c5dcf852f690bc41f6b0ca548694993cd6a6e39330f",
+          "source_result": "experiments\\extrinsic1000\\results\\f1490203b13f4d7b7e184c5dcf852f690bc41f6b0ca548694993cd6a6e39330f\\result.json",
+          "protocol_sha256": "2d1e7442b7fb5a985251900c6e051211435e547a1b6cc4a7e6e53a4bcaa47d7d",
+          "phase_references": [
+            {
+              "request_key": "ebf88f44939745a020f674a2c7154fe4ab654ad3b5bad5f7257aca7ca1a964e9",
+              "kind": "langpro",
+              "phase": "baseline_langpro",
+              "attempt": 0,
+              "cache_hit": true
+            },
+            {
+              "request_key": "4a53741cab9cd4908d45aa406ddc4e3702ff003fe9c54fa31f755081de6b7a99",
+              "kind": "llm",
+              "phase": "kb_generation",
+              "attempt": 1,
+              "cache_hit": false
+            },
+            {
+              "request_key": "c90c0590b366cec4a2547403f070f3b95ae760ce37793fedba7f408e16310682",
+              "kind": "langpro",
+              "phase": "langpro_with_kb",
+              "attempt": 1,
+              "cache_hit": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "problem_id": "7339914832.jpg#4r1e",
+      "premise": "Two female kickboxers, one with a purple sports bra, battle it out in an arena.",
+      "hypothesis": "Two kickboxers are fighting.",
+      "gold_label": "entailment",
+      "unsolved_system": {
+        "configuration": "wordnet_only",
+        "wordnet_enabled": true,
+        "wordnet_internal_relations": null,
+        "wordnet_internal_relations_note": "Built-in WordNet is enabled; its internal relations are not enumerated in this export.",
+        "solved": false,
+        "prediction": "neutral",
+        "category": "neutral",
+        "kb": [],
+        "kb_scope": "Additional injected relations only; not the built-in WordNet KB.",
+        "selected_attempt": 0,
+        "kb_source": "WordNet baseline; no additional KB injected.",
+        "attempts": [],
+        "source_problem_id": "7339914832.jpg#4r1e"
+      },
+      "solved_system": {
+        "configuration": "llm_only_one_shot",
+        "wordnet_enabled": false,
+        "wordnet_internal_relations": null,
+        "wordnet_internal_relations_note": "Built-in WordNet is disabled.",
+        "solved": true,
+        "prediction": "entailment",
+        "category": "entailment",
+        "kb": [
+          "isa_wn(battle, fight)"
+        ],
+        "kb_scope": "Additional injected relations only; not the built-in WordNet KB.",
+        "selected_attempt": 1,
+        "kb_source": "timeline: langpro_with_kb.input.kb_sent at selected_attempt",
+        "attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(battle, fight)"
+            ],
+            "prediction": "entailment",
+            "proof_info": {
+              "contradiction": {
+                "closed": false,
+                "info": [
+                  "na",
+                  "open",
+                  "Ter42"
+                ]
+              },
+              "entailment": {
+                "closed": true,
+                "info": [
+                  "al",
+                  "closed",
+                  "Ter",
+                  56
+                ]
+              }
+            }
+          }
+        ],
+        "stop_reason": "one_shot_complete",
+        "provenance": {
+          "slot_key": "3d461fedd3be76cd832084feec5169800d8a79fcc0c6ff4dee9365d0e7f72efe",
+          "source_result": "experiments\\extrinsic1000\\results\\3d461fedd3be76cd832084feec5169800d8a79fcc0c6ff4dee9365d0e7f72efe\\result.json",
+          "protocol_sha256": "2d1e7442b7fb5a985251900c6e051211435e547a1b6cc4a7e6e53a4bcaa47d7d",
+          "phase_references": [
+            {
+              "request_key": "bd3d320c139613a5aaeaba83a94a496ed38887c8f770808cf78578aff8591c60",
+              "kind": "langpro",
+              "phase": "baseline_langpro",
+              "attempt": 0,
+              "cache_hit": true
+            },
+            {
+              "request_key": "fb58f6439dfa5f10784c4b8bd424ae41d4f8985ade788ea11ccde269e91e5be6",
+              "kind": "llm",
+              "phase": "kb_generation",
+              "attempt": 1,
+              "cache_hit": false
+            },
+            {
+              "request_key": "c3217cd830fc8ad13271b074b3acbffd503fb28c3db86aa91ba1fb6e51189f8f",
+              "kind": "langpro",
+              "phase": "langpro_with_kb",
+              "attempt": 1,
+              "cache_hit": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "problem_id": "2596100297.jpg#4r1e",
+      "premise": "Two boys stand in the surf.",
+      "hypothesis": "The kids are in the water.",
+      "gold_label": "entailment",
+      "unsolved_system": {
+        "configuration": "wordnet_only",
+        "wordnet_enabled": true,
+        "wordnet_internal_relations": null,
+        "wordnet_internal_relations_note": "Built-in WordNet is enabled; its internal relations are not enumerated in this export.",
+        "solved": false,
+        "prediction": "neutral",
+        "category": "neutral",
+        "kb": [],
+        "kb_scope": "Additional injected relations only; not the built-in WordNet KB.",
+        "selected_attempt": 0,
+        "kb_source": "WordNet baseline; no additional KB injected.",
+        "attempts": [],
+        "source_problem_id": "2596100297.jpg#4r1e"
+      },
+      "solved_system": {
+        "configuration": "llm_only_one_shot",
+        "wordnet_enabled": false,
+        "wordnet_internal_relations": null,
+        "wordnet_internal_relations_note": "Built-in WordNet is disabled.",
+        "solved": true,
+        "prediction": "entailment",
+        "category": "entailment",
+        "kb": [
+          "isa_wn(boy, kid)",
+          "isa_wn(surf, water)"
+        ],
+        "kb_scope": "Additional injected relations only; not the built-in WordNet KB.",
+        "selected_attempt": 1,
+        "kb_source": "timeline: langpro_with_kb.input.kb_sent at selected_attempt",
+        "attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(boy, kid)",
+              "isa_wn(surf, water)"
+            ],
+            "prediction": "entailment",
+            "proof_info": {
+              "contradiction": {
+                "closed": false,
+                "info": [
+                  "na",
+                  "open",
+                  "Ter13"
+                ]
+              },
+              "entailment": {
+                "closed": true,
+                "info": [
+                  "al",
+                  "closed",
+                  "Ter",
+                  15
+                ]
+              }
+            }
+          }
+        ],
+        "stop_reason": "one_shot_complete",
+        "provenance": {
+          "slot_key": "018eaf8df71ad5f42445448eb6c6cb41deb0e9f945c19c149eeb4eae1a4f8c10",
+          "source_result": "experiments\\extrinsic1000\\results\\018eaf8df71ad5f42445448eb6c6cb41deb0e9f945c19c149eeb4eae1a4f8c10\\result.json",
+          "protocol_sha256": "2d1e7442b7fb5a985251900c6e051211435e547a1b6cc4a7e6e53a4bcaa47d7d",
+          "phase_references": [
+            {
+              "request_key": "38528fd9f89c320680da6cf3fc61e5799f1c19a61108a121dab71544bcff1ff5",
+              "kind": "langpro",
+              "phase": "baseline_langpro",
+              "attempt": 0,
+              "cache_hit": true
+            },
+            {
+              "request_key": "b54a6ed29420c330a726129eed59bfbeabce17ff30fdfa10225ad322a62f25e2",
+              "kind": "llm",
+              "phase": "kb_generation",
+              "attempt": 1,
+              "cache_hit": false
+            },
+            {
+              "request_key": "066fb5b6655488b1c2419e50e3c9ac07f0cd152820c7a8bfa2ed2a50b3624599",
+              "kind": "langpro",
+              "phase": "langpro_with_kb",
+              "attempt": 1,
+              "cache_hit": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "problem_id": "4950416860.jpg#4r1e",
+      "premise": "A fisherman with a cast net fishes from a canoe.",
+      "hypothesis": "A man is fishing from a canoe.",
+      "gold_label": "entailment",
+      "unsolved_system": {
+        "configuration": "wordnet_only",
+        "wordnet_enabled": true,
+        "wordnet_internal_relations": null,
+        "wordnet_internal_relations_note": "Built-in WordNet is enabled; its internal relations are not enumerated in this export.",
+        "solved": false,
+        "prediction": "neutral",
+        "category": "neutral",
+        "kb": [],
+        "kb_scope": "Additional injected relations only; not the built-in WordNet KB.",
+        "selected_attempt": 0,
+        "kb_source": "WordNet baseline; no additional KB injected.",
+        "attempts": [],
+        "source_problem_id": "4950416860.jpg#4r1e"
+      },
+      "solved_system": {
+        "configuration": "llm_only_one_shot",
+        "wordnet_enabled": false,
+        "wordnet_internal_relations": null,
+        "wordnet_internal_relations_note": "Built-in WordNet is disabled.",
+        "solved": true,
+        "prediction": "entailment",
+        "category": "entailment",
+        "kb": [
+          "isa_wn(fisherman, man)"
+        ],
+        "kb_scope": "Additional injected relations only; not the built-in WordNet KB.",
+        "selected_attempt": 1,
+        "kb_source": "timeline: langpro_with_kb.input.kb_sent at selected_attempt",
+        "attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(fisherman, man)"
+            ],
+            "prediction": "entailment",
+            "proof_info": {
+              "contradiction": {
+                "closed": false,
+                "info": [
+                  "na",
+                  "open",
+                  "Ter24"
+                ]
+              },
+              "entailment": {
+                "closed": true,
+                "info": [
+                  "al",
+                  "closed",
+                  "Ter",
+                  18
+                ]
+              }
+            }
+          }
+        ],
+        "stop_reason": "one_shot_complete",
+        "provenance": {
+          "slot_key": "dcad5d6a74e42d6ef0aeffaedf67d078705df6475cf20dc63896ed430c6d8494",
+          "source_result": "experiments\\extrinsic1000\\results\\dcad5d6a74e42d6ef0aeffaedf67d078705df6475cf20dc63896ed430c6d8494\\result.json",
+          "protocol_sha256": "2d1e7442b7fb5a985251900c6e051211435e547a1b6cc4a7e6e53a4bcaa47d7d",
+          "phase_references": [
+            {
+              "request_key": "6641f3b6c4b6bea5fedb4f135b2463a6313cabca29035a472f5d2dd36c560120",
+              "kind": "langpro",
+              "phase": "baseline_langpro",
+              "attempt": 0,
+              "cache_hit": true
+            },
+            {
+              "request_key": "5ea30dd7ee75d49e182871a3545bd8e38fde1a689a81ef861074bf12bb5dbc76",
+              "kind": "llm",
+              "phase": "kb_generation",
+              "attempt": 1,
+              "cache_hit": false
+            },
+            {
+              "request_key": "54c7fb7ae7ae90a77efa6f7e8e550822bc09fe6302674606f0970baff30d4f6d",
+              "kind": "langpro",
+              "phase": "langpro_with_kb",
+              "attempt": 1,
+              "cache_hit": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "problem_id": "7589467042.jpg#0r4e",
+      "premise": "Five men playing a competitive game of basketball with the man in the black tank top and black shorts in possession of the ball.",
+      "hypothesis": "A game of basketball is being played.",
+      "gold_label": "entailment",
+      "unsolved_system": {
+        "configuration": "wordnet_only",
+        "wordnet_enabled": true,
+        "wordnet_internal_relations": null,
+        "wordnet_internal_relations_note": "Built-in WordNet is enabled; its internal relations are not enumerated in this export.",
+        "solved": false,
+        "prediction": "-",
+        "category": "unknown",
+        "kb": [],
+        "kb_scope": "Additional injected relations only; not the built-in WordNet KB.",
+        "selected_attempt": 0,
+        "kb_source": "WordNet baseline; no additional KB injected.",
+        "attempts": [],
+        "source_problem_id": "7589467042.jpg#0r4e"
+      },
+      "solved_system": {
+        "configuration": "llm_only_one_shot",
+        "wordnet_enabled": false,
+        "wordnet_internal_relations": null,
+        "wordnet_internal_relations_note": "Built-in WordNet is disabled.",
+        "solved": true,
+        "prediction": "entailment",
+        "category": "entailment",
+        "kb": [],
+        "kb_scope": "Additional injected relations only; not the built-in WordNet KB.",
+        "selected_attempt": 0,
+        "kb_source": "Baseline retained; no additional KB evaluated at the final attempt.",
+        "attempts": [],
+        "stop_reason": "one_shot_complete",
+        "provenance": {
+          "slot_key": "6409c5829d34902aa6afbd4a9d1028479fd55dc41151003e6903eda88243d0d4",
+          "source_result": "experiments\\extrinsic1000\\results\\6409c5829d34902aa6afbd4a9d1028479fd55dc41151003e6903eda88243d0d4\\result.json",
+          "protocol_sha256": "2d1e7442b7fb5a985251900c6e051211435e547a1b6cc4a7e6e53a4bcaa47d7d",
+          "phase_references": [
+            {
+              "request_key": "f793a3cb99a9e71ca0717cce9300314e1b649745981a4ef88f5e8efccf9bb890",
+              "kind": "langpro",
+              "phase": "baseline_langpro",
+              "attempt": 0,
+              "cache_hit": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "problem_id": "2832033116.jpg#3r1e",
+      "premise": "A woman attaching a carabiner to a guide wire.",
+      "hypothesis": "a woman is holding a carabiner",
+      "gold_label": "entailment",
+      "unsolved_system": {
+        "configuration": "wordnet_only",
+        "wordnet_enabled": true,
+        "wordnet_internal_relations": null,
+        "wordnet_internal_relations_note": "Built-in WordNet is enabled; its internal relations are not enumerated in this export.",
+        "solved": false,
+        "prediction": "neutral",
+        "category": "neutral",
+        "kb": [],
+        "kb_scope": "Additional injected relations only; not the built-in WordNet KB.",
+        "selected_attempt": 0,
+        "kb_source": "WordNet baseline; no additional KB injected.",
+        "attempts": [],
+        "source_problem_id": "2832033116.jpg#3r1e"
+      },
+      "solved_system": {
+        "configuration": "llm_only_one_shot",
+        "wordnet_enabled": false,
+        "wordnet_internal_relations": null,
+        "wordnet_internal_relations_note": "Built-in WordNet is disabled.",
+        "solved": true,
+        "prediction": "entailment",
+        "category": "entailment",
+        "kb": [
+          "isa_wn(attach, hold)"
+        ],
+        "kb_scope": "Additional injected relations only; not the built-in WordNet KB.",
+        "selected_attempt": 1,
+        "kb_source": "timeline: langpro_with_kb.input.kb_sent at selected_attempt",
+        "attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(attach, hold)"
+            ],
+            "prediction": "entailment",
+            "proof_info": {
+              "contradiction": {
+                "closed": false,
+                "info": [
+                  "na",
+                  "open",
+                  "Ter23"
+                ]
+              },
+              "entailment": {
+                "closed": true,
+                "info": [
+                  "al",
+                  "closed",
+                  "Ter",
+                  13
+                ]
+              }
+            }
+          }
+        ],
+        "stop_reason": "one_shot_complete",
+        "provenance": {
+          "slot_key": "a2d4d2aaf475ad028ffc4855a6b9235ed31ab0b6f48fd9e1a1fab41d1fe69776",
+          "source_result": "experiments\\extrinsic1000\\results\\a2d4d2aaf475ad028ffc4855a6b9235ed31ab0b6f48fd9e1a1fab41d1fe69776\\result.json",
+          "protocol_sha256": "2d1e7442b7fb5a985251900c6e051211435e547a1b6cc4a7e6e53a4bcaa47d7d",
+          "phase_references": [
+            {
+              "request_key": "191001a79c672177fc6547a3e7017641f3d612413634df512ce8784e293cb9ec",
+              "kind": "langpro",
+              "phase": "baseline_langpro",
+              "attempt": 0,
+              "cache_hit": true
+            },
+            {
+              "request_key": "0393c5d30ac458d14cbbb6b37f77d35a09428b67b23f07350204a5f148e7d624",
+              "kind": "llm",
+              "phase": "kb_generation",
+              "attempt": 1,
+              "cache_hit": false
+            },
+            {
+              "request_key": "e81dc189e7cd3aca9de7334d0f68f53066e2498fed202ddc88a5cbddc067a333",
+              "kind": "langpro",
+              "phase": "langpro_with_kb",
+              "attempt": 1,
+              "cache_hit": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "problem_id": "3431261634.jpg#2r1e",
+      "premise": "A man in a blue wetsuit surfs.",
+      "hypothesis": "The man is in the water.",
+      "gold_label": "entailment",
+      "unsolved_system": {
+        "configuration": "wordnet_only",
+        "wordnet_enabled": true,
+        "wordnet_internal_relations": null,
+        "wordnet_internal_relations_note": "Built-in WordNet is enabled; its internal relations are not enumerated in this export.",
+        "solved": false,
+        "prediction": "neutral",
+        "category": "neutral",
+        "kb": [],
+        "kb_scope": "Additional injected relations only; not the built-in WordNet KB.",
+        "selected_attempt": 0,
+        "kb_source": "WordNet baseline; no additional KB injected.",
+        "attempts": [],
+        "source_problem_id": "3431261634.jpg#2r1e"
+      },
+      "solved_system": {
+        "configuration": "llm_only_one_shot",
+        "wordnet_enabled": false,
+        "wordnet_internal_relations": null,
+        "wordnet_internal_relations_note": "Built-in WordNet is disabled.",
+        "solved": true,
+        "prediction": "entailment",
+        "category": "entailment",
+        "kb": [
+          "isa_wn(wetsuit, water)"
+        ],
+        "kb_scope": "Additional injected relations only; not the built-in WordNet KB.",
+        "selected_attempt": 1,
+        "kb_source": "timeline: langpro_with_kb.input.kb_sent at selected_attempt",
+        "attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(wetsuit, water)"
+            ],
+            "prediction": "entailment",
+            "proof_info": {
+              "contradiction": {
+                "closed": false,
+                "info": [
+                  "na",
+                  "open",
+                  "Ter13"
+                ]
+              },
+              "entailment": {
+                "closed": true,
+                "info": [
+                  "al",
+                  "closed",
+                  "Ter",
+                  59
+                ]
+              }
+            }
+          }
+        ],
+        "stop_reason": "one_shot_complete",
+        "provenance": {
+          "slot_key": "4f1b74d7a1cc546caea7543b755f9298aa60af68f19e35c56ca2db12e2219d15",
+          "source_result": "experiments\\extrinsic1000\\results\\4f1b74d7a1cc546caea7543b755f9298aa60af68f19e35c56ca2db12e2219d15\\result.json",
+          "protocol_sha256": "2d1e7442b7fb5a985251900c6e051211435e547a1b6cc4a7e6e53a4bcaa47d7d",
+          "phase_references": [
+            {
+              "request_key": "06de16a72f35f229b6f5e0d310b750120b1d38157b33fe07c9466bfb23a54eec",
+              "kind": "langpro",
+              "phase": "baseline_langpro",
+              "attempt": 0,
+              "cache_hit": true
+            },
+            {
+              "request_key": "6aa16067fd039df3bc759df73ec9499c3144fa11ac6981b317f8807a327efc11",
+              "kind": "llm",
+              "phase": "kb_generation",
+              "attempt": 1,
+              "cache_hit": false
+            },
+            {
+              "request_key": "bb8b5368b686e4b790cafda9cf39c6a887416efd7f6285b3e7cef886457a4399",
+              "kind": "langpro",
+              "phase": "langpro_with_kb",
+              "attempt": 1,
+              "cache_hit": true
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

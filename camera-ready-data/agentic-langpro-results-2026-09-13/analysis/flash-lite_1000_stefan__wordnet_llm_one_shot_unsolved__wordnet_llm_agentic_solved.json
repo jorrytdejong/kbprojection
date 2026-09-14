@@ -1,0 +1,3162 @@
+{
+  "metadata": {
+    "model": "google/gemini-3.1-flash-lite",
+    "population": 1000,
+    "prompt": "stefan",
+    "prompt_number": 2,
+    "run": "Ettore shared-protocol run; excludes the historical Jorryt reference run",
+    "unsolved_configuration": "wordnet_llm_one_shot",
+    "solved_configuration": "wordnet_llm_agentic",
+    "selection": "Same problem ID; first system solved=false and second system solved=true.",
+    "count": 16,
+    "sources": [
+      {
+        "file": "results/1000/google__gemini-3.1-flash-lite/stefan/wordnet_llm_one_shot.json",
+        "sha256_lf": "ee5c79a753a8b8e1c451f3fe0acdee5c5615732e910f264f3a28da472f216460"
+      },
+      {
+        "file": "results/1000/google__gemini-3.1-flash-lite/stefan/wordnet_llm_agentic.json",
+        "sha256_lf": "0ecebf7112aa4a57a75da7b36845b7190823de4ef735b8e7aa544fa5becffb86"
+      }
+    ],
+    "notes": [
+      "kb contains additional injected relations. An empty list does not mean built-in WordNet is empty.",
+      "One-shot is baseline plus attempt 1 of the shared agentic execution, not an independent run.",
+      "Unsolved includes unknown outcomes; category and prediction are preserved.",
+      "Cases may overlap across contrasts. No judgment of lexical validity is inferred from proof success."
+    ]
+  },
+  "records": [
+    {
+      "problem_id": "2416193212.jpg#1r1e",
+      "premise": "A woman with a backpack walking past a purple wall.",
+      "hypothesis": "The woman is wearing a backpack.",
+      "gold_label": "entailment",
+      "unsolved_system": {
+        "configuration": "wordnet_llm_one_shot",
+        "wordnet_enabled": true,
+        "wordnet_internal_relations": null,
+        "wordnet_internal_relations_note": "Built-in WordNet is enabled; its internal relations are not enumerated in this export.",
+        "solved": false,
+        "prediction": "neutral",
+        "category": "neutral",
+        "kb": [
+          "isa_wn(a backpack, wearing a backpack)",
+          "isa_wn(a backpack, wear a backpack)"
+        ],
+        "kb_scope": "Additional injected relations only; not the built-in WordNet KB.",
+        "selected_attempt": 1,
+        "kb_source": "timeline: langpro_with_kb.input.kb_sent at selected_attempt",
+        "attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(a backpack, wearing a backpack)",
+              "isa_wn(a backpack, wear a backpack)"
+            ],
+            "prediction": "neutral",
+            "proof_info": {
+              "contradiction": {
+                "closed": false,
+                "info": [
+                  "na",
+                  "open",
+                  "Ter20"
+                ]
+              },
+              "entailment": {
+                "closed": false,
+                "info": [
+                  "na",
+                  "open",
+                  "Ter26"
+                ]
+              }
+            }
+          }
+        ],
+        "stop_reason": "one_shot_complete",
+        "provenance": {
+          "slot_key": "9256fc498d3b0413d289ac4b220330b3e12bd9c77c37feee0e0040a73a252bc6",
+          "source_result": "experiments\\extrinsic1000\\results\\9256fc498d3b0413d289ac4b220330b3e12bd9c77c37feee0e0040a73a252bc6\\result.json",
+          "protocol_sha256": "2d1e7442b7fb5a985251900c6e051211435e547a1b6cc4a7e6e53a4bcaa47d7d",
+          "phase_references": [
+            {
+              "request_key": "8fd533f458c528cd169d571f024b52317e960563c2be947fddd1b266513a4b6f",
+              "kind": "langpro",
+              "phase": "baseline_langpro",
+              "attempt": 0,
+              "cache_hit": true
+            },
+            {
+              "request_key": "1c54690ddc4e624b59d27207a84145c96f703216698c660c5ff92479e7eab155",
+              "kind": "llm",
+              "phase": "kb_generation",
+              "attempt": 1,
+              "cache_hit": true
+            },
+            {
+              "request_key": "a47fd7b73328ae8aa754fc15c7b6dfe865e3a24514eaea47aae0e7c967bf0fb7",
+              "kind": "langpro",
+              "phase": "langpro_with_kb",
+              "attempt": 1,
+              "cache_hit": true
+            }
+          ]
+        }
+      },
+      "solved_system": {
+        "configuration": "wordnet_llm_agentic",
+        "wordnet_enabled": true,
+        "wordnet_internal_relations": null,
+        "wordnet_internal_relations_note": "Built-in WordNet is enabled; its internal relations are not enumerated in this export.",
+        "solved": true,
+        "prediction": "entailment",
+        "category": "entailment",
+        "kb": [
+          "isa_wn(with, wear)"
+        ],
+        "kb_scope": "Additional injected relations only; not the built-in WordNet KB.",
+        "selected_attempt": 2,
+        "kb_source": "timeline: langpro_with_kb.input.kb_sent at selected_attempt",
+        "attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(a backpack, wearing a backpack)",
+              "isa_wn(a backpack, wear a backpack)"
+            ],
+            "prediction": "neutral",
+            "proof_info": {
+              "contradiction": {
+                "closed": false,
+                "info": [
+                  "na",
+                  "open",
+                  "Ter20"
+                ]
+              },
+              "entailment": {
+                "closed": false,
+                "info": [
+                  "na",
+                  "open",
+                  "Ter26"
+                ]
+              }
+            }
+          },
+          {
+            "attempt": 2,
+            "kb": [
+              "isa_wn(with, wear)"
+            ],
+            "prediction": "entailment",
+            "proof_info": {
+              "contradiction": {
+                "closed": false,
+                "info": [
+                  "na",
+                  "open",
+                  "Ter20"
+                ]
+              },
+              "entailment": {
+                "closed": true,
+                "info": [
+                  "al",
+                  "closed",
+                  "Ter",
+                  15
+                ]
+              }
+            }
+          }
+        ],
+        "stop_reason": "solved",
+        "provenance": {
+          "slot_key": "9256fc498d3b0413d289ac4b220330b3e12bd9c77c37feee0e0040a73a252bc6",
+          "source_result": "experiments\\extrinsic1000\\results\\9256fc498d3b0413d289ac4b220330b3e12bd9c77c37feee0e0040a73a252bc6\\result.json",
+          "protocol_sha256": "2d1e7442b7fb5a985251900c6e051211435e547a1b6cc4a7e6e53a4bcaa47d7d",
+          "phase_references": [
+            {
+              "request_key": "8fd533f458c528cd169d571f024b52317e960563c2be947fddd1b266513a4b6f",
+              "kind": "langpro",
+              "phase": "baseline_langpro",
+              "attempt": 0,
+              "cache_hit": true
+            },
+            {
+              "request_key": "1c54690ddc4e624b59d27207a84145c96f703216698c660c5ff92479e7eab155",
+              "kind": "llm",
+              "phase": "kb_generation",
+              "attempt": 1,
+              "cache_hit": true
+            },
+            {
+              "request_key": "a47fd7b73328ae8aa754fc15c7b6dfe865e3a24514eaea47aae0e7c967bf0fb7",
+              "kind": "langpro",
+              "phase": "langpro_with_kb",
+              "attempt": 1,
+              "cache_hit": true
+            },
+            {
+              "request_key": "3690483ce1ba5285e753e5fb473967aa25d1f5ab8796e59527deeebb1dfb566a",
+              "kind": "llm",
+              "phase": "critic",
+              "attempt": 1,
+              "cache_hit": false
+            },
+            {
+              "request_key": "02fa71b9b0d9331c313afa9b26b7dbb9cd2afa53d1deb9e62f65695632595287",
+              "kind": "llm",
+              "phase": "kb_refinement",
+              "attempt": 2,
+              "cache_hit": false
+            },
+            {
+              "request_key": "881e5feea5f72491b0dbb009d14bb540259cd1acfadb2b832ab90f2cbf6b615f",
+              "kind": "langpro",
+              "phase": "langpro_with_kb",
+              "attempt": 2,
+              "cache_hit": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "problem_id": "254527963.jpg#1r1e",
+      "premise": "A black dog is running along the beach.",
+      "hypothesis": "a dog is running on the beach",
+      "gold_label": "entailment",
+      "unsolved_system": {
+        "configuration": "wordnet_llm_one_shot",
+        "wordnet_enabled": true,
+        "wordnet_internal_relations": null,
+        "wordnet_internal_relations_note": "Built-in WordNet is enabled; its internal relations are not enumerated in this export.",
+        "solved": false,
+        "prediction": "neutral",
+        "category": "neutral",
+        "kb": [],
+        "kb_scope": "Additional injected relations only; not the built-in WordNet KB.",
+        "selected_attempt": 1,
+        "kb_source": "Baseline retained; no additional KB evaluated at the final attempt.",
+        "attempts": [],
+        "stop_reason": "one_shot_complete",
+        "provenance": {
+          "slot_key": "8957ca601269c1a11a3e1be18fcaac01783f23c3b6dae80ce6b4cd658ea99c8e",
+          "source_result": "experiments\\extrinsic1000\\results\\8957ca601269c1a11a3e1be18fcaac01783f23c3b6dae80ce6b4cd658ea99c8e\\result.json",
+          "protocol_sha256": "2d1e7442b7fb5a985251900c6e051211435e547a1b6cc4a7e6e53a4bcaa47d7d",
+          "phase_references": [
+            {
+              "request_key": "8181abc546ee08dd857c40c93d03f5ef428d898bc54374a9a7e8fb5f58988b54",
+              "kind": "langpro",
+              "phase": "baseline_langpro",
+              "attempt": 0,
+              "cache_hit": true
+            },
+            {
+              "request_key": "334340f8ff93fa5f2744a629bc0dfe9e7f8916cc9987d8af2fadb532a943091e",
+              "kind": "llm",
+              "phase": "kb_generation",
+              "attempt": 1,
+              "cache_hit": true
+            }
+          ]
+        }
+      },
+      "solved_system": {
+        "configuration": "wordnet_llm_agentic",
+        "wordnet_enabled": true,
+        "wordnet_internal_relations": null,
+        "wordnet_internal_relations_note": "Built-in WordNet is enabled; its internal relations are not enumerated in this export.",
+        "solved": true,
+        "prediction": "entailment",
+        "category": "entailment",
+        "kb": [
+          "isa_wn(black dog, dog)",
+          "isa_wn(running along, running on)",
+          "isa_wn(run along, run on)",
+          "isa_wn(along, on)"
+        ],
+        "kb_scope": "Additional injected relations only; not the built-in WordNet KB.",
+        "selected_attempt": 2,
+        "kb_source": "timeline: langpro_with_kb.input.kb_sent at selected_attempt",
+        "attempts": [
+          {
+            "attempt": 2,
+            "kb": [
+              "isa_wn(black dog, dog)",
+              "isa_wn(running along, running on)",
+              "isa_wn(run along, run on)",
+              "isa_wn(along, on)"
+            ],
+            "prediction": "entailment",
+            "proof_info": {
+              "contradiction": {
+                "closed": false,
+                "info": [
+                  "na",
+                  "open",
+                  "Ter17"
+                ]
+              },
+              "entailment": {
+                "closed": true,
+                "info": [
+                  "al",
+                  "closed",
+                  "Ter",
+                  12
+                ]
+              }
+            }
+          }
+        ],
+        "stop_reason": "solved",
+        "provenance": {
+          "slot_key": "8957ca601269c1a11a3e1be18fcaac01783f23c3b6dae80ce6b4cd658ea99c8e",
+          "source_result": "experiments\\extrinsic1000\\results\\8957ca601269c1a11a3e1be18fcaac01783f23c3b6dae80ce6b4cd658ea99c8e\\result.json",
+          "protocol_sha256": "2d1e7442b7fb5a985251900c6e051211435e547a1b6cc4a7e6e53a4bcaa47d7d",
+          "phase_references": [
+            {
+              "request_key": "8181abc546ee08dd857c40c93d03f5ef428d898bc54374a9a7e8fb5f58988b54",
+              "kind": "langpro",
+              "phase": "baseline_langpro",
+              "attempt": 0,
+              "cache_hit": true
+            },
+            {
+              "request_key": "334340f8ff93fa5f2744a629bc0dfe9e7f8916cc9987d8af2fadb532a943091e",
+              "kind": "llm",
+              "phase": "kb_generation",
+              "attempt": 1,
+              "cache_hit": true
+            },
+            {
+              "request_key": "7e1a0c830fbdac649eb9cb60a5505769a24c0a3435ed44ef2a4a20f3fc42ed3a",
+              "kind": "llm",
+              "phase": "critic",
+              "attempt": 1,
+              "cache_hit": true
+            },
+            {
+              "request_key": "84bbeedfbe3a4687f6322c4cbe8912b3b98d0ba25659824cfb771487f541c59f",
+              "kind": "llm",
+              "phase": "kb_refinement",
+              "attempt": 2,
+              "cache_hit": true
+            },
+            {
+              "request_key": "971475ba464d913ccd6d7bd156b019862cc37028c7e4c13ab777ffdd9e51300d",
+              "kind": "langpro",
+              "phase": "langpro_with_kb",
+              "attempt": 2,
+              "cache_hit": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "problem_id": "195065912.jpg#3r2e",
+      "premise": "A teenage boy performs a stunt on his skateboard in a skate park.",
+      "hypothesis": "The boy is a skateboarder.",
+      "gold_label": "entailment",
+      "unsolved_system": {
+        "configuration": "wordnet_llm_one_shot",
+        "wordnet_enabled": true,
+        "wordnet_internal_relations": null,
+        "wordnet_internal_relations_note": "Built-in WordNet is enabled; its internal relations are not enumerated in this export.",
+        "solved": false,
+        "prediction": "neutral",
+        "category": "neutral",
+        "kb": [
+          "isa_wn(teenage boy, boy)",
+          "isa_wn(skateboard, skateboarder)"
+        ],
+        "kb_scope": "Additional injected relations only; not the built-in WordNet KB.",
+        "selected_attempt": 1,
+        "kb_source": "timeline: langpro_with_kb.input.kb_sent at selected_attempt",
+        "attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(teenage boy, boy)",
+              "isa_wn(skateboard, skateboarder)"
+            ],
+            "prediction": "neutral",
+            "proof_info": {
+              "contradiction": {
+                "closed": false,
+                "info": [
+                  "na",
+                  "open",
+                  "Ter23"
+                ]
+              },
+              "entailment": {
+                "closed": false,
+                "info": [
+                  "na",
+                  "open",
+                  "Ter29"
+                ]
+              }
+            }
+          }
+        ],
+        "stop_reason": "one_shot_complete",
+        "provenance": {
+          "slot_key": "44b65cda601b0239ad3fd70fe1b35878e98808dff6c86eb60ac1d0cba910fcc2",
+          "source_result": "experiments\\extrinsic1000\\results\\44b65cda601b0239ad3fd70fe1b35878e98808dff6c86eb60ac1d0cba910fcc2\\result.json",
+          "protocol_sha256": "2d1e7442b7fb5a985251900c6e051211435e547a1b6cc4a7e6e53a4bcaa47d7d",
+          "phase_references": [
+            {
+              "request_key": "5129932ebb0404cabb4724e0689c0ceb840a1aabf3cb9a22f709b533929b59a0",
+              "kind": "langpro",
+              "phase": "baseline_langpro",
+              "attempt": 0,
+              "cache_hit": true
+            },
+            {
+              "request_key": "50d1996b88e9f5482586ddf44a49452e7258e574e0baaddc9a73838156ec9b75",
+              "kind": "llm",
+              "phase": "kb_generation",
+              "attempt": 1,
+              "cache_hit": true
+            },
+            {
+              "request_key": "4b7b8fd21098d5e84bdc57e015c95afe42947ffefac5d7af91ec368c4cdd6737",
+              "kind": "langpro",
+              "phase": "langpro_with_kb",
+              "attempt": 1,
+              "cache_hit": true
+            }
+          ]
+        }
+      },
+      "solved_system": {
+        "configuration": "wordnet_llm_agentic",
+        "wordnet_enabled": true,
+        "wordnet_internal_relations": null,
+        "wordnet_internal_relations_note": "Built-in WordNet is enabled; its internal relations are not enumerated in this export.",
+        "solved": true,
+        "prediction": "entailment",
+        "category": "entailment",
+        "kb": [
+          "isa_wn(teenage boy, boy)",
+          "isa_wn(teenage boy, skateboarder)"
+        ],
+        "kb_scope": "Additional injected relations only; not the built-in WordNet KB.",
+        "selected_attempt": 2,
+        "kb_source": "timeline: langpro_with_kb.input.kb_sent at selected_attempt",
+        "attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(teenage boy, boy)",
+              "isa_wn(skateboard, skateboarder)"
+            ],
+            "prediction": "neutral",
+            "proof_info": {
+              "contradiction": {
+                "closed": false,
+                "info": [
+                  "na",
+                  "open",
+                  "Ter23"
+                ]
+              },
+              "entailment": {
+                "closed": false,
+                "info": [
+                  "na",
+                  "open",
+                  "Ter29"
+                ]
+              }
+            }
+          },
+          {
+            "attempt": 2,
+            "kb": [
+              "isa_wn(teenage boy, boy)",
+              "isa_wn(teenage boy, skateboarder)"
+            ],
+            "prediction": "entailment",
+            "proof_info": {
+              "contradiction": {
+                "closed": false,
+                "info": [
+                  "na",
+                  "open",
+                  "Ter23"
+                ]
+              },
+              "entailment": {
+                "closed": true,
+                "info": [
+                  "al",
+                  "closed",
+                  "Ter",
+                  7
+                ]
+              }
+            }
+          }
+        ],
+        "stop_reason": "solved",
+        "provenance": {
+          "slot_key": "44b65cda601b0239ad3fd70fe1b35878e98808dff6c86eb60ac1d0cba910fcc2",
+          "source_result": "experiments\\extrinsic1000\\results\\44b65cda601b0239ad3fd70fe1b35878e98808dff6c86eb60ac1d0cba910fcc2\\result.json",
+          "protocol_sha256": "2d1e7442b7fb5a985251900c6e051211435e547a1b6cc4a7e6e53a4bcaa47d7d",
+          "phase_references": [
+            {
+              "request_key": "5129932ebb0404cabb4724e0689c0ceb840a1aabf3cb9a22f709b533929b59a0",
+              "kind": "langpro",
+              "phase": "baseline_langpro",
+              "attempt": 0,
+              "cache_hit": true
+            },
+            {
+              "request_key": "50d1996b88e9f5482586ddf44a49452e7258e574e0baaddc9a73838156ec9b75",
+              "kind": "llm",
+              "phase": "kb_generation",
+              "attempt": 1,
+              "cache_hit": true
+            },
+            {
+              "request_key": "4b7b8fd21098d5e84bdc57e015c95afe42947ffefac5d7af91ec368c4cdd6737",
+              "kind": "langpro",
+              "phase": "langpro_with_kb",
+              "attempt": 1,
+              "cache_hit": true
+            },
+            {
+              "request_key": "d87ad267bf7f0f000af87bd17bf8a8312500e74b71dc6b27a9810074e125a452",
+              "kind": "llm",
+              "phase": "critic",
+              "attempt": 1,
+              "cache_hit": false
+            },
+            {
+              "request_key": "42469d36d17c57a05175998b1e8a232df833770f01f346c4d7b7f630657dfc64",
+              "kind": "llm",
+              "phase": "kb_refinement",
+              "attempt": 2,
+              "cache_hit": false
+            },
+            {
+              "request_key": "807c14910dd3db60c03c7672aa0b9077ca12f1dad2cc79d20489d04d0490f4ac",
+              "kind": "langpro",
+              "phase": "langpro_with_kb",
+              "attempt": 2,
+              "cache_hit": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "problem_id": "856985136.jpg#2r1e",
+      "premise": "Young blond woman putting her foot into a water fountain",
+      "hypothesis": "A person is dipping her foot into water.",
+      "gold_label": "entailment",
+      "unsolved_system": {
+        "configuration": "wordnet_llm_one_shot",
+        "wordnet_enabled": true,
+        "wordnet_internal_relations": null,
+        "wordnet_internal_relations_note": "Built-in WordNet is enabled; its internal relations are not enumerated in this export.",
+        "solved": false,
+        "prediction": "neutral",
+        "category": "neutral",
+        "kb": [
+          "isa_wn(young blond woman, person)",
+          "isa_wn(water fountain, water)"
+        ],
+        "kb_scope": "Additional injected relations only; not the built-in WordNet KB.",
+        "selected_attempt": 1,
+        "kb_source": "timeline: langpro_with_kb.input.kb_sent at selected_attempt",
+        "attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(young blond woman, person)",
+              "isa_wn(water fountain, water)"
+            ],
+            "prediction": "neutral",
+            "proof_info": {
+              "contradiction": {
+                "closed": false,
+                "info": [
+                  "na",
+                  "open",
+                  "Ter35"
+                ]
+              },
+              "entailment": {
+                "closed": false,
+                "info": [
+                  "na",
+                  "open",
+                  "Ter192"
+                ]
+              }
+            }
+          }
+        ],
+        "stop_reason": "one_shot_complete",
+        "provenance": {
+          "slot_key": "dbf976168ca50f73ab85e0f555f6d3df5c9c17746346e9a90a0edb407209f4ec",
+          "source_result": "experiments\\extrinsic1000\\results\\dbf976168ca50f73ab85e0f555f6d3df5c9c17746346e9a90a0edb407209f4ec\\result.json",
+          "protocol_sha256": "2d1e7442b7fb5a985251900c6e051211435e547a1b6cc4a7e6e53a4bcaa47d7d",
+          "phase_references": [
+            {
+              "request_key": "7447bd6c15f0a841bc7efcf56d7937fc5a9541412ac1d1d3e7bcdf0aa7ac9ea2",
+              "kind": "langpro",
+              "phase": "baseline_langpro",
+              "attempt": 0,
+              "cache_hit": true
+            },
+            {
+              "request_key": "8c3bccc9f81efc8844057461170a6e81d442006a53248276911dd5f29f57349e",
+              "kind": "llm",
+              "phase": "kb_generation",
+              "attempt": 1,
+              "cache_hit": true
+            },
+            {
+              "request_key": "0527ce0f1d271658f23f42b3c0c2236aa0deaa5e15aace7aba3387356f9e4121",
+              "kind": "langpro",
+              "phase": "langpro_with_kb",
+              "attempt": 1,
+              "cache_hit": true
+            }
+          ]
+        }
+      },
+      "solved_system": {
+        "configuration": "wordnet_llm_agentic",
+        "wordnet_enabled": true,
+        "wordnet_internal_relations": null,
+        "wordnet_internal_relations_note": "Built-in WordNet is enabled; its internal relations are not enumerated in this export.",
+        "solved": true,
+        "prediction": "entailment",
+        "category": "entailment",
+        "kb": [
+          "isa_wn(young blond woman, person)",
+          "isa_wn(put into, dip into)",
+          "isa_wn(put, dip)"
+        ],
+        "kb_scope": "Additional injected relations only; not the built-in WordNet KB.",
+        "selected_attempt": 2,
+        "kb_source": "timeline: langpro_with_kb.input.kb_sent at selected_attempt",
+        "attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(young blond woman, person)",
+              "isa_wn(water fountain, water)"
+            ],
+            "prediction": "neutral",
+            "proof_info": {
+              "contradiction": {
+                "closed": false,
+                "info": [
+                  "na",
+                  "open",
+                  "Ter35"
+                ]
+              },
+              "entailment": {
+                "closed": false,
+                "info": [
+                  "na",
+                  "open",
+                  "Ter192"
+                ]
+              }
+            }
+          },
+          {
+            "attempt": 2,
+            "kb": [
+              "isa_wn(young blond woman, person)",
+              "isa_wn(put into, dip into)",
+              "isa_wn(put, dip)"
+            ],
+            "prediction": "entailment",
+            "proof_info": {
+              "contradiction": {
+                "closed": false,
+                "info": [
+                  "na",
+                  "open",
+                  "Ter35"
+                ]
+              },
+              "entailment": {
+                "closed": true,
+                "info": [
+                  "al",
+                  "closed",
+                  "Ter",
+                  27
+                ]
+              }
+            }
+          }
+        ],
+        "stop_reason": "solved",
+        "provenance": {
+          "slot_key": "dbf976168ca50f73ab85e0f555f6d3df5c9c17746346e9a90a0edb407209f4ec",
+          "source_result": "experiments\\extrinsic1000\\results\\dbf976168ca50f73ab85e0f555f6d3df5c9c17746346e9a90a0edb407209f4ec\\result.json",
+          "protocol_sha256": "2d1e7442b7fb5a985251900c6e051211435e547a1b6cc4a7e6e53a4bcaa47d7d",
+          "phase_references": [
+            {
+              "request_key": "7447bd6c15f0a841bc7efcf56d7937fc5a9541412ac1d1d3e7bcdf0aa7ac9ea2",
+              "kind": "langpro",
+              "phase": "baseline_langpro",
+              "attempt": 0,
+              "cache_hit": true
+            },
+            {
+              "request_key": "8c3bccc9f81efc8844057461170a6e81d442006a53248276911dd5f29f57349e",
+              "kind": "llm",
+              "phase": "kb_generation",
+              "attempt": 1,
+              "cache_hit": true
+            },
+            {
+              "request_key": "0527ce0f1d271658f23f42b3c0c2236aa0deaa5e15aace7aba3387356f9e4121",
+              "kind": "langpro",
+              "phase": "langpro_with_kb",
+              "attempt": 1,
+              "cache_hit": true
+            },
+            {
+              "request_key": "cff6308d1aff0171a6735368e01aa2afdaf567a9f4b17f837459ed26f5941dda",
+              "kind": "llm",
+              "phase": "critic",
+              "attempt": 1,
+              "cache_hit": false
+            },
+            {
+              "request_key": "3f2305ebcf2627225a3cfd5b72f1041ca4f615544c0fe14154038bd45f8f3f2c",
+              "kind": "llm",
+              "phase": "kb_refinement",
+              "attempt": 2,
+              "cache_hit": false
+            },
+            {
+              "request_key": "7adb90ecc02d7aede2e6746fe8bab5a70cf2345458922b25c344db65eb408c16",
+              "kind": "langpro",
+              "phase": "langpro_with_kb",
+              "attempt": 2,
+              "cache_hit": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "problem_id": "6341526291.jpg#3r1e",
+      "premise": "A sole woman works the production line in a cheese factory.",
+      "hypothesis": "A woman in a factory.",
+      "gold_label": "entailment",
+      "unsolved_system": {
+        "configuration": "wordnet_llm_one_shot",
+        "wordnet_enabled": true,
+        "wordnet_internal_relations": null,
+        "wordnet_internal_relations_note": "Built-in WordNet is enabled; its internal relations are not enumerated in this export.",
+        "solved": false,
+        "prediction": "neutral",
+        "category": "neutral",
+        "kb": [
+          "isa_wn(sole woman, woman)",
+          "isa_wn(cheese factory, factory)"
+        ],
+        "kb_scope": "Additional injected relations only; not the built-in WordNet KB.",
+        "selected_attempt": 1,
+        "kb_source": "timeline: langpro_with_kb.input.kb_sent at selected_attempt",
+        "attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(sole woman, woman)",
+              "isa_wn(cheese factory, factory)"
+            ],
+            "prediction": "neutral",
+            "proof_info": {
+              "contradiction": {
+                "closed": false,
+                "info": [
+                  "na",
+                  "open",
+                  "Ter24"
+                ]
+              },
+              "entailment": {
+                "closed": false,
+                "info": [
+                  "na",
+                  "open",
+                  "Ter34"
+                ]
+              }
+            }
+          }
+        ],
+        "stop_reason": "one_shot_complete",
+        "provenance": {
+          "slot_key": "75259e5e1b5161169c06e294b02856d451cd5a2d4201c432aab70337ce042dc5",
+          "source_result": "experiments\\extrinsic1000\\results\\75259e5e1b5161169c06e294b02856d451cd5a2d4201c432aab70337ce042dc5\\result.json",
+          "protocol_sha256": "2d1e7442b7fb5a985251900c6e051211435e547a1b6cc4a7e6e53a4bcaa47d7d",
+          "phase_references": [
+            {
+              "request_key": "628fcb12faeea7fbfead41909aa9625aeeb527d23c13b688c2faed529d6748d4",
+              "kind": "langpro",
+              "phase": "baseline_langpro",
+              "attempt": 0,
+              "cache_hit": true
+            },
+            {
+              "request_key": "464ddd86ff420ecffffe22b333477342062f7a64fe12b84fcf7aa07f67323725",
+              "kind": "llm",
+              "phase": "kb_generation",
+              "attempt": 1,
+              "cache_hit": true
+            },
+            {
+              "request_key": "42fb51a80c6dbef2829a5b1041fb06c0ec89758e51ee5d3f73109e080e13ab60",
+              "kind": "langpro",
+              "phase": "langpro_with_kb",
+              "attempt": 1,
+              "cache_hit": true
+            }
+          ]
+        }
+      },
+      "solved_system": {
+        "configuration": "wordnet_llm_agentic",
+        "wordnet_enabled": true,
+        "wordnet_internal_relations": null,
+        "wordnet_internal_relations_note": "Built-in WordNet is enabled; its internal relations are not enumerated in this export.",
+        "solved": true,
+        "prediction": "entailment",
+        "category": "entailment",
+        "kb": [
+          "isa_wn(production line, factory)",
+          "isa_wn(work, in)"
+        ],
+        "kb_scope": "Additional injected relations only; not the built-in WordNet KB.",
+        "selected_attempt": 2,
+        "kb_source": "timeline: langpro_with_kb.input.kb_sent at selected_attempt",
+        "attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(sole woman, woman)",
+              "isa_wn(cheese factory, factory)"
+            ],
+            "prediction": "neutral",
+            "proof_info": {
+              "contradiction": {
+                "closed": false,
+                "info": [
+                  "na",
+                  "open",
+                  "Ter24"
+                ]
+              },
+              "entailment": {
+                "closed": false,
+                "info": [
+                  "na",
+                  "open",
+                  "Ter34"
+                ]
+              }
+            }
+          },
+          {
+            "attempt": 2,
+            "kb": [
+              "isa_wn(production line, factory)",
+              "isa_wn(work, in)"
+            ],
+            "prediction": "entailment",
+            "proof_info": {
+              "contradiction": {
+                "closed": false,
+                "info": [
+                  "na",
+                  "open",
+                  "Ter24"
+                ]
+              },
+              "entailment": {
+                "closed": true,
+                "info": [
+                  "al",
+                  "closed",
+                  "Ter",
+                  72
+                ]
+              }
+            }
+          }
+        ],
+        "stop_reason": "solved",
+        "provenance": {
+          "slot_key": "75259e5e1b5161169c06e294b02856d451cd5a2d4201c432aab70337ce042dc5",
+          "source_result": "experiments\\extrinsic1000\\results\\75259e5e1b5161169c06e294b02856d451cd5a2d4201c432aab70337ce042dc5\\result.json",
+          "protocol_sha256": "2d1e7442b7fb5a985251900c6e051211435e547a1b6cc4a7e6e53a4bcaa47d7d",
+          "phase_references": [
+            {
+              "request_key": "628fcb12faeea7fbfead41909aa9625aeeb527d23c13b688c2faed529d6748d4",
+              "kind": "langpro",
+              "phase": "baseline_langpro",
+              "attempt": 0,
+              "cache_hit": true
+            },
+            {
+              "request_key": "464ddd86ff420ecffffe22b333477342062f7a64fe12b84fcf7aa07f67323725",
+              "kind": "llm",
+              "phase": "kb_generation",
+              "attempt": 1,
+              "cache_hit": true
+            },
+            {
+              "request_key": "42fb51a80c6dbef2829a5b1041fb06c0ec89758e51ee5d3f73109e080e13ab60",
+              "kind": "langpro",
+              "phase": "langpro_with_kb",
+              "attempt": 1,
+              "cache_hit": true
+            },
+            {
+              "request_key": "8855cf80e01c4bad58e6ce6ff49a83bb443dd86c2f9c061d35a8f9883334a62f",
+              "kind": "llm",
+              "phase": "critic",
+              "attempt": 1,
+              "cache_hit": false
+            },
+            {
+              "request_key": "1b513730846f2b85a4e1ce782ca16d38d4ed9832bc41f8d9c59f73118ae28d46",
+              "kind": "llm",
+              "phase": "kb_refinement",
+              "attempt": 2,
+              "cache_hit": false
+            },
+            {
+              "request_key": "2aeb71078e5d84e8707129d72608bb7df43afe02c882e2c6abe3b71c896f688b",
+              "kind": "langpro",
+              "phase": "langpro_with_kb",
+              "attempt": 2,
+              "cache_hit": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "problem_id": "4151285133.jpg#3r1e",
+      "premise": "A man on an elevator looks at the mirror on the wall.",
+      "hypothesis": "A person in the elevator looks at a mirror.",
+      "gold_label": "entailment",
+      "unsolved_system": {
+        "configuration": "wordnet_llm_one_shot",
+        "wordnet_enabled": true,
+        "wordnet_internal_relations": null,
+        "wordnet_internal_relations_note": "Built-in WordNet is enabled; its internal relations are not enumerated in this export.",
+        "solved": false,
+        "prediction": "neutral",
+        "category": "neutral",
+        "kb": [
+          "isa_wn(man, person)"
+        ],
+        "kb_scope": "Additional injected relations only; not the built-in WordNet KB.",
+        "selected_attempt": 1,
+        "kb_source": "timeline: langpro_with_kb.input.kb_sent at selected_attempt",
+        "attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(man, person)"
+            ],
+            "prediction": "neutral",
+            "proof_info": {
+              "contradiction": {
+                "closed": false,
+                "info": [
+                  "na",
+                  "open",
+                  "Ter38"
+                ]
+              },
+              "entailment": {
+                "closed": false,
+                "info": [
+                  "na",
+                  "open",
+                  "Ter67"
+                ]
+              }
+            }
+          }
+        ],
+        "stop_reason": "one_shot_complete",
+        "provenance": {
+          "slot_key": "57b97a9037ec949aec70cf6f17e2079456210b744dc18f7ae828a27f52ce516a",
+          "source_result": "experiments\\extrinsic1000\\results\\57b97a9037ec949aec70cf6f17e2079456210b744dc18f7ae828a27f52ce516a\\result.json",
+          "protocol_sha256": "2d1e7442b7fb5a985251900c6e051211435e547a1b6cc4a7e6e53a4bcaa47d7d",
+          "phase_references": [
+            {
+              "request_key": "5326131031e15335c0a3eedada369648a71c40415e6c6988a221bf1b46358b40",
+              "kind": "langpro",
+              "phase": "baseline_langpro",
+              "attempt": 0,
+              "cache_hit": true
+            },
+            {
+              "request_key": "b3247d6e6e75d1f1312753a8156e59a0ffe5888019d5d98215600f2c40db4e1d",
+              "kind": "llm",
+              "phase": "kb_generation",
+              "attempt": 1,
+              "cache_hit": true
+            },
+            {
+              "request_key": "cba4ac39a31b41c6b32959b2248bb25fc95e9452099e079cf1ec51999661e9e9",
+              "kind": "langpro",
+              "phase": "langpro_with_kb",
+              "attempt": 1,
+              "cache_hit": true
+            }
+          ]
+        }
+      },
+      "solved_system": {
+        "configuration": "wordnet_llm_agentic",
+        "wordnet_enabled": true,
+        "wordnet_internal_relations": null,
+        "wordnet_internal_relations_note": "Built-in WordNet is enabled; its internal relations are not enumerated in this export.",
+        "solved": true,
+        "prediction": "entailment",
+        "category": "entailment",
+        "kb": [
+          "isa_wn(man, person)",
+          "isa_wn(on, in)",
+          "isa_wn(mirror on the wall, mirror)"
+        ],
+        "kb_scope": "Additional injected relations only; not the built-in WordNet KB.",
+        "selected_attempt": 2,
+        "kb_source": "timeline: langpro_with_kb.input.kb_sent at selected_attempt",
+        "attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(man, person)"
+            ],
+            "prediction": "neutral",
+            "proof_info": {
+              "contradiction": {
+                "closed": false,
+                "info": [
+                  "na",
+                  "open",
+                  "Ter38"
+                ]
+              },
+              "entailment": {
+                "closed": false,
+                "info": [
+                  "na",
+                  "open",
+                  "Ter67"
+                ]
+              }
+            }
+          },
+          {
+            "attempt": 2,
+            "kb": [
+              "isa_wn(man, person)",
+              "isa_wn(on, in)",
+              "isa_wn(mirror on the wall, mirror)"
+            ],
+            "prediction": "entailment",
+            "proof_info": {
+              "contradiction": {
+                "closed": false,
+                "info": [
+                  "na",
+                  "open",
+                  "Ter38"
+                ]
+              },
+              "entailment": {
+                "closed": true,
+                "info": [
+                  "al",
+                  "closed",
+                  "Ter",
+                  33
+                ]
+              }
+            }
+          }
+        ],
+        "stop_reason": "solved",
+        "provenance": {
+          "slot_key": "57b97a9037ec949aec70cf6f17e2079456210b744dc18f7ae828a27f52ce516a",
+          "source_result": "experiments\\extrinsic1000\\results\\57b97a9037ec949aec70cf6f17e2079456210b744dc18f7ae828a27f52ce516a\\result.json",
+          "protocol_sha256": "2d1e7442b7fb5a985251900c6e051211435e547a1b6cc4a7e6e53a4bcaa47d7d",
+          "phase_references": [
+            {
+              "request_key": "5326131031e15335c0a3eedada369648a71c40415e6c6988a221bf1b46358b40",
+              "kind": "langpro",
+              "phase": "baseline_langpro",
+              "attempt": 0,
+              "cache_hit": true
+            },
+            {
+              "request_key": "b3247d6e6e75d1f1312753a8156e59a0ffe5888019d5d98215600f2c40db4e1d",
+              "kind": "llm",
+              "phase": "kb_generation",
+              "attempt": 1,
+              "cache_hit": true
+            },
+            {
+              "request_key": "cba4ac39a31b41c6b32959b2248bb25fc95e9452099e079cf1ec51999661e9e9",
+              "kind": "langpro",
+              "phase": "langpro_with_kb",
+              "attempt": 1,
+              "cache_hit": true
+            },
+            {
+              "request_key": "2d85a08e48a4ec6ffd8764c7e92f3237e5f96e4d61939d33ea471abe704adf2b",
+              "kind": "llm",
+              "phase": "critic",
+              "attempt": 1,
+              "cache_hit": true
+            },
+            {
+              "request_key": "dcf09c3c0d5b92fa50ed56d851ec36014475921dd0d7d02d4989fefcb5cdd839",
+              "kind": "llm",
+              "phase": "kb_refinement",
+              "attempt": 2,
+              "cache_hit": true
+            },
+            {
+              "request_key": "1108a69e10c3046c3646f76f98624d1769e52deee3647acd7fe6984d171c3068",
+              "kind": "langpro",
+              "phase": "langpro_with_kb",
+              "attempt": 2,
+              "cache_hit": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "problem_id": "292632657.jpg#3r2e",
+      "premise": "Two women sitting at a table in a restaurant.",
+      "hypothesis": "People sitting down",
+      "gold_label": "entailment",
+      "unsolved_system": {
+        "configuration": "wordnet_llm_one_shot",
+        "wordnet_enabled": true,
+        "wordnet_internal_relations": null,
+        "wordnet_internal_relations_note": "Built-in WordNet is enabled; its internal relations are not enumerated in this export.",
+        "solved": false,
+        "prediction": "neutral",
+        "category": "neutral",
+        "kb": [
+          "isa_wn(sitting at, sitting down)",
+          "isa_wn(sit at, sit down)",
+          "isa_wn(at, down)"
+        ],
+        "kb_scope": "Additional injected relations only; not the built-in WordNet KB.",
+        "selected_attempt": 1,
+        "kb_source": "timeline: langpro_with_kb.input.kb_sent at selected_attempt",
+        "attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(sitting at, sitting down)",
+              "isa_wn(sit at, sit down)",
+              "isa_wn(at, down)"
+            ],
+            "prediction": "neutral",
+            "proof_info": {
+              "contradiction": {
+                "closed": false,
+                "info": [
+                  "na",
+                  "open",
+                  "Ter18"
+                ]
+              },
+              "entailment": {
+                "closed": false,
+                "info": [
+                  "na",
+                  "open",
+                  "Ter40"
+                ]
+              }
+            }
+          }
+        ],
+        "stop_reason": "one_shot_complete",
+        "provenance": {
+          "slot_key": "c89d34fb8fc3973b90aaa0288539db2f08df9349c0c5a9dc1172ee4416cbaa92",
+          "source_result": "experiments\\extrinsic1000\\results\\c89d34fb8fc3973b90aaa0288539db2f08df9349c0c5a9dc1172ee4416cbaa92\\result.json",
+          "protocol_sha256": "2d1e7442b7fb5a985251900c6e051211435e547a1b6cc4a7e6e53a4bcaa47d7d",
+          "phase_references": [
+            {
+              "request_key": "3ca11fdc6158bfbb14ad78ca55c405f9ff6c3018d2f988301899a07bf5a7f74c",
+              "kind": "langpro",
+              "phase": "baseline_langpro",
+              "attempt": 0,
+              "cache_hit": true
+            },
+            {
+              "request_key": "e62247ad7ac1b1be62a147765c9f20dcc1e5dd12b81fa1f3f832310c115dc9c5",
+              "kind": "llm",
+              "phase": "kb_generation",
+              "attempt": 1,
+              "cache_hit": true
+            },
+            {
+              "request_key": "9eb4a25c63ae2c46c3b7ed8ef298ac8f93a387ed80733b4ba5594116ca6445bd",
+              "kind": "langpro",
+              "phase": "langpro_with_kb",
+              "attempt": 1,
+              "cache_hit": false
+            }
+          ]
+        }
+      },
+      "solved_system": {
+        "configuration": "wordnet_llm_agentic",
+        "wordnet_enabled": true,
+        "wordnet_internal_relations": null,
+        "wordnet_internal_relations_note": "Built-in WordNet is enabled; its internal relations are not enumerated in this export.",
+        "solved": true,
+        "prediction": "entailment",
+        "category": "entailment",
+        "kb": [
+          "isa_wn(sitting, sitting down)",
+          "isa_wn(sit, sit down)"
+        ],
+        "kb_scope": "Additional injected relations only; not the built-in WordNet KB.",
+        "selected_attempt": 2,
+        "kb_source": "timeline: langpro_with_kb.input.kb_sent at selected_attempt",
+        "attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(sitting at, sitting down)",
+              "isa_wn(sit at, sit down)",
+              "isa_wn(at, down)"
+            ],
+            "prediction": "neutral",
+            "proof_info": {
+              "contradiction": {
+                "closed": false,
+                "info": [
+                  "na",
+                  "open",
+                  "Ter18"
+                ]
+              },
+              "entailment": {
+                "closed": false,
+                "info": [
+                  "na",
+                  "open",
+                  "Ter40"
+                ]
+              }
+            }
+          },
+          {
+            "attempt": 2,
+            "kb": [
+              "isa_wn(sitting, sitting down)",
+              "isa_wn(sit, sit down)"
+            ],
+            "prediction": "entailment",
+            "proof_info": {
+              "contradiction": {
+                "closed": false,
+                "info": [
+                  "na",
+                  "open",
+                  "Ter18"
+                ]
+              },
+              "entailment": {
+                "closed": true,
+                "info": [
+                  "al",
+                  "closed",
+                  "Ter",
+                  19
+                ]
+              }
+            }
+          }
+        ],
+        "stop_reason": "solved",
+        "provenance": {
+          "slot_key": "c89d34fb8fc3973b90aaa0288539db2f08df9349c0c5a9dc1172ee4416cbaa92",
+          "source_result": "experiments\\extrinsic1000\\results\\c89d34fb8fc3973b90aaa0288539db2f08df9349c0c5a9dc1172ee4416cbaa92\\result.json",
+          "protocol_sha256": "2d1e7442b7fb5a985251900c6e051211435e547a1b6cc4a7e6e53a4bcaa47d7d",
+          "phase_references": [
+            {
+              "request_key": "3ca11fdc6158bfbb14ad78ca55c405f9ff6c3018d2f988301899a07bf5a7f74c",
+              "kind": "langpro",
+              "phase": "baseline_langpro",
+              "attempt": 0,
+              "cache_hit": true
+            },
+            {
+              "request_key": "e62247ad7ac1b1be62a147765c9f20dcc1e5dd12b81fa1f3f832310c115dc9c5",
+              "kind": "llm",
+              "phase": "kb_generation",
+              "attempt": 1,
+              "cache_hit": true
+            },
+            {
+              "request_key": "9eb4a25c63ae2c46c3b7ed8ef298ac8f93a387ed80733b4ba5594116ca6445bd",
+              "kind": "langpro",
+              "phase": "langpro_with_kb",
+              "attempt": 1,
+              "cache_hit": false
+            },
+            {
+              "request_key": "651cc5a871db38bfaefc74c8b1e9843e8b78fb297dba759fb1bd78cf88b11471",
+              "kind": "llm",
+              "phase": "critic",
+              "attempt": 1,
+              "cache_hit": false
+            },
+            {
+              "request_key": "57497180f29ed4e9a24d8c5a2bd240202f15a11e5936dcbf0be1db3010a2e509",
+              "kind": "llm",
+              "phase": "kb_refinement",
+              "attempt": 2,
+              "cache_hit": false
+            },
+            {
+              "request_key": "5296125702615e68606230bae515651032d502d48b15f2a68826c79754cede4d",
+              "kind": "langpro",
+              "phase": "langpro_with_kb",
+              "attempt": 2,
+              "cache_hit": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "problem_id": "3522349685.jpg#0r1e",
+      "premise": "A little girl is petting her white, fluffy cat.",
+      "hypothesis": "The girl has a pet.",
+      "gold_label": "entailment",
+      "unsolved_system": {
+        "configuration": "wordnet_llm_one_shot",
+        "wordnet_enabled": true,
+        "wordnet_internal_relations": null,
+        "wordnet_internal_relations_note": "Built-in WordNet is enabled; its internal relations are not enumerated in this export.",
+        "solved": false,
+        "prediction": "neutral",
+        "category": "neutral",
+        "kb": [
+          "isa_wn(little girl, girl)",
+          "isa_wn(cat, pet)"
+        ],
+        "kb_scope": "Additional injected relations only; not the built-in WordNet KB.",
+        "selected_attempt": 1,
+        "kb_source": "timeline: langpro_with_kb.input.kb_sent at selected_attempt",
+        "attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(little girl, girl)",
+              "isa_wn(cat, pet)"
+            ],
+            "prediction": "neutral",
+            "proof_info": {
+              "contradiction": {
+                "closed": false,
+                "info": [
+                  "na",
+                  "open",
+                  "Ter25"
+                ]
+              },
+              "entailment": {
+                "closed": false,
+                "info": [
+                  "na",
+                  "open",
+                  "Ter35"
+                ]
+              }
+            }
+          }
+        ],
+        "stop_reason": "one_shot_complete",
+        "provenance": {
+          "slot_key": "9aa210778285a54267ed3375a94270ebf456455fd256d1490d35db216b9e0dbf",
+          "source_result": "experiments\\extrinsic1000\\results\\9aa210778285a54267ed3375a94270ebf456455fd256d1490d35db216b9e0dbf\\result.json",
+          "protocol_sha256": "2d1e7442b7fb5a985251900c6e051211435e547a1b6cc4a7e6e53a4bcaa47d7d",
+          "phase_references": [
+            {
+              "request_key": "5a2a64297cec9bedaa13b8c60c67876d9628e66f67427f1fe9d10f95094f62e0",
+              "kind": "langpro",
+              "phase": "baseline_langpro",
+              "attempt": 0,
+              "cache_hit": true
+            },
+            {
+              "request_key": "f1af74be9d4578501015f8bcaec2c769279a84c4074951b48f660f3f0735dd1a",
+              "kind": "llm",
+              "phase": "kb_generation",
+              "attempt": 1,
+              "cache_hit": true
+            },
+            {
+              "request_key": "3fe7f5d7d9b1848a8384cd334e11462a830d8c11ea12d5162b7b847b6b7af736",
+              "kind": "langpro",
+              "phase": "langpro_with_kb",
+              "attempt": 1,
+              "cache_hit": true
+            }
+          ]
+        }
+      },
+      "solved_system": {
+        "configuration": "wordnet_llm_agentic",
+        "wordnet_enabled": true,
+        "wordnet_internal_relations": null,
+        "wordnet_internal_relations_note": "Built-in WordNet is enabled; its internal relations are not enumerated in this export.",
+        "solved": true,
+        "prediction": "entailment",
+        "category": "entailment",
+        "kb": [
+          "isa_wn(little girl, girl)",
+          "isa_wn(petting, having)",
+          "isa_wn(pet, have)",
+          "isa_wn(cat, pet)"
+        ],
+        "kb_scope": "Additional injected relations only; not the built-in WordNet KB.",
+        "selected_attempt": 2,
+        "kb_source": "timeline: langpro_with_kb.input.kb_sent at selected_attempt",
+        "attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(little girl, girl)",
+              "isa_wn(cat, pet)"
+            ],
+            "prediction": "neutral",
+            "proof_info": {
+              "contradiction": {
+                "closed": false,
+                "info": [
+                  "na",
+                  "open",
+                  "Ter25"
+                ]
+              },
+              "entailment": {
+                "closed": false,
+                "info": [
+                  "na",
+                  "open",
+                  "Ter35"
+                ]
+              }
+            }
+          },
+          {
+            "attempt": 2,
+            "kb": [
+              "isa_wn(little girl, girl)",
+              "isa_wn(petting, having)",
+              "isa_wn(pet, have)",
+              "isa_wn(cat, pet)"
+            ],
+            "prediction": "entailment",
+            "proof_info": {
+              "contradiction": {
+                "closed": false,
+                "info": [
+                  "na",
+                  "open",
+                  "Ter25"
+                ]
+              },
+              "entailment": {
+                "closed": true,
+                "info": [
+                  "al",
+                  "closed",
+                  "Ter",
+                  25
+                ]
+              }
+            }
+          }
+        ],
+        "stop_reason": "solved",
+        "provenance": {
+          "slot_key": "9aa210778285a54267ed3375a94270ebf456455fd256d1490d35db216b9e0dbf",
+          "source_result": "experiments\\extrinsic1000\\results\\9aa210778285a54267ed3375a94270ebf456455fd256d1490d35db216b9e0dbf\\result.json",
+          "protocol_sha256": "2d1e7442b7fb5a985251900c6e051211435e547a1b6cc4a7e6e53a4bcaa47d7d",
+          "phase_references": [
+            {
+              "request_key": "5a2a64297cec9bedaa13b8c60c67876d9628e66f67427f1fe9d10f95094f62e0",
+              "kind": "langpro",
+              "phase": "baseline_langpro",
+              "attempt": 0,
+              "cache_hit": true
+            },
+            {
+              "request_key": "f1af74be9d4578501015f8bcaec2c769279a84c4074951b48f660f3f0735dd1a",
+              "kind": "llm",
+              "phase": "kb_generation",
+              "attempt": 1,
+              "cache_hit": true
+            },
+            {
+              "request_key": "3fe7f5d7d9b1848a8384cd334e11462a830d8c11ea12d5162b7b847b6b7af736",
+              "kind": "langpro",
+              "phase": "langpro_with_kb",
+              "attempt": 1,
+              "cache_hit": true
+            },
+            {
+              "request_key": "a4186def101ba1f0258795ae85d1cc8a25be63fe3e3b765c3f0d9a143ac4e131",
+              "kind": "llm",
+              "phase": "critic",
+              "attempt": 1,
+              "cache_hit": false
+            },
+            {
+              "request_key": "99a29cd4bee3a59de79d3a51e32d6f4235ba1301f444ab2409508bb54d1b7e4c",
+              "kind": "llm",
+              "phase": "kb_refinement",
+              "attempt": 2,
+              "cache_hit": false
+            },
+            {
+              "request_key": "b00807d72a7e58e2acbc64ffb14eaee2084e918b21445d503d7837c53ee61e98",
+              "kind": "langpro",
+              "phase": "langpro_with_kb",
+              "attempt": 2,
+              "cache_hit": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "problem_id": "3706356018.jpg#4r1e",
+      "premise": "Little kids are on an amusement park ride.",
+      "hypothesis": "Children are on a ride.",
+      "gold_label": "entailment",
+      "unsolved_system": {
+        "configuration": "wordnet_llm_one_shot",
+        "wordnet_enabled": true,
+        "wordnet_internal_relations": null,
+        "wordnet_internal_relations_note": "Built-in WordNet is enabled; its internal relations are not enumerated in this export.",
+        "solved": false,
+        "prediction": "neutral",
+        "category": "neutral",
+        "kb": [
+          "isa_wn(little kid, child)"
+        ],
+        "kb_scope": "Additional injected relations only; not the built-in WordNet KB.",
+        "selected_attempt": 1,
+        "kb_source": "timeline: langpro_with_kb.input.kb_sent at selected_attempt",
+        "attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(little kid, child)"
+            ],
+            "prediction": "neutral",
+            "proof_info": {
+              "contradiction": {
+                "closed": false,
+                "info": [
+                  "na",
+                  "open",
+                  "Ter15"
+                ]
+              },
+              "entailment": {
+                "closed": false,
+                "info": [
+                  "na",
+                  "open",
+                  "Ter28"
+                ]
+              }
+            }
+          }
+        ],
+        "stop_reason": "one_shot_complete",
+        "provenance": {
+          "slot_key": "c56edf75a7139759a93aad199fc32e07226f5f904c9561b8577ec3557f7d9452",
+          "source_result": "experiments\\extrinsic1000\\results\\c56edf75a7139759a93aad199fc32e07226f5f904c9561b8577ec3557f7d9452\\result.json",
+          "protocol_sha256": "2d1e7442b7fb5a985251900c6e051211435e547a1b6cc4a7e6e53a4bcaa47d7d",
+          "phase_references": [
+            {
+              "request_key": "f8d82ccca420fa60a715d478302e2b4e05ceacea203bb29af79aef8853c814c7",
+              "kind": "langpro",
+              "phase": "baseline_langpro",
+              "attempt": 0,
+              "cache_hit": true
+            },
+            {
+              "request_key": "adce8f650ca3731b47f86cbf829efb5e397982ba6c12659868784a3fb0237818",
+              "kind": "llm",
+              "phase": "kb_generation",
+              "attempt": 1,
+              "cache_hit": true
+            },
+            {
+              "request_key": "49c1c52d6639db8022027d0b88a72482031bd5bf9bc0e1bdac94a4639e52e370",
+              "kind": "langpro",
+              "phase": "langpro_with_kb",
+              "attempt": 1,
+              "cache_hit": true
+            }
+          ]
+        }
+      },
+      "solved_system": {
+        "configuration": "wordnet_llm_agentic",
+        "wordnet_enabled": true,
+        "wordnet_internal_relations": null,
+        "wordnet_internal_relations_note": "Built-in WordNet is enabled; its internal relations are not enumerated in this export.",
+        "solved": true,
+        "prediction": "entailment",
+        "category": "entailment",
+        "kb": [
+          "isa_wn(little kids, children)",
+          "isa_wn(little kid, children)",
+          "isa_wn(amusement park ride, ride)"
+        ],
+        "kb_scope": "Additional injected relations only; not the built-in WordNet KB.",
+        "selected_attempt": 2,
+        "kb_source": "timeline: langpro_with_kb.input.kb_sent at selected_attempt",
+        "attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(little kid, child)"
+            ],
+            "prediction": "neutral",
+            "proof_info": {
+              "contradiction": {
+                "closed": false,
+                "info": [
+                  "na",
+                  "open",
+                  "Ter15"
+                ]
+              },
+              "entailment": {
+                "closed": false,
+                "info": [
+                  "na",
+                  "open",
+                  "Ter28"
+                ]
+              }
+            }
+          },
+          {
+            "attempt": 2,
+            "kb": [
+              "isa_wn(little kids, children)",
+              "isa_wn(little kid, children)",
+              "isa_wn(amusement park ride, ride)"
+            ],
+            "prediction": "entailment",
+            "proof_info": {
+              "contradiction": {
+                "closed": false,
+                "info": [
+                  "na",
+                  "open",
+                  "Ter15"
+                ]
+              },
+              "entailment": {
+                "closed": true,
+                "info": [
+                  "al",
+                  "closed",
+                  "Ter",
+                  15
+                ]
+              }
+            }
+          }
+        ],
+        "stop_reason": "solved",
+        "provenance": {
+          "slot_key": "c56edf75a7139759a93aad199fc32e07226f5f904c9561b8577ec3557f7d9452",
+          "source_result": "experiments\\extrinsic1000\\results\\c56edf75a7139759a93aad199fc32e07226f5f904c9561b8577ec3557f7d9452\\result.json",
+          "protocol_sha256": "2d1e7442b7fb5a985251900c6e051211435e547a1b6cc4a7e6e53a4bcaa47d7d",
+          "phase_references": [
+            {
+              "request_key": "f8d82ccca420fa60a715d478302e2b4e05ceacea203bb29af79aef8853c814c7",
+              "kind": "langpro",
+              "phase": "baseline_langpro",
+              "attempt": 0,
+              "cache_hit": true
+            },
+            {
+              "request_key": "adce8f650ca3731b47f86cbf829efb5e397982ba6c12659868784a3fb0237818",
+              "kind": "llm",
+              "phase": "kb_generation",
+              "attempt": 1,
+              "cache_hit": true
+            },
+            {
+              "request_key": "49c1c52d6639db8022027d0b88a72482031bd5bf9bc0e1bdac94a4639e52e370",
+              "kind": "langpro",
+              "phase": "langpro_with_kb",
+              "attempt": 1,
+              "cache_hit": true
+            },
+            {
+              "request_key": "561df335bf05d9580556efe09342ef5268a943e57612fe6aa3bd4be69624fdcf",
+              "kind": "llm",
+              "phase": "critic",
+              "attempt": 1,
+              "cache_hit": true
+            },
+            {
+              "request_key": "c726e9fc63c38cf59da62306c6598cb247ec1fceb04c485e5506ef49fa7326ce",
+              "kind": "llm",
+              "phase": "kb_refinement",
+              "attempt": 2,
+              "cache_hit": true
+            },
+            {
+              "request_key": "de37106e5a36f756aa2a8dc74d2057a7004d021784ba0ade3fbe513fe59baabf",
+              "kind": "langpro",
+              "phase": "langpro_with_kb",
+              "attempt": 2,
+              "cache_hit": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "problem_id": "2930616480.jpg#0r2e",
+      "premise": "A female is wearing a big purple flower in her hair and has some beads around her neck.",
+      "hypothesis": "a girl with a flower in her hair",
+      "gold_label": "entailment",
+      "unsolved_system": {
+        "configuration": "wordnet_llm_one_shot",
+        "wordnet_enabled": true,
+        "wordnet_internal_relations": null,
+        "wordnet_internal_relations_note": "Built-in WordNet is enabled; its internal relations are not enumerated in this export.",
+        "solved": false,
+        "prediction": "neutral",
+        "category": "neutral",
+        "kb": [
+          "isa_wn(female, girl)"
+        ],
+        "kb_scope": "Additional injected relations only; not the built-in WordNet KB.",
+        "selected_attempt": 1,
+        "kb_source": "timeline: langpro_with_kb.input.kb_sent at selected_attempt",
+        "attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(female, girl)"
+            ],
+            "prediction": "neutral",
+            "proof_info": {
+              "contradiction": {
+                "closed": false,
+                "info": [
+                  "na",
+                  "open",
+                  "Ter46"
+                ]
+              },
+              "entailment": {
+                "closed": false,
+                "info": [
+                  "na",
+                  "open",
+                  "Ter91"
+                ]
+              }
+            }
+          }
+        ],
+        "stop_reason": "one_shot_complete",
+        "provenance": {
+          "slot_key": "37a3a825b36026250652b0fff59566229386fe25f458d6448d1a2b0a2914bce3",
+          "source_result": "experiments\\extrinsic1000\\results\\37a3a825b36026250652b0fff59566229386fe25f458d6448d1a2b0a2914bce3\\result.json",
+          "protocol_sha256": "2d1e7442b7fb5a985251900c6e051211435e547a1b6cc4a7e6e53a4bcaa47d7d",
+          "phase_references": [
+            {
+              "request_key": "1342fba430f172d47cc968180fb3fe00c5fe55efb8778e277822f685f79a88f5",
+              "kind": "langpro",
+              "phase": "baseline_langpro",
+              "attempt": 0,
+              "cache_hit": true
+            },
+            {
+              "request_key": "b607e8f1d89e63c2f77e04ca7545726df6a2fda1ca7d5c1b2b75a3737f727c72",
+              "kind": "llm",
+              "phase": "kb_generation",
+              "attempt": 1,
+              "cache_hit": true
+            },
+            {
+              "request_key": "bed82dfbc5e554eb6fe001b3d2c294e780fec489c17e92bd3107647214d35914",
+              "kind": "langpro",
+              "phase": "langpro_with_kb",
+              "attempt": 1,
+              "cache_hit": true
+            }
+          ]
+        }
+      },
+      "solved_system": {
+        "configuration": "wordnet_llm_agentic",
+        "wordnet_enabled": true,
+        "wordnet_internal_relations": null,
+        "wordnet_internal_relations_note": "Built-in WordNet is enabled; its internal relations are not enumerated in this export.",
+        "solved": true,
+        "prediction": "entailment",
+        "category": "entailment",
+        "kb": [
+          "isa_wn(female, girl)",
+          "isa_wn(wear, with)",
+          "isa_wn(have, with)"
+        ],
+        "kb_scope": "Additional injected relations only; not the built-in WordNet KB.",
+        "selected_attempt": 2,
+        "kb_source": "timeline: langpro_with_kb.input.kb_sent at selected_attempt",
+        "attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(female, girl)"
+            ],
+            "prediction": "neutral",
+            "proof_info": {
+              "contradiction": {
+                "closed": false,
+                "info": [
+                  "na",
+                  "open",
+                  "Ter46"
+                ]
+              },
+              "entailment": {
+                "closed": false,
+                "info": [
+                  "na",
+                  "open",
+                  "Ter91"
+                ]
+              }
+            }
+          },
+          {
+            "attempt": 2,
+            "kb": [
+              "isa_wn(female, girl)",
+              "isa_wn(wear, with)",
+              "isa_wn(have, with)"
+            ],
+            "prediction": "entailment",
+            "proof_info": {
+              "contradiction": {
+                "closed": false,
+                "info": [
+                  "na",
+                  "open",
+                  "Ter46"
+                ]
+              },
+              "entailment": {
+                "closed": true,
+                "info": [
+                  "al",
+                  "closed",
+                  "Ter",
+                  23
+                ]
+              }
+            }
+          }
+        ],
+        "stop_reason": "solved",
+        "provenance": {
+          "slot_key": "37a3a825b36026250652b0fff59566229386fe25f458d6448d1a2b0a2914bce3",
+          "source_result": "experiments\\extrinsic1000\\results\\37a3a825b36026250652b0fff59566229386fe25f458d6448d1a2b0a2914bce3\\result.json",
+          "protocol_sha256": "2d1e7442b7fb5a985251900c6e051211435e547a1b6cc4a7e6e53a4bcaa47d7d",
+          "phase_references": [
+            {
+              "request_key": "1342fba430f172d47cc968180fb3fe00c5fe55efb8778e277822f685f79a88f5",
+              "kind": "langpro",
+              "phase": "baseline_langpro",
+              "attempt": 0,
+              "cache_hit": true
+            },
+            {
+              "request_key": "b607e8f1d89e63c2f77e04ca7545726df6a2fda1ca7d5c1b2b75a3737f727c72",
+              "kind": "llm",
+              "phase": "kb_generation",
+              "attempt": 1,
+              "cache_hit": true
+            },
+            {
+              "request_key": "bed82dfbc5e554eb6fe001b3d2c294e780fec489c17e92bd3107647214d35914",
+              "kind": "langpro",
+              "phase": "langpro_with_kb",
+              "attempt": 1,
+              "cache_hit": true
+            },
+            {
+              "request_key": "4ea50d71db98f3c52b00d4d598209aa09042fc4b1d80fb079f6c37ecf677791d",
+              "kind": "llm",
+              "phase": "critic",
+              "attempt": 1,
+              "cache_hit": true
+            },
+            {
+              "request_key": "4ed1c7dd4cea4675b3d512f5abd6d12088e8c1ff7aff14e7c359ee7d16997407",
+              "kind": "llm",
+              "phase": "kb_refinement",
+              "attempt": 2,
+              "cache_hit": true
+            },
+            {
+              "request_key": "be6598d89b2853831a47ffc891997d7afc6c363ce85c4351d99ed8f624300abd",
+              "kind": "langpro",
+              "phase": "langpro_with_kb",
+              "attempt": 2,
+              "cache_hit": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "problem_id": "2740013516.jpg#4r1e",
+      "premise": "Safety officers standing outside.",
+      "hypothesis": "Safety officers outdoors.",
+      "gold_label": "entailment",
+      "unsolved_system": {
+        "configuration": "wordnet_llm_one_shot",
+        "wordnet_enabled": true,
+        "wordnet_internal_relations": null,
+        "wordnet_internal_relations_note": "Built-in WordNet is enabled; its internal relations are not enumerated in this export.",
+        "solved": false,
+        "prediction": "neutral",
+        "category": "neutral",
+        "kb": [
+          "isa_wn(outside, outdoors)"
+        ],
+        "kb_scope": "Additional injected relations only; not the built-in WordNet KB.",
+        "selected_attempt": 1,
+        "kb_source": "timeline: langpro_with_kb.input.kb_sent at selected_attempt",
+        "attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(outside, outdoors)"
+            ],
+            "prediction": "neutral",
+            "proof_info": {
+              "contradiction": {
+                "closed": false,
+                "info": [
+                  "na",
+                  "open",
+                  "Ter10"
+                ]
+              },
+              "entailment": {
+                "closed": false,
+                "info": [
+                  "na",
+                  "open",
+                  "Ter61"
+                ]
+              }
+            }
+          }
+        ],
+        "stop_reason": "one_shot_complete",
+        "provenance": {
+          "slot_key": "2f883895040595e44484b1225fad127d91e0bd4670515f3a72eec85236960170",
+          "source_result": "experiments\\extrinsic1000\\results\\2f883895040595e44484b1225fad127d91e0bd4670515f3a72eec85236960170\\result.json",
+          "protocol_sha256": "2d1e7442b7fb5a985251900c6e051211435e547a1b6cc4a7e6e53a4bcaa47d7d",
+          "phase_references": [
+            {
+              "request_key": "856405edd891882784f76a5019923e91e6aef5b20b5321c7c8137020cd18db5b",
+              "kind": "langpro",
+              "phase": "baseline_langpro",
+              "attempt": 0,
+              "cache_hit": true
+            },
+            {
+              "request_key": "487788cd4e0e7a2142749a94ea7174e67cc54c9cbe96f267bd95eeb3c4bbfb3d",
+              "kind": "llm",
+              "phase": "kb_generation",
+              "attempt": 1,
+              "cache_hit": true
+            },
+            {
+              "request_key": "b2f251d22776de7a064b2a0dc2335c07c50e8bbf52006b7e1d868d11e67b95ee",
+              "kind": "langpro",
+              "phase": "langpro_with_kb",
+              "attempt": 1,
+              "cache_hit": true
+            }
+          ]
+        }
+      },
+      "solved_system": {
+        "configuration": "wordnet_llm_agentic",
+        "wordnet_enabled": true,
+        "wordnet_internal_relations": null,
+        "wordnet_internal_relations_note": "Built-in WordNet is enabled; its internal relations are not enumerated in this export.",
+        "solved": true,
+        "prediction": "entailment",
+        "category": "entailment",
+        "kb": [
+          "isa_wn(standing outside, outdoors)",
+          "isa_wn(stand outside, outdoors)"
+        ],
+        "kb_scope": "Additional injected relations only; not the built-in WordNet KB.",
+        "selected_attempt": 2,
+        "kb_source": "timeline: langpro_with_kb.input.kb_sent at selected_attempt",
+        "attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(outside, outdoors)"
+            ],
+            "prediction": "neutral",
+            "proof_info": {
+              "contradiction": {
+                "closed": false,
+                "info": [
+                  "na",
+                  "open",
+                  "Ter10"
+                ]
+              },
+              "entailment": {
+                "closed": false,
+                "info": [
+                  "na",
+                  "open",
+                  "Ter61"
+                ]
+              }
+            }
+          },
+          {
+            "attempt": 2,
+            "kb": [
+              "isa_wn(standing outside, outdoors)",
+              "isa_wn(stand outside, outdoors)"
+            ],
+            "prediction": "entailment",
+            "proof_info": {
+              "contradiction": {
+                "closed": false,
+                "info": [
+                  "na",
+                  "open",
+                  "Ter10"
+                ]
+              },
+              "entailment": {
+                "closed": true,
+                "info": [
+                  "al",
+                  "closed",
+                  "Ter",
+                  22
+                ]
+              }
+            }
+          }
+        ],
+        "stop_reason": "solved",
+        "provenance": {
+          "slot_key": "2f883895040595e44484b1225fad127d91e0bd4670515f3a72eec85236960170",
+          "source_result": "experiments\\extrinsic1000\\results\\2f883895040595e44484b1225fad127d91e0bd4670515f3a72eec85236960170\\result.json",
+          "protocol_sha256": "2d1e7442b7fb5a985251900c6e051211435e547a1b6cc4a7e6e53a4bcaa47d7d",
+          "phase_references": [
+            {
+              "request_key": "856405edd891882784f76a5019923e91e6aef5b20b5321c7c8137020cd18db5b",
+              "kind": "langpro",
+              "phase": "baseline_langpro",
+              "attempt": 0,
+              "cache_hit": true
+            },
+            {
+              "request_key": "487788cd4e0e7a2142749a94ea7174e67cc54c9cbe96f267bd95eeb3c4bbfb3d",
+              "kind": "llm",
+              "phase": "kb_generation",
+              "attempt": 1,
+              "cache_hit": true
+            },
+            {
+              "request_key": "b2f251d22776de7a064b2a0dc2335c07c50e8bbf52006b7e1d868d11e67b95ee",
+              "kind": "langpro",
+              "phase": "langpro_with_kb",
+              "attempt": 1,
+              "cache_hit": true
+            },
+            {
+              "request_key": "0d609d8bd1d8bb5f05540eb89b789ac86fbe0c6655dd65b6c7a4f6b9fb373e51",
+              "kind": "llm",
+              "phase": "critic",
+              "attempt": 1,
+              "cache_hit": true
+            },
+            {
+              "request_key": "af408d8bc477a6b54604a7d5af842b42ca72e370b72970d69545c5cdadaa4a06",
+              "kind": "llm",
+              "phase": "kb_refinement",
+              "attempt": 2,
+              "cache_hit": true
+            },
+            {
+              "request_key": "5ee20c1a80dab03cadafb5b471de1c5306e39230425ab4ba8f497e02d93341b9",
+              "kind": "langpro",
+              "phase": "langpro_with_kb",
+              "attempt": 2,
+              "cache_hit": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "problem_id": "566446626.jpg#0r1e",
+      "premise": "A girl in a green shirt hangs upside down from playgroud equiment.",
+      "hypothesis": "A girl is playing.",
+      "gold_label": "entailment",
+      "unsolved_system": {
+        "configuration": "wordnet_llm_one_shot",
+        "wordnet_enabled": true,
+        "wordnet_internal_relations": null,
+        "wordnet_internal_relations_note": "Built-in WordNet is enabled; its internal relations are not enumerated in this export.",
+        "solved": false,
+        "prediction": "neutral",
+        "category": "neutral",
+        "kb": [
+          "isa_wn(hang upside down, play)"
+        ],
+        "kb_scope": "Additional injected relations only; not the built-in WordNet KB.",
+        "selected_attempt": 1,
+        "kb_source": "timeline: langpro_with_kb.input.kb_sent at selected_attempt",
+        "attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(hang upside down, play)"
+            ],
+            "prediction": "neutral",
+            "proof_info": {
+              "contradiction": {
+                "closed": false,
+                "info": [
+                  "na",
+                  "open",
+                  "Ter18"
+                ]
+              },
+              "entailment": {
+                "closed": false,
+                "info": [
+                  "na",
+                  "open",
+                  "Ter24"
+                ]
+              }
+            }
+          }
+        ],
+        "stop_reason": "one_shot_complete",
+        "provenance": {
+          "slot_key": "0097779faa9ca64789d03fef99d41fe5db8a44a3a076379da1a8147543dd04f5",
+          "source_result": "experiments\\extrinsic1000\\results\\0097779faa9ca64789d03fef99d41fe5db8a44a3a076379da1a8147543dd04f5\\result.json",
+          "protocol_sha256": "2d1e7442b7fb5a985251900c6e051211435e547a1b6cc4a7e6e53a4bcaa47d7d",
+          "phase_references": [
+            {
+              "request_key": "c1fa38b6cb21e22a4907ea5d691dedfd6c4e58bc6df8d6d2d1376ff482a43373",
+              "kind": "langpro",
+              "phase": "baseline_langpro",
+              "attempt": 0,
+              "cache_hit": true
+            },
+            {
+              "request_key": "5f4e1560bbdb639738d253a8b1a45b6de090ab9d1ccf2f031817c9e61abb1f06",
+              "kind": "llm",
+              "phase": "kb_generation",
+              "attempt": 1,
+              "cache_hit": true
+            },
+            {
+              "request_key": "18b4d60adf58526a385ada4a004c420401d07c5e5b4900a9e49a438c23aa485b",
+              "kind": "langpro",
+              "phase": "langpro_with_kb",
+              "attempt": 1,
+              "cache_hit": true
+            }
+          ]
+        }
+      },
+      "solved_system": {
+        "configuration": "wordnet_llm_agentic",
+        "wordnet_enabled": true,
+        "wordnet_internal_relations": null,
+        "wordnet_internal_relations_note": "Built-in WordNet is enabled; its internal relations are not enumerated in this export.",
+        "solved": true,
+        "prediction": "entailment",
+        "category": "entailment",
+        "kb": [
+          "isa_wn(hang, play)"
+        ],
+        "kb_scope": "Additional injected relations only; not the built-in WordNet KB.",
+        "selected_attempt": 2,
+        "kb_source": "timeline: langpro_with_kb.input.kb_sent at selected_attempt",
+        "attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(hang upside down, play)"
+            ],
+            "prediction": "neutral",
+            "proof_info": {
+              "contradiction": {
+                "closed": false,
+                "info": [
+                  "na",
+                  "open",
+                  "Ter18"
+                ]
+              },
+              "entailment": {
+                "closed": false,
+                "info": [
+                  "na",
+                  "open",
+                  "Ter24"
+                ]
+              }
+            }
+          },
+          {
+            "attempt": 2,
+            "kb": [
+              "isa_wn(hang, play)"
+            ],
+            "prediction": "entailment",
+            "proof_info": {
+              "contradiction": {
+                "closed": false,
+                "info": [
+                  "na",
+                  "open",
+                  "Ter18"
+                ]
+              },
+              "entailment": {
+                "closed": true,
+                "info": [
+                  "al",
+                  "closed",
+                  "Ter",
+                  16
+                ]
+              }
+            }
+          }
+        ],
+        "stop_reason": "solved",
+        "provenance": {
+          "slot_key": "0097779faa9ca64789d03fef99d41fe5db8a44a3a076379da1a8147543dd04f5",
+          "source_result": "experiments\\extrinsic1000\\results\\0097779faa9ca64789d03fef99d41fe5db8a44a3a076379da1a8147543dd04f5\\result.json",
+          "protocol_sha256": "2d1e7442b7fb5a985251900c6e051211435e547a1b6cc4a7e6e53a4bcaa47d7d",
+          "phase_references": [
+            {
+              "request_key": "c1fa38b6cb21e22a4907ea5d691dedfd6c4e58bc6df8d6d2d1376ff482a43373",
+              "kind": "langpro",
+              "phase": "baseline_langpro",
+              "attempt": 0,
+              "cache_hit": true
+            },
+            {
+              "request_key": "5f4e1560bbdb639738d253a8b1a45b6de090ab9d1ccf2f031817c9e61abb1f06",
+              "kind": "llm",
+              "phase": "kb_generation",
+              "attempt": 1,
+              "cache_hit": true
+            },
+            {
+              "request_key": "18b4d60adf58526a385ada4a004c420401d07c5e5b4900a9e49a438c23aa485b",
+              "kind": "langpro",
+              "phase": "langpro_with_kb",
+              "attempt": 1,
+              "cache_hit": true
+            },
+            {
+              "request_key": "14264b8fb37a093eea6e14d7e6e7e4c3e0359d6ca919a8ac66be8fd9d44f1fe0",
+              "kind": "llm",
+              "phase": "critic",
+              "attempt": 1,
+              "cache_hit": false
+            },
+            {
+              "request_key": "84b40f774b1a111dc812d43b0c60bbe45acd93b60dac49bd6384c134e5166dfa",
+              "kind": "llm",
+              "phase": "kb_refinement",
+              "attempt": 2,
+              "cache_hit": false
+            },
+            {
+              "request_key": "761442eabf775e5cd500ae442d4bf4d7d9d3bbfe9e587a048eeb196722f806bf",
+              "kind": "langpro",
+              "phase": "langpro_with_kb",
+              "attempt": 2,
+              "cache_hit": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "problem_id": "4622326549.jpg#0r2e",
+      "premise": "A person on a mini motorbike wearing red garment and a cloth to cover her face riding along a road.",
+      "hypothesis": "A woman rides a minibike.",
+      "gold_label": "entailment",
+      "unsolved_system": {
+        "configuration": "wordnet_llm_one_shot",
+        "wordnet_enabled": true,
+        "wordnet_internal_relations": null,
+        "wordnet_internal_relations_note": "Built-in WordNet is enabled; its internal relations are not enumerated in this export.",
+        "solved": false,
+        "prediction": "neutral",
+        "category": "neutral",
+        "kb": [
+          "isa_wn(person, woman)",
+          "isa_wn(mini motorbike, minibike)"
+        ],
+        "kb_scope": "Additional injected relations only; not the built-in WordNet KB.",
+        "selected_attempt": 1,
+        "kb_source": "timeline: langpro_with_kb.input.kb_sent at selected_attempt",
+        "attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(person, woman)",
+              "isa_wn(mini motorbike, minibike)"
+            ],
+            "prediction": "neutral",
+            "proof_info": {
+              "contradiction": {
+                "closed": false,
+                "info": [
+                  "na",
+                  "open",
+                  "Ter25"
+                ]
+              },
+              "entailment": {
+                "closed": false,
+                "info": [
+                  "na",
+                  "open",
+                  "Ter69"
+                ]
+              }
+            }
+          }
+        ],
+        "stop_reason": "one_shot_complete",
+        "provenance": {
+          "slot_key": "1c64277adf12c6779991df15e4c1088a48893bbacb6fa6a3260b1ce422b52605",
+          "source_result": "experiments\\extrinsic1000\\results\\1c64277adf12c6779991df15e4c1088a48893bbacb6fa6a3260b1ce422b52605\\result.json",
+          "protocol_sha256": "2d1e7442b7fb5a985251900c6e051211435e547a1b6cc4a7e6e53a4bcaa47d7d",
+          "phase_references": [
+            {
+              "request_key": "bd71253d00a785ce2bfc235d23c70767c53d0ee54ec3b6251bef81eaf040ac64",
+              "kind": "langpro",
+              "phase": "baseline_langpro",
+              "attempt": 0,
+              "cache_hit": true
+            },
+            {
+              "request_key": "3c8a095bc53bca4a7a55836ee1ab8b1d8c8fb8becb8ef8791eea7699dcf991ee",
+              "kind": "llm",
+              "phase": "kb_generation",
+              "attempt": 1,
+              "cache_hit": true
+            },
+            {
+              "request_key": "eb540376c44270621815da8f089793ac0c2dbb6f8c9fc020948a644a1543ac4f",
+              "kind": "langpro",
+              "phase": "langpro_with_kb",
+              "attempt": 1,
+              "cache_hit": true
+            }
+          ]
+        }
+      },
+      "solved_system": {
+        "configuration": "wordnet_llm_agentic",
+        "wordnet_enabled": true,
+        "wordnet_internal_relations": null,
+        "wordnet_internal_relations_note": "Built-in WordNet is enabled; its internal relations are not enumerated in this export.",
+        "solved": true,
+        "prediction": "entailment",
+        "category": "entailment",
+        "kb": [
+          "isa_wn(person, woman)",
+          "isa_wn(mini motorbike, minibike)",
+          "isa_wn(on, ride)"
+        ],
+        "kb_scope": "Additional injected relations only; not the built-in WordNet KB.",
+        "selected_attempt": 2,
+        "kb_source": "timeline: langpro_with_kb.input.kb_sent at selected_attempt",
+        "attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(person, woman)",
+              "isa_wn(mini motorbike, minibike)"
+            ],
+            "prediction": "neutral",
+            "proof_info": {
+              "contradiction": {
+                "closed": false,
+                "info": [
+                  "na",
+                  "open",
+                  "Ter25"
+                ]
+              },
+              "entailment": {
+                "closed": false,
+                "info": [
+                  "na",
+                  "open",
+                  "Ter69"
+                ]
+              }
+            }
+          },
+          {
+            "attempt": 2,
+            "kb": [
+              "isa_wn(person, woman)",
+              "isa_wn(mini motorbike, minibike)",
+              "isa_wn(on, ride)"
+            ],
+            "prediction": "entailment",
+            "proof_info": {
+              "contradiction": {
+                "closed": false,
+                "info": [
+                  "na",
+                  "open",
+                  "Ter25"
+                ]
+              },
+              "entailment": {
+                "closed": true,
+                "info": [
+                  "al",
+                  "closed",
+                  "Ter",
+                  32
+                ]
+              }
+            }
+          }
+        ],
+        "stop_reason": "solved",
+        "provenance": {
+          "slot_key": "1c64277adf12c6779991df15e4c1088a48893bbacb6fa6a3260b1ce422b52605",
+          "source_result": "experiments\\extrinsic1000\\results\\1c64277adf12c6779991df15e4c1088a48893bbacb6fa6a3260b1ce422b52605\\result.json",
+          "protocol_sha256": "2d1e7442b7fb5a985251900c6e051211435e547a1b6cc4a7e6e53a4bcaa47d7d",
+          "phase_references": [
+            {
+              "request_key": "bd71253d00a785ce2bfc235d23c70767c53d0ee54ec3b6251bef81eaf040ac64",
+              "kind": "langpro",
+              "phase": "baseline_langpro",
+              "attempt": 0,
+              "cache_hit": true
+            },
+            {
+              "request_key": "3c8a095bc53bca4a7a55836ee1ab8b1d8c8fb8becb8ef8791eea7699dcf991ee",
+              "kind": "llm",
+              "phase": "kb_generation",
+              "attempt": 1,
+              "cache_hit": true
+            },
+            {
+              "request_key": "eb540376c44270621815da8f089793ac0c2dbb6f8c9fc020948a644a1543ac4f",
+              "kind": "langpro",
+              "phase": "langpro_with_kb",
+              "attempt": 1,
+              "cache_hit": true
+            },
+            {
+              "request_key": "7b4862c357f4b024fea4567ad63cca86790af7fbc9a576c8eec8b6ede2c07cb4",
+              "kind": "llm",
+              "phase": "critic",
+              "attempt": 1,
+              "cache_hit": false
+            },
+            {
+              "request_key": "f2f5c09fc447526c53e6b60526b981a5c133cc5d7ee9abc8fa653d8507b79fe0",
+              "kind": "llm",
+              "phase": "kb_refinement",
+              "attempt": 2,
+              "cache_hit": false
+            },
+            {
+              "request_key": "12e96be1a9cb8267993ac81ae38f0791aa92c0dc4c4922db468b316b0e5c234e",
+              "kind": "langpro",
+              "phase": "langpro_with_kb",
+              "attempt": 2,
+              "cache_hit": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "problem_id": "2282600972.jpg#2r1e",
+      "premise": "Two skiers stand near a snowy mountain.",
+      "hypothesis": "Some humans standing.",
+      "gold_label": "entailment",
+      "unsolved_system": {
+        "configuration": "wordnet_llm_one_shot",
+        "wordnet_enabled": true,
+        "wordnet_internal_relations": null,
+        "wordnet_internal_relations_note": "Built-in WordNet is enabled; its internal relations are not enumerated in this export.",
+        "solved": false,
+        "prediction": "neutral",
+        "category": "neutral",
+        "kb": [
+          "isa_wn(skier, human)"
+        ],
+        "kb_scope": "Additional injected relations only; not the built-in WordNet KB.",
+        "selected_attempt": 1,
+        "kb_source": "timeline: langpro_with_kb.input.kb_sent at selected_attempt",
+        "attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(skier, human)"
+            ],
+            "prediction": "neutral",
+            "proof_info": {
+              "contradiction": {
+                "closed": false,
+                "info": [
+                  "na",
+                  "open",
+                  "Ter9"
+                ]
+              },
+              "entailment": {
+                "closed": false,
+                "info": [
+                  "na",
+                  "open",
+                  "Ter19"
+                ]
+              }
+            }
+          }
+        ],
+        "stop_reason": "one_shot_complete",
+        "provenance": {
+          "slot_key": "259b1e2d7f6379abe3d034efd5b9060908df0ffdfcd550ebc2b45dddeaf13a60",
+          "source_result": "experiments\\extrinsic1000\\results\\259b1e2d7f6379abe3d034efd5b9060908df0ffdfcd550ebc2b45dddeaf13a60\\result.json",
+          "protocol_sha256": "2d1e7442b7fb5a985251900c6e051211435e547a1b6cc4a7e6e53a4bcaa47d7d",
+          "phase_references": [
+            {
+              "request_key": "2453153700ff86a4c7771ddc71e67d1383b222ea1e517b632b77933a5e5ae34f",
+              "kind": "langpro",
+              "phase": "baseline_langpro",
+              "attempt": 0,
+              "cache_hit": true
+            },
+            {
+              "request_key": "57dd7371275315bfd663356ebbfaa9822e771e0c43624fed7891d44524957932",
+              "kind": "llm",
+              "phase": "kb_generation",
+              "attempt": 1,
+              "cache_hit": true
+            },
+            {
+              "request_key": "8a36979ec3574825441fe4e9ee8e0a21a4ea5ca9de6828def31f7899b20eccbe",
+              "kind": "langpro",
+              "phase": "langpro_with_kb",
+              "attempt": 1,
+              "cache_hit": true
+            }
+          ]
+        }
+      },
+      "solved_system": {
+        "configuration": "wordnet_llm_agentic",
+        "wordnet_enabled": true,
+        "wordnet_internal_relations": null,
+        "wordnet_internal_relations_note": "Built-in WordNet is enabled; its internal relations are not enumerated in this export.",
+        "solved": true,
+        "prediction": "entailment",
+        "category": "entailment",
+        "kb": [
+          "isa_wn(skier, human)",
+          "isa_wn(stand, standing)",
+          "isa_wn(standing, stand)"
+        ],
+        "kb_scope": "Additional injected relations only; not the built-in WordNet KB.",
+        "selected_attempt": 2,
+        "kb_source": "timeline: langpro_with_kb.input.kb_sent at selected_attempt",
+        "attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(skier, human)"
+            ],
+            "prediction": "neutral",
+            "proof_info": {
+              "contradiction": {
+                "closed": false,
+                "info": [
+                  "na",
+                  "open",
+                  "Ter9"
+                ]
+              },
+              "entailment": {
+                "closed": false,
+                "info": [
+                  "na",
+                  "open",
+                  "Ter19"
+                ]
+              }
+            }
+          },
+          {
+            "attempt": 2,
+            "kb": [
+              "isa_wn(skier, human)",
+              "isa_wn(stand, standing)",
+              "isa_wn(standing, stand)"
+            ],
+            "prediction": "entailment",
+            "proof_info": {
+              "contradiction": {
+                "closed": false,
+                "info": [
+                  "na",
+                  "open",
+                  "Ter9"
+                ]
+              },
+              "entailment": {
+                "closed": true,
+                "info": [
+                  "al",
+                  "closed",
+                  "Ter",
+                  9
+                ]
+              }
+            }
+          }
+        ],
+        "stop_reason": "solved",
+        "provenance": {
+          "slot_key": "259b1e2d7f6379abe3d034efd5b9060908df0ffdfcd550ebc2b45dddeaf13a60",
+          "source_result": "experiments\\extrinsic1000\\results\\259b1e2d7f6379abe3d034efd5b9060908df0ffdfcd550ebc2b45dddeaf13a60\\result.json",
+          "protocol_sha256": "2d1e7442b7fb5a985251900c6e051211435e547a1b6cc4a7e6e53a4bcaa47d7d",
+          "phase_references": [
+            {
+              "request_key": "2453153700ff86a4c7771ddc71e67d1383b222ea1e517b632b77933a5e5ae34f",
+              "kind": "langpro",
+              "phase": "baseline_langpro",
+              "attempt": 0,
+              "cache_hit": true
+            },
+            {
+              "request_key": "57dd7371275315bfd663356ebbfaa9822e771e0c43624fed7891d44524957932",
+              "kind": "llm",
+              "phase": "kb_generation",
+              "attempt": 1,
+              "cache_hit": true
+            },
+            {
+              "request_key": "8a36979ec3574825441fe4e9ee8e0a21a4ea5ca9de6828def31f7899b20eccbe",
+              "kind": "langpro",
+              "phase": "langpro_with_kb",
+              "attempt": 1,
+              "cache_hit": true
+            },
+            {
+              "request_key": "821e78a1a2ec607284d3fa6c5e570f7e39cff4fcb4a1b2014a73063cd733bd37",
+              "kind": "llm",
+              "phase": "critic",
+              "attempt": 1,
+              "cache_hit": true
+            },
+            {
+              "request_key": "3426240070a91158395c2487c3c38e8b274a1e57a0f5e44fa85936b2b4225fc7",
+              "kind": "llm",
+              "phase": "kb_refinement",
+              "attempt": 2,
+              "cache_hit": true
+            },
+            {
+              "request_key": "ef20f50a44525ef766eaf4ca6615e3dbefd1c956236f8bf2b9cdfefa7334286c",
+              "kind": "langpro",
+              "phase": "langpro_with_kb",
+              "attempt": 2,
+              "cache_hit": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "problem_id": "3709301369.jpg#3r1e",
+      "premise": "Man in blue shirt playing water instrument in an orchestra.",
+      "hypothesis": "The man is wearing blue",
+      "gold_label": "entailment",
+      "unsolved_system": {
+        "configuration": "wordnet_llm_one_shot",
+        "wordnet_enabled": true,
+        "wordnet_internal_relations": null,
+        "wordnet_internal_relations_note": "Built-in WordNet is enabled; its internal relations are not enumerated in this export.",
+        "solved": false,
+        "prediction": "neutral",
+        "category": "neutral",
+        "kb": [
+          "isa_wn(blue shirt, blue)"
+        ],
+        "kb_scope": "Additional injected relations only; not the built-in WordNet KB.",
+        "selected_attempt": 1,
+        "kb_source": "timeline: langpro_with_kb.input.kb_sent at selected_attempt",
+        "attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(blue shirt, blue)"
+            ],
+            "prediction": "neutral",
+            "proof_info": {
+              "contradiction": {
+                "closed": false,
+                "info": [
+                  "na",
+                  "open",
+                  "Ter29"
+                ]
+              },
+              "entailment": {
+                "closed": false,
+                "info": [
+                  "na",
+                  "open",
+                  "Ter44"
+                ]
+              }
+            }
+          }
+        ],
+        "stop_reason": "one_shot_complete",
+        "provenance": {
+          "slot_key": "a416e75803379449730276e305d2d7247871bec4bd52fbe55ac20a17c71de3a3",
+          "source_result": "experiments\\extrinsic1000\\results\\a416e75803379449730276e305d2d7247871bec4bd52fbe55ac20a17c71de3a3\\result.json",
+          "protocol_sha256": "2d1e7442b7fb5a985251900c6e051211435e547a1b6cc4a7e6e53a4bcaa47d7d",
+          "phase_references": [
+            {
+              "request_key": "b7fe9f2d3646bd67285bba42aeb1e332d77303466ea8edc1c4f83a415bd619e7",
+              "kind": "langpro",
+              "phase": "baseline_langpro",
+              "attempt": 0,
+              "cache_hit": true
+            },
+            {
+              "request_key": "367286dabfe4502175a4616ff77e22cf52b8e8377202dc213e922d5847a5184d",
+              "kind": "llm",
+              "phase": "kb_generation",
+              "attempt": 1,
+              "cache_hit": true
+            },
+            {
+              "request_key": "cbb72e5a4ea2f07276ca3e0a9f1a1077ef60f8f8b8aef5ef1341d291dcc4f4e4",
+              "kind": "langpro",
+              "phase": "langpro_with_kb",
+              "attempt": 1,
+              "cache_hit": true
+            }
+          ]
+        }
+      },
+      "solved_system": {
+        "configuration": "wordnet_llm_agentic",
+        "wordnet_enabled": true,
+        "wordnet_internal_relations": null,
+        "wordnet_internal_relations_note": "Built-in WordNet is enabled; its internal relations are not enumerated in this export.",
+        "solved": true,
+        "prediction": "entailment",
+        "category": "entailment",
+        "kb": [
+          "isa_wn(in, wearing)",
+          "isa_wn(in, wear)",
+          "isa_wn(blue shirt, blue)"
+        ],
+        "kb_scope": "Additional injected relations only; not the built-in WordNet KB.",
+        "selected_attempt": 2,
+        "kb_source": "timeline: langpro_with_kb.input.kb_sent at selected_attempt",
+        "attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(blue shirt, blue)"
+            ],
+            "prediction": "neutral",
+            "proof_info": {
+              "contradiction": {
+                "closed": false,
+                "info": [
+                  "na",
+                  "open",
+                  "Ter29"
+                ]
+              },
+              "entailment": {
+                "closed": false,
+                "info": [
+                  "na",
+                  "open",
+                  "Ter44"
+                ]
+              }
+            }
+          },
+          {
+            "attempt": 2,
+            "kb": [
+              "isa_wn(in, wearing)",
+              "isa_wn(in, wear)",
+              "isa_wn(blue shirt, blue)"
+            ],
+            "prediction": "entailment",
+            "proof_info": {
+              "contradiction": {
+                "closed": false,
+                "info": [
+                  "na",
+                  "open",
+                  "Ter29"
+                ]
+              },
+              "entailment": {
+                "closed": true,
+                "info": [
+                  "al",
+                  "closed",
+                  "Ter",
+                  30
+                ]
+              }
+            }
+          }
+        ],
+        "stop_reason": "solved",
+        "provenance": {
+          "slot_key": "a416e75803379449730276e305d2d7247871bec4bd52fbe55ac20a17c71de3a3",
+          "source_result": "experiments\\extrinsic1000\\results\\a416e75803379449730276e305d2d7247871bec4bd52fbe55ac20a17c71de3a3\\result.json",
+          "protocol_sha256": "2d1e7442b7fb5a985251900c6e051211435e547a1b6cc4a7e6e53a4bcaa47d7d",
+          "phase_references": [
+            {
+              "request_key": "b7fe9f2d3646bd67285bba42aeb1e332d77303466ea8edc1c4f83a415bd619e7",
+              "kind": "langpro",
+              "phase": "baseline_langpro",
+              "attempt": 0,
+              "cache_hit": true
+            },
+            {
+              "request_key": "367286dabfe4502175a4616ff77e22cf52b8e8377202dc213e922d5847a5184d",
+              "kind": "llm",
+              "phase": "kb_generation",
+              "attempt": 1,
+              "cache_hit": true
+            },
+            {
+              "request_key": "cbb72e5a4ea2f07276ca3e0a9f1a1077ef60f8f8b8aef5ef1341d291dcc4f4e4",
+              "kind": "langpro",
+              "phase": "langpro_with_kb",
+              "attempt": 1,
+              "cache_hit": true
+            },
+            {
+              "request_key": "06083decd179169a47eb334313c832d3fdc02ed39ffe7784d4175e976eb0712e",
+              "kind": "llm",
+              "phase": "critic",
+              "attempt": 1,
+              "cache_hit": true
+            },
+            {
+              "request_key": "0ca75a44908310a05a6dabf7233a3e17823b45ca159847847a7c4f2cc854fe1a",
+              "kind": "llm",
+              "phase": "kb_refinement",
+              "attempt": 2,
+              "cache_hit": true
+            },
+            {
+              "request_key": "71ad03429f9dfc9df4b44972886dd8e8c8989ef9bb23fb79001da401a5433f77",
+              "kind": "langpro",
+              "phase": "langpro_with_kb",
+              "attempt": 2,
+              "cache_hit": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "problem_id": "vg_verb119r2e",
+      "premise": "Adjusting a tie for accuracy.",
+      "hypothesis": "Fixing a tie.",
+      "gold_label": "entailment",
+      "unsolved_system": {
+        "configuration": "wordnet_llm_one_shot",
+        "wordnet_enabled": true,
+        "wordnet_internal_relations": null,
+        "wordnet_internal_relations_note": "Built-in WordNet is enabled; its internal relations are not enumerated in this export.",
+        "solved": false,
+        "prediction": "neutral",
+        "category": "neutral",
+        "kb": [
+          "isa_wn(adjust, fix)"
+        ],
+        "kb_scope": "Additional injected relations only; not the built-in WordNet KB.",
+        "selected_attempt": 1,
+        "kb_source": "timeline: langpro_with_kb.input.kb_sent at selected_attempt",
+        "attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(adjust, fix)"
+            ],
+            "prediction": "neutral",
+            "proof_info": {
+              "contradiction": {
+                "closed": false,
+                "info": [
+                  "na",
+                  "open",
+                  "Ter11"
+                ]
+              },
+              "entailment": {
+                "closed": false,
+                "info": [
+                  "na",
+                  "open",
+                  "Ter19"
+                ]
+              }
+            }
+          }
+        ],
+        "stop_reason": "one_shot_complete",
+        "provenance": {
+          "slot_key": "3aaf124511387ae23337b84bb623cc8dffb424c4c23a40f088b0eae0835888c4",
+          "source_result": "experiments\\extrinsic1000\\results\\3aaf124511387ae23337b84bb623cc8dffb424c4c23a40f088b0eae0835888c4\\result.json",
+          "protocol_sha256": "2d1e7442b7fb5a985251900c6e051211435e547a1b6cc4a7e6e53a4bcaa47d7d",
+          "phase_references": [
+            {
+              "request_key": "9e53f4f960d65379e1bf63918d01557be5ac9bba8703139db2d979d156c7324d",
+              "kind": "langpro",
+              "phase": "baseline_langpro",
+              "attempt": 0,
+              "cache_hit": true
+            },
+            {
+              "request_key": "aeea4f0af96ea4b25d26382b28eb29c458948d25f01d85a64fdc6ef2f71c697a",
+              "kind": "llm",
+              "phase": "kb_generation",
+              "attempt": 1,
+              "cache_hit": true
+            },
+            {
+              "request_key": "f98677457d028611e60025e9b80a9fcafc7332c2d5f0c51017033839d37e08bb",
+              "kind": "langpro",
+              "phase": "langpro_with_kb",
+              "attempt": 1,
+              "cache_hit": true
+            }
+          ]
+        }
+      },
+      "solved_system": {
+        "configuration": "wordnet_llm_agentic",
+        "wordnet_enabled": true,
+        "wordnet_internal_relations": null,
+        "wordnet_internal_relations_note": "Built-in WordNet is enabled; its internal relations are not enumerated in this export.",
+        "solved": true,
+        "prediction": "entailment",
+        "category": "entailment",
+        "kb": [
+          "isa_wn(adjusting, fixing)",
+          "isa_wn(adjust, fix)",
+          "isa_wn(adjusting for accuracy, fixing)",
+          "isa_wn(adjust for accuracy, fix)"
+        ],
+        "kb_scope": "Additional injected relations only; not the built-in WordNet KB.",
+        "selected_attempt": 2,
+        "kb_source": "timeline: langpro_with_kb.input.kb_sent at selected_attempt",
+        "attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(adjust, fix)"
+            ],
+            "prediction": "neutral",
+            "proof_info": {
+              "contradiction": {
+                "closed": false,
+                "info": [
+                  "na",
+                  "open",
+                  "Ter11"
+                ]
+              },
+              "entailment": {
+                "closed": false,
+                "info": [
+                  "na",
+                  "open",
+                  "Ter19"
+                ]
+              }
+            }
+          },
+          {
+            "attempt": 2,
+            "kb": [
+              "isa_wn(adjusting, fixing)",
+              "isa_wn(adjust, fix)",
+              "isa_wn(adjusting for accuracy, fixing)",
+              "isa_wn(adjust for accuracy, fix)"
+            ],
+            "prediction": "entailment",
+            "proof_info": {
+              "contradiction": {
+                "closed": false,
+                "info": [
+                  "na",
+                  "open",
+                  "Ter11"
+                ]
+              },
+              "entailment": {
+                "closed": true,
+                "info": [
+                  "al",
+                  "closed",
+                  "Ter",
+                  7
+                ]
+              }
+            }
+          }
+        ],
+        "stop_reason": "solved",
+        "provenance": {
+          "slot_key": "3aaf124511387ae23337b84bb623cc8dffb424c4c23a40f088b0eae0835888c4",
+          "source_result": "experiments\\extrinsic1000\\results\\3aaf124511387ae23337b84bb623cc8dffb424c4c23a40f088b0eae0835888c4\\result.json",
+          "protocol_sha256": "2d1e7442b7fb5a985251900c6e051211435e547a1b6cc4a7e6e53a4bcaa47d7d",
+          "phase_references": [
+            {
+              "request_key": "9e53f4f960d65379e1bf63918d01557be5ac9bba8703139db2d979d156c7324d",
+              "kind": "langpro",
+              "phase": "baseline_langpro",
+              "attempt": 0,
+              "cache_hit": true
+            },
+            {
+              "request_key": "aeea4f0af96ea4b25d26382b28eb29c458948d25f01d85a64fdc6ef2f71c697a",
+              "kind": "llm",
+              "phase": "kb_generation",
+              "attempt": 1,
+              "cache_hit": true
+            },
+            {
+              "request_key": "f98677457d028611e60025e9b80a9fcafc7332c2d5f0c51017033839d37e08bb",
+              "kind": "langpro",
+              "phase": "langpro_with_kb",
+              "attempt": 1,
+              "cache_hit": true
+            },
+            {
+              "request_key": "16de6aa5c1de5881d836413d635f4ceb61272eee267c4bdcf3a361c8dc03cb72",
+              "kind": "llm",
+              "phase": "critic",
+              "attempt": 1,
+              "cache_hit": true
+            },
+            {
+              "request_key": "8baeb2a57175b040bd98b309fa1eb527419f7ff86fff9afb08c2a48c524b009b",
+              "kind": "llm",
+              "phase": "kb_refinement",
+              "attempt": 2,
+              "cache_hit": true
+            },
+            {
+              "request_key": "efb16bb627f648487495123898f713c5cd9cd4cae180cfada4df413473afcb1f",
+              "kind": "langpro",
+              "phase": "langpro_with_kb",
+              "attempt": 2,
+              "cache_hit": true
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

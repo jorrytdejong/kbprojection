@@ -1,0 +1,48 @@
+{
+  "model": "google/gemini-3.1-flash-lite",
+  "population": 1000,
+  "files": [
+    {
+      "file": "flash-lite_1000_lex__wordnet_only_unsolved__llm_only_one_shot_solved.json",
+      "prompt": "lex",
+      "unsolved_system": "wordnet_only",
+      "solved_system": "llm_only_one_shot",
+      "count": 26
+    },
+    {
+      "file": "flash-lite_1000_lex__wordnet_only_unsolved__llm_only_agentic_solved.json",
+      "prompt": "lex",
+      "unsolved_system": "wordnet_only",
+      "solved_system": "llm_only_agentic",
+      "count": 39
+    },
+    {
+      "file": "flash-lite_1000_lex__wordnet_llm_one_shot_unsolved__wordnet_llm_agentic_solved.json",
+      "prompt": "lex",
+      "unsolved_system": "wordnet_llm_one_shot",
+      "solved_system": "wordnet_llm_agentic",
+      "count": 14
+    },
+    {
+      "file": "flash-lite_1000_stefan__wordnet_only_unsolved__llm_only_one_shot_solved.json",
+      "prompt": "stefan",
+      "unsolved_system": "wordnet_only",
+      "solved_system": "llm_only_one_shot",
+      "count": 29
+    },
+    {
+      "file": "flash-lite_1000_stefan__wordnet_only_unsolved__llm_only_agentic_solved.json",
+      "prompt": "stefan",
+      "unsolved_system": "wordnet_only",
+      "solved_system": "llm_only_agentic",
+      "count": 38
+    },
+    {
+      "file": "flash-lite_1000_stefan__wordnet_llm_one_shot_unsolved__wordnet_llm_agentic_solved.json",
+      "prompt": "stefan",
+      "unsolved_system": "wordnet_llm_one_shot",
+      "solved_system": "wordnet_llm_agentic",
+      "count": 16
+    }
+  ]
+}
