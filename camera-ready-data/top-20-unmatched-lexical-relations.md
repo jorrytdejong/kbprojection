@@ -72,6 +72,33 @@ shows a recurring tendency to add plausible hypernyms and broader paraphrases,
 such as `(woman, person)`, `(barbie doll, doll)`, and `(kiss, show affection)`,
 even when these relations were not included in the reference LEX sets.
 
+## Representative qualitative examples
+
+| Frequent unmatched relation | Premise / hypothesis | Available references | What the example shows |
+| --- | --- | --- | --- |
+| `(woman, person)` | *A woman sitting with two men hugging.* / *A group of people are sitting together.* | All three available references are `NO_RELATION`. | Every retained model added generic person-category relations (`woman -> person`, often also `man -> person`) although the annotators treated the item as requiring no lexical relation. This is a clear example of non-minimal enrichment. |
+| `(body of water, water)` | *A man wearing a black jacket stands next to a body of water.* / *A person is outside near some water.* | The available references contain only `(man, person)`. | Models correctly recover the annotated relation but frequently append further plausible relations, including `body of water -> water` and `stand next to -> near`. This illustrates over-complete LEX sets rather than a simple failure to find the core link. |
+| `(look out over, view)` | *A guy looking out over the scenic forest.* / *A person is viewing the forest.* | References include `(guy, person)` and either `(look, view)` or `(look out, view)`. | All 25 model-by-run outputs used the longer source phrase `look out over`. The unmatched count here reflects span granularity, not an obvious semantic disagreement with the references. |
+| `(highly decorated, nice)` | *The restaurant employee is preparing sandwiches in the highly decorated kitchen.* / *A service worker is making food in a nice kitchen.* | One reference contains `(decorated, nice)`; the others omit that relation or express other required links. | The model relation preserves the modifier `highly`, whereas the reference uses the shorter phrase `decorated`. It is therefore a useful caution that exact relation matching can count a more specific formulation as unmatched. |
+
+## Section 8.1-ready interpretation
+
+The aggregate precision--recall results conceal a systematic qualitative
+pattern. After restricting the analysis to the five strongest models and the
+360 gold-entailment problems, 3,462 of 10,649 predicted relation occurrences
+(32.5%) were absent from every reference variant available for their problem.
+Many of the most frequent cases were generated consistently across models and
+runs: a count of 25 means that all five models supplied the relation in every
+run for an item. The unmatched relations often take the form of plausible
+hypernyms or broader paraphrases, such as `(woman, person)`, `(barbie doll,
+doll)`, and `(kiss, show affection)`. Thus, the precision gap partly reflects
+models adding semantically relevant but unnecessary relations to a minimal
+LEX. Other cases are likely annotation- or matching-granularity differences,
+as with `(look out over, view)` versus the annotated `(look out, view)`, or
+`(highly decorated, nice)` versus `(decorated, nice)`. Accordingly, unmatched
+relations should be interpreted as candidates for qualitative review, rather
+than automatically as semantically invalid inferences.
+
 ## Interpretation boundary
 
 This table should be read as evidence of reference-mismatched or potentially
