@@ -1,0 +1,461 @@
+{
+  "schema_version": 1,
+  "model": "google/gemini-3.1-flash-lite",
+  "prompt_variant": "lex",
+  "comparison": {
+    "unsolved_configuration": "llm_only_one_shot",
+    "solved_configuration": "wordnet_llm_one_shot",
+    "selection": "unsolved in the first configuration and solved in the second"
+  },
+  "source_files": [
+    "results/1000/google__gemini-3.1-flash-lite/lex/llm_only_one_shot.json",
+    "results/1000/google__gemini-3.1-flash-lite/lex/wordnet_llm_one_shot.json"
+  ],
+  "example_count": 19,
+  "examples": [
+    {
+      "problem_id": "1045124251.jpg#1r1e",
+      "premise": "A blond man wearing glasses is sitting in the train looking down at something.",
+      "hypothesis": "A blond person wearing glasses is sitting in the train looking down at something.",
+      "gold_label": "entailment",
+      "unsolved_system": {
+        "configuration": "llm_only_one_shot",
+        "prediction": "-",
+        "correct": false,
+        "final_kb": [],
+        "kb_attempts": []
+      },
+      "solved_system": {
+        "configuration": "wordnet_llm_one_shot",
+        "prediction": "entailment",
+        "correct": true,
+        "final_kb": [],
+        "kb_attempts": []
+      }
+    },
+    {
+      "problem_id": "1357753846.jpg#1r1e",
+      "premise": "A black dog is walking through a stream of water.",
+      "hypothesis": "An animal is walking through water.",
+      "gold_label": "entailment",
+      "unsolved_system": {
+        "configuration": "llm_only_one_shot",
+        "prediction": "neutral",
+        "correct": false,
+        "final_kb": [
+          "isa_wn(dog, animal)"
+        ],
+        "kb_attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(dog, animal)"
+            ],
+            "prediction": "neutral"
+          }
+        ]
+      },
+      "solved_system": {
+        "configuration": "wordnet_llm_one_shot",
+        "prediction": "entailment",
+        "correct": true,
+        "final_kb": [],
+        "kb_attempts": []
+      }
+    },
+    {
+      "problem_id": "1873655403.jpg#2r1e",
+      "premise": "Three male workers in bright jackets are working in a field with shovels.",
+      "hypothesis": "There are people working.",
+      "gold_label": "entailment",
+      "unsolved_system": {
+        "configuration": "llm_only_one_shot",
+        "prediction": "-",
+        "correct": false,
+        "final_kb": [],
+        "kb_attempts": []
+      },
+      "solved_system": {
+        "configuration": "wordnet_llm_one_shot",
+        "prediction": "entailment",
+        "correct": true,
+        "final_kb": [],
+        "kb_attempts": []
+      }
+    },
+    {
+      "problem_id": "2358600155.jpg#3r1e",
+      "premise": "Young dark-haired girl staring at the camera.",
+      "hypothesis": "A young girl looking at the camera.",
+      "gold_label": "entailment",
+      "unsolved_system": {
+        "configuration": "llm_only_one_shot",
+        "prediction": "neutral",
+        "correct": false,
+        "final_kb": [],
+        "kb_attempts": []
+      },
+      "solved_system": {
+        "configuration": "wordnet_llm_one_shot",
+        "prediction": "entailment",
+        "correct": true,
+        "final_kb": [],
+        "kb_attempts": []
+      }
+    },
+    {
+      "problem_id": "2921806371.jpg#1r1e",
+      "premise": "A man wearing glasses and a coat and checkered scarf is holding a book, saying something.",
+      "hypothesis": "A man is reading.",
+      "gold_label": "entailment",
+      "unsolved_system": {
+        "configuration": "llm_only_one_shot",
+        "prediction": "neutral",
+        "correct": false,
+        "final_kb": [],
+        "kb_attempts": []
+      },
+      "solved_system": {
+        "configuration": "wordnet_llm_one_shot",
+        "prediction": "entailment",
+        "correct": true,
+        "final_kb": [],
+        "kb_attempts": []
+      }
+    },
+    {
+      "problem_id": "3554277535.jpg#0r4e",
+      "premise": "A little boy is in a swimming pool with goggles on, covering his mouth and nose with his hands just above the surface of the water.",
+      "hypothesis": "A child in a swimming pool.",
+      "gold_label": "entailment",
+      "unsolved_system": {
+        "configuration": "llm_only_one_shot",
+        "prediction": "-",
+        "correct": false,
+        "final_kb": [],
+        "kb_attempts": []
+      },
+      "solved_system": {
+        "configuration": "wordnet_llm_one_shot",
+        "prediction": "entailment",
+        "correct": true,
+        "final_kb": [],
+        "kb_attempts": []
+      }
+    },
+    {
+      "problem_id": "3867308040.jpg#3r1e",
+      "premise": "Two boys prepare a small sailboat as two girls watch them from the beach.",
+      "hypothesis": "Two people prepare a small sailboat as two girls watch them from the beach.",
+      "gold_label": "entailment",
+      "unsolved_system": {
+        "configuration": "llm_only_one_shot",
+        "prediction": "neutral",
+        "correct": false,
+        "final_kb": [],
+        "kb_attempts": []
+      },
+      "solved_system": {
+        "configuration": "wordnet_llm_one_shot",
+        "prediction": "entailment",
+        "correct": true,
+        "final_kb": [],
+        "kb_attempts": []
+      }
+    },
+    {
+      "problem_id": "4511585083.jpg#3r1e",
+      "premise": "A man holding the collar of a young rottweiler.",
+      "hypothesis": "A man is holding a dog collar.",
+      "gold_label": "entailment",
+      "unsolved_system": {
+        "configuration": "llm_only_one_shot",
+        "prediction": "neutral",
+        "correct": false,
+        "final_kb": [
+          "isa_wn(rottweiler, dog)"
+        ],
+        "kb_attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(rottweiler, dog)"
+            ],
+            "prediction": "neutral"
+          }
+        ]
+      },
+      "solved_system": {
+        "configuration": "wordnet_llm_one_shot",
+        "prediction": "entailment",
+        "correct": true,
+        "final_kb": [],
+        "kb_attempts": []
+      }
+    },
+    {
+      "problem_id": "4615757994.jpg#2r1e",
+      "premise": "A man wearing a red hat is holding an instrument up to his mouth.",
+      "hypothesis": "A man holds an object up to his mouth.",
+      "gold_label": "entailment",
+      "unsolved_system": {
+        "configuration": "llm_only_one_shot",
+        "prediction": "-",
+        "correct": false,
+        "final_kb": [],
+        "kb_attempts": []
+      },
+      "solved_system": {
+        "configuration": "wordnet_llm_one_shot",
+        "prediction": "entailment",
+        "correct": true,
+        "final_kb": [],
+        "kb_attempts": []
+      }
+    },
+    {
+      "problem_id": "4617982332.jpg#3r1e",
+      "premise": "a man and two women standing around a grill.",
+      "hypothesis": "People are around a grill.",
+      "gold_label": "entailment",
+      "unsolved_system": {
+        "configuration": "llm_only_one_shot",
+        "prediction": "neutral",
+        "correct": false,
+        "final_kb": [],
+        "kb_attempts": []
+      },
+      "solved_system": {
+        "configuration": "wordnet_llm_one_shot",
+        "prediction": "entailment",
+        "correct": true,
+        "final_kb": [],
+        "kb_attempts": []
+      }
+    },
+    {
+      "problem_id": "4826864287.jpg#1r1e",
+      "premise": "A young man and woman are seated with their backs to the side of an escalator.",
+      "hypothesis": "A male and a female are sitting.",
+      "gold_label": "entailment",
+      "unsolved_system": {
+        "configuration": "llm_only_one_shot",
+        "prediction": "-",
+        "correct": false,
+        "final_kb": [],
+        "kb_attempts": []
+      },
+      "solved_system": {
+        "configuration": "wordnet_llm_one_shot",
+        "prediction": "entailment",
+        "correct": true,
+        "final_kb": [],
+        "kb_attempts": []
+      }
+    },
+    {
+      "problem_id": "4879964792.jpg#1r1e",
+      "premise": "A man with glasses wearing a tie plays the violin.",
+      "hypothesis": "The man is playing an instrument.",
+      "gold_label": "entailment",
+      "unsolved_system": {
+        "configuration": "llm_only_one_shot",
+        "prediction": "-",
+        "correct": false,
+        "final_kb": [],
+        "kb_attempts": []
+      },
+      "solved_system": {
+        "configuration": "wordnet_llm_one_shot",
+        "prediction": "entailment",
+        "correct": true,
+        "final_kb": [],
+        "kb_attempts": []
+      }
+    },
+    {
+      "problem_id": "4886064645.jpg#2r1e",
+      "premise": "A man in a blue jacket and white hat poses with an old fashioned camera.",
+      "hypothesis": "A man is holding a camera.",
+      "gold_label": "entailment",
+      "unsolved_system": {
+        "configuration": "llm_only_one_shot",
+        "prediction": "neutral",
+        "correct": false,
+        "final_kb": [
+          "isa_wn(old fashioned camera, camera)",
+          "isa_wn(old fashion camera, camera)"
+        ],
+        "kb_attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(old fashioned camera, camera)",
+              "isa_wn(old fashion camera, camera)"
+            ],
+            "prediction": "neutral"
+          }
+        ]
+      },
+      "solved_system": {
+        "configuration": "wordnet_llm_one_shot",
+        "prediction": "entailment",
+        "correct": true,
+        "final_kb": [],
+        "kb_attempts": []
+      }
+    },
+    {
+      "problem_id": "4973604926.jpg#3r1e",
+      "premise": "A young girl and a young guy are outside on a street facing each other.",
+      "hypothesis": "Some people are outside.",
+      "gold_label": "entailment",
+      "unsolved_system": {
+        "configuration": "llm_only_one_shot",
+        "prediction": "neutral",
+        "correct": false,
+        "final_kb": [],
+        "kb_attempts": []
+      },
+      "solved_system": {
+        "configuration": "wordnet_llm_one_shot",
+        "prediction": "entailment",
+        "correct": true,
+        "final_kb": [],
+        "kb_attempts": []
+      }
+    },
+    {
+      "problem_id": "6498058475.jpg#4r1e",
+      "premise": "A man in a green shirt is about to throw the ball.",
+      "hypothesis": "A man in a shirt is about to throw a round object.",
+      "gold_label": "entailment",
+      "unsolved_system": {
+        "configuration": "llm_only_one_shot",
+        "prediction": "-",
+        "correct": false,
+        "final_kb": [],
+        "kb_attempts": []
+      },
+      "solved_system": {
+        "configuration": "wordnet_llm_one_shot",
+        "prediction": "entailment",
+        "correct": true,
+        "final_kb": [
+          "isa_wn(ball, round object)"
+        ],
+        "kb_attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(ball, round object)"
+            ],
+            "prediction": "entailment"
+          }
+        ]
+      }
+    },
+    {
+      "problem_id": "7033865735.jpg#4r1e",
+      "premise": "Two woman are holding a large blue tank.",
+      "hypothesis": "Two people are holding an object.",
+      "gold_label": "entailment",
+      "unsolved_system": {
+        "configuration": "llm_only_one_shot",
+        "prediction": "neutral",
+        "correct": false,
+        "final_kb": [
+          "isa_wn(tank, object)"
+        ],
+        "kb_attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(tank, object)"
+            ],
+            "prediction": "neutral"
+          }
+        ]
+      },
+      "solved_system": {
+        "configuration": "wordnet_llm_one_shot",
+        "prediction": "entailment",
+        "correct": true,
+        "final_kb": [],
+        "kb_attempts": []
+      }
+    },
+    {
+      "problem_id": "7916249448.jpg#0r1e",
+      "premise": "A group of boys plays basketball outdoors while others watch in the sunset light and surrounded by palm trees.",
+      "hypothesis": "A group of boys is playing ball.",
+      "gold_label": "entailment",
+      "unsolved_system": {
+        "configuration": "llm_only_one_shot",
+        "prediction": "-",
+        "correct": false,
+        "final_kb": [],
+        "kb_attempts": []
+      },
+      "solved_system": {
+        "configuration": "wordnet_llm_one_shot",
+        "prediction": "entailment",
+        "correct": true,
+        "final_kb": [],
+        "kb_attempts": []
+      }
+    },
+    {
+      "problem_id": "86124605.jpg#0r1e",
+      "premise": "An asian lady in a brown shirt with glasses is making some food.",
+      "hypothesis": "A woman is cooking",
+      "gold_label": "entailment",
+      "unsolved_system": {
+        "configuration": "llm_only_one_shot",
+        "prediction": "neutral",
+        "correct": false,
+        "final_kb": [
+          "isa_wn(asian lady, woman)",
+          "isa_wn(make food, cook)"
+        ],
+        "kb_attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(asian lady, woman)",
+              "isa_wn(make food, cook)"
+            ],
+            "prediction": "neutral"
+          }
+        ]
+      },
+      "solved_system": {
+        "configuration": "wordnet_llm_one_shot",
+        "prediction": "entailment",
+        "correct": true,
+        "final_kb": [],
+        "kb_attempts": []
+      }
+    },
+    {
+      "problem_id": "89202781.jpg#3r1e",
+      "premise": "A woman talking on a cellphone inside a large building complex.",
+      "hypothesis": "A woman talking on the phone.",
+      "gold_label": "entailment",
+      "unsolved_system": {
+        "configuration": "llm_only_one_shot",
+        "prediction": "-",
+        "correct": false,
+        "final_kb": [],
+        "kb_attempts": []
+      },
+      "solved_system": {
+        "configuration": "wordnet_llm_one_shot",
+        "prediction": "entailment",
+        "correct": true,
+        "final_kb": [],
+        "kb_attempts": []
+      }
+    }
+  ]
+}
