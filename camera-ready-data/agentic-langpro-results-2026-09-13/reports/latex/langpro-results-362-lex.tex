@@ -1,0 +1,26 @@
+% Requires booktabs and xcolor; exact historical 362 IDs, initial LEX prompt.
+\begingroup
+\setlength{\fboxsep}{1pt}
+\providecommand{\smallWN}[1]{\fcolorbox{red!60}{red!3}{\scriptsize #1}}
+\providecommand{\smallAG}[1]{\fcolorbox{blue!60}{blue!3}{\scriptsize #1}}
+\begin{table*}[t]
+\centering\small
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}l*{10}{r}@{}}
+\toprule
+Model & \multicolumn{2}{c}{LLM$_1$ (\%)} & \multicolumn{3}{c}{LLM$_a$ (\%)} & \multicolumn{2}{c}{LLM$_1^{\mathrm{WN}}$ (\%)} & \multicolumn{3}{c}{LLM$_a^{\mathrm{WN}}$ (\%)} \\
+& & $\Delta_{\mathrm{WN}}$ & & $\Delta_{\mathrm{WN}}$ & $\Delta_a$ & & $\Delta_{\mathrm{WN}}$ & & $\Delta_{\mathrm{WN}}$ & $\Delta_a$ \\
+\midrule
+Claude Sonnet 4.5 & 25.1 & \smallWN{+6.9} & 31.8 & \smallWN{+13.5} & \smallAG{+6.6} & 29.8 & \smallWN{+11.6} & 35.1 & \smallWN{+16.9} & \smallAG{+5.2} \\
+Gemini 3.1 Flash-Lite & 24.6 & \smallWN{+6.4} & 31.5 & \smallWN{+13.3} & \smallAG{+6.9} & 29.0 & \smallWN{+10.8} & 34.5 & \smallWN{+16.3} & \smallAG{+5.5} \\
+Gemini 3.5 Flash & 23.5 & \smallWN{+5.2} & \textbf{33.1} & \smallWN{+14.9} & \smallAG{+9.7} & 28.2 & \smallWN{+9.9} & \textbf{36.7} & \smallWN{+18.5} & \smallAG{+8.6} \\
+GPT-5.4 & 24.0 & \smallWN{+5.8} & 30.4 & \smallWN{+12.2} & \smallAG{+6.4} & 29.0 & \smallWN{+10.8} & 35.4 & \smallWN{+17.1} & \smallAG{+6.4} \\
+Claude Haiku 4.5 & \textbf{25.4} & \smallWN{+7.2} & 30.9 & \smallWN{+12.7} & \smallAG{+5.5} & \textbf{30.7} & \smallWN{+12.4} & 35.4 & \smallWN{+17.1} & \smallAG{+4.7} \\
+GPT-5.4 Mini & 23.5 & \smallWN{+5.2} & 29.0 & \smallWN{+10.8} & \smallAG{+5.5} & 29.6 & \smallWN{+11.3} & 34.5 & \smallWN{+16.3} & \smallAG{+5.0} \\
+Gemma 3 4B & 24.9 & \smallWN{+6.6} & 24.9 & \smallWN{+6.6} & \smallAG{+0.0} & 30.4 & \smallWN{+12.2} & 30.4 & \smallWN{+12.2} & \smallAG{+0.0} \\
+\bottomrule
+\end{tabular}
+\caption{Correct gold-label predictions on the historical 362-problem test set (360 entailments, one contradiction, one neutral), using the initial LEX prompt. The WordNet baseline is 66/362, including one correct neutral prediction. Values are percentages; boxed gains are percentage-point differences from WordNet ($\Delta_{\mathrm{WN}}$) and the corresponding one-shot setting ($\Delta_a$). The same three extra IDs are excluded from every curated365 export. Unknown, technical errors and inconsistent results remain in the denominator.}
+\label{tab:langpro-results-362-lex}
+\end{table*}
+\endgroup

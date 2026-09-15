@@ -44,6 +44,19 @@ All 1,000-problem files have the same 1,000 unique IDs. Baselines differ by vers
 | Claude Sonnet 4.5 | LEX | 66 | 92 | 116 | +24 | 109 | 128 | +19 |
 | Claude Sonnet 4.5 | Stefan | 66 | 107 | 119 | +12 | 123 | 134 | +11 |
 
+<!-- BEGIN SMALL365 ADDITIONS -->
+### Completed small models
+
+| Model | Prompt | WN | LLM one-shot | LLM agentic | Gain | WN+LLM one-shot | WN+LLM agentic | Gain |
+|---|---|---:|---:|---:|---:|---:|---:|---:|
+| Claude Haiku 4.5 | LEX | 66 | 93 | 113 | +20 | 112 | 129 | +17 |
+| Claude Haiku 4.5 | Stefan | 66 | 112 | 117 | +5 | 127 | 134 | +7 |
+| GPT-5.4 Mini | LEX | 66 | 86 | 106 | +20 | 108 | 126 | +18 |
+| GPT-5.4 Mini | Stefan | 66 | 112 | 114 | +2 | 129 | 131 | +2 |
+| Gemma 3 4B | LEX | 66 | 91 | 91 | +0 | 111 | 111 | +0 |
+| Gemma 3 4B | Stefan | 66 | 16 | 16 | +0 | 66 | 66 | +0 |
+<!-- END SMALL365 ADDITIONS -->
+
 These are counts of correct labels on the curated population, not directly comparable with the 1,000-problem totals. The supplied `audit/recovery-manifest.json` documents six local-CCG parse repairs and recovered worker failures; it supplements the original protocol's remote-only statement. The input labels are retained, not silently relabelled as entailments.
 
 ## Initial prompt and execution provenance
@@ -75,7 +88,7 @@ The two `results/1000/google__gemini-3.1-flash-lite/<prompt>/` folders contain t
 
 ## Technical failures and limits on interpretation
 
-All 90 recent configuration files used in the table have complete, unique populations; all counts agree with `reports/metrics.json`. No current LangPro errors are reported. Some LLM-error counts are substantial:
+All 120 recent configuration files used in the table have complete, unique populations; all counts agree with `reports/metrics.json`. No current LangPro errors are reported. Some LLM-error counts are substantial:
 
 | Model / prompt | LLM one-shot | LLM agentic | WN+LLM one-shot | WN+LLM agentic |
 |---|---:|---:|---:|---:|
@@ -94,8 +107,14 @@ Before final submission, identify that original run and attach its source, or re
 
 ## Reproduce and inspect
 
-Run `python3 audit/reconcile_proof_coverage.py` from the archive root (standard library only). It is read-only and prints the audit JSON. `audit/proof-coverage.ipynb` provides an inspectable entry point; `audit/proof-coverage.json` records the full result. The CSV contains the 19 verified rows only; the original draft row is excluded.
+Run `python3 audit/reconcile_proof_coverage.py` from the archive root (standard library only). It is read-only and prints the audit JSON. `audit/proof-coverage.ipynb` provides an inspectable entry point; `audit/proof-coverage.json` records the full result. The CSV contains the 25 verified rows only; the original draft row is excluded.
 
 The two standalone LaTeX snippets require `booktabs` and span both columns using `table*`. The manuscript includes them with `\\input{include/langpro-results-1000}` and `\\input{include/langpro-results-365}`. Updated prose uses source-backed counts; the gold-223 table and original JSONs are unchanged.
 
 Flash Lite is also complete on the separate curated365 population under the shared protocol. See `audit/flash-lite-365-provenance.json` for archived phase reuse and new-call cost. The 1,000-problem results remain separate.
+
+## Historical 362-problem paper view
+
+`reports/latex/langpro-results-362-lex.tex` preserves the supplied paper order (Sonnet, Flash-Lite, Gemini 3.5, GPT-5.4), then appends Haiku, Mini and Gemma. It filters the exact IDs in repository `data/all_usable_items_362.csv`. Excluded IDs: `3159569570.jpg#4r1e`, `6063730184.jpg#0r1n`, `6734323683.jpg#3r1e`. The population contains 360 entailments, one contradiction and one neutral; the caption therefore describes gold-label accuracy rather than exclusively entailment proofs. Complete 365-problem data and summaries remain separate.
+
+The September 15 update adds completed Haiku, Mini and Gemma runs. The exact 362-ID filter removes a correctly predicted extra item in several configurations; therefore the historical paper percentages obtained by dividing full-365 counts by 362 are corrected in the new 362 LaTeX view. An inconsistent outcome is reported separately and is neither neutral nor an LLM error.

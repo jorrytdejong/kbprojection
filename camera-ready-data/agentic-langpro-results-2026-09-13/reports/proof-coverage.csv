@@ -18,3 +18,9 @@ google/gemini-3.1-flash-lite,lex,1000,recent-protocol,157,165,180,15,179,193,14
 google/gemini-3.1-flash-lite,stefan,1000,recent-protocol,157,166,181,15,181,197,16
 google/gemini-3.1-flash-lite,lex,365,recent-protocol,66,90,115,25,106,126,20
 google/gemini-3.1-flash-lite,stefan,365,recent-protocol,66,111,121,10,125,131,6
+anthropic/claude-haiku-4.5,lex,365,recent-protocol,66,93,113,20,112,129,17
+anthropic/claude-haiku-4.5,stefan,365,recent-protocol,66,112,117,5,127,134,7
+google/gemma-3-4b-it,lex,365,recent-protocol,66,91,91,0,111,111,0
+google/gemma-3-4b-it,stefan,365,recent-protocol,66,16,16,0,66,66,0
+openai/gpt-5.4-mini,lex,365,recent-protocol,66,86,106,20,108,126,18
+openai/gpt-5.4-mini,stefan,365,recent-protocol,66,112,114,2,129,131,2

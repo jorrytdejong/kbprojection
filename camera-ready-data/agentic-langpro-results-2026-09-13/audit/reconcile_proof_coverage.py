@@ -65,12 +65,18 @@ def audit(root):
     root = Path(root)
     metrics = {(m["model"], m["prompt"], m["configuration"], m["total"]): m
                for m in read(root / "reports/metrics.json")}
+    supplements = read(root / "manifest.json").get("data_supplements", {})
+    data_only_models = {m for s in supplements.values() if s.get("reports_updated") is False
+                        for m in s.get("models", [])}
+    data_only_configurations = []
     populations = {}
     rows, errors, baselines_only = [], [], []
     for n in (1000, 365):
         labels = {"entailment": 1000} if n == 1000 else {
             "entailment": 363, "contradiction": 1, "neutral": 1}
         for arm in sorted((root / "results" / str(n)).glob("*/*")):
+            if arm.name not in ("lex", "stefan"):
+                continue
             files = [arm / (name + ".json") for name in CONFIGURATIONS]
             if not all(f.exists() for f in files):
                 assert [f.name for f in files if f.exists()] == ["wordnet_only.json"]
@@ -85,14 +91,18 @@ def audit(root):
                 config_ids.append(ids)
                 count = sum(solved(r) for r in data["records"])
                 model = data["config"]["model"]
-                metric = metrics[(model, arm.name, name, n)]
-                assert count == metric["correct"]
-                assert abs(metric["accuracy"] - 100 * count/n) < 0.00001
+                metric = metrics.get((model, arm.name, name, n))
+                if metric is None:
+                    assert n == 365 and model in data_only_models, "Undeclared missing metric"
+                    data_only_configurations.append(str(path.relative_to(root)))
+                else:
+                    assert count == metric["correct"]
+                    assert abs(metric["accuracy"] - 100 * count/n) < 0.00001
                 counts.append(count)
                 source_paths.append(str(path.relative_to(root)))
                 errors.append(dict(model=model, prompt=arm.name, population=n,
-                                   configuration=name, llm_errors=metric["llm_errors"],
-                                   langpro_errors=metric["langpro_errors"], unknown=metric["unknown"]))
+                                   configuration=name, llm_errors=metric["llm_errors"] if metric else None,
+                                   langpro_errors=metric["langpro_errors"] if metric else None, unknown=metric["unknown"] if metric else None))
             rows.append(table_row(model, arm.name, n, counts, source_paths, "recent-protocol"))
 
     gemini_dir = root / "reference/jorryt-flash-lite-1000"
@@ -138,7 +148,9 @@ def audit(root):
                 checks={"unique_ids_and_complete_populations": True,
                         "same_ids_across_1000_exports_including_gemini": True,
                         "solved_equals_gold_label_agreement": True,
-                        "current_counts_match_final_metrics": True,
+                        "current_counts_match_final_metrics": not data_only_configurations,
+                        "existing_report_counts_match_metrics": True,
+                        "data_only_configurations_without_report_metrics": data_only_configurations,
                         "labels_1000": {"entailment": 1000},
                         "labels_365": {"entailment": 363, "contradiction": 1, "neutral": 1}})
 

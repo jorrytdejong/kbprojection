@@ -5,7 +5,7 @@ Start with [the result tables](reports/tables.txt) or [the source and interpreta
 | Folder | Contents |
 |---|---|
 | `results/1000/` | Five completed models, both prompts, five configurations on the 1,000-problem population. |
-| `results/365/` | Four completed models, including Flash Lite, both prompts, five configurations on curated365. |
+| `results/365/` | Seven completed models, including Flash Lite, Haiku, Mini and Gemma, both prompts, five configurations on curated365. |
 | `reports/` | Aligned text tables, machine-readable metrics, proof-coverage CSV and the source guide. |
 | `reports/latex/` | Separate paper tables for the 1,000- and 365-problem populations. |
 | `protocol/` | Frozen problem lists and original scientific/execution configuration snapshots. |
@@ -14,7 +14,7 @@ Start with [the result tables](reports/tables.txt) or [the source and interpreta
 
 ## Results and populations
 
-Each current model directory contains `lex/` and `stefan/`, each with WordNet-only, LLM-only one-shot/agentic, and WordNet+LLM one-shot/agentic JSON files. There are **90 current configuration exports and 64,600 records**. Repeated configurations and prompts share underlying work; these are not 64,600 independent problems.
+Each current model directory contains `lex/` and `stefan/`, each with WordNet-only, LLM-only one-shot/agentic, and WordNet+LLM one-shot/agentic JSON files. There are **120 current configuration exports and 75,550 records**. Repeated configurations and prompts share underlying work; these are not 64,600 independent problems.
 
 The 1,000 and 365 populations are distinct. Flash Lite appears in both, as two separate evaluations. The reference Jorryt run uses a different execution version and stays separate. Unknown, technical error and missing outcomes must not be converted to neutral.
 
@@ -26,6 +26,7 @@ The 1,000 and 365 populations are distinct. Flash Lite appears in both, as two s
 - [Table provenance and interpretation](reports/table-guide.md)
 - [1,000-problem LaTeX table](reports/latex/langpro-results-1000.tex)
 - [365-problem LaTeX table](reports/latex/langpro-results-365.tex)
+- [Exact 362-problem paper view, LEX](reports/latex/langpro-results-362-lex.tex)
 - [Manifest](manifest.json)
 - [Flash Lite curated365 reuse provenance](audit/flash-lite-365-provenance.json)
 

@@ -114,3 +114,45 @@ Stefan  LLM one-shot     30.41%  35.24%   100      0     0
 Stefan  LLM agentic      33.15%  38.23%    97      0     0
 Stefan  WN+LLM os        34.25%  39.43%    96      0     0
 Stefan  WN+LLM agentic   35.89%  41.26%    95      0     0
+
+# Completed small models on curated365
+Counts retain all 365 problems; inconsistent outcomes are separate from technical errors.
+
+Claude Haiku 4.5 x 365 problems
+Prompt  Conf                Acc     mF1  Unkn LLMerr LPerr Incon
+LEX     WN only          18.08%  20.47%    85      0     0     0
+LEX     LLM one-shot     25.48%  29.38%    97      0     0     0
+LEX     LLM agentic      30.96%  35.53%    93      0     0     1
+LEX     WN+LLM os        30.68%  35.28%    95      0     0     0
+LEX     WN+LLM agentic   35.34%  40.38%    91      0     0     0
+Stefan  WN only          18.08%  20.47%    85      0     0     0
+Stefan  LLM one-shot     30.68%  35.44%    98      0     0     0
+Stefan  LLM agentic      32.05%  36.91%    96      0     0     0
+Stefan  WN+LLM os        34.79%  40.00%    95      0     0     0
+Stefan  WN+LLM agentic   36.71%  42.07%    93      0     0     0
+
+GPT-5.4 Mini x 365 problems
+Prompt  Conf                Acc     mF1  Unkn LLMerr LPerr Incon
+LEX     WN only          18.08%  20.47%    85      0     0     0
+LEX     LLM one-shot     23.56%  27.74%    93     17     0     0
+LEX     LLM agentic      29.04%  34.19%    93     17     0     0
+LEX     WN+LLM os        29.59%  34.67%    92     15     0     0
+LEX     WN+LLM agentic   34.52%  40.51%    93     15     0     0
+Stefan  WN only          18.08%  20.47%    85      0     0     0
+Stefan  LLM one-shot     30.68%  35.96%    95     12     0     0
+Stefan  LLM agentic      31.23%  36.48%    93     12     0     0
+Stefan  WN+LLM os        35.34%  41.15%    94      9     0     0
+Stefan  WN+LLM agentic   35.89%  41.85%    95      9     0     0
+
+Gemma 3 4B x 365 problems
+Prompt  Conf                Acc     mF1  Unkn LLMerr LPerr Incon
+LEX     WN only          18.08%  20.47%    85      0     0     0
+LEX     LLM one-shot     24.93%  29.45%    92     20     0     0
+LEX     LLM agentic      24.93%  39.91%    83    191     0     0
+LEX     WN+LLM os        30.41%  35.63%    90     17     0     0
+LEX     WN+LLM agentic   30.41%  46.64%    85    169     0     0
+Stefan  WN only          18.08%  20.47%    85      0     0     0
+Stefan  LLM one-shot      4.38%   8.31%    83    262     0     0
+Stefan  LLM agentic       4.38%   8.40%    83    266     0     0
+Stefan  WN+LLM os        18.08%  30.41%    85    211     0     0
+Stefan  WN+LLM agentic   18.08%  30.63%    85    214     0     0

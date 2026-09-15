@@ -1293,6 +1293,473 @@
         "unknown": 85,
         "entailment": 65
       }
+    },
+    {
+      "file": "results/365/anthropic__claude-haiku-4.5/lex/wordnet_only.json",
+      "model": "anthropic/claude-haiku-4.5",
+      "prompt": "lex",
+      "configuration": "wordnet_only",
+      "records": 365,
+      "total_population": 365,
+      "missing": 0,
+      "categories": {
+        "neutral": 215,
+        "unknown": 85,
+        "entailment": 65
+      },
+      "sha256": "10c56fd790e82f377fc7ab231f3ea4069fcd61b6570cef78b5cc0c2705eb56d0"
+    },
+    {
+      "file": "results/365/anthropic__claude-haiku-4.5/lex/llm_only_one_shot.json",
+      "model": "anthropic/claude-haiku-4.5",
+      "prompt": "lex",
+      "configuration": "llm_only_one_shot",
+      "records": 365,
+      "total_population": 365,
+      "missing": 0,
+      "categories": {
+        "neutral": 176,
+        "unknown": 97,
+        "entailment": 92
+      },
+      "sha256": "928d6bd527df928fd3bff9d4be4339345d7c74e3641b77ce06845d105bf79d75"
+    },
+    {
+      "file": "results/365/anthropic__claude-haiku-4.5/lex/llm_only_agentic.json",
+      "model": "anthropic/claude-haiku-4.5",
+      "prompt": "lex",
+      "configuration": "llm_only_agentic",
+      "records": 365,
+      "total_population": 365,
+      "missing": 0,
+      "categories": {
+        "neutral": 159,
+        "unknown": 93,
+        "entailment": 112,
+        "inconsistent": 1
+      },
+      "sha256": "cebb063340f95126efef262ae9c8982395cad91229ce69460060bdd81636e64b"
+    },
+    {
+      "file": "results/365/anthropic__claude-haiku-4.5/lex/wordnet_llm_one_shot.json",
+      "model": "anthropic/claude-haiku-4.5",
+      "prompt": "lex",
+      "configuration": "wordnet_llm_one_shot",
+      "records": 365,
+      "total_population": 365,
+      "missing": 0,
+      "categories": {
+        "neutral": 159,
+        "unknown": 95,
+        "entailment": 111
+      },
+      "sha256": "2999895a66660c11662a35e39552bc03919ec922f18a95aab9d971d9629307f0"
+    },
+    {
+      "file": "results/365/anthropic__claude-haiku-4.5/lex/wordnet_llm_agentic.json",
+      "model": "anthropic/claude-haiku-4.5",
+      "prompt": "lex",
+      "configuration": "wordnet_llm_agentic",
+      "records": 365,
+      "total_population": 365,
+      "missing": 0,
+      "categories": {
+        "neutral": 146,
+        "unknown": 91,
+        "entailment": 128
+      },
+      "sha256": "9cfed696e00277ecc37c7554d8a1d84782568f2320f37f6c70bacbf264b38f5d"
+    },
+    {
+      "file": "results/365/anthropic__claude-haiku-4.5/stefan/wordnet_only.json",
+      "model": "anthropic/claude-haiku-4.5",
+      "prompt": "stefan",
+      "configuration": "wordnet_only",
+      "records": 365,
+      "total_population": 365,
+      "missing": 0,
+      "categories": {
+        "neutral": 215,
+        "unknown": 85,
+        "entailment": 65
+      },
+      "sha256": "9b347afcaacbfa32f94517dda1c769ab8f8f99839c3d8018a49fb840de646cee"
+    },
+    {
+      "file": "results/365/anthropic__claude-haiku-4.5/stefan/llm_only_one_shot.json",
+      "model": "anthropic/claude-haiku-4.5",
+      "prompt": "stefan",
+      "configuration": "llm_only_one_shot",
+      "records": 365,
+      "total_population": 365,
+      "missing": 0,
+      "categories": {
+        "entailment": 111,
+        "neutral": 156,
+        "unknown": 98
+      },
+      "sha256": "771c3ad2e6bac4a9aa01c3b5f81a77624d25b6587729c3abcad1e3425475e1a8"
+    },
+    {
+      "file": "results/365/anthropic__claude-haiku-4.5/stefan/llm_only_agentic.json",
+      "model": "anthropic/claude-haiku-4.5",
+      "prompt": "stefan",
+      "configuration": "llm_only_agentic",
+      "records": 365,
+      "total_population": 365,
+      "missing": 0,
+      "categories": {
+        "entailment": 116,
+        "neutral": 153,
+        "unknown": 96
+      },
+      "sha256": "34cb063c52768319923c075f6b9f8c5eef5789efe56b6171bde6e3b5ea88ddf4"
+    },
+    {
+      "file": "results/365/anthropic__claude-haiku-4.5/stefan/wordnet_llm_one_shot.json",
+      "model": "anthropic/claude-haiku-4.5",
+      "prompt": "stefan",
+      "configuration": "wordnet_llm_one_shot",
+      "records": 365,
+      "total_population": 365,
+      "missing": 0,
+      "categories": {
+        "entailment": 126,
+        "neutral": 144,
+        "unknown": 95
+      },
+      "sha256": "fbf9c107b7806a506c316a613adfa7a5853da1b90e7b0a189f497b7239f24978"
+    },
+    {
+      "file": "results/365/anthropic__claude-haiku-4.5/stefan/wordnet_llm_agentic.json",
+      "model": "anthropic/claude-haiku-4.5",
+      "prompt": "stefan",
+      "configuration": "wordnet_llm_agentic",
+      "records": 365,
+      "total_population": 365,
+      "missing": 0,
+      "categories": {
+        "entailment": 133,
+        "neutral": 139,
+        "unknown": 93
+      },
+      "sha256": "ab1a781d06ec53212b71a2c0f96c390ae51996912719eca30fa36324fc2ad6fa"
+    },
+    {
+      "file": "results/365/openai__gpt-5.4-mini/lex/wordnet_only.json",
+      "model": "openai/gpt-5.4-mini",
+      "prompt": "lex",
+      "configuration": "wordnet_only",
+      "records": 365,
+      "total_population": 365,
+      "missing": 0,
+      "categories": {
+        "neutral": 215,
+        "unknown": 85,
+        "entailment": 65
+      },
+      "sha256": "88cc47a33908565b41030be942185ba2e8a1619b21aa7b5d977ab93df587616a"
+    },
+    {
+      "file": "results/365/openai__gpt-5.4-mini/lex/llm_only_one_shot.json",
+      "model": "openai/gpt-5.4-mini",
+      "prompt": "lex",
+      "configuration": "llm_only_one_shot",
+      "records": 365,
+      "total_population": 365,
+      "missing": 0,
+      "categories": {
+        "neutral": 170,
+        "unknown": 93,
+        "entailment": 85,
+        "technical_error": 17
+      },
+      "sha256": "badaa9d2ccd673cc87e83cdd83b3eead5ea1fcb0c469a3728428c40c25915765"
+    },
+    {
+      "file": "results/365/openai__gpt-5.4-mini/lex/llm_only_agentic.json",
+      "model": "openai/gpt-5.4-mini",
+      "prompt": "lex",
+      "configuration": "llm_only_agentic",
+      "records": 365,
+      "total_population": 365,
+      "missing": 0,
+      "categories": {
+        "neutral": 150,
+        "unknown": 93,
+        "entailment": 105,
+        "technical_error": 17
+      },
+      "sha256": "2a66011f32a60a4aba1e11ead780645537dc166a2724aeeaa31f2bf0b21b0da0"
+    },
+    {
+      "file": "results/365/openai__gpt-5.4-mini/lex/wordnet_llm_one_shot.json",
+      "model": "openai/gpt-5.4-mini",
+      "prompt": "lex",
+      "configuration": "wordnet_llm_one_shot",
+      "records": 365,
+      "total_population": 365,
+      "missing": 0,
+      "categories": {
+        "neutral": 151,
+        "unknown": 92,
+        "entailment": 107,
+        "technical_error": 15
+      },
+      "sha256": "2776badf9f5889130916f5b261c107b42f5672f7fcd449b7452b4a16aa2de401"
+    },
+    {
+      "file": "results/365/openai__gpt-5.4-mini/lex/wordnet_llm_agentic.json",
+      "model": "openai/gpt-5.4-mini",
+      "prompt": "lex",
+      "configuration": "wordnet_llm_agentic",
+      "records": 365,
+      "total_population": 365,
+      "missing": 0,
+      "categories": {
+        "neutral": 132,
+        "unknown": 93,
+        "entailment": 125,
+        "technical_error": 15
+      },
+      "sha256": "d38fec91e22155d1ee95602d760b76ffa669acbde9d2445d88b6a20906881abc"
+    },
+    {
+      "file": "results/365/openai__gpt-5.4-mini/stefan/wordnet_only.json",
+      "model": "openai/gpt-5.4-mini",
+      "prompt": "stefan",
+      "configuration": "wordnet_only",
+      "records": 365,
+      "total_population": 365,
+      "missing": 0,
+      "categories": {
+        "neutral": 215,
+        "unknown": 85,
+        "entailment": 65
+      },
+      "sha256": "d511f838ec1898574b8ee5308cf32e1e457a1ee9e43edb68841761cc9777089d"
+    },
+    {
+      "file": "results/365/openai__gpt-5.4-mini/stefan/llm_only_one_shot.json",
+      "model": "openai/gpt-5.4-mini",
+      "prompt": "stefan",
+      "configuration": "llm_only_one_shot",
+      "records": 365,
+      "total_population": 365,
+      "missing": 0,
+      "categories": {
+        "entailment": 111,
+        "neutral": 147,
+        "unknown": 95,
+        "technical_error": 12
+      },
+      "sha256": "8e5993ad01148dc011285fcd4df0fec690c0ae5514de9389b43ca362b49a8fc8"
+    },
+    {
+      "file": "results/365/openai__gpt-5.4-mini/stefan/llm_only_agentic.json",
+      "model": "openai/gpt-5.4-mini",
+      "prompt": "stefan",
+      "configuration": "llm_only_agentic",
+      "records": 365,
+      "total_population": 365,
+      "missing": 0,
+      "categories": {
+        "entailment": 113,
+        "neutral": 147,
+        "unknown": 93,
+        "technical_error": 12
+      },
+      "sha256": "34b8e01bbb32db010b5dc37d6b6f894c09f2fe75a036e84b6543271dd3b0a60d"
+    },
+    {
+      "file": "results/365/openai__gpt-5.4-mini/stefan/wordnet_llm_one_shot.json",
+      "model": "openai/gpt-5.4-mini",
+      "prompt": "stefan",
+      "configuration": "wordnet_llm_one_shot",
+      "records": 365,
+      "total_population": 365,
+      "missing": 0,
+      "categories": {
+        "entailment": 128,
+        "neutral": 134,
+        "unknown": 94,
+        "technical_error": 9
+      },
+      "sha256": "36b6ea31caa0e62d0f6a1febe43835d66977c345fba1f61a9d61f58afd8461ee"
+    },
+    {
+      "file": "results/365/openai__gpt-5.4-mini/stefan/wordnet_llm_agentic.json",
+      "model": "openai/gpt-5.4-mini",
+      "prompt": "stefan",
+      "configuration": "wordnet_llm_agentic",
+      "records": 365,
+      "total_population": 365,
+      "missing": 0,
+      "categories": {
+        "entailment": 130,
+        "neutral": 131,
+        "unknown": 95,
+        "technical_error": 9
+      },
+      "sha256": "6b12818598bfdb322ffd7a602e6cb0f8d5d8014d381dc1476e22773b0b507653"
+    },
+    {
+      "file": "results/365/google__gemma-3-4b-it/lex/wordnet_only.json",
+      "model": "google/gemma-3-4b-it",
+      "prompt": "lex",
+      "configuration": "wordnet_only",
+      "records": 365,
+      "total_population": 365,
+      "missing": 0,
+      "categories": {
+        "neutral": 215,
+        "unknown": 85,
+        "entailment": 65
+      },
+      "sha256": "87dbe0eaa080f12435dd63fcfbff50ee8aab572ab7bfd7f3226696b806916421"
+    },
+    {
+      "file": "results/365/google__gemma-3-4b-it/lex/llm_only_one_shot.json",
+      "model": "google/gemma-3-4b-it",
+      "prompt": "lex",
+      "configuration": "llm_only_one_shot",
+      "records": 365,
+      "total_population": 365,
+      "missing": 0,
+      "categories": {
+        "technical_error": 20,
+        "unknown": 92,
+        "entailment": 90,
+        "neutral": 163
+      },
+      "sha256": "85ba67864b81ac6051f34c69909861992c146e6b83d99429da5fac8db286b6d3"
+    },
+    {
+      "file": "results/365/google__gemma-3-4b-it/lex/llm_only_agentic.json",
+      "model": "google/gemma-3-4b-it",
+      "prompt": "lex",
+      "configuration": "llm_only_agentic",
+      "records": 365,
+      "total_population": 365,
+      "missing": 0,
+      "categories": {
+        "technical_error": 191,
+        "unknown": 83,
+        "entailment": 90,
+        "neutral": 1
+      },
+      "sha256": "e733229d42c2b58e6c565b2e5c43e11fd9c69c503f23a01204e81318d9a37359"
+    },
+    {
+      "file": "results/365/google__gemma-3-4b-it/lex/wordnet_llm_one_shot.json",
+      "model": "google/gemma-3-4b-it",
+      "prompt": "lex",
+      "configuration": "wordnet_llm_one_shot",
+      "records": 365,
+      "total_population": 365,
+      "missing": 0,
+      "categories": {
+        "technical_error": 17,
+        "unknown": 90,
+        "entailment": 110,
+        "neutral": 148
+      },
+      "sha256": "30021360c5c333835a0de7258e1bbb078a4fc088d55f119982cf4c897488b214"
+    },
+    {
+      "file": "results/365/google__gemma-3-4b-it/lex/wordnet_llm_agentic.json",
+      "model": "google/gemma-3-4b-it",
+      "prompt": "lex",
+      "configuration": "wordnet_llm_agentic",
+      "records": 365,
+      "total_population": 365,
+      "missing": 0,
+      "categories": {
+        "technical_error": 169,
+        "unknown": 85,
+        "entailment": 110,
+        "neutral": 1
+      },
+      "sha256": "8f0b28c25e8e7ffb24924f33cdb1c0cb01df70d74d7e47f5c60c09f1a955efda"
+    },
+    {
+      "file": "results/365/google__gemma-3-4b-it/stefan/wordnet_only.json",
+      "model": "google/gemma-3-4b-it",
+      "prompt": "stefan",
+      "configuration": "wordnet_only",
+      "records": 365,
+      "total_population": 365,
+      "missing": 0,
+      "categories": {
+        "neutral": 215,
+        "unknown": 85,
+        "entailment": 65
+      },
+      "sha256": "57b24b6dc7eac9a089b916e9f0f1f427fda63808d099cb9122da7e6180b22a17"
+    },
+    {
+      "file": "results/365/google__gemma-3-4b-it/stefan/llm_only_one_shot.json",
+      "model": "google/gemma-3-4b-it",
+      "prompt": "stefan",
+      "configuration": "llm_only_one_shot",
+      "records": 365,
+      "total_population": 365,
+      "missing": 0,
+      "categories": {
+        "technical_error": 262,
+        "unknown": 83,
+        "entailment": 15,
+        "neutral": 5
+      },
+      "sha256": "c470a99f2dd705092f28d9f9672bc0206c98ee3bf7a372827c1f58b24a29e2b3"
+    },
+    {
+      "file": "results/365/google__gemma-3-4b-it/stefan/llm_only_agentic.json",
+      "model": "google/gemma-3-4b-it",
+      "prompt": "stefan",
+      "configuration": "llm_only_agentic",
+      "records": 365,
+      "total_population": 365,
+      "missing": 0,
+      "categories": {
+        "technical_error": 266,
+        "unknown": 83,
+        "entailment": 15,
+        "neutral": 1
+      },
+      "sha256": "87ba414ff6172faeabd8aa7aebada83f00d4f19e12fdfd0235a9e1905ad4af92"
+    },
+    {
+      "file": "results/365/google__gemma-3-4b-it/stefan/wordnet_llm_one_shot.json",
+      "model": "google/gemma-3-4b-it",
+      "prompt": "stefan",
+      "configuration": "wordnet_llm_one_shot",
+      "records": 365,
+      "total_population": 365,
+      "missing": 0,
+      "categories": {
+        "technical_error": 211,
+        "unknown": 85,
+        "entailment": 65,
+        "neutral": 4
+      },
+      "sha256": "a7b0ce2d0ddbdf63a5f1f554a46a4d51afa1278bac87fd60653ce3755f659a0f"
+    },
+    {
+      "file": "results/365/google__gemma-3-4b-it/stefan/wordnet_llm_agentic.json",
+      "model": "google/gemma-3-4b-it",
+      "prompt": "stefan",
+      "configuration": "wordnet_llm_agentic",
+      "records": 365,
+      "total_population": 365,
+      "missing": 0,
+      "categories": {
+        "technical_error": 214,
+        "unknown": 85,
+        "entailment": 65,
+        "neutral": 1
+      },
+      "sha256": "a0db9ce9ad923f95f50776904040773550b85878d1a50c8bb5652e566b684674"
     }
   ],
   "additional_experiment_sources": [
@@ -1401,5 +1868,35 @@
     }
   },
   "layout_version": "organized-v1",
-  "path_map": "audit/path-map.json"
+  "path_map": "audit/path-map.json",
+  "data_supplements": {
+    "mini-haiku-365-20260915": {
+      "snapshot_utc": "2026-09-15T15:19:00.606335+00:00",
+      "models": [
+        "anthropic/claude-haiku-4.5",
+        "openai/gpt-5.4-mini"
+      ],
+      "configuration_files": 20,
+      "records": 7300,
+      "registered_additional_cost_usd": {
+        "anthropic/claude-haiku-4.5": 5.579929,
+        "openai/gpt-5.4-mini": 3.2932164
+      },
+      "reports_updated": true,
+      "note": "Completed-model data and summaries; all 365 IDs retained, including technical and inconsistent outcomes."
+    },
+    "gemma-365-20260915": {
+      "snapshot_utc": "2026-09-15T17:56:49.487893+00:00",
+      "models": [
+        "google/gemma-3-4b-it"
+      ],
+      "configuration_files": 10,
+      "records": 3650,
+      "registered_additional_cost_usd": {
+        "google/gemma-3-4b-it": 0.11319445
+      },
+      "reports_updated": true,
+      "note": "Completed-model data and summaries; all 365 IDs retained, including technical and inconsistent outcomes."
+    }
+  }
 }

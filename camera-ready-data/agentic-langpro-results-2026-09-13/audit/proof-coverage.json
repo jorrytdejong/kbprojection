@@ -219,6 +219,46 @@
       ]
     },
     {
+      "model": "anthropic/claude-haiku-4.5",
+      "prompt": "lex",
+      "population": 365,
+      "version": "recent-protocol",
+      "wordnet": 66,
+      "llm_one_shot": 93,
+      "llm_agentic": 113,
+      "llm_delta": 20,
+      "wordnet_llm_one_shot": 112,
+      "wordnet_llm_agentic": 129,
+      "wordnet_llm_delta": 17,
+      "sources": [
+        "results\\365\\anthropic__claude-haiku-4.5\\lex\\wordnet_only.json",
+        "results\\365\\anthropic__claude-haiku-4.5\\lex\\llm_only_one_shot.json",
+        "results\\365\\anthropic__claude-haiku-4.5\\lex\\llm_only_agentic.json",
+        "results\\365\\anthropic__claude-haiku-4.5\\lex\\wordnet_llm_one_shot.json",
+        "results\\365\\anthropic__claude-haiku-4.5\\lex\\wordnet_llm_agentic.json"
+      ]
+    },
+    {
+      "model": "anthropic/claude-haiku-4.5",
+      "prompt": "stefan",
+      "population": 365,
+      "version": "recent-protocol",
+      "wordnet": 66,
+      "llm_one_shot": 112,
+      "llm_agentic": 117,
+      "llm_delta": 5,
+      "wordnet_llm_one_shot": 127,
+      "wordnet_llm_agentic": 134,
+      "wordnet_llm_delta": 7,
+      "sources": [
+        "results\\365\\anthropic__claude-haiku-4.5\\stefan\\wordnet_only.json",
+        "results\\365\\anthropic__claude-haiku-4.5\\stefan\\llm_only_one_shot.json",
+        "results\\365\\anthropic__claude-haiku-4.5\\stefan\\llm_only_agentic.json",
+        "results\\365\\anthropic__claude-haiku-4.5\\stefan\\wordnet_llm_one_shot.json",
+        "results\\365\\anthropic__claude-haiku-4.5\\stefan\\wordnet_llm_agentic.json"
+      ]
+    },
+    {
       "model": "anthropic/claude-sonnet-4.5",
       "prompt": "lex",
       "population": 365,
@@ -339,6 +379,46 @@
       ]
     },
     {
+      "model": "google/gemma-3-4b-it",
+      "prompt": "lex",
+      "population": 365,
+      "version": "recent-protocol",
+      "wordnet": 66,
+      "llm_one_shot": 91,
+      "llm_agentic": 91,
+      "llm_delta": 0,
+      "wordnet_llm_one_shot": 111,
+      "wordnet_llm_agentic": 111,
+      "wordnet_llm_delta": 0,
+      "sources": [
+        "results\\365\\google__gemma-3-4b-it\\lex\\wordnet_only.json",
+        "results\\365\\google__gemma-3-4b-it\\lex\\llm_only_one_shot.json",
+        "results\\365\\google__gemma-3-4b-it\\lex\\llm_only_agentic.json",
+        "results\\365\\google__gemma-3-4b-it\\lex\\wordnet_llm_one_shot.json",
+        "results\\365\\google__gemma-3-4b-it\\lex\\wordnet_llm_agentic.json"
+      ]
+    },
+    {
+      "model": "google/gemma-3-4b-it",
+      "prompt": "stefan",
+      "population": 365,
+      "version": "recent-protocol",
+      "wordnet": 66,
+      "llm_one_shot": 16,
+      "llm_agentic": 16,
+      "llm_delta": 0,
+      "wordnet_llm_one_shot": 66,
+      "wordnet_llm_agentic": 66,
+      "wordnet_llm_delta": 0,
+      "sources": [
+        "results\\365\\google__gemma-3-4b-it\\stefan\\wordnet_only.json",
+        "results\\365\\google__gemma-3-4b-it\\stefan\\llm_only_one_shot.json",
+        "results\\365\\google__gemma-3-4b-it\\stefan\\llm_only_agentic.json",
+        "results\\365\\google__gemma-3-4b-it\\stefan\\wordnet_llm_one_shot.json",
+        "results\\365\\google__gemma-3-4b-it\\stefan\\wordnet_llm_agentic.json"
+      ]
+    },
+    {
       "model": "openai/gpt-5.4",
       "prompt": "lex",
       "population": 365,
@@ -376,6 +456,46 @@
         "results\\365\\openai__gpt-5.4\\stefan\\llm_only_agentic.json",
         "results\\365\\openai__gpt-5.4\\stefan\\wordnet_llm_one_shot.json",
         "results\\365\\openai__gpt-5.4\\stefan\\wordnet_llm_agentic.json"
+      ]
+    },
+    {
+      "model": "openai/gpt-5.4-mini",
+      "prompt": "lex",
+      "population": 365,
+      "version": "recent-protocol",
+      "wordnet": 66,
+      "llm_one_shot": 86,
+      "llm_agentic": 106,
+      "llm_delta": 20,
+      "wordnet_llm_one_shot": 108,
+      "wordnet_llm_agentic": 126,
+      "wordnet_llm_delta": 18,
+      "sources": [
+        "results\\365\\openai__gpt-5.4-mini\\lex\\wordnet_only.json",
+        "results\\365\\openai__gpt-5.4-mini\\lex\\llm_only_one_shot.json",
+        "results\\365\\openai__gpt-5.4-mini\\lex\\llm_only_agentic.json",
+        "results\\365\\openai__gpt-5.4-mini\\lex\\wordnet_llm_one_shot.json",
+        "results\\365\\openai__gpt-5.4-mini\\lex\\wordnet_llm_agentic.json"
+      ]
+    },
+    {
+      "model": "openai/gpt-5.4-mini",
+      "prompt": "stefan",
+      "population": 365,
+      "version": "recent-protocol",
+      "wordnet": 66,
+      "llm_one_shot": 112,
+      "llm_agentic": 114,
+      "llm_delta": 2,
+      "wordnet_llm_one_shot": 129,
+      "wordnet_llm_agentic": 131,
+      "wordnet_llm_delta": 2,
+      "sources": [
+        "results\\365\\openai__gpt-5.4-mini\\stefan\\wordnet_only.json",
+        "results\\365\\openai__gpt-5.4-mini\\stefan\\llm_only_one_shot.json",
+        "results\\365\\openai__gpt-5.4-mini\\stefan\\llm_only_agentic.json",
+        "results\\365\\openai__gpt-5.4-mini\\stefan\\wordnet_llm_one_shot.json",
+        "results\\365\\openai__gpt-5.4-mini\\stefan\\wordnet_llm_agentic.json"
       ]
     }
   ],
@@ -885,6 +1005,96 @@
       "unknown": 238
     },
     {
+      "model": "anthropic/claude-haiku-4.5",
+      "prompt": "lex",
+      "population": 365,
+      "configuration": "wordnet_only",
+      "llm_errors": 0,
+      "langpro_errors": 0,
+      "unknown": 85
+    },
+    {
+      "model": "anthropic/claude-haiku-4.5",
+      "prompt": "lex",
+      "population": 365,
+      "configuration": "llm_only_one_shot",
+      "llm_errors": 0,
+      "langpro_errors": 0,
+      "unknown": 97
+    },
+    {
+      "model": "anthropic/claude-haiku-4.5",
+      "prompt": "lex",
+      "population": 365,
+      "configuration": "llm_only_agentic",
+      "llm_errors": 0,
+      "langpro_errors": 0,
+      "unknown": 93
+    },
+    {
+      "model": "anthropic/claude-haiku-4.5",
+      "prompt": "lex",
+      "population": 365,
+      "configuration": "wordnet_llm_one_shot",
+      "llm_errors": 0,
+      "langpro_errors": 0,
+      "unknown": 95
+    },
+    {
+      "model": "anthropic/claude-haiku-4.5",
+      "prompt": "lex",
+      "population": 365,
+      "configuration": "wordnet_llm_agentic",
+      "llm_errors": 0,
+      "langpro_errors": 0,
+      "unknown": 91
+    },
+    {
+      "model": "anthropic/claude-haiku-4.5",
+      "prompt": "stefan",
+      "population": 365,
+      "configuration": "wordnet_only",
+      "llm_errors": 0,
+      "langpro_errors": 0,
+      "unknown": 85
+    },
+    {
+      "model": "anthropic/claude-haiku-4.5",
+      "prompt": "stefan",
+      "population": 365,
+      "configuration": "llm_only_one_shot",
+      "llm_errors": 0,
+      "langpro_errors": 0,
+      "unknown": 98
+    },
+    {
+      "model": "anthropic/claude-haiku-4.5",
+      "prompt": "stefan",
+      "population": 365,
+      "configuration": "llm_only_agentic",
+      "llm_errors": 0,
+      "langpro_errors": 0,
+      "unknown": 96
+    },
+    {
+      "model": "anthropic/claude-haiku-4.5",
+      "prompt": "stefan",
+      "population": 365,
+      "configuration": "wordnet_llm_one_shot",
+      "llm_errors": 0,
+      "langpro_errors": 0,
+      "unknown": 95
+    },
+    {
+      "model": "anthropic/claude-haiku-4.5",
+      "prompt": "stefan",
+      "population": 365,
+      "configuration": "wordnet_llm_agentic",
+      "llm_errors": 0,
+      "langpro_errors": 0,
+      "unknown": 93
+    },
+    {
       "model": "anthropic/claude-sonnet-4.5",
       "prompt": "lex",
       "population": 365,
@@ -1155,6 +1365,96 @@
       "unknown": 101
     },
     {
+      "model": "google/gemma-3-4b-it",
+      "prompt": "lex",
+      "population": 365,
+      "configuration": "wordnet_only",
+      "llm_errors": 0,
+      "langpro_errors": 0,
+      "unknown": 85
+    },
+    {
+      "model": "google/gemma-3-4b-it",
+      "prompt": "lex",
+      "population": 365,
+      "configuration": "llm_only_one_shot",
+      "llm_errors": 20,
+      "langpro_errors": 0,
+      "unknown": 92
+    },
+    {
+      "model": "google/gemma-3-4b-it",
+      "prompt": "lex",
+      "population": 365,
+      "configuration": "llm_only_agentic",
+      "llm_errors": 191,
+      "langpro_errors": 0,
+      "unknown": 83
+    },
+    {
+      "model": "google/gemma-3-4b-it",
+      "prompt": "lex",
+      "population": 365,
+      "configuration": "wordnet_llm_one_shot",
+      "llm_errors": 17,
+      "langpro_errors": 0,
+      "unknown": 90
+    },
+    {
+      "model": "google/gemma-3-4b-it",
+      "prompt": "lex",
+      "population": 365,
+      "configuration": "wordnet_llm_agentic",
+      "llm_errors": 169,
+      "langpro_errors": 0,
+      "unknown": 85
+    },
+    {
+      "model": "google/gemma-3-4b-it",
+      "prompt": "stefan",
+      "population": 365,
+      "configuration": "wordnet_only",
+      "llm_errors": 0,
+      "langpro_errors": 0,
+      "unknown": 85
+    },
+    {
+      "model": "google/gemma-3-4b-it",
+      "prompt": "stefan",
+      "population": 365,
+      "configuration": "llm_only_one_shot",
+      "llm_errors": 262,
+      "langpro_errors": 0,
+      "unknown": 83
+    },
+    {
+      "model": "google/gemma-3-4b-it",
+      "prompt": "stefan",
+      "population": 365,
+      "configuration": "llm_only_agentic",
+      "llm_errors": 266,
+      "langpro_errors": 0,
+      "unknown": 83
+    },
+    {
+      "model": "google/gemma-3-4b-it",
+      "prompt": "stefan",
+      "population": 365,
+      "configuration": "wordnet_llm_one_shot",
+      "llm_errors": 211,
+      "langpro_errors": 0,
+      "unknown": 85
+    },
+    {
+      "model": "google/gemma-3-4b-it",
+      "prompt": "stefan",
+      "population": 365,
+      "configuration": "wordnet_llm_agentic",
+      "llm_errors": 214,
+      "langpro_errors": 0,
+      "unknown": 85
+    },
+    {
       "model": "openai/gpt-5.4",
       "prompt": "lex",
       "population": 365,
@@ -1243,6 +1543,96 @@
       "llm_errors": 0,
       "langpro_errors": 0,
       "unknown": 94
+    },
+    {
+      "model": "openai/gpt-5.4-mini",
+      "prompt": "lex",
+      "population": 365,
+      "configuration": "wordnet_only",
+      "llm_errors": 0,
+      "langpro_errors": 0,
+      "unknown": 85
+    },
+    {
+      "model": "openai/gpt-5.4-mini",
+      "prompt": "lex",
+      "population": 365,
+      "configuration": "llm_only_one_shot",
+      "llm_errors": 17,
+      "langpro_errors": 0,
+      "unknown": 93
+    },
+    {
+      "model": "openai/gpt-5.4-mini",
+      "prompt": "lex",
+      "population": 365,
+      "configuration": "llm_only_agentic",
+      "llm_errors": 17,
+      "langpro_errors": 0,
+      "unknown": 93
+    },
+    {
+      "model": "openai/gpt-5.4-mini",
+      "prompt": "lex",
+      "population": 365,
+      "configuration": "wordnet_llm_one_shot",
+      "llm_errors": 15,
+      "langpro_errors": 0,
+      "unknown": 92
+    },
+    {
+      "model": "openai/gpt-5.4-mini",
+      "prompt": "lex",
+      "population": 365,
+      "configuration": "wordnet_llm_agentic",
+      "llm_errors": 15,
+      "langpro_errors": 0,
+      "unknown": 93
+    },
+    {
+      "model": "openai/gpt-5.4-mini",
+      "prompt": "stefan",
+      "population": 365,
+      "configuration": "wordnet_only",
+      "llm_errors": 0,
+      "langpro_errors": 0,
+      "unknown": 85
+    },
+    {
+      "model": "openai/gpt-5.4-mini",
+      "prompt": "stefan",
+      "population": 365,
+      "configuration": "llm_only_one_shot",
+      "llm_errors": 12,
+      "langpro_errors": 0,
+      "unknown": 95
+    },
+    {
+      "model": "openai/gpt-5.4-mini",
+      "prompt": "stefan",
+      "population": 365,
+      "configuration": "llm_only_agentic",
+      "llm_errors": 12,
+      "langpro_errors": 0,
+      "unknown": 93
+    },
+    {
+      "model": "openai/gpt-5.4-mini",
+      "prompt": "stefan",
+      "population": 365,
+      "configuration": "wordnet_llm_one_shot",
+      "llm_errors": 9,
+      "langpro_errors": 0,
+      "unknown": 94
+    },
+    {
+      "model": "openai/gpt-5.4-mini",
+      "prompt": "stefan",
+      "population": 365,
+      "configuration": "wordnet_llm_agentic",
+      "llm_errors": 9,
+      "langpro_errors": 0,
+      "unknown": 95
     }
   ],
   "checks": {
@@ -1250,6 +1640,8 @@
     "same_ids_across_1000_exports_including_gemini": true,
     "solved_equals_gold_label_agreement": true,
     "current_counts_match_final_metrics": true,
+    "existing_report_counts_match_metrics": true,
+    "data_only_configurations_without_report_metrics": [],
     "labels_1000": {
       "entailment": 1000
     },
