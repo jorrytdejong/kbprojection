@@ -1,0 +1,767 @@
+{
+  "schema_version": 1,
+  "model": "google/gemini-3.1-flash-lite",
+  "prompt_variant": "stefan",
+  "comparison": {
+    "unsolved_configuration": "llm_only_one_shot",
+    "solved_configuration": "llm_only_agentic",
+    "selection": "unsolved in the first configuration and solved in the second"
+  },
+  "source_files": [
+    "results/1000/google__gemini-3.1-flash-lite/stefan/llm_only_one_shot.json",
+    "results/1000/google__gemini-3.1-flash-lite/stefan/llm_only_agentic.json"
+  ],
+  "example_count": 15,
+  "examples": [
+    {
+      "problem_id": "1357753846.jpg#1r1e",
+      "premise": "A black dog is walking through a stream of water.",
+      "hypothesis": "An animal is walking through water.",
+      "gold_label": "entailment",
+      "unsolved_system": {
+        "configuration": "llm_only_one_shot",
+        "prediction": "neutral",
+        "correct": false,
+        "final_kb": [
+          "isa_wn(dog, animal)"
+        ],
+        "kb_attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(dog, animal)"
+            ],
+            "prediction": "neutral"
+          }
+        ]
+      },
+      "solved_system": {
+        "configuration": "llm_only_agentic",
+        "prediction": "entailment",
+        "correct": true,
+        "final_kb": [
+          "isa_wn(black dog, animal)",
+          "isa_wn(stream, water)"
+        ],
+        "kb_attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(dog, animal)"
+            ],
+            "prediction": "neutral"
+          },
+          {
+            "attempt": 2,
+            "kb": [
+              "isa_wn(black dog, animal)",
+              "isa_wn(stream, water)"
+            ],
+            "prediction": "entailment"
+          }
+        ]
+      }
+    },
+    {
+      "problem_id": "2282600972.jpg#2r1e",
+      "premise": "Two skiers stand near a snowy mountain.",
+      "hypothesis": "Some humans standing.",
+      "gold_label": "entailment",
+      "unsolved_system": {
+        "configuration": "llm_only_one_shot",
+        "prediction": "neutral",
+        "correct": false,
+        "final_kb": [
+          "isa_wn(skier, human)"
+        ],
+        "kb_attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(skier, human)"
+            ],
+            "prediction": "neutral"
+          }
+        ]
+      },
+      "solved_system": {
+        "configuration": "llm_only_agentic",
+        "prediction": "entailment",
+        "correct": true,
+        "final_kb": [
+          "isa_wn(skier, human)",
+          "isa_wn(stand, standing)",
+          "isa_wn(standing, stand)"
+        ],
+        "kb_attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(skier, human)"
+            ],
+            "prediction": "neutral"
+          },
+          {
+            "attempt": 2,
+            "kb": [
+              "isa_wn(skier, human)",
+              "isa_wn(stand, standing)",
+              "isa_wn(standing, stand)"
+            ],
+            "prediction": "entailment"
+          }
+        ]
+      }
+    },
+    {
+      "problem_id": "2463067409.jpg#1r1e",
+      "premise": "The gray dog is jumping through the grass with water in the background.",
+      "hypothesis": "the dog is grey",
+      "gold_label": "entailment",
+      "unsolved_system": {
+        "configuration": "llm_only_one_shot",
+        "prediction": "neutral",
+        "correct": false,
+        "final_kb": [],
+        "kb_attempts": []
+      },
+      "solved_system": {
+        "configuration": "llm_only_agentic",
+        "prediction": "entailment",
+        "correct": true,
+        "final_kb": [
+          "isa_wn(gray, grey)"
+        ],
+        "kb_attempts": [
+          {
+            "attempt": 2,
+            "kb": [
+              "isa_wn(gray, grey)"
+            ],
+            "prediction": "entailment"
+          }
+        ]
+      }
+    },
+    {
+      "problem_id": "254527963.jpg#1r1e",
+      "premise": "A black dog is running along the beach.",
+      "hypothesis": "a dog is running on the beach",
+      "gold_label": "entailment",
+      "unsolved_system": {
+        "configuration": "llm_only_one_shot",
+        "prediction": "neutral",
+        "correct": false,
+        "final_kb": [],
+        "kb_attempts": []
+      },
+      "solved_system": {
+        "configuration": "llm_only_agentic",
+        "prediction": "entailment",
+        "correct": true,
+        "final_kb": [
+          "isa_wn(black dog, dog)",
+          "isa_wn(running along, running on)",
+          "isa_wn(run along, run on)",
+          "isa_wn(along, on)"
+        ],
+        "kb_attempts": [
+          {
+            "attempt": 2,
+            "kb": [
+              "isa_wn(black dog, dog)",
+              "isa_wn(running along, running on)",
+              "isa_wn(run along, run on)",
+              "isa_wn(along, on)"
+            ],
+            "prediction": "entailment"
+          }
+        ]
+      }
+    },
+    {
+      "problem_id": "2740013516.jpg#4r1e",
+      "premise": "Safety officers standing outside.",
+      "hypothesis": "Safety officers outdoors.",
+      "gold_label": "entailment",
+      "unsolved_system": {
+        "configuration": "llm_only_one_shot",
+        "prediction": "neutral",
+        "correct": false,
+        "final_kb": [
+          "isa_wn(outside, outdoors)"
+        ],
+        "kb_attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(outside, outdoors)"
+            ],
+            "prediction": "neutral"
+          }
+        ]
+      },
+      "solved_system": {
+        "configuration": "llm_only_agentic",
+        "prediction": "entailment",
+        "correct": true,
+        "final_kb": [
+          "isa_wn(standing outside, outdoors)",
+          "isa_wn(stand outside, outdoors)"
+        ],
+        "kb_attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(outside, outdoors)"
+            ],
+            "prediction": "neutral"
+          },
+          {
+            "attempt": 2,
+            "kb": [
+              "isa_wn(standing outside, outdoors)",
+              "isa_wn(stand outside, outdoors)"
+            ],
+            "prediction": "entailment"
+          }
+        ]
+      }
+    },
+    {
+      "problem_id": "2921806371.jpg#1r1e",
+      "premise": "A man wearing glasses and a coat and checkered scarf is holding a book, saying something.",
+      "hypothesis": "A man is reading.",
+      "gold_label": "entailment",
+      "unsolved_system": {
+        "configuration": "llm_only_one_shot",
+        "prediction": "neutral",
+        "correct": false,
+        "final_kb": [
+          "isa_wn(hold book, read)"
+        ],
+        "kb_attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(hold book, read)"
+            ],
+            "prediction": "neutral"
+          }
+        ]
+      },
+      "solved_system": {
+        "configuration": "llm_only_agentic",
+        "prediction": "entailment",
+        "correct": true,
+        "final_kb": [
+          "isa_wn(hold, read)"
+        ],
+        "kb_attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(hold book, read)"
+            ],
+            "prediction": "neutral"
+          },
+          {
+            "attempt": 2,
+            "kb": [
+              "isa_wn(hold, read)"
+            ],
+            "prediction": "entailment"
+          }
+        ]
+      }
+    },
+    {
+      "problem_id": "3419634480.jpg#0r1e",
+      "premise": "A black dog runs in the grass, its tongue hanging out.",
+      "hypothesis": "The dog is outdoors.",
+      "gold_label": "entailment",
+      "unsolved_system": {
+        "configuration": "llm_only_one_shot",
+        "prediction": "neutral",
+        "correct": false,
+        "final_kb": [
+          "isa_wn(grass, outdoors)"
+        ],
+        "kb_attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(grass, outdoors)"
+            ],
+            "prediction": "neutral"
+          }
+        ]
+      },
+      "solved_system": {
+        "configuration": "llm_only_agentic",
+        "prediction": "entailment",
+        "correct": true,
+        "final_kb": [
+          "isa_wn(grass, outdoors)",
+          "isa_wn(run, outdoors)"
+        ],
+        "kb_attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(grass, outdoors)"
+            ],
+            "prediction": "neutral"
+          },
+          {
+            "attempt": 2,
+            "kb": [
+              "isa_wn(grass, outdoors)",
+              "isa_wn(run, outdoors)"
+            ],
+            "prediction": "entailment"
+          }
+        ]
+      }
+    },
+    {
+      "problem_id": "3522349685.jpg#0r1e",
+      "premise": "A little girl is petting her white, fluffy cat.",
+      "hypothesis": "The girl has a pet.",
+      "gold_label": "entailment",
+      "unsolved_system": {
+        "configuration": "llm_only_one_shot",
+        "prediction": "neutral",
+        "correct": false,
+        "final_kb": [
+          "isa_wn(little girl, girl)",
+          "isa_wn(cat, pet)"
+        ],
+        "kb_attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(little girl, girl)",
+              "isa_wn(cat, pet)"
+            ],
+            "prediction": "neutral"
+          }
+        ]
+      },
+      "solved_system": {
+        "configuration": "llm_only_agentic",
+        "prediction": "entailment",
+        "correct": true,
+        "final_kb": [
+          "isa_wn(little girl, girl)",
+          "isa_wn(petting, having)",
+          "isa_wn(pet, have)",
+          "isa_wn(cat, pet)"
+        ],
+        "kb_attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(little girl, girl)",
+              "isa_wn(cat, pet)"
+            ],
+            "prediction": "neutral"
+          },
+          {
+            "attempt": 2,
+            "kb": [
+              "isa_wn(little girl, girl)",
+              "isa_wn(petting, having)",
+              "isa_wn(pet, have)",
+              "isa_wn(cat, pet)"
+            ],
+            "prediction": "entailment"
+          }
+        ]
+      }
+    },
+    {
+      "problem_id": "3706356018.jpg#4r1e",
+      "premise": "Little kids are on an amusement park ride.",
+      "hypothesis": "Children are on a ride.",
+      "gold_label": "entailment",
+      "unsolved_system": {
+        "configuration": "llm_only_one_shot",
+        "prediction": "neutral",
+        "correct": false,
+        "final_kb": [
+          "isa_wn(little kid, child)"
+        ],
+        "kb_attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(little kid, child)"
+            ],
+            "prediction": "neutral"
+          }
+        ]
+      },
+      "solved_system": {
+        "configuration": "llm_only_agentic",
+        "prediction": "entailment",
+        "correct": true,
+        "final_kb": [
+          "isa_wn(little kids, children)",
+          "isa_wn(little kid, children)",
+          "isa_wn(amusement park ride, ride)"
+        ],
+        "kb_attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(little kid, child)"
+            ],
+            "prediction": "neutral"
+          },
+          {
+            "attempt": 2,
+            "kb": [
+              "isa_wn(little kids, children)",
+              "isa_wn(little kid, children)",
+              "isa_wn(amusement park ride, ride)"
+            ],
+            "prediction": "entailment"
+          }
+        ]
+      }
+    },
+    {
+      "problem_id": "380034515.jpg#1r1e",
+      "premise": "Flowers are behind the fluffy dog that is coming up the step.",
+      "hypothesis": "A dog is going up stairs.",
+      "gold_label": "entailment",
+      "unsolved_system": {
+        "configuration": "llm_only_one_shot",
+        "prediction": "neutral",
+        "correct": false,
+        "final_kb": [
+          "isa_wn(fluffy dog, dog)",
+          "isa_wn(come up, go up)",
+          "isa_wn(come, go)",
+          "isa_wn(step, stairs)"
+        ],
+        "kb_attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(fluffy dog, dog)",
+              "isa_wn(come up, go up)",
+              "isa_wn(come, go)",
+              "isa_wn(step, stairs)"
+            ],
+            "prediction": "neutral"
+          }
+        ]
+      },
+      "solved_system": {
+        "configuration": "llm_only_agentic",
+        "prediction": "entailment",
+        "correct": true,
+        "final_kb": [
+          "isa_wn(fluffy dog, dog)",
+          "isa_wn(come up, go up)",
+          "isa_wn(come, go)",
+          "isa_wn(step, stair)",
+          "isa_wn(dog coming up step, dog going up stairs)",
+          "isa_wn(dog come up step, dog go up stairs)",
+          "isa_wn(coming step, going stairs)"
+        ],
+        "kb_attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(fluffy dog, dog)",
+              "isa_wn(come up, go up)",
+              "isa_wn(come, go)",
+              "isa_wn(step, stairs)"
+            ],
+            "prediction": "neutral"
+          },
+          {
+            "attempt": 2,
+            "kb": [
+              "isa_wn(fluffy dog, dog)",
+              "isa_wn(come up, go up)",
+              "isa_wn(come, go)",
+              "isa_wn(step, stair)",
+              "isa_wn(dog coming up step, dog going up stairs)",
+              "isa_wn(dog come up step, dog go up stairs)",
+              "isa_wn(coming step, going stairs)"
+            ],
+            "prediction": "entailment"
+          }
+        ]
+      }
+    },
+    {
+      "problem_id": "4886064645.jpg#2r1e",
+      "premise": "A man in a blue jacket and white hat poses with an old fashioned camera.",
+      "hypothesis": "A man is holding a camera.",
+      "gold_label": "entailment",
+      "unsolved_system": {
+        "configuration": "llm_only_one_shot",
+        "prediction": "neutral",
+        "correct": false,
+        "final_kb": [
+          "isa_wn(poses with, hold)",
+          "isa_wn(pose with, hold)"
+        ],
+        "kb_attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(poses with, hold)",
+              "isa_wn(pose with, hold)"
+            ],
+            "prediction": "neutral"
+          }
+        ]
+      },
+      "solved_system": {
+        "configuration": "llm_only_agentic",
+        "prediction": "entailment",
+        "correct": true,
+        "final_kb": [
+          "isa_wn(pose, hold)"
+        ],
+        "kb_attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(poses with, hold)",
+              "isa_wn(pose with, hold)"
+            ],
+            "prediction": "neutral"
+          },
+          {
+            "attempt": 2,
+            "kb": [
+              "isa_wn(pose, hold)"
+            ],
+            "prediction": "entailment"
+          }
+        ]
+      }
+    },
+    {
+      "problem_id": "4981040278.jpg#4r1e",
+      "premise": "A guy kneeling down in front of a desk.",
+      "hypothesis": "A man bending down in front of a piece of furniture.",
+      "gold_label": "entailment",
+      "unsolved_system": {
+        "configuration": "llm_only_one_shot",
+        "prediction": "neutral",
+        "correct": false,
+        "final_kb": [
+          "isa_wn(guy, man)",
+          "isa_wn(kneel down, bend down)",
+          "isa_wn(kneel, bend)",
+          "isa_wn(desk, piece of furniture)"
+        ],
+        "kb_attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(guy, man)",
+              "isa_wn(kneel down, bend down)",
+              "isa_wn(kneel, bend)",
+              "isa_wn(desk, piece of furniture)"
+            ],
+            "prediction": "neutral"
+          }
+        ]
+      },
+      "solved_system": {
+        "configuration": "llm_only_agentic",
+        "prediction": "entailment",
+        "correct": true,
+        "final_kb": [
+          "isa_wn(guy, man)",
+          "isa_wn(kneel, bend)",
+          "isa_wn(desk, furniture)"
+        ],
+        "kb_attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(guy, man)",
+              "isa_wn(kneel down, bend down)",
+              "isa_wn(kneel, bend)",
+              "isa_wn(desk, piece of furniture)"
+            ],
+            "prediction": "neutral"
+          },
+          {
+            "attempt": 2,
+            "kb": [
+              "isa_wn(guy, man)",
+              "isa_wn(kneel, bend)",
+              "isa_wn(desk, furniture)"
+            ],
+            "prediction": "entailment"
+          }
+        ]
+      }
+    },
+    {
+      "problem_id": "566446626.jpg#0r1e",
+      "premise": "A girl in a green shirt hangs upside down from playgroud equiment.",
+      "hypothesis": "A girl is playing.",
+      "gold_label": "entailment",
+      "unsolved_system": {
+        "configuration": "llm_only_one_shot",
+        "prediction": "neutral",
+        "correct": false,
+        "final_kb": [
+          "isa_wn(hang upside down, play)"
+        ],
+        "kb_attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(hang upside down, play)"
+            ],
+            "prediction": "neutral"
+          }
+        ]
+      },
+      "solved_system": {
+        "configuration": "llm_only_agentic",
+        "prediction": "entailment",
+        "correct": true,
+        "final_kb": [
+          "isa_wn(hang, play)"
+        ],
+        "kb_attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(hang upside down, play)"
+            ],
+            "prediction": "neutral"
+          },
+          {
+            "attempt": 2,
+            "kb": [
+              "isa_wn(hang, play)"
+            ],
+            "prediction": "entailment"
+          }
+        ]
+      }
+    },
+    {
+      "problem_id": "86124605.jpg#0r1e",
+      "premise": "An asian lady in a brown shirt with glasses is making some food.",
+      "hypothesis": "A woman is cooking",
+      "gold_label": "entailment",
+      "unsolved_system": {
+        "configuration": "llm_only_one_shot",
+        "prediction": "neutral",
+        "correct": false,
+        "final_kb": [
+          "isa_wn(asian lady, woman)",
+          "isa_wn(make food, cook)"
+        ],
+        "kb_attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(asian lady, woman)",
+              "isa_wn(make food, cook)"
+            ],
+            "prediction": "neutral"
+          }
+        ]
+      },
+      "solved_system": {
+        "configuration": "llm_only_agentic",
+        "prediction": "entailment",
+        "correct": true,
+        "final_kb": [
+          "isa_wn(lady, woman)",
+          "isa_wn(making, cooking)",
+          "isa_wn(make, cook)"
+        ],
+        "kb_attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(asian lady, woman)",
+              "isa_wn(make food, cook)"
+            ],
+            "prediction": "neutral"
+          },
+          {
+            "attempt": 2,
+            "kb": [
+              "isa_wn(lady, woman)",
+              "isa_wn(making, cooking)",
+              "isa_wn(make, cook)"
+            ],
+            "prediction": "entailment"
+          }
+        ]
+      }
+    },
+    {
+      "problem_id": "vg_verb119r2e",
+      "premise": "Adjusting a tie for accuracy.",
+      "hypothesis": "Fixing a tie.",
+      "gold_label": "entailment",
+      "unsolved_system": {
+        "configuration": "llm_only_one_shot",
+        "prediction": "neutral",
+        "correct": false,
+        "final_kb": [
+          "isa_wn(adjust, fix)"
+        ],
+        "kb_attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(adjust, fix)"
+            ],
+            "prediction": "neutral"
+          }
+        ]
+      },
+      "solved_system": {
+        "configuration": "llm_only_agentic",
+        "prediction": "entailment",
+        "correct": true,
+        "final_kb": [
+          "isa_wn(adjusting, fixing)",
+          "isa_wn(adjust, fix)",
+          "isa_wn(adjusting for accuracy, fixing)",
+          "isa_wn(adjust for accuracy, fix)"
+        ],
+        "kb_attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(adjust, fix)"
+            ],
+            "prediction": "neutral"
+          },
+          {
+            "attempt": 2,
+            "kb": [
+              "isa_wn(adjusting, fixing)",
+              "isa_wn(adjust, fix)",
+              "isa_wn(adjusting for accuracy, fixing)",
+              "isa_wn(adjust for accuracy, fix)"
+            ],
+            "prediction": "entailment"
+          }
+        ]
+      }
+    }
+  ]
+}
