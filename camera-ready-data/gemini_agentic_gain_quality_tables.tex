@@ -1,0 +1,60 @@
+% LaTeX appendix tables for Gemini 3.1 Flash-Lite agentic gains.
+% Preliminary counts: +14 = 0 good, 0 mixed, 14 poor;
+% +15 = 2 good, 2 mixed, 11 poor.
+
+\begin{table*}[t]
+\centering
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabularx}{\textwidth}{@{}p{0.70\textwidth}p{0.25\textwidth}@{}}
+\toprule
+Problem ID and added relations & Judgment \\
+\midrule
+\texttt{2282600972}: \texttt{stand} $\sqsubseteq$ \texttt{standing}; \texttt{standing} $\sqsubseteq$ \texttt{stand} & Poor---morphological \\
+\texttt{254527963}: \texttt{black dog} $\sqsubseteq$ \texttt{dog}; \texttt{running along} $\sqsubseteq$ \texttt{running on}; \texttt{run along} $\sqsubseteq$ \texttt{run on}; \texttt{along} $\sqsubseteq$ \texttt{on} & Poor---modifier dropping and context-dependent \\
+\texttt{2740013516}: \texttt{standing outside} $\sqsubseteq$ \texttt{outdoors}; \texttt{stand outside} $\sqsubseteq$ \texttt{outdoors} & Poor---context-dependent \\
+\texttt{2930616480}: \texttt{wear} $\sqsubseteq$ \texttt{with}; \texttt{have} $\sqsubseteq$ \texttt{with} & Poor---prover-specific shortcuts \\
+\texttt{3197194113}: \texttt{swallow} $\sqsubseteq$ \texttt{perform} & Poor---context-dependent \\
+\texttt{3522349685}: \texttt{little girl} $\sqsubseteq$ \texttt{girl}; \texttt{petting} $\sqsubseteq$ \texttt{has}; \texttt{pet} $\sqsubseteq$ \texttt{have} & Poor---modifier dropping and context-dependent \\
+\texttt{3706356018}: \texttt{little kids} $\sqsubseteq$ \texttt{children}; \texttt{little kid} $\sqsubseteq$ \texttt{children}; \texttt{amusement park ride} $\sqsubseteq$ \texttt{ride} & Poor---inflection and modifier dropping \\
+\texttt{3709301369}: \texttt{in} $\sqsubseteq$ \texttt{wearing}; \texttt{in} $\sqsubseteq$ \texttt{wear} & Poor---context-dependent \\
+\texttt{4151285133}: \texttt{on} $\sqsubseteq$ \texttt{in}; \texttt{mirror on the wall} $\sqsubseteq$ \texttt{mirror} & Poor---preposition substitution and modifier dropping \\
+\texttt{470458461}: \texttt{push} $\sqsubseteq$ \texttt{have} & Poor---pushing does not entail possession \\
+\texttt{856985136}: \texttt{put into} $\sqsubseteq$ \texttt{dip into}; \texttt{put} $\sqsubseteq$ \texttt{dip} & Poor---context-dependent \\
+\texttt{vg\_len95r3e}: \texttt{tennis player} $\sqsubseteq$ \texttt{tennis playing}; \texttt{tennis player} $\sqsubseteq$ \texttt{tennis play}; \texttt{player} $\sqsubseteq$ \texttt{playing} & Poor---category mismatch \\
+\texttt{vg\_verb119r2e}: \texttt{adjusting} $\sqsubseteq$ \texttt{fixing}; \texttt{adjusting for accuracy} $\sqsubseteq$ \texttt{fixing}; \texttt{adjust for accuracy} $\sqsubseteq$ \texttt{fix} & Poor---morphological/context-dependent duplicates \\
+\texttt{vg\_verb51r3e}: \texttt{grasp} $\sqsubseteq$ \texttt{rest} & Poor---semantically incorrect \\
+\bottomrule
+\end{tabularx}
+\caption{Preliminary quality judgments for the 14 additional problems obtained by WordNet + LLM agentic refinement over the one-shot setting. We judge 0 cases clearly good, 0 mixed, and 14 poor.}
+\label{tab:gemini-agentic-quality-plus14}
+\end{table*}
+
+\begin{table*}[t]
+\centering
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabularx}{\textwidth}{@{}p{0.70\textwidth}p{0.25\textwidth}@{}}
+\toprule
+Problem ID and added relations & Judgment \\
+\midrule
+\texttt{1357753846}: \texttt{black dog} $\sqsubseteq$ \texttt{animal}; \texttt{stream} $\sqsubseteq$ \texttt{water} & Mixed---one good relation, one modifier-dropping relation \\
+\texttt{2282600972}: \texttt{stand} $\sqsubseteq$ \texttt{standing}; \texttt{standing} $\sqsubseteq$ \texttt{stand} & Poor---morphological \\
+\texttt{254527963}: \texttt{black dog} $\sqsubseteq$ \texttt{dog}; \texttt{running along} $\sqsubseteq$ \texttt{running on}; \texttt{run along} $\sqsubseteq$ \texttt{run on}; \texttt{along} $\sqsubseteq$ \texttt{on} & Poor---modifier dropping and context-dependent \\
+\texttt{2549933281}: \texttt{woman} $\sqsubseteq$ \texttt{women}; \texttt{women} $\sqsubseteq$ \texttt{woman}; \texttt{in} $\sqsubseteq$ \texttt{wear}; \texttt{floral wedding dress} $\sqsubseteq$ \texttt{wedding dress}; \texttt{floral wed dress} $\sqsubseteq$ \texttt{wed dress} & Poor---inflection, modifier dropping, and malformed relations \\
+\texttt{2688731661}: \texttt{lady} $\sqsubseteq$ \texttt{woman} & Good---generally valid lexical entailment \\
+\texttt{2740013516}: \texttt{standing outside} $\sqsubseteq$ \texttt{outdoors}; \texttt{stand outside} $\sqsubseteq$ \texttt{outdoors} & Poor---context-dependent \\
+\texttt{3197194113}: \texttt{swallowing} $\sqsubseteq$ \texttt{performing}; \texttt{swallow} $\sqsubseteq$ \texttt{perform} & Poor---context-dependent \\
+\texttt{3419634480}: \texttt{run} $\sqsubseteq$ \texttt{outdoors} & Poor---running does not entail being outdoors \\
+\texttt{3522349685}: \texttt{petting} $\sqsubseteq$ \texttt{having}; \texttt{pet} $\sqsubseteq$ \texttt{have} & Poor---context-dependent shortcuts \\
+\texttt{3706356018}: \texttt{little kids} $\sqsubseteq$ \texttt{children}; \texttt{little kid} $\sqsubseteq$ \texttt{children}; \texttt{amusement park ride} $\sqsubseteq$ \texttt{ride} & Poor---inflection and modifier dropping \\
+\texttt{470458461}: \texttt{push} $\sqsubseteq$ \texttt{have} & Poor---prover-specific shortcut \\
+\texttt{4981040278}: \texttt{desk} $\sqsubseteq$ \texttt{furniture} & Good refinement---valid, although the one-shot relation was already semantically good \\
+\texttt{86124605}: \texttt{lady} $\sqsubseteq$ \texttt{woman}; \texttt{making} $\sqsubseteq$ \texttt{cooking}; \texttt{make} $\sqsubseteq$ \texttt{cook} & Mixed---one good relation, other relations morphological or context-dependent \\
+\texttt{vg\_verb119r2e}: \texttt{adjusting} $\sqsubseteq$ \texttt{fixing}; \texttt{adjusting for accuracy} $\sqsubseteq$ \texttt{fixing}; \texttt{adjust for accuracy} $\sqsubseteq$ \texttt{fix} & Poor---morphological/context-dependent duplicates \\
+\texttt{vg\_verb51r3e}: \texttt{grasp} $\sqsubseteq$ \texttt{rest} & Poor---semantically incorrect \\
+\bottomrule
+\end{tabularx}
+\caption{Preliminary quality judgments for the 15 additional problems obtained by LLM-only agentic refinement over the one-shot setting. We judge 2 cases clearly good, 2 mixed, and 11 poor.}
+\label{tab:gemini-agentic-quality-plus15}
+\end{table*}
