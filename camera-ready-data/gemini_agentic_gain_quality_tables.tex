@@ -7,6 +7,7 @@
 \small
 \setlength{\tabcolsep}{4pt}
 \begin{tabularx}{\textwidth}{@{}p{0.70\textwidth}p{0.25\textwidth}@{}}
+\everycr{\noalign{\smallskip\midrule}}
 \toprule
 Problem ID and added relations & Judgment \\
 \midrule
@@ -26,7 +27,7 @@ Problem ID and added relations & Judgment \\
 \texttt{vg\_verb51r3e}: \texttt{grasp} $\sqsubseteq$ \texttt{rest} & Poor---semantically incorrect \\
 \bottomrule
 \end{tabularx}
-\caption{Preliminary quality judgments for the 14 additional problems obtained by WordNet + LLM agentic refinement over the one-shot setting. We judge 0 cases clearly good, 0 mixed, and 14 poor.}
+\caption{Preliminary quality judgments for the 14 additional problems obtained by $\mathrm{LLM}^{\mathrm{WN}}_{a}$ agentic refinement over $\mathrm{LLM}^{\mathrm{WN}}_{1}$. We judge 0 cases clearly good, 0 mixed, and 14 poor.}
 \label{tab:gemini-agentic-quality-plus14}
 \end{table*}
 
@@ -35,6 +36,7 @@ Problem ID and added relations & Judgment \\
 \small
 \setlength{\tabcolsep}{4pt}
 \begin{tabularx}{\textwidth}{@{}p{0.70\textwidth}p{0.25\textwidth}@{}}
+\everycr{\noalign{\smallskip\midrule}}
 \toprule
 Problem ID and added relations & Judgment \\
 \midrule
@@ -55,6 +57,6 @@ Problem ID and added relations & Judgment \\
 \texttt{vg\_verb51r3e}: \texttt{grasp} $\sqsubseteq$ \texttt{rest} & Poor---semantically incorrect \\
 \bottomrule
 \end{tabularx}
-\caption{Preliminary quality judgments for the 15 additional problems obtained by LLM-only agentic refinement over the one-shot setting. We judge 2 cases clearly good, 2 mixed, and 11 poor.}
+\caption{Preliminary quality judgments for the 15 additional problems obtained by $\mathrm{LLM}_{a}$ agentic refinement over $\mathrm{LLM}_{1}$. We judge 2 cases clearly good, 2 mixed, and 11 poor.}
 \label{tab:gemini-agentic-quality-plus15}
 \end{table*}
