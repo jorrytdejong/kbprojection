@@ -1,0 +1,701 @@
+{
+  "schema_version": 1,
+  "model": "google/gemini-3.1-flash-lite",
+  "prompt_variant": "lex",
+  "comparison": {
+    "unsolved_configuration": "wordnet_llm_one_shot",
+    "solved_configuration": "wordnet_llm_agentic",
+    "selection": "unsolved in the first configuration and solved in the second"
+  },
+  "source_files": [
+    "results/1000/google__gemini-3.1-flash-lite/lex/wordnet_llm_one_shot.json",
+    "results/1000/google__gemini-3.1-flash-lite/lex/wordnet_llm_agentic.json"
+  ],
+  "example_count": 14,
+  "examples": [
+    {
+      "problem_id": "2282600972.jpg#2r1e",
+      "premise": "Two skiers stand near a snowy mountain.",
+      "hypothesis": "Some humans standing.",
+      "gold_label": "entailment",
+      "unsolved_system": {
+        "configuration": "wordnet_llm_one_shot",
+        "prediction": "neutral",
+        "correct": false,
+        "final_kb": [
+          "isa_wn(skier, human)"
+        ],
+        "kb_attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(skier, human)"
+            ],
+            "prediction": "neutral"
+          }
+        ]
+      },
+      "solved_system": {
+        "configuration": "wordnet_llm_agentic",
+        "prediction": "entailment",
+        "correct": true,
+        "final_kb": [
+          "isa_wn(skier, human)",
+          "isa_wn(stand, standing)",
+          "isa_wn(standing, stand)"
+        ],
+        "kb_attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(skier, human)"
+            ],
+            "prediction": "neutral"
+          },
+          {
+            "attempt": 2,
+            "kb": [
+              "isa_wn(skier, human)",
+              "isa_wn(stand, standing)",
+              "isa_wn(standing, stand)"
+            ],
+            "prediction": "entailment"
+          }
+        ]
+      }
+    },
+    {
+      "problem_id": "254527963.jpg#1r1e",
+      "premise": "A black dog is running along the beach.",
+      "hypothesis": "a dog is running on the beach",
+      "gold_label": "entailment",
+      "unsolved_system": {
+        "configuration": "wordnet_llm_one_shot",
+        "prediction": "neutral",
+        "correct": false,
+        "final_kb": [],
+        "kb_attempts": []
+      },
+      "solved_system": {
+        "configuration": "wordnet_llm_agentic",
+        "prediction": "entailment",
+        "correct": true,
+        "final_kb": [
+          "isa_wn(black dog, dog)",
+          "isa_wn(running along, running on)",
+          "isa_wn(run along, run on)",
+          "isa_wn(along, on)"
+        ],
+        "kb_attempts": [
+          {
+            "attempt": 2,
+            "kb": [
+              "isa_wn(black dog, dog)",
+              "isa_wn(running along, running on)",
+              "isa_wn(run along, run on)",
+              "isa_wn(along, on)"
+            ],
+            "prediction": "entailment"
+          }
+        ]
+      }
+    },
+    {
+      "problem_id": "2740013516.jpg#4r1e",
+      "premise": "Safety officers standing outside.",
+      "hypothesis": "Safety officers outdoors.",
+      "gold_label": "entailment",
+      "unsolved_system": {
+        "configuration": "wordnet_llm_one_shot",
+        "prediction": "neutral",
+        "correct": false,
+        "final_kb": [
+          "isa_wn(outside, outdoors)"
+        ],
+        "kb_attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(outside, outdoors)"
+            ],
+            "prediction": "neutral"
+          }
+        ]
+      },
+      "solved_system": {
+        "configuration": "wordnet_llm_agentic",
+        "prediction": "entailment",
+        "correct": true,
+        "final_kb": [
+          "isa_wn(standing outside, outdoors)",
+          "isa_wn(stand outside, outdoors)"
+        ],
+        "kb_attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(outside, outdoors)"
+            ],
+            "prediction": "neutral"
+          },
+          {
+            "attempt": 2,
+            "kb": [
+              "isa_wn(standing outside, outdoors)",
+              "isa_wn(stand outside, outdoors)"
+            ],
+            "prediction": "entailment"
+          }
+        ]
+      }
+    },
+    {
+      "problem_id": "2930616480.jpg#0r2e",
+      "premise": "A female is wearing a big purple flower in her hair and has some beads around her neck.",
+      "hypothesis": "a girl with a flower in her hair",
+      "gold_label": "entailment",
+      "unsolved_system": {
+        "configuration": "wordnet_llm_one_shot",
+        "prediction": "neutral",
+        "correct": false,
+        "final_kb": [
+          "isa_wn(female, girl)"
+        ],
+        "kb_attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(female, girl)"
+            ],
+            "prediction": "neutral"
+          }
+        ]
+      },
+      "solved_system": {
+        "configuration": "wordnet_llm_agentic",
+        "prediction": "entailment",
+        "correct": true,
+        "final_kb": [
+          "isa_wn(female, girl)",
+          "isa_wn(wear, with)",
+          "isa_wn(have, with)"
+        ],
+        "kb_attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(female, girl)"
+            ],
+            "prediction": "neutral"
+          },
+          {
+            "attempt": 2,
+            "kb": [
+              "isa_wn(female, girl)",
+              "isa_wn(wear, with)",
+              "isa_wn(have, with)"
+            ],
+            "prediction": "entailment"
+          }
+        ]
+      }
+    },
+    {
+      "problem_id": "3197194113.jpg#0r2e",
+      "premise": "A man wearing a black hat, white shirt, red vest, black tie, and face makeup is swallowing a sword, while a man wearing a cowboy hat behind him is watching.",
+      "hypothesis": "A man is performing.",
+      "gold_label": "entailment",
+      "unsolved_system": {
+        "configuration": "wordnet_llm_one_shot",
+        "prediction": "neutral",
+        "correct": false,
+        "final_kb": [
+          "isa_wn(swallow sword, perform)"
+        ],
+        "kb_attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(swallow sword, perform)"
+            ],
+            "prediction": "neutral"
+          }
+        ]
+      },
+      "solved_system": {
+        "configuration": "wordnet_llm_agentic",
+        "prediction": "entailment",
+        "correct": true,
+        "final_kb": [
+          "isa_wn(swallow, perform)"
+        ],
+        "kb_attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(swallow sword, perform)"
+            ],
+            "prediction": "neutral"
+          },
+          {
+            "attempt": 2,
+            "kb": [
+              "isa_wn(swallow, perform)"
+            ],
+            "prediction": "entailment"
+          }
+        ]
+      }
+    },
+    {
+      "problem_id": "3522349685.jpg#0r1e",
+      "premise": "A little girl is petting her white, fluffy cat.",
+      "hypothesis": "The girl has a pet.",
+      "gold_label": "entailment",
+      "unsolved_system": {
+        "configuration": "wordnet_llm_one_shot",
+        "prediction": "neutral",
+        "correct": false,
+        "final_kb": [
+          "isa_wn(cat, pet)"
+        ],
+        "kb_attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(cat, pet)"
+            ],
+            "prediction": "neutral"
+          }
+        ]
+      },
+      "solved_system": {
+        "configuration": "wordnet_llm_agentic",
+        "prediction": "entailment",
+        "correct": true,
+        "final_kb": [
+          "isa_wn(little girl, girl)",
+          "isa_wn(cat, pet)",
+          "isa_wn(petting, has)",
+          "isa_wn(pet, have)"
+        ],
+        "kb_attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(cat, pet)"
+            ],
+            "prediction": "neutral"
+          },
+          {
+            "attempt": 2,
+            "kb": [
+              "isa_wn(little girl, girl)",
+              "isa_wn(cat, pet)",
+              "isa_wn(petting, has)",
+              "isa_wn(pet, have)"
+            ],
+            "prediction": "entailment"
+          }
+        ]
+      }
+    },
+    {
+      "problem_id": "3706356018.jpg#4r1e",
+      "premise": "Little kids are on an amusement park ride.",
+      "hypothesis": "Children are on a ride.",
+      "gold_label": "entailment",
+      "unsolved_system": {
+        "configuration": "wordnet_llm_one_shot",
+        "prediction": "neutral",
+        "correct": false,
+        "final_kb": [
+          "isa_wn(little kid, child)"
+        ],
+        "kb_attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(little kid, child)"
+            ],
+            "prediction": "neutral"
+          }
+        ]
+      },
+      "solved_system": {
+        "configuration": "wordnet_llm_agentic",
+        "prediction": "entailment",
+        "correct": true,
+        "final_kb": [
+          "isa_wn(little kids, children)",
+          "isa_wn(little kid, children)",
+          "isa_wn(amusement park ride, ride)"
+        ],
+        "kb_attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(little kid, child)"
+            ],
+            "prediction": "neutral"
+          },
+          {
+            "attempt": 2,
+            "kb": [
+              "isa_wn(little kids, children)",
+              "isa_wn(little kid, children)",
+              "isa_wn(amusement park ride, ride)"
+            ],
+            "prediction": "entailment"
+          }
+        ]
+      }
+    },
+    {
+      "problem_id": "3709301369.jpg#3r1e",
+      "premise": "Man in blue shirt playing water instrument in an orchestra.",
+      "hypothesis": "The man is wearing blue",
+      "gold_label": "entailment",
+      "unsolved_system": {
+        "configuration": "wordnet_llm_one_shot",
+        "prediction": "neutral",
+        "correct": false,
+        "final_kb": [
+          "isa_wn(blue shirt, blue)"
+        ],
+        "kb_attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(blue shirt, blue)"
+            ],
+            "prediction": "neutral"
+          }
+        ]
+      },
+      "solved_system": {
+        "configuration": "wordnet_llm_agentic",
+        "prediction": "entailment",
+        "correct": true,
+        "final_kb": [
+          "isa_wn(in, wearing)",
+          "isa_wn(in, wear)",
+          "isa_wn(blue shirt, blue)"
+        ],
+        "kb_attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(blue shirt, blue)"
+            ],
+            "prediction": "neutral"
+          },
+          {
+            "attempt": 2,
+            "kb": [
+              "isa_wn(in, wearing)",
+              "isa_wn(in, wear)",
+              "isa_wn(blue shirt, blue)"
+            ],
+            "prediction": "entailment"
+          }
+        ]
+      }
+    },
+    {
+      "problem_id": "4151285133.jpg#3r1e",
+      "premise": "A man on an elevator looks at the mirror on the wall.",
+      "hypothesis": "A person in the elevator looks at a mirror.",
+      "gold_label": "entailment",
+      "unsolved_system": {
+        "configuration": "wordnet_llm_one_shot",
+        "prediction": "neutral",
+        "correct": false,
+        "final_kb": [
+          "isa_wn(man, person)"
+        ],
+        "kb_attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(man, person)"
+            ],
+            "prediction": "neutral"
+          }
+        ]
+      },
+      "solved_system": {
+        "configuration": "wordnet_llm_agentic",
+        "prediction": "entailment",
+        "correct": true,
+        "final_kb": [
+          "isa_wn(man, person)",
+          "isa_wn(on, in)",
+          "isa_wn(mirror on the wall, mirror)"
+        ],
+        "kb_attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(man, person)"
+            ],
+            "prediction": "neutral"
+          },
+          {
+            "attempt": 2,
+            "kb": [
+              "isa_wn(man, person)",
+              "isa_wn(on, in)",
+              "isa_wn(mirror on the wall, mirror)"
+            ],
+            "prediction": "entailment"
+          }
+        ]
+      }
+    },
+    {
+      "problem_id": "470458461.jpg#2r1e",
+      "premise": "A child wearing a rainbow striped shirt is pushing a toy cart.",
+      "hypothesis": "A child has a toy.",
+      "gold_label": "entailment",
+      "unsolved_system": {
+        "configuration": "wordnet_llm_one_shot",
+        "prediction": "neutral",
+        "correct": false,
+        "final_kb": [
+          "isa_wn(toy cart, toy)"
+        ],
+        "kb_attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(toy cart, toy)"
+            ],
+            "prediction": "neutral"
+          }
+        ]
+      },
+      "solved_system": {
+        "configuration": "wordnet_llm_agentic",
+        "prediction": "entailment",
+        "correct": true,
+        "final_kb": [
+          "isa_wn(push, have)",
+          "isa_wn(toy cart, toy)"
+        ],
+        "kb_attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(toy cart, toy)"
+            ],
+            "prediction": "neutral"
+          },
+          {
+            "attempt": 2,
+            "kb": [
+              "isa_wn(push, have)",
+              "isa_wn(toy cart, toy)"
+            ],
+            "prediction": "entailment"
+          }
+        ]
+      }
+    },
+    {
+      "problem_id": "856985136.jpg#2r1e",
+      "premise": "Young blond woman putting her foot into a water fountain",
+      "hypothesis": "A person is dipping her foot into water.",
+      "gold_label": "entailment",
+      "unsolved_system": {
+        "configuration": "wordnet_llm_one_shot",
+        "prediction": "neutral",
+        "correct": false,
+        "final_kb": [
+          "isa_wn(young blond woman, person)",
+          "isa_wn(water fountain, water)"
+        ],
+        "kb_attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(young blond woman, person)",
+              "isa_wn(water fountain, water)"
+            ],
+            "prediction": "neutral"
+          }
+        ]
+      },
+      "solved_system": {
+        "configuration": "wordnet_llm_agentic",
+        "prediction": "entailment",
+        "correct": true,
+        "final_kb": [
+          "isa_wn(young blond woman, person)",
+          "isa_wn(put into, dip into)",
+          "isa_wn(put, dip)"
+        ],
+        "kb_attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(young blond woman, person)",
+              "isa_wn(water fountain, water)"
+            ],
+            "prediction": "neutral"
+          },
+          {
+            "attempt": 2,
+            "kb": [
+              "isa_wn(young blond woman, person)",
+              "isa_wn(put into, dip into)",
+              "isa_wn(put, dip)"
+            ],
+            "prediction": "entailment"
+          }
+        ]
+      }
+    },
+    {
+      "problem_id": "vg_len95r3e",
+      "premise": "The blonde tennis player is wearing a white shirt and a green tennis skirt.",
+      "hypothesis": "The tennis playing is wearing a green skirt.",
+      "gold_label": "entailment",
+      "unsolved_system": {
+        "configuration": "wordnet_llm_one_shot",
+        "prediction": "neutral",
+        "correct": false,
+        "final_kb": [
+          "isa_wn(tennis skirt, skirt)",
+          "isa_wn(skirt, tennis skirt)"
+        ],
+        "kb_attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(tennis skirt, skirt)",
+              "isa_wn(skirt, tennis skirt)"
+            ],
+            "prediction": "neutral"
+          }
+        ]
+      },
+      "solved_system": {
+        "configuration": "wordnet_llm_agentic",
+        "prediction": "entailment",
+        "correct": true,
+        "final_kb": [
+          "isa_wn(tennis skirt, skirt)",
+          "isa_wn(skirt, tennis skirt)",
+          "isa_wn(tennis player, tennis playing)",
+          "isa_wn(tennis player, tennis play)",
+          "isa_wn(player, playing)"
+        ],
+        "kb_attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(tennis skirt, skirt)",
+              "isa_wn(skirt, tennis skirt)"
+            ],
+            "prediction": "neutral"
+          },
+          {
+            "attempt": 2,
+            "kb": [
+              "isa_wn(tennis skirt, skirt)",
+              "isa_wn(skirt, tennis skirt)",
+              "isa_wn(tennis player, tennis playing)",
+              "isa_wn(tennis player, tennis play)",
+              "isa_wn(player, playing)"
+            ],
+            "prediction": "entailment"
+          }
+        ]
+      }
+    },
+    {
+      "problem_id": "vg_verb119r2e",
+      "premise": "Adjusting a tie for accuracy.",
+      "hypothesis": "Fixing a tie.",
+      "gold_label": "entailment",
+      "unsolved_system": {
+        "configuration": "wordnet_llm_one_shot",
+        "prediction": "neutral",
+        "correct": false,
+        "final_kb": [
+          "isa_wn(adjust, fix)"
+        ],
+        "kb_attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(adjust, fix)"
+            ],
+            "prediction": "neutral"
+          }
+        ]
+      },
+      "solved_system": {
+        "configuration": "wordnet_llm_agentic",
+        "prediction": "entailment",
+        "correct": true,
+        "final_kb": [
+          "isa_wn(adjusting, fixing)",
+          "isa_wn(adjust, fix)",
+          "isa_wn(adjusting for accuracy, fixing)",
+          "isa_wn(adjust for accuracy, fix)"
+        ],
+        "kb_attempts": [
+          {
+            "attempt": 1,
+            "kb": [
+              "isa_wn(adjust, fix)"
+            ],
+            "prediction": "neutral"
+          },
+          {
+            "attempt": 2,
+            "kb": [
+              "isa_wn(adjusting, fixing)",
+              "isa_wn(adjust, fix)",
+              "isa_wn(adjusting for accuracy, fixing)",
+              "isa_wn(adjust for accuracy, fix)"
+            ],
+            "prediction": "entailment"
+          }
+        ]
+      }
+    },
+    {
+      "problem_id": "vg_verb51r3e",
+      "premise": "The bird's feet are grasping the window tightly.",
+      "hypothesis": "there is a bird resting",
+      "gold_label": "entailment",
+      "unsolved_system": {
+        "configuration": "wordnet_llm_one_shot",
+        "prediction": "neutral",
+        "correct": false,
+        "final_kb": [],
+        "kb_attempts": []
+      },
+      "solved_system": {
+        "configuration": "wordnet_llm_agentic",
+        "prediction": "entailment",
+        "correct": true,
+        "final_kb": [
+          "isa_wn(grasp, rest)"
+        ],
+        "kb_attempts": [
+          {
+            "attempt": 2,
+            "kb": [
+              "isa_wn(grasp, rest)"
+            ],
+            "prediction": "entailment"
+          }
+        ]
+      }
+    }
+  ]
+}
