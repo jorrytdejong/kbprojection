@@ -14,6 +14,15 @@ ways:
 2. **Extrinsic proof evaluation:** inject generated relations into LangPro and
    measure whether they enable an entailment proof.
 
+### Recommended paper protocol
+
+For the publication-facing workflow, use **Lasha Plus Precision**. It is the
+single recommended prompt protocol for both paths below: intrinsic LEX
+evaluation and LangPro proof evaluation. The repository's saved intrinsic
+outputs use the internal label `lasha`; the LangPro-format implementation uses
+`lex`. These are two output formats of the same prompt lineage, not competing
+prompt choices.
+
 Choose the path that matches your goal:
 
 | I want to... | Start here |
@@ -22,8 +31,8 @@ Choose the path that matches your goal:
 | Recompute the published LEX scores without model calls | [Reproduce committed LEX scores](#reproduce-the-committed-lex-prediction-scores-no-api-calls) |
 | Recompute the paper's inter-annotator agreement | [Calculate inter-annotator agreement](#calculate-inter-annotator-agreement) |
 | Inspect one saved model answer and its human explanations | [Inspect a saved LEX item](#inspect-a-saved-lex-item-no-api-calls) |
-| Run a new LLM experiment | [Run an LLM experiment](#run-an-llm-experiment) |
-| Run LangPro with one-shot or agentic KB generation | [Agentic Pipeline LangPro](#agentic-pipeline-langpro) |
+| Run the paper's intrinsic LEX experiment | [Run Lasha Plus Precision](#run-the-lasha-plus-precision-lex-experiment) |
+| Run LangPro with one-shot or agentic KB generation | [Agentic Pipeline LangPro](#agentic-pipeline-langpro) (Lasha Plus Precision — LangPro format) |
 | Use the package in Python | [Using KB Projection as a library](#using-kb-projection-as-a-library) |
 
 **Published-result reproduction versus new experiments.** The score and
@@ -547,16 +556,17 @@ The experiment scripts validate the required columns and row count before
 making model calls. This prevents accidentally running the paper evaluation
 on a different or incomplete CSV.
 
-### Run an LLM experiment
+### Run the Lasha Plus Precision LEX experiment
 
-Always run a small live smoke test before a full model run:
+This is the recommended live prompt protocol for new intrinsic LEX experiments.
+Always run a small smoke test before a full model run:
 
 ```bash
 .venv/bin/python run_multi_reference_llm_experiment.py \
   --input-csv "data/all_usable_items_362.csv" \
-  --output-csv "llm_outputs_smoke.csv" \
+  --output-csv "llm_outputs_lasha_plus_precision_smoke.csv" \
   --provider openrouter \
-  --prompts ettore lasha \
+  --prompts lasha \
   --models openai/gpt-5.4 \
   --limit 2 \
   --write-every 1
@@ -567,9 +577,9 @@ Then run the full experiment:
 ```bash
 .venv/bin/python run_multi_reference_llm_experiment.py \
   --input-csv "data/all_usable_items_362.csv" \
-  --output-csv "llm_outputs_sonnet45_gpt54_gemini35flash_all_usable.csv" \
+  --output-csv "llm_outputs_lasha_plus_precision_all_usable.csv" \
   --provider openrouter \
-  --prompts ettore lasha \
+  --prompts lasha \
   --models \
     anthropic/claude-sonnet-4.5 \
     openai/gpt-5.4 \
@@ -869,7 +879,9 @@ agentic-pipeline-langpro/
 ```
 
 Run outputs are written to `agentic-pipeline-langpro/results/` (created on
-demand and gitignored).
+demand and gitignored). Its default initial prompt is the **Lasha Plus
+Precision — LangPro format** implementation used for the publication-facing
+agentic workflow.
 
 ### Installation
 
