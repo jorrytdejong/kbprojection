@@ -2,6 +2,46 @@
 
 This library is designed to facilitate the use of Large Language Models (LLMs) to generate Knowledge Base (KB) injections for the LangPro prover. It provides tools for prompting LLMs, processing the generated KBs, and orchestrating experiments to evaluate the effectiveness of these injections.
 
+## Start here
+
+This repository accompanies *Explaining Textual Entailment with Lexical
+Entailments: Using LLMs to Supply Lexical Relations for Formal Proofs*.
+KB Projection evaluates LLM-generated lexical entailments in two complementary
+ways:
+
+1. **Intrinsic LEX evaluation:** compare generated relation sets with the
+   362-item, multi-reference human annotation set.
+2. **Extrinsic proof evaluation:** inject generated relations into LangPro and
+   measure whether they enable an entailment proof.
+
+Choose the path that matches your goal:
+
+| I want to... | Start here |
+| --- | --- |
+| Inspect the paper artifacts and saved results | [`camera-ready-data/`](camera-ready-data/agentic-langpro-results-2026-09-13/README.md) |
+| Recompute the published LEX scores without model calls | [Reproduce committed LEX scores](#reproduce-the-committed-lex-prediction-scores-no-api-calls) |
+| Recompute the paper's inter-annotator agreement | [Calculate inter-annotator agreement](#calculate-inter-annotator-agreement) |
+| Run a new LLM experiment | [Run an LLM experiment](#run-an-llm-experiment) |
+| Run LangPro with one-shot or agentic KB generation | [Agentic Pipeline LangPro](#agentic-pipeline-langpro) |
+| Use the package in Python | [Using KB Projection as a library](#using-kb-projection-as-a-library) |
+
+**Published-result reproduction versus new experiments.** The score and
+inter-annotator-agreement replay commands use committed data and make no API
+or model calls. Fresh LLM experiments require provider credentials, may incur
+costs, and can vary with hosted-model and provider behaviour.
+
+### Repository map
+
+| Path | Purpose |
+| --- | --- |
+| [`data/`](data/) | The final 362-item LEX dataset, adjudicated agreement export, and original annotator submissions. |
+| [`experiment_results/`](experiment_results/) | Saved intrinsic-evaluation outputs and reproducibility exports. |
+| [`camera-ready-data/`](camera-ready-data/) | Paper-facing LangPro results, manifests, provenance, and qualitative analyses. |
+| [`scripts/experiments/`](scripts/experiments/) | Reproducible scoring, repeated-run, and agreement scripts. |
+| [`kbprojection/`](kbprojection/) | The reusable Python package: data loading, prompts, KB filtering, LLM calls, and LangPro integration. |
+| [`agentic-pipeline-langpro/`](agentic-pipeline-langpro/) | The generate-prove-refine LangPro pipeline and its CLI. |
+| [`tests/`](tests/) | Offline test suite using fixtures and service mocks. |
+
 ## Installation
 
 ```bash
@@ -68,7 +108,7 @@ models, sentence-transformer models, and Torch cache files under the project
 root instead of Colab's temporary VM storage. See
 `kbprojection_colab_setup.ipynb` for a ready-to-run Colab bootstrap notebook.
 
-## Usage
+## Using KB Projection as a library
 
 The library is divided into several modules:
 
