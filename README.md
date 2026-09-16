@@ -23,6 +23,18 @@ outputs use the internal label `lasha`; the LangPro-format implementation uses
 `lex`. These are two output formats of the same prompt lineage, not competing
 prompt choices.
 
+### Prompt naming and provenance
+
+| Reader-facing name | Purpose | Internal saved label |
+| --- | --- | --- |
+| Lasha Plus Precision | Recommended intrinsic LEX protocol | `lasha` |
+| Lasha Plus Precision — LangPro format | Same protocol, formatted for agentic LangPro KB injection | `lex` |
+| Legacy agentic comparison prompt | Historical comparison only; not part of the recommended route | `stefan` |
+| ICL precision variant | Exploratory intrinsic variant | `ettore` / `icl` |
+
+Internal labels and historical artifact paths are retained for reproducibility;
+they do not represent additional recommended publication protocols.
+
 Choose the path that matches your goal:
 
 | I want to... | Start here |
