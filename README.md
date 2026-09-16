@@ -21,6 +21,7 @@ Choose the path that matches your goal:
 | Inspect the paper artifacts and saved results | [`camera-ready-data/`](camera-ready-data/agentic-langpro-results-2026-09-13/README.md) |
 | Recompute the published LEX scores without model calls | [Reproduce committed LEX scores](#reproduce-the-committed-lex-prediction-scores-no-api-calls) |
 | Recompute the paper's inter-annotator agreement | [Calculate inter-annotator agreement](#calculate-inter-annotator-agreement) |
+| Inspect one saved model answer and its human explanations | [Inspect a saved LEX item](#inspect-a-saved-lex-item-no-api-calls) |
 | Run a new LLM experiment | [Run an LLM experiment](#run-an-llm-experiment) |
 | Run LangPro with one-shot or agentic KB generation | [Agentic Pipeline LangPro](#agentic-pipeline-langpro) |
 | Use the package in Python | [Using KB Projection as a library](#using-kb-projection-as-a-library) |
@@ -480,6 +481,32 @@ KB annotations. Run the following commands from this repository's root, where
 the experiment scripts and `data/` directory are located. The `.venv/bin/python`
 examples use a Unix environment; on Windows, use `.venv/Scripts/python.exe` or
 `python` from the activated environment.
+
+### Inspect a saved LEX item (no API calls)
+
+To understand one model answer without searching through a large CSV, render a
+single-item Markdown report. It shows the NLI pair, every available human LEX
+explanation, the saved raw model output, parsed relations, and overlap with
+each explanation. It does not call a model or LangPro.
+
+```bash
+.venv/bin/python scripts/experiments/render_item_report.py \
+  --item-id "114368470.jpg#1r1e" \
+  --items-csv data/all_usable_items_362.csv \
+  --predictions-csv experiment_results/lasha_all362_5runs/small_medium_lasha_all362_5runs_outputs.csv \
+  --prompt lasha \
+  --model openai/gpt-5.4-mini \
+  --repeat 1 \
+  --langpro-results-json camera-ready-data/agentic-langpro-results-2026-09-13/results/365/openai__gpt-5.4/lex/wordnet_llm_agentic.json \
+  --output /tmp/kbprojection-item-report.md
+```
+
+Open the generated Markdown file to inspect the example. The report currently
+supports only the Lasha Plus Precision prompt lineage: the saved intrinsic
+label `lasha` and its agentic KB-format label `lex` are presented as one prompt.
+Supplying the optional `--langpro-results-json` argument appends the
+corresponding saved LangPro baseline, KB attempts, critic feedback, and proof
+outcomes. Other prompt profiles are rejected to prevent misleading comparisons.
 
 ### Input data
 
