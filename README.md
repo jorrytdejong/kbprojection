@@ -620,6 +620,24 @@ A completed five-run experiment is available in
 
 ### Reproduce the committed LEX prediction scores (no API calls)
 
+**Updated LEX policy:** the calculators now exclude model responses whose last
+explicit `answer:` label is `non-entailment`. This applies before all relation
+F1 variants and exact-match calculations. A genuine entailment response with
+an empty KB remains scoreable. Provider errors and missing predictions are
+excluded separately; human IAA columns and reference tie-breaking are unchanged.
+No strict two-line schema or gold-label subset restriction is introduced.
+
+The updated five-run exports are in
+`experiment_results/lasha_all362_5runs/non_entailment_excluded/`.
+Per-run files include `skipped_non_entailment` and `skipped_error`; summaries
+include `total_non_entailment_exclusions`. F1 is conditional on retained model
+outputs, so report these exclusions alongside it. Legacy KB-only files without
+raw responses cannot apply the answer-label check.
+
+The historical committed scores below predate this policy. Replaying them with
+the updated calculator intentionally changes scores, exclusions and CSV columns;
+the historical `diff` checks below are no longer expected to match.
+
 The saved long-format raw responses for all 5 runs, the 362 annotated items,
 and the expected score files are committed. Reparse the raw responses and
 recompute the set-based scores with:

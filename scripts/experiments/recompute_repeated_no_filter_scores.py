@@ -95,6 +95,12 @@ def build_parser() -> argparse.ArgumentParser:
         default=DEFAULT_REFERENCE_COLUMNS,
     )
     parser.add_argument("--repeats", type=int, default=5)
+    parser.add_argument(
+        "--non-entailment-policy",
+        choices=("exclude", "always-wrong"),
+        default="exclude",
+        help="Exclude final non-entailment answers or score each as a guaranteed mismatch.",
+    )
     return parser
 
 
@@ -164,6 +170,7 @@ def main() -> None:
         args.reference_columns,
         f1_metrics_path,
         f1_summary_path,
+        args.non_entailment_policy,
     )
 
     _, filtered_summary = read_rows(filtered_f1_summary_path)

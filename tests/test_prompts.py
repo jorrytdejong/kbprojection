@@ -36,6 +36,16 @@ class TestPrompts(unittest.TestCase):
         self.assertNotIn("${PREMISE}", prompt)
         self.assertNotIn("${HYPOTHESIS}", prompt)
 
+    def test_stefan_prompt_is_registered_and_substituted(self):
+        prompt = fill_prompt("stefan", ["A dog is running."], "An animal is moving.")
+
+        self.assertIn("expert in linguistic semantics and logic", prompt)
+        self.assertIn("[KB_START]", prompt)
+        self.assertIn("premise: A dog is running.", prompt)
+        self.assertIn("hypothesis: An animal is moving.", prompt)
+        self.assertNotIn("${premise}", prompt)
+        self.assertNotIn("${hypothesis}", prompt)
+
 
 if __name__ == "__main__":
     unittest.main()

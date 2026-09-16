@@ -11,7 +11,10 @@ from unittest.mock import patch
 
 from calculate_multi_reference_f1 import evaluate_prediction_column, parse_kb_cell, relation_counts
 from kbprojection.scoring import ScoringConfig, ScoringContext
-from scripts.experiments.evaluate_kb_scoring import build_parser, configurations, evaluate_rows, run
+from scripts.experiments.evaluate_kb_scoring import (
+    build_parser, configurations, evaluate_rows, normalization_summary,
+    normalization_trace, run,
+)
 
 
 class FakeNLP:
@@ -115,6 +118,16 @@ class TestSymmetricScoring(unittest.TestCase):
         self.assertTrue(any(r["changed_side"] == "reference" for r in examples))
         for row in metrics:
             self.assertEqual(row["evaluated_items"], 2 if row["repeat"] == 1 else 0)
+        trace = normalization_trace(details)
+        self.assertEqual(len(trace), 4)  # Two items across two runs; all variants are joined.
+        improved = next(row for row in trace if row["ID"] == "1" and row["repeat"] == 1)
+        self.assertEqual(improved["combined_item_f1_delta"], 1.0)
+        self.assertEqual(improved["combined_new_exact_match"], 1)
+        excluded = next(row for row in trace if row["ID"] == "1" and row["repeat"] == 2)
+        self.assertEqual(excluded["status"], "error")
+        self.assertEqual(excluded["original_item_f1"], "")
+        by_model = normalization_summary(trace)
+        self.assertEqual(by_model[0]["combined_item_f1_gain_count"], 1)
 
     def test_print_export_and_flag_contract(self):
         with self.assertRaisesRegex(ValueError, "individual"):
