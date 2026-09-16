@@ -512,6 +512,7 @@ def write_f1_metrics(
     reference_columns: list[str],
     f1_metrics_csv: Path,
     f1_summary_csv: Path,
+    non_entailment_policy: str = "exclude",
 ) -> None:
     """Score each prompt/model/repeat group against the human references."""
     source_by_id = {row.get("ID", ""): row for row in source_rows}
@@ -544,6 +545,7 @@ def write_f1_metrics(
             empty_prediction_is_no_relation=False,
             calculate_position_sensitive=True,
             calculate_argument_order_agnostic=True,
+            non_entailment_policy=non_entailment_policy,
         )
         counts = result.selected_counts
         position_counts = result.position_sensitive_counts
@@ -570,6 +572,9 @@ def write_f1_metrics(
                 "total_items": len(prediction_rows),
                 "evaluated_items": result.evaluated_items,
                 "error_runs": error_runs,
+                "skipped_non_entailment": result.skipped_non_entailment,
+                "scored_non_entailment_as_wrong": result.scored_non_entailment_as_wrong,
+                "skipped_error": result.skipped_error,
                 "skipped_missing_prediction": result.skipped_missing_prediction,
                 "skipped_no_reference": result.skipped_no_reference,
                 "tp": counts.tp,
@@ -607,6 +612,9 @@ def write_f1_metrics(
         "total_items",
         "evaluated_items",
         "error_runs",
+        "skipped_non_entailment",
+        "scored_non_entailment_as_wrong",
+        "skipped_error",
         "skipped_missing_prediction",
         "skipped_no_reference",
         "tp",
@@ -661,6 +669,11 @@ def write_f1_metrics(
             for row in rows
             if not math.isnan(float(row["argument_order_agnostic_exact_match_rate"]))
         ]
+        exact_rates = [
+            float(row["exact_best_match_rate"])
+            for row in rows
+            if not math.isnan(float(row["exact_best_match_rate"]))
+        ]
         summary_rows.append(
             {
                 "prompt": prompt,
@@ -675,6 +688,14 @@ def write_f1_metrics(
                 ),
                 "min_micro_f1": min(f1_values) if f1_values else math.nan,
                 "max_micro_f1": max(f1_values) if f1_values else math.nan,
+                "mean_exact_best_match_rate": (
+                    statistics.mean(exact_rates) if exact_rates else math.nan
+                ),
+                "sample_stddev_exact_best_match_rate": (
+                    statistics.stdev(exact_rates) if len(exact_rates) > 1 else math.nan
+                ),
+                "min_exact_best_match_rate": min(exact_rates) if exact_rates else math.nan,
+                "max_exact_best_match_rate": max(exact_rates) if exact_rates else math.nan,
                 "repeats_with_position_sensitive_f1": len(position_f1_values),
                 "mean_position_sensitive_micro_f1": (
                     statistics.mean(position_f1_values)
@@ -735,6 +756,10 @@ def write_f1_metrics(
                     if argument_order_agnostic_exact_rates
                     else math.nan
                 ),
+                "total_non_entailment_exclusions": sum(int(row["skipped_non_entailment"]) for row in rows),
+                "total_non_entailment_scored_as_wrong": sum(
+                    int(row["scored_non_entailment_as_wrong"]) for row in rows
+                ),
                 "total_evaluated_items": sum(int(row["evaluated_items"]) for row in rows),
                 "total_error_runs": sum(int(row["error_runs"]) for row in rows),
                 "total_missing_predictions": sum(
@@ -763,6 +788,10 @@ def write_f1_metrics(
         "sample_stddev_micro_f1",
         "min_micro_f1",
         "max_micro_f1",
+        "mean_exact_best_match_rate",
+        "sample_stddev_exact_best_match_rate",
+        "min_exact_best_match_rate",
+        "max_exact_best_match_rate",
         "repeats_with_position_sensitive_f1",
         "mean_position_sensitive_micro_f1",
         "sample_stddev_position_sensitive_micro_f1",
@@ -777,6 +806,8 @@ def write_f1_metrics(
         "sample_stddev_argument_order_agnostic_exact_match_rate",
         "min_argument_order_agnostic_exact_match_rate",
         "max_argument_order_agnostic_exact_match_rate",
+        "total_non_entailment_exclusions",
+        "total_non_entailment_scored_as_wrong",
         "total_evaluated_items",
         "total_error_runs",
         "total_missing_predictions",
@@ -824,6 +855,12 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--write-every-jobs", type=int, default=40)
     parser.add_argument("--resume", action=argparse.BooleanOptionalAction, default=True)
     parser.add_argument("--no-filter-kb", action="store_true")
+    parser.add_argument(
+        "--non-entailment-policy",
+        choices=("exclude", "always-wrong"),
+        default="exclude",
+        help="Exclude final non-entailment answers or score each as a guaranteed mismatch.",
+    )
     parser.add_argument(
         "--filtering-config", type=Path,
         help="JSON object of FilteringConfig settings; defaults to the operational profile.",
@@ -891,6 +928,7 @@ async def async_main(args: argparse.Namespace) -> None:
             args.reference_columns,
             f1_metrics_path,
             f1_summary_path,
+            args.non_entailment_policy,
         )
         print(f"Wrote sample: {sample_path} ({len(sample_rows)} rows)")
         print(f"Wrote output skeleton: {output_path} ({len(output_rows)} runs)")
@@ -918,6 +956,7 @@ async def async_main(args: argparse.Namespace) -> None:
         args.reference_columns,
         f1_metrics_path,
         f1_summary_path,
+        args.non_entailment_policy,
     )
     print(f"Wrote sample: {sample_path} ({len(sample_rows)} rows)")
     print(f"Wrote outputs: {output_path}")

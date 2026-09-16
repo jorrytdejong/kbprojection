@@ -133,8 +133,8 @@ def summarize(metrics: list[dict]) -> list[dict]:
             row[f"runs_with_{metric}"] = len(values)
             row[f"mean_{metric}"] = statistics.mean(values) if values else math.nan
             row[f"sample_stddev_{metric}"] = statistics.stdev(values) if len(values) > 1 else math.nan
-        for metric in ("total_items", "evaluated_items", "error_runs", "skipped_missing_prediction", "skipped_no_reference"):
-            row[f"total_{metric}"] = sum(r[metric] for r in rows)
+        for metric in ("total_items", "evaluated_items", "error_runs", "skipped_missing_prediction", "skipped_no_reference", "skipped_non_entailment", "scored_non_entailment_as_wrong"):
+            row[f"total_{metric}"] = sum(r.get(metric, 0) for r in rows)
         result.append(row)
     return result
 

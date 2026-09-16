@@ -20,6 +20,14 @@ from pathlib import Path
 from calculate_inter_annotator_agreement import normalize_kb
 
 
+# A synthetic relation used only when an explicit final non-entailment answer
+# must count as wrong.  It cannot match a parsed human relation, including an
+# empty ``NO_RELATION`` reference, so it contributes a false positive and
+# prevents an exact match without changing saved model outputs.
+NON_ENTAILMENT_WRONG_RELATION = ("__non_entailment_wrong__",)
+NON_ENTAILMENT_POLICIES = ("exclude", "always-wrong")
+
+
 @dataclass(frozen=True)
 class ScoringConfig:
     """Evaluation-only normalization settings.
@@ -125,6 +133,9 @@ class EvaluationResult:
     reference_columns: list[str]
     selected_counts: Counts
     evaluated_items: int = 0
+    skipped_non_entailment: int = 0
+    scored_non_entailment_as_wrong: int = 0
+    skipped_error: int = 0
     skipped_missing_prediction: int = 0
     skipped_no_reference: int = 0
     exact_best_matches: int = 0
@@ -137,6 +148,25 @@ class EvaluationResult:
 
 def is_blank(value: object) -> bool:
     return str(value or "").strip() == ""
+
+
+def model_prediction_exclusion(row, prediction_column):
+    """Gate model KBs using the last explicit answer; leave human IAA unchanged.
+
+    KB-only legacy inputs remain scoreable. No strict output schema is imposed.
+    """
+    if prediction_column == "KB":
+        raw_column, error_column = "raw_response", "error"
+    elif prediction_column.startswith("LLM__") and prediction_column.endswith("_KB"):
+        prefix = prediction_column[:-3]
+        raw_column, error_column = prefix + "_raw_response", prefix + "_error"
+    else:
+        return ""
+    if str(row.get(error_column, "") or "").strip():
+        return "error"
+    labels = re.findall(r"(?im)^\s*(?:\*\*)?answer\s*:\s*(?:\*\*)?(non-entailment|entailment)\b",
+                        str(row.get(raw_column, "") or ""))
+    return "non_entailment" if labels and labels[-1].lower() == "non-entailment" else ""
 
 
 def parse_kb_cell(value: object) -> frozenset[tuple[str, ...]]:
@@ -273,7 +303,13 @@ def evaluate_prediction_column(
     calculate_argument_order_agnostic: bool = False,
     details_path: Path | None = None,
     scoring: ScoringConfig = ScoringConfig(),
+    non_entailment_policy: str = "exclude",
 ) -> EvaluationResult:
+    if non_entailment_policy not in NON_ENTAILMENT_POLICIES:
+        raise ValueError(
+            "non_entailment_policy must be one of: "
+            + ", ".join(NON_ENTAILMENT_POLICIES)
+        )
     result = EvaluationResult(
         prediction_column=prediction_column,
         reference_columns=reference_columns,
@@ -287,6 +323,17 @@ def evaluate_prediction_column(
         result.argument_order_agnostic_counts = Counts()
 
     for row in rows:
+        exclusion = model_prediction_exclusion(row, prediction_column)
+        if exclusion == "error":
+            result.skipped_error += 1
+            continue
+        non_entailment_is_wrong = (
+            exclusion == "non_entailment"
+            and non_entailment_policy == "always-wrong"
+        )
+        if exclusion == "non_entailment" and not non_entailment_is_wrong:
+            result.skipped_non_entailment += 1
+            continue
         context = ScoringContext(row.get("premise", ""), row.get("hypothesis", ""))
         raw_prediction = row.get(prediction_column, "")
         if is_blank(raw_prediction) and not empty_prediction_is_no_relation:
@@ -302,7 +349,13 @@ def evaluate_prediction_column(
             result.skipped_no_reference += 1
             continue
 
-        prediction = context.kb(parse_kb_cell(raw_prediction), scoring)
+        prediction = (
+            frozenset({NON_ENTAILMENT_WRONG_RELATION})
+            if non_entailment_is_wrong
+            else context.kb(parse_kb_cell(raw_prediction), scoring)
+        )
+        if non_entailment_is_wrong:
+            result.scored_non_entailment_as_wrong += 1
         scored_references = []
         for column, reference in references:
             counts = relation_counts(prediction, reference)
@@ -360,7 +413,11 @@ def evaluate_prediction_column(
         position_best_score = float("nan")
         position_best_counts: Counts | None = None
         if calculate_position_sensitive:
-            prediction_sequence = tuple(context.relation(r, scoring) for r in parse_kb_sequence(raw_prediction))
+            prediction_sequence = (
+                (NON_ENTAILMENT_WRONG_RELATION,)
+                if non_entailment_is_wrong
+                else tuple(context.relation(r, scoring) for r in parse_kb_sequence(raw_prediction))
+            )
             position_scored_references = []
             for column, _ in references:
                 reference_sequence = tuple(context.relation(r, scoring) for r in parse_kb_sequence(row.get(column, "")))
@@ -463,6 +520,8 @@ def evaluate_global_best_reference(
         counts = Counts()
         evaluated_items = 0
         for row in rows:
+            if model_prediction_exclusion(row, prediction_column):
+                continue
             raw_prediction = row.get(prediction_column, "")
             raw_reference = row.get(reference_column, "")
             if is_blank(raw_prediction) and not empty_prediction_is_no_relation:
@@ -498,6 +557,7 @@ def print_result(result: EvaluationResult) -> None:
     )
     print(
         "  skipped "
+        f"non_entailment={result.skipped_non_entailment}, error={result.skipped_error}, "
         f"missing_prediction={result.skipped_missing_prediction}, "
         f"no_available_reference={result.skipped_no_reference}"
     )
@@ -569,6 +629,8 @@ def write_summary(path: Path, results: list[EvaluationResult]) -> None:
                 "exact_best_matches",
                 "exact_best_match_rate",
                 "no_relation_best_matches",
+                "skipped_non_entailment",
+                "skipped_error",
                 "skipped_missing_prediction",
                 "skipped_no_reference",
                 "position_sensitive_precision",
@@ -615,6 +677,8 @@ def write_summary(path: Path, results: list[EvaluationResult]) -> None:
                     "exact_best_matches": result.exact_best_matches,
                     "exact_best_match_rate": exact_rate,
                     "no_relation_best_matches": result.no_relation_best_matches,
+                    "skipped_non_entailment": result.skipped_non_entailment,
+                    "skipped_error": result.skipped_error,
                     "skipped_missing_prediction": result.skipped_missing_prediction,
                     "skipped_no_reference": result.skipped_no_reference,
                     "position_sensitive_precision": position_counts.precision if position_counts else "",

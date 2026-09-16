@@ -323,6 +323,171 @@ Hypothesis: ${{hypothesis}}
 Generate the knowledge injections:
 """
 
+# Initial KB-generation prompt from the agentic-pipeline-langpro repository.
+# The placeholders use this module's ${premise}/${hypothesis} convention so it
+# can be evaluated by the standard multi-reference experiment runner.
+STEFAN_PROMPT = """You are an expert in linguistic semantics and logic. You will receive a Natural Language Inference (NLI) problem in English, consisting of a premise sentence and a hypothesis sentence.
+You will reason carefully and decide whether the premise entails the hypothesis, which means that if the premise is true, then the hypothesis must also be true under ordinary English meaning and widely accepted background knowledge.
+If the answer is "entailment", output a structured explanation that is a set of lexical entailment relations over short phrases that explain why the hypothesis is entailed from the premise. If the answer is not "entailment", output an empty KB.
+Lexical entailment should be defined over short phrases that are lemmatized or normalized versions of short phrases occurring in the premise and the hypothesis, e.g., isa_wn(phrase_1, phrase_2), and it means that phrase_1 is a type of phrase_2, for example, isa_wn(woman, person), isa_wn(dog, domestic animal), isa_wn(huge, very big), and isa_wn(run, move fast).
+Use lexical entailment relations only when they are needed to explain the entailment. If the entailment follows without any non-trivial lexical relation, output an empty set.
+
+Relation formatting rules:
+The meaning of a lexical entailment relation has to be acceptable based on common sense, e.g., isa_wn(woman, blond person) is not acceptable.
+A lexical entailment may not express a trivial relation that is obtainable by discarding modifiers, e.g., isa_wn(blond woman, woman) is not acceptable.
+A lexical entailment may not contain redundant words such as auxiliary verbs and the infinitive "to", e.g., isa_wn(will walk, will move), isa_wn(is red, is colored), and isa_wn(to walk, to move) are not acceptable.
+Phrases in a lexical entailment have to contain lemmatized words, e.g., isa_wn(dogs, domestic animals) is not acceptable.
+Phrases in a lexical entailment may not contain determiners, e.g., isa_wn(a dog, a domestic animal) is not acceptable.
+Phrases in a lexical entailment may not contain prepositional phrases, e.g., isa_wn(dog with spots, a domestic animal) are not acceptable.
+
+Examples:
+Example 1:
+    input:
+        premise: Young ladies are playing the guitar.
+        hypothesis: A musical instrument is being played by girls.
+    correct output:
+        [KB_START]
+        isa_wn(young lady, girl)
+        isa_wn(guitar, musical instrument)
+        [KB_END]
+    unwanted output:
+        [KB_START]
+        isa_wn(young ladies, girls)
+        isa_wn(the guitar, a musical instrument)
+        [KB_END]
+        explanation: phrases in relations may not have determiners, e.g., "a" and "the". "ladies" and "girls" have to use lemmas "lady" and "girl", respectively.
+
+Example 2:
+    input:
+        premise: A female swimmer getting out of the pool still dripping wet.
+        hypothesis: A woman gets out of the pool.
+    correct output:
+        [KB_START]
+        isa_wn(female swimmer, woman)
+        [KB_END]
+    unwanted output:
+        [KB_START]
+        isa_wn(swimmer, woman)
+        [KB_END]
+        explanation: it is a factually wrong relation because not every swimmer is a woman
+
+Example 3:
+    input:
+        premise: A young girl wearing a pink coat plays with a yellow toy.
+        hypothesis: A kid is swinging a toy golf club.
+    correct output:
+        [KB_START]
+        [KB_END]
+
+Example 4:
+    input:
+        premise: A black race car starts up in front of a crowd of people.
+        hypothesis: A car is running.
+    correct output:
+        [KB_START]
+        isa_wn(start up, run)
+        [KB_END]
+    unwanted output:
+        [KB_START]
+        isa_wn(starts up, is running)
+        [KB_END]
+        explanation: "starts up" and "is running" do not contain lemmatized words, and "is" is unnecessary in "is running".
+
+Example 5:
+    input:
+        premise: A woman dressed in red clothing is dancing inside a crowd of people.
+        hypothesis: A woman in red is dancing in a crowd.
+    correct output:
+        [KB_START]
+        [KB_END]
+    unwanted output:
+        [KB_START]
+        isa_wn(in red clothing, in red)
+        [KB_END]
+        explanation: The phrases in the relation may not include prepositional phrases, e.g., "in red clothing"
+
+Example 6:
+    input:
+        premise: A tall man with a cap is climbing a cord.
+        hypothesis: The man in a hat is climbing a rope.
+    correct output:
+        [KB_START]
+        isa_wn(cap, hat)
+        isa_wn(cord, rope)
+        [KB_END]
+    unwanted output:
+        [KB_START]
+        isa_wn(cap, hat)
+        isa_wn(tall man, man)
+        [KB_END]
+        explanation: "isa_wn(cord, rope)" is missing. isa_wn(tall man, man) is trivial since it includes dropping the adjective "tall".
+
+Example 7:
+    input:
+        premise: No person is cooking.
+        hypothesis: No cook is cooking in the kitchen.
+    correct output:
+        [KB_START]
+        isa_wn(cook, person)
+        [KB_END]
+    unwanted output:
+        [KB_START]
+        isa_wn(person, cook)
+        [KB_END]
+        explanation: The relation does not help to explain "entailment", taking into account that negation reverses a lexical entailment direction. It is also a factually wrong relation because not every person is a cook.
+
+Example 8:
+    input:
+        premise: A person who is obese is holding a chinchilla.
+        hypothesis: A fat person is holding a small animal.
+    correct output:
+        [KB_START]
+        isa_wn(chinchilla, small animal)
+        isa_wn(obese, fat)
+        [KB_END]
+    unwanted output:
+        [KB_START]
+        isa_wn(fat, obese)
+        isa_wn(chinchilla, animal)
+        [KB_END]
+        explanation: "isa_wn(fat, obese)" needs to reverse its arguments to align with the entailment direction. "isa_wn(chinchilla, animal)" is not sufficient to explain "entailment" since it misses "small", which is crucial.
+
+Example 9:
+    input:
+        premise: A little boy is laughing and happily bouncing on a trampoline outside.
+        hypothesis: The child is jumping outdoors.
+    correct output:
+        [KB_START]
+        isa_wn(little boy, child)
+        isa_wn(bounce, jump)
+        isa_wn(outside, outdoors)
+        [KB_END]
+    unwanted output:
+        [KB_START]
+        isa_wn(boy, child)
+        isa_wn(outdoors, outside)
+        [KB_END]
+        explanation: "isa_wn(bounce, jump)" is missing. "isa_wn(little boy, child)" is preferred over "isa_wn(boy, child)" as the former is more acceptable. "isa_wn(outdoors, outside)" needs to reverse its arguments to align it to the entailment direction.
+
+Additional calibration while preserving all rules above:
+- Only output lexical entailment relations that are both factually acceptable and needed to explain the entailment.
+- Do not output relations for entailments that follow without a non-trivial lexical bridge.
+- Do not use event or social implications as lexical entailment unless the phrase relation is a direct paraphrase.
+- Do not output modifier-dropping relations such as old woman -> woman or military men -> men.
+- Do not output both an inflected form and a lemmatized form for the same relation.
+- If the best relation would violate any existing formatting rule, omit it instead of approximating it.
+
+Now process the following input while strictly following the above instructions and formatting.
+Output exactly in the following format:
+    [KB_START]
+    predicate(arg1, arg2)
+    [KB_END]
+
+input:
+    premise: ${premise}
+    hypothesis: ${hypothesis}
+"""
+
 # Combined prompt registry (for backward compatibility, maps old names to legacy)
 prompts = {
     "prompts": [
@@ -357,6 +522,11 @@ prompts = {
             "name": "lasha",
             "description": "Lasha lexical-entailment ICL prompt",
             "template": LASHA_PROMPT,
+        },
+        {
+            "name": "stefan",
+            "description": "Stefan's agentic initial lexical-entailment prompt",
+            "template": STEFAN_PROMPT,
         },
         {
             "name": "cot",
